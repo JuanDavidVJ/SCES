@@ -15,7 +15,7 @@
 			<label for="btn-menu">☰</label>
 		</div>
 			<div class="logo">
-				<h1>SCES</h1>
+				<h1 class="title">SCES</h1>
 			</div>
 			<nav class="menu">
 				<a href="#">Inicio</a>
@@ -31,22 +31,63 @@
 <div class="container-menu">
 	<div class="cont-menu">
 		<nav>
-			<a href="#">Importar Información</a>
-			<a href="#">Ficha</a>
-			<a href="#">Citaciones</a>
-			<a href="#">Sanciones</a>
-			<a href="#">Beneficios de estimulo</a>
-			<a href="#">Novedades</a>
-			<a href="#">Antecedentes</a>
-			<a href="https://www.sena.edu.co/es-co/transparencia/ProyectoNorma/Reglamento_del_Aprendiz_del_Servicio_Nacional_de_Aprendizaje%E2%80%93SENA.pdf">Reglamento</a>
-			<a href="#">Plan de mejoramiento</a>
-			<a href="#">Impugnaciones</a>
+            <ul>
+                <li><a href="#">Importar Información</a>
+                    <ul>
+                        <li><a href="">Opción 1</a></li>
+                        <li><a href="">Ver</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Ficha</a>
+                    <ul>
+                        <li><a href="">Opción 1</a></li>
+                        <li><a href="">Ver</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Citaciones</a>
+                    <ul>
+                        <li><a href="">Opción 1</a></li>
+                        <li><a href="">Ver</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Sanciones</a>
+                    <ul>
+                        <li><a href="">Opción 1</a></li>
+                        <li><a href="">Ver</a></li>
+                    </ul></li>
+                <li><a href="#">Beneficios de estimulo</a>
+                    <ul>
+                        <li><a href="">Opción 1</a></li>
+                        <li><a href="">Ver</a></li>
+                    </ul></li>
+                <li><a href="#">Novedades</a>
+                    <ul>
+                        <li><a href="">Opción 1</a></li>
+                        <li><a href="">Ver</a></li>
+                    </ul></li>
+                <li><a href="#">Antecedentes</a>
+                    <ul>
+                        <li><a href="">Opción 1</a></li>
+                        <li><a href="">Ver</a></li>
+                    </ul></li>
+                <li><a href="https://www.sena.edu.co/es-co/transparencia/ProyectoNorma/Reglamento_del_Aprendiz_del_Servicio_Nacional_de_Aprendizaje%E2%80%93SENA.pdf" target="blank">Reglamento</a></li>
+                <li><a href="#">Plan de mejoramiento</a>
+                    <ul>
+                        <li><a href="">Opción 1</a></li>
+                        <li><a href="">Ver</a></li>
+                    </ul></li>
+                <li class="impugnaciones"><a href="#">Impugnaciones</a>
+                    <ul>
+                        <li><a href="">Opción 1</a></li>
+                        <li><a href="">Ver</a></li>
+                    </ul></li>
+            </ul>
 		</nav>
 		<label for="btn-menu">✖️</label>
 	</div>
 </div>
 <hr>
-<footer>
+<footer class="footer">
     &copy; Desarrollado Por ADSI-2068676
 </footer>
 </body>
