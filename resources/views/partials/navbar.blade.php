@@ -44,10 +44,10 @@
                         <li><a href="">Ver</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Citaciones</a>
+                <li><a href="#">Aprendices</a>
                     <ul>
-                        <li><a href="">Opción 1</a></li>
-                        <li><a href="">Ver</a></li>
+                        <li><a href="">Ver todos</a></li>
+                        <li><a href=""></a></li>
                     </ul>
                 </li>
                 <li><a href="#">Sanciones</a>
