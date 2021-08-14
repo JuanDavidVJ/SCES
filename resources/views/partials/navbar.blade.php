@@ -40,8 +40,8 @@
                 </li>
                 <li><a href="#">Ficha</a>
                     <ul>
-                        <li><a href="">Opción 1</a></li>
-                        <li><a href="">Ver</a></li>
+                        <li><a href="/fichas/create">Nueva Ficha</a></li>
+                        <li><a href="/fichas">Ver Fichas</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Citaciones</a>

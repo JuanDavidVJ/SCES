@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
+use App\Http\Controllers\FichasController;
+
 
 
 /*
@@ -21,3 +23,6 @@ Route::get('/', function () {
 
 //Ruta del Inicio
 Route::get('/', [InicioController::class, 'index']);
+
+//Ruta Fichas
+Route::resource('fichas', FichasController::class);
