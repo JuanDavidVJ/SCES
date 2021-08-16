@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
+use App\Http\Controllers\AprendicesController;
 
 
 /*
@@ -21,3 +22,5 @@ Route::get('/', function () {
 
 //Ruta del Inicio
 Route::get('/', [InicioController::class, 'index']);
+//Ruta Aprendices
+Route::resource('aprendices', AprendicesController::class);
