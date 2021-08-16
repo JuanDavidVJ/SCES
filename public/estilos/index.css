@@ -1,0 +1,34 @@
+/*Vista Index*/
+h1 {
+    color: white;
+    margin-left: 10%;
+}
+
+th {
+    background-color: #fc7323;
+    color: white;
+}
+
+.table {
+    background-color: white;
+    margin-left: 10%;
+    width: 79%;
+    opacity: 0.9;
+    color: black;
+    text-align: center;
+    padding: 25px;
+}
+tr {
+    font-size: 1em;
+}
+.campos {
+    font-size: 0.9em;
+}
+.nombre {
+    width: 40%;
+}
+.alert {
+    margin-top: 5%;
+    width: 79%;
+    margin-left: 10%;
+}
