@@ -62,7 +62,7 @@
 	  </div>
 	  <div class="form-group">
 		    <label for="SC_Aprendiz_Empresa">Nombre de la empresa donde realiza la practica</label>
-		    <input type="number" class="form-control" id="SC_Aprendiz_Empresa" name="SC_Aprendiz_Empresa" value="{{ old('SC_Aprendiz_Empresa') }}">
+		    <input type="text" class="form-control" id="SC_Aprendiz_Empresa" name="SC_Aprendiz_Empresa" value="{{ old('SC_Aprendiz_Empresa') }}">
 		    @error('SC_Aprendiz_Empresa')
 		    	<small>{{ $message }}</small>
 		    @enderror
@@ -78,6 +78,6 @@
 				<small>{{$message}}</small>
 			@enderror
 		</div>
-	  <button type="submit" class="btn btn-success" id="btncrear">Crear Ficha</button>
+	  <button type="submit" class="btn btn-success" id="btncrear">Crear Aprendiz</button>
 	</form>
 @endsection
