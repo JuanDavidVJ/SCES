@@ -18,7 +18,7 @@
 				<h1 class="title">SCES</h1>
 			</div>
 			<nav class="menu">
-				<a href="#">Inicio</a>
+				<a href="/">Inicio</a>
 				<a href="#">SofiaPlus</a>
 				<a href="#">Territorium</a>
 				<a href="login.html">Cerrar Sesión</a>
@@ -48,6 +48,12 @@
                     <ul>
                         <li><a href="">Ver todos</a></li>
                         <li><a href=""></a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Condicionamiento Matricula</a>
+                    <ul>
+                        <li><a href="/condicionamientos/create">Nuevo Condicionamiento</a></li>
+                        <li><a href="/condicionamientos">Ver Condicionamientos</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Sanciones</a>
