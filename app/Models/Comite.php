@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Comite extends Model
 {
     use HasFactory;
+    protected $table ="sc_comite";
+    protected $primaryKey = "SC_Comite_PK_ID";
 }

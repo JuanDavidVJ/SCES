@@ -2,12 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
-<<<<<<< HEAD
 use App\Http\Controllers\AprendicesController;
-=======
 use App\Http\Controllers\FichasController;
 
->>>>>>> 6c17897f5224f65fcc9e6b9773f326f5a346a8dc
 
 
 /*
@@ -27,11 +24,7 @@ Route::get('/', function () {
 
 //Ruta del Inicio
 Route::get('/', [InicioController::class, 'index']);
-<<<<<<< HEAD
 //Ruta Aprendices
 Route::resource('aprendices', AprendicesController::class);
-=======
-
 //Ruta Fichas
 Route::resource('fichas', FichasController::class);
->>>>>>> 6c17897f5224f65fcc9e6b9773f326f5a346a8dc

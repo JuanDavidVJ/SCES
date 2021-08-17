@@ -17,8 +17,6 @@
 		          	<th scope="col">Nombres</th>
 		          	<th scope="col">Apellidos</th>
 		          	<th scope="col">Documento</th>
-		            <th scope="col">Correo</th>
-		            <th scope="col">Contacto</th>
 		            <th scope="col">Ficha</th>
 		            <th scope="col">Accion</th>
 		          </tr>
@@ -28,8 +26,6 @@
 		              	<td>{{ $aprendiz->SC_Aprendiz_Nombres }}</td>
 		              	<td>{{ $aprendiz->SC_Aprendiz_Apellidos }}</td>
 		              	<td>{{ $aprendiz->SC_Aprendiz_Documento}}</td>
-		              	<td>{{ $aprendiz->SC_Aprendiz_Correo }}</td>
-		              	<td>{{ $aprendiz->SC_Aprendiz_NumeroContacto }}</td>
 		              	<td>{{ $aprendiz->SC_Ficha_PK_ID }}</td>
 		              	<td>
 		              		<form class="delete d-inline" action="/aprendices/{{ $aprendiz->SC_Aprendiz_PK_ID }}" method="post">

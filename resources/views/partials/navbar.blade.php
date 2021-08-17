@@ -46,7 +46,7 @@
                 </li>
                 <li><a href="#">Aprendices</a>
                     <ul>
-                        <li><a href="">Crear Aprendiz</a></li>
+                        <li><a href="/aprendices/create">Crear Aprendiz</a></li>
                         <li><a href="/aprendices">Ver Aprendices</a></li>
                     </ul>
                 </li>
