@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\AprendicesController;
 use App\Http\Controllers\FichasController;
+use App\Http\Controllers\CondicionamientoMatriculaController;
 
 
 
@@ -24,7 +25,13 @@ Route::get('/', function () {
 
 //Ruta del Inicio
 Route::get('/', [InicioController::class, 'index']);
+
 //Ruta Aprendices
 Route::resource('aprendices', AprendicesController::class);
+
+
 //Ruta Fichas
 Route::resource('fichas', FichasController::class);
+
+//Ruta Condicionamiento de Matricula
+Route::resource('condicionamientos', CondicionamientoMatriculaController::class);
