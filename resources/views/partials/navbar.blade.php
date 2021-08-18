@@ -56,10 +56,10 @@
                         <li><a href="/condicionamientos">Ver Condicionamientos</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Sanciones</a>
+                <li><a href="#">Comités</a>
                     <ul>
-                        <li><a href="">Opción 1</a></li>
-                        <li><a href="">Ver</a></li>
+                        <li><a href="/ActaComite/create">Crear Comité</a></li>
+                        <li><a href="/ActaComite">Ver Comités</a></li>
                     </ul></li>
                 <li><a href="#">Beneficios de estimulo</a>
                     <ul>

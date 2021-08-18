@@ -4,7 +4,7 @@
 <head>
 	<link rel="stylesheet" href="{{ asset('estilos/create.css') }}">
 </head>
-	<h1>Crear Aprendiz</h1>
+	<h1 class="mt-5">Crear Aprendiz</h1>
 	<form action="/aprendices" method="post" enctype="multipart/form-data" id="formulario">
 		@csrf
 	  <div class="form-group">

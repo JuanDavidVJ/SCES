@@ -5,6 +5,7 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\AprendicesController;
 use App\Http\Controllers\FichasController;
 use App\Http\Controllers\CondicionamientoMatriculaController;
+use App\Http\Controllers\ActaComiteController;
 
 
 
@@ -35,3 +36,6 @@ Route::resource('fichas', FichasController::class);
 
 //Ruta Condicionamiento de Matricula
 Route::resource('condicionamientos', CondicionamientoMatriculaController::class);
+
+//Ruta Actas de comites
+Route::resource('ActaComite', ActaComiteController::class);
