@@ -1,100 +1,81 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<title>SCES</title>
-    <link rel="stylesheet" href="{{ asset('estilos/estilos.css') }}">
+<div class="wrapper">
+    {{--  <!-- Sidebar  -->  --}}
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Sistema de Comité y Evaluación</h3>
+            <strong>SCES</strong>
+        </div>
 
-	<!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-</head>
-<body>
-	<header class="header">
-		<div class="container">
-		<div class="btn-menu">
-			<label for="btn-menu">☰</label>
-		</div>
-			<div class="logo">
-				<h1 class="title">SCES</h1>
-			</div>
-			<nav class="menu">
-				<a href="/">Inicio</a>
-				<a href="#">SofiaPlus</a>
-				<a href="#">Territorium</a>
-				<a href="login.html">Cerrar Sesión</a>
-			</nav>
-		</div>
-	</header>
-	<div class="capa"></div>
-<!--	--------------->
-<input type="checkbox" id="btn-menu">
-<div class="container-menu">
-	<div class="cont-menu">
-		<nav>
-            <ul>
-                <li><a href="#">Importar Información</a>
-                    <ul>
-                        <li><a href="">Opción 1</a></li>
-                        <li><a href="">Ver</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Ficha</a>
-                    <ul>
-                        <li><a href="/fichas/create">Nueva Ficha</a></li>
-                        <li><a href="/fichas">Ver Fichas</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Aprendices</a>
-                    <ul>
-                        <li><a href="/aprendices/create">Crear Aprendiz</a></li>
-                        <li><a href="/aprendices">Ver Aprendices</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Condicionamiento Matricula</a>
-                    <ul>
-                        <li><a href="/condicionamientos/create">Nuevo Condicionamiento</a></li>
-                        <li><a href="/condicionamientos">Ver Condicionamientos</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Comités</a>
-                    <ul>
-                        <li><a href="/ActaComite/create">Crear Comité</a></li>
-                        <li><a href="/ActaComite">Ver Comités</a></li>
-                    </ul></li>
-                <li><a href="#">Beneficios de estimulo</a>
-                    <ul>
-                        <li><a href="">Opción 1</a></li>
-                        <li><a href="">Ver</a></li>
-                    </ul></li>
-                <li><a href="#">Novedades</a>
-                    <ul>
-                        <li><a href="">Opción 1</a></li>
-                        <li><a href="">Ver</a></li>
-                    </ul></li>
-                <li><a href="#">Antecedentes</a>
-                    <ul>
-                        <li><a href="">Opción 1</a></li>
-                        <li><a href="">Ver</a></li>
-                    </ul></li>
-                <li><a href="https://www.sena.edu.co/es-co/transparencia/ProyectoNorma/Reglamento_del_Aprendiz_del_Servicio_Nacional_de_Aprendizaje%E2%80%93SENA.pdf" target="blank">Reglamento</a></li>
-                <li><a href="#">Plan de mejoramiento</a>
-                    <ul>
-                        <li><a href="">Opción 1</a></li>
-                        <li><a href="">Ver</a></li>
-                    </ul></li>
-                <li class="impugnaciones"><a href="#">Impugnaciones</a>
-                    <ul>
-                        <li><a href="">Opción 1</a></li>
-                        <li><a href="">Ver</a></li>
-                    </ul></li>
-            </ul>
-		</nav>
-		<label for="btn-menu">✖️</label>
-	</div>
-</div>
-<hr>
-<footer class="footer">
-    &copy; Desarrollado Por ADSI-2068676
-</footer>
-</body>
-</html>
+        <ul class="list-unstyled components">
+            <li>
+                <a href="#ficha" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Ficha
+                </a>
+                <ul class="collapse list-unstyled" id="ficha">
+                    <li>
+                        <a href="/fichas/create">Crear Ficha</a>
+                    </li>
+                    <li>
+                        <a href="/fichas">Ver Fichas</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#aprendices" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Aprendices
+                </a>
+                <ul class="collapse list-unstyled" id="aprendices">
+                    <li>
+                        <a href="#">Crear Aprendices</a>
+                    </li>
+                    <li>
+                        <a href="#">Ver Aprendices</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#condicionamiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Condicionamiento
+                </a>
+                <ul class="collapse list-unstyled" id="condicionamiento">
+                    <li>
+                        <a href="#">Crear</a>
+                    </li>
+                    <li>
+                        <a href="#">Ver </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+
+    {{--  <!-- Page Content  -->  --}}
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-outline-light" style="background: #FF8138">
+                    <i class="fas fa-align-left"></i>
+                </button>
+                <a class="navbar-brand ml-2 font-weight-bolder" href="#">SENA</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-user"></i> Usuario</a>
+                            </li>
+                        </ul>
+                        <a class="nav-link " href="#"></a>
+                        <form class="form-inline my-2 my-lg-0" action="" method="POST">
+                            @csrf
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerrar sesión</button>
+                        </form>
+                    </div>
+                
+            </div>
+        </nav>
+
