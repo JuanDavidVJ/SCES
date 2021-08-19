@@ -22,8 +22,8 @@
             </div>
             <nav class="menu">
                 <a href="/">Inicio</a>
-                <a href="#">SofiaPlus</a>
-                <a href="#">Territorium</a>
+                <a href="http://oferta.senasofiaplus.edu.co/sofia-oferta/" target="__blank">SofiaPlus</a>
+                <a href="https://sena.territorio.la/cms/index.php" target="_blank">Territorium</a>
                 <a href="login.html">Cerrar Sesión</a>
             </nav>
         </div>
