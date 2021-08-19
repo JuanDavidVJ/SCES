@@ -164,7 +164,7 @@ li {
 }
 
 .cont-menu ul ul {
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
     width: 100%;
