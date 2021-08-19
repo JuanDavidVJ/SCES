@@ -53,7 +53,7 @@ class ActoAdministrativoSancionesController extends Controller
 
          $actoas->SC_ActoAdministrativoSanciones_PresentaDescargos = $request->SC_ActoAdministrativoSanciones_PresentaDescargos;
 
-         $actoas->SC_ActoAdministrativoSanciones_Pruebas = $request->SC_ActoAdministrativoSanciones_Pruebas;
+         $actoas->SC_ActoAdministrativoSanciones_Pruebas = $SC_ActoAdministrativoSanciones_Pruebas;
 
          $actoas->SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor = $request->SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor;
 
