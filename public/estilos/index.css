@@ -32,3 +32,22 @@ tr {
     width: 79%;
     margin-left: 10%;
 }
+/*vista Acto Administrativo*/
+#tituloacto{
+    color: white;
+    margin-left: 10%;
+    margin-top:5%;
+}
+
+.table{
+    background-color:white;
+    margin-left: 10%;
+    width:90%;
+    opacity:0.9;
+    color:black;
+    text-align: center;
+    padding:25px;
+}
+.descripcion{
+    width: 30%;
+}

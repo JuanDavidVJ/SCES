@@ -6,6 +6,7 @@ use App\Http\Controllers\AprendicesController;
 use App\Http\Controllers\FichasController;
 use App\Http\Controllers\CondicionamientoMatriculaController;
 use App\Http\Controllers\ActaComiteController;
+use App\Http\Controllers\ActoAdministrativoSancionesController;
 
 
 
@@ -39,3 +40,6 @@ Route::resource('condicionamientos', CondicionamientoMatriculaController::class)
 
 //Ruta Actas de comites
 Route::resource('ActaComite', ActaComiteController::class);
+
+//Ruta Acto Administrativo Sanciones
+Route::resource('actoadministrativo', ActoAdministrativoSancionesController::class);

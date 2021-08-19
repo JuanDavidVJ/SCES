@@ -32,12 +32,6 @@
 	<div class="cont-menu">
 		<nav>
             <ul>
-                <li><a href="#">Importar Información</a>
-                    <ul>
-                        <li><a href="">Opción 1</a></li>
-                        <li><a href="">Ver</a></li>
-                    </ul>
-                </li>
                 <li><a href="#">Ficha</a>
                     <ul>
                         <li><a href="/fichas/create">Nueva Ficha</a></li>
@@ -61,6 +55,12 @@
                         <li><a href="/ActaComite/create">Crear Comité</a></li>
                         <li><a href="/ActaComite">Ver Comités</a></li>
                     </ul></li>
+                    <li><a href="#">Acto Administrativo</a>
+                    <ul>
+                        <li><a href="/actoadministrativo/create">Nuevo Acto Administrativo</a></li>
+                        <li><a href="/actoadministrativo">Ver Actos Administrativos</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">Beneficios de estimulo</a>
                     <ul>
                         <li><a href="">Opción 1</a></li>
@@ -93,8 +93,6 @@
 	</div>
 </div>
 <hr>
-<footer class="footer">
-    &copy; Desarrollado Por ADSI-2068676
-</footer>
+
 </body>
 </html>

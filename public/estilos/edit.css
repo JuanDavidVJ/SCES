@@ -18,3 +18,27 @@
     background-color: #67b346;
     margin-left: 77%;
 }
+
+/*Boton actualizar*/
+#btnactualizar {
+    background-color: #67b346;
+    margin-left: 86%;
+}
+
+/*Vista Acto Administrativo*/
+#tituloacto{
+    color: white;
+    margin-left: 10%;
+    margin-top:5%;
+}
+
+#formularioactoadministrativo{
+    background-color: gray;
+    color: white;
+    padding: 23px;
+    margin-left: 10%;
+    margin-top: 40px;
+    width: 70%;
+    border-radius: 30px;
+
+}

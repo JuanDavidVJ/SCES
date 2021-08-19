@@ -21,3 +21,26 @@
 .botones {
     margin-top: 20px;
 }
+/*vista Acto Administrativo*/
+#tituloacto{
+    color: white;
+    margin-left: 10%;
+    margin-top:5%;
+}
+
+.detallesactoadministrativo{
+    margin-left: 33%;
+    background-color: white;
+    padding: 20px;
+    width: 40%;
+    text-align: center;
+   border-radius:30px;
+}
+.contenidoactoadministrativo{
+    margin-top: 20px;
+    text-align: left;
+    padding: 10px;
+}
+.botonesactoadministrativo{
+    margin-left: 60%;
+}
