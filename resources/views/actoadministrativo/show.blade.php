@@ -16,7 +16,7 @@
 		            <p class="h5">Descargos: {{$actoas->SC_ActoAdministrativoSanciones_PresentaDescargos}} </p>
 		         
 		            <p class="h5">Pruebas: 
-		             <a href="{{asset('/archivos/actoadministrativo/'.$actoas->SC_ActoAdministrativoSanciones_Pruebas)}}">Ver</a></p>
+		             <a href="{{asset('/archivos/actoadministrativo/'.$actoas->SC_ActoAdministrativoSanciones_Pruebas)}}" target="_blank">Ver</a></p>
 
 		            <p class="h5">grado de responsabilidad: {{$actoas->SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor}}</h2>
 		            <p class="h5">Numero de llamados de atencion: {{$actoas->SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion}}</p>
