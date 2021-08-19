@@ -23,7 +23,7 @@
             </li>
             <li>
                 <a href="#aprendices" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-copy"></i>
+                    <i class="fas fa-user-graduate"></i>
                     Aprendices
                 </a>
                 <ul class="collapse list-unstyled" id="aprendices">
@@ -37,7 +37,7 @@
             </li>
             <li>
                 <a href="#condicionamiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-copy"></i>
+                    <i class="fas fa-book-open"></i>
                     Condicionamiento
                 </a>
                 <ul class="collapse list-unstyled" id="condicionamiento">

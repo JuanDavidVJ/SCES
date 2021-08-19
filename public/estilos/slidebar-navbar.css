@@ -50,6 +50,11 @@ i,
 span {
     display: inline-block;
 }
+.navbar-brand {
+    font-weight: 800 !important;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
