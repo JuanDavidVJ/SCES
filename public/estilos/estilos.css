@@ -179,6 +179,7 @@ li {
 .cont-menu li:hover>ul {
     opacity: 1;
     visibility: visible;
+    position: absolute;
 }
 
 

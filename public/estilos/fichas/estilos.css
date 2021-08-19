@@ -1,139 +1,165 @@
-
 /*Vista Index*/
-h1{
-	color: white;
-	margin-left:10%;
+
+h1 {
+    color: white;
+    margin-left: 10%;
+    margin-top: 5%;
 }
 
-th{
-	background-color:#fc7323;
-	color: white;
+th {
+    background-color: #fc7323;
+    color: white;
 }
 
-.table{
-	background-color:white;
-	margin-left: 10%;
-	width:79%;
-	opacity:0.9;
-    color:black;
-    text-align:center;
-    padding:25px;
+.table {
+    background-color: white;
+    margin-left: 10%;
+    width: 79%;
+    opacity: 0.9;
+    color: black;
+    text-align: center;
+    padding: 25px;
 }
-tr{
-	font-size: 1em;
+
+tr {
+    font-size: 1em;
 }
-.campos{
-	font-size: 0.9em;
+
+.campos {
+    font-size: 0.9em;
+    text-align: center;
 }
-.nombre{
-	width:40%;
+
+.nombre {
+    width: 40%;
 }
-.alert{
-	margin-top:5%;
-	width:79%;
-	margin-left:10%;
+
+.alert {
+    margin-top: 5%;
+    width: 79%;
+    margin-left: 10%;
 }
 
 
 /*Vista show*/
 
-.detalles{
-	margin-top:10%;
-	margin-left: 33%;
-	background-color: white;
-	padding: 20px;
-	width: 40%;
-	text-align: center;
-   border-radius:30px;
+.detalles {
+    margin-top: 10%;
+    margin-left: 33%;
+    background-color: white;
+    padding: 20px;
+    width: 40%;
+    text-align: center;
+    border-radius: 30px;
+}
 
+.titulo {
+    background-color: #fc7323;
+    padding: 10px;
+    text-align: center;
+    color: white;
 }
-.titulo{
-	background-color:#fc7323;
-	padding: 10px;
-	text-align: center;
-	color: white;
 
+.contenido {
+    margin-top: 20px;
 }
-.contenido{
-	margin-top: 20px;
+
+.botones {
+    margin-top: 20px;
 }
-.botones{
-	margin-top: 20px;
-}
+
 
 /*Vista Edit y crear*/
-#formulario
-{
-  background-color: gray;
-  color: white;
-  padding:23px;
-  margin-left: 10%;
-  margin-top: 40px;
-  width: 50%;
-  border-radius:30px;
+
+#formulario {
+    background-color: gray;
+    color: white;
+    padding: 23px;
+    margin-left: 10%;
+    margin-top: 40px;
+    width: 50%;
+    border-radius: 30px;
 }
-#btn{
-	background-color: #67B346;
-	margin-left: 70%;
+
+#btn {
+    background-color: #67B346;
+    margin-left: 70%;
 }
+
 
 /*Boton crear*/
-#btncrear{
-	background-color: #67B346;
-	margin-left: 77%;
+
+#btncrear {
+    background-color: #67B346;
+    margin-left: 77%;
 }
+
 
 /*Vista del Condicionamiento*/
-#titulocondicionamiento{
-	margin-top: 5%;
-}
-.detallescondicionamiento{
-	margin-left: 33%;
-	background-color: white;
-	padding: 20px;
-	width: 40%;
-	text-align: center;
-   border-radius:30px;
+
+#titulocondicionamiento {
+    margin-top: 5%;
 }
 
+.detallescondicionamiento {
+    margin-left: 33%;
+    background-color: white;
+    padding: 20px;
+    width: 40%;
+    text-align: center;
+    border-radius: 30px;
+}
+
+
 /*contenido de la vista show */
-.contenidocondicionamiento{
-	margin-top: 20px;
-	text-align: left;
-	padding: 10px;
+
+.contenidocondicionamiento {
+    margin-top: 20px;
+    text-align: left;
+    padding: 10px;
 }
+
+
 /*estilo botones*/
-.botonescondicionamiento{
-	margin-left: 60%;
+
+.botonescondicionamiento {
+    margin-left: 60%;
 }
+
 
 /*diseño de la tabla*/
 
-.table{
-	background-color:white;
-	margin-left: 10%;
-	width:90%;
-	opacity:0.9;
-    color:black;
-    text-align:center;
-    padding:25px;
-}
-.descripcion{
-	width:40%;
-}
-/*boton actualizar*/
-#btnactualizar{
-	background-color: #67B346;
-	margin-left: 83%;
-}
-/*Vista Editar*/
-#formulariocondicionamiento{
-  background-color: gray;
-  color: white;
-  padding:23px;
-  margin-left: 10%;
-  margin-top: 40px;
-  width: 60%;
-  border-radius:30px;
+.table {
+    background-color: white;
+    margin-left: 10%;
+    width: 90%;
+    opacity: 0.9;
+    color: black;
+    text-align: center;
+    padding: 25px;
 }
 
+.descripcion {
+    width: 40%;
+}
+
+
+/*boton actualizar*/
+
+#btnactualizar {
+    background-color: #67B346;
+    margin-left: 83%;
+}
+
+
+/*Vista Editar*/
+
+#formulariocondicionamiento {
+    background-color: gray;
+    color: white;
+    padding: 23px;
+    margin-left: 10%;
+    margin-top: 40px;
+    width: 60%;
+    border-radius: 30px;
+}

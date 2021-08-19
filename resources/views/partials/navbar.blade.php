@@ -84,8 +84,8 @@
                     </ul></li>
                 <li class="impugnaciones"><a href="#">Impugnaciones</a>
                     <ul>
-                        <li><a href="">Opción 1</a></li>
-                        <li><a href="">Ver</a></li>
+                        <li><a href="/impugnaciones/create">Nueva Impugnacion</a></li>
+                        <li><a href="/impugnaciones">Ver Impugnaciones</a></li>
                     </ul></li>
             </ul>
 		</nav>
