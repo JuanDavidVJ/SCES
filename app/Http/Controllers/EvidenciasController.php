@@ -52,7 +52,7 @@ class EvidenciasController extends Controller
         $evidencia = new Evidencias();
         $evidencia->SC_Evidencias_Descripcion = $request->SC_Evidencias_Descripcion;
         $evidencia->SC_Evidencias_Detalle = $request->SC_Evidencias_Detalle;
-        $evidencia->SC_Evidencias_Archivo = $request->SC_Evidencias_Archivo;
+        $evidencia->SC_Evidencias_Archivo = $SC_Evidencias_Archivo;
         $evidencia->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
         $evidencia->SC_PlanMejoramiento_FK_ID = $request->SC_PlanMejoramiento_FK_ID;
 
@@ -118,4 +118,8 @@ class EvidenciasController extends Controller
         $evidencia->delete();
         return redirect()->route('evidencias.index')->with('status', 'Evidencia Eliminada');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> new_design

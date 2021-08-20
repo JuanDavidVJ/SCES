@@ -1,9 +1,8 @@
 @extends('layouts.base')
 @section('title', 'Modificar Acta')
 @section('content')
-<head>
-	<link rel="stylesheet" href="{{ asset('estilos/edit.css') }}">
-</head>
+<div class="container">
+
 	<h1>Modificar Acta</h1>
 	<form action="/ActaComite/{{ $ActaComite->SC_ActaComite_PK_ID }}" method="post" enctype="multipart/form-data" id="formulario">
 		@method('PUT')
@@ -57,7 +56,8 @@
 		  <small>{{ $message }}</small>
 	  @enderror
 	</div>
-	  <button type="submit" class="btn btn-primary">Actualizar</button>
+	  <button type="submit" class="btn btn-success mb-5">Actualizar</button>
 	</form>
+</div>
 @endsection
 

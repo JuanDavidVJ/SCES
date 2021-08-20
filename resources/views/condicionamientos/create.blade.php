@@ -2,9 +2,7 @@
 @section('title', 'Crear condicionamiento')
 @section('content')
 
-<head>
-	<link rel="stylesheet" href="{{ asset('estilos/fichas/estilos.css') }}">
-</head>
+<div class="container">
 	<h1>Crear condicionamiento</h1>
 	<form action="/condicionamientos" method="post" enctype="multipart/form-data"id="formulario">
 		@csrf
@@ -54,4 +52,5 @@
 
 		<button type="submit" class="btn btn-success" id="btncrear">Crear</button>
 	</form>
+</div>
 @endsection 

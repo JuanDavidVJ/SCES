@@ -1,10 +1,9 @@
 @extends('layouts.base')
 @section('title', 'Crear Acto administrativo')
 @section('content') 
-<head>
-	<link rel="stylesheet" href="{{ asset('estilos/create.css') }}">
-</head>
-	<h1 id="tituloacto">Crear Acto administrativo sanciones</h1>
+<div class="container">
+
+	<h1>Crear Acto administrativo</h1>
 	
 	<form action="/actoadministrativo" method="post"enctype="multipart/form-data" id="formulario">
 		@csrf
@@ -85,8 +84,7 @@
 				<small>{{$message}}</small>
 			@enderror
 		</div>
-
-
-		<button type="submit" class="btn btn-success"id="btncrear">Crear Acto</button>
+		<button type="submit" class="btn btn-success mb-5"id="btncrear">Crear</button>
 	</form>
+</div>
 @endsection 

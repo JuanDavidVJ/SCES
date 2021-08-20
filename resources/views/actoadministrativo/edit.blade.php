@@ -1,10 +1,9 @@
 @extends('layouts.base')
 @section('title', 'Modificar Acto')
 @section('content') 
-<head>
-	<link rel="stylesheet" href="{{ asset('estilos/edit.css') }}">
-</head>
-	<h1 id="tituloacto">Modificar Acto administrativo sanciones </h1>
+<div class="container">
+
+	<h1>Modificar Acto administrativo sanciones </h1>
 	<form action="/actoadministrativo/{{$actoas->SC_ActoAdministrativoSanciones_PK_Id}}" method="post" enctype="multipart/form-data" id="formularioactoadministrativo">
 		@method('PUT')
 		@csrf
@@ -90,6 +89,7 @@
 		</div>
 
 		
-		<button type="submit" class="btn btn-success" id="btnactualizar">Actualizar</button>
+		<button type="submit" class="btn btn-success mb-5" id="btnactualizar">Actualizar</button>
 	</form>
+</div>
 @endsection 

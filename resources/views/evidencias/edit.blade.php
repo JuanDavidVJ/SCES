@@ -1,10 +1,7 @@
 @extends('layouts.base')
 @section('title', 'Modificar Evidencia')
 @section('content')
-
-    <head>
-        <link rel="stylesheet" href="{{ asset('estilos/fichas/estilos.css') }}">
-    </head>
+<div class="container">
     <h1>Modificar Evidencia</h1>
     <form action="/evidencias/{{ $evidencia->SC_Evidencias_PK_ID }}" method="post" enctype="multipart/form-data"
         id="formulario">
@@ -60,6 +57,7 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-success" id="btncrear">Actualizar Evidencia</button>
+        <button type="submit" class="btn btn-success" id="btncrear">Actualizar </button>
     </form>
+</div>
 @endsection

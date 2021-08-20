@@ -1,10 +1,7 @@
 @extends('layouts.base')
 @section('title', 'Crear Evidencia')
 @section('content')
-
-    <head>
-        <link rel="stylesheet" href="{{ asset('estilos/fichas/estilos.css') }}">
-    </head>
+<div class="container">
     <h1>Nueva Evidencia</h1>
     <form action="/evidencias" method="post" enctype="multipart/form-data" id="formulario">
         @csrf
@@ -55,4 +52,5 @@
 
         <button type="submit" class="btn btn-success" id="btncrear">Crear Evidencia</button>
     </form>
+</div>
 @endsection
