@@ -9,6 +9,7 @@ use App\Http\Controllers\ActaComiteController;
 use App\Http\Controllers\ActoAdministrativoSancionesController;
 use App\Http\Controllers\EvidenciasController;
 use App\Http\Controllers\ImpugnacionesController;
+use App\Http\Controllers\NovedadesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,6 @@ Route::resource('actoadministrativo', ActoAdministrativoSancionesController::cla
 
 //Ruta Evidencias
 Route::resource('evidencias', EvidenciasController::class);
+
+//Ruta Novedades
+Route::resource('novedades', NovedadesController::class);

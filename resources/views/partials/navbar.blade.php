@@ -105,6 +105,20 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#novedades" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-eye"></i>
+                    Novedades
+                </a>
+                <ul class="collapse list-unstyled" id="novedades">
+                    <li>
+                        <a href="/novedades/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/novedades">Ver </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
         <ul class="list-unstyled CTAs text-center">
             <h6 class="card-title">Desarrollado por <br> ADSI 2068676©<br> Regional Caldas <br>2021</h6>
