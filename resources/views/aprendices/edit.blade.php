@@ -1,9 +1,7 @@
 @extends('layouts.base')
 @section('title', 'Modificar Aprendiz')
 @section('content')
-<head>
-	<link rel="stylesheet" href="{{ asset('estilos/edit.css') }}">
-</head>
+<div class="container mb-5">
 	<h1>Modificar Aprendiz</h1>
 	<form action="/aprendices/{{$aprendiz->SC_Aprendiz_PK_ID}}" method="post" enctype="multipart/form-data" id="formulario">
     @method('PUT')
@@ -81,4 +79,5 @@
 		</div>
 	  <button type="submit" class="btn btn-success" id="btncrear">Modificar</button>
 	</form>
+</div>
 @endsection

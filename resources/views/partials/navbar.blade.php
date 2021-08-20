@@ -28,29 +28,87 @@
                 </a>
                 <ul class="collapse list-unstyled" id="aprendices">
                     <li>
-                        <a href="#">Crear Aprendices</a>
+                        <a href="/aprendices/create">Crear Aprendices</a>
                     </li>
                     <li>
-                        <a href="#">Ver Aprendices</a>
+                        <a href="/aprendices">Ver Aprendices</a>
                     </li>
                 </ul>
             </li>
             <li>
                 <a href="#condicionamiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-book-open"></i>
+                    <i class="fas fa-bell"></i>
                     Condicionamiento
                 </a>
                 <ul class="collapse list-unstyled" id="condicionamiento">
                     <li>
-                        <a href="#">Crear</a>
+                        <a href="/condicionamientos/create">Crear</a>
                     </li>
                     <li>
-                        <a href="#">Ver </a>
+                        <a href="/condicionamientos">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#administrativo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-toolbox"></i>
+                    Administrativo
+                </a>
+                <ul class="collapse list-unstyled" id="administrativo">
+                    <li>
+                        <a href="/actoadministrativo/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/actoadministrativo">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#comite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users"></i>
+                    Comite
+                </a>
+                <ul class="collapse list-unstyled" id="comite">
+                    <li>
+                        <a href="/ActaComite/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/ActaComite">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#evidencias" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-eye"></i>
+                    Evidencias
+                </a>
+                <ul class="collapse list-unstyled" id="evidencias">
+                    <li>
+                        <a href="/evidencias/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/evidencias">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#impugnaciones" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-university"></i>
+                    Impugnaciones
+                </a>
+                <ul class="collapse list-unstyled" id="impugnaciones">
+                    <li>
+                        <a href="/impugnaciones/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/impugnaciones">Ver </a>
                     </li>
                 </ul>
             </li>
         </ul>
-
+        <ul class="list-unstyled CTAs text-center">
+            <h6 class="card-title">Desarrollado por <br> ADSI 2068676</h6>
+        </ul>
     </nav>
 
     {{--  <!-- Page Content  -->  --}}
@@ -62,7 +120,7 @@
                 <button type="button" id="sidebarCollapse" class="btn btn-outline-light" style="background: #FF8138">
                     <i class="fas fa-align-left"></i>
                 </button>
-                <a class="navbar-brand ml-2 font-weight-bolder" href="#">SENA</a>
+                <a class="navbar-brand ml-2 font-weight-bolder" href="/">SENA</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">

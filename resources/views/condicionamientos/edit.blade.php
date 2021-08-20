@@ -1,9 +1,8 @@
 @extends('layouts.base')
 @section('title', 'Modificar Condicionamiento')
 @section('content')
-<head>
-	<link rel="stylesheet" href="{{ asset('estilos/fichas/estilos.css') }}">
-</head>
+<div class="container">
+
 	<h1>Modificar condicionamiento</h1>
 	<form action="/condicionamientos/{{$condicionamientos->SC_CondicionamientoMatricula_PK_ID}}" method="post" enctype="multipart/form-data" id="formulariocondicionamiento">
 		@method('PUT')
@@ -51,4 +50,5 @@
 		</div>
       <button type="submit" class="btn btn-success" id="btnactualizar">Actualizar</button>
 	</form>
+</div>
 @endsection 

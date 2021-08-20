@@ -19,13 +19,7 @@
 					<td class="text text-center">{{ $ficha->SC_Ficha_NumeroFicha }}</td>
 					<td class="p-3">{{ $ficha->SC_Ficha_NombreProgramaFormacion }}</td>
 					<td>
-						<a href="/fichas/{{ $ficha->SC_Ficha_PK_ID }}" class="btn btn-outline-default text-center"><i class="fas fa-eye"></i></a>
-						{{--  <a href="/fichas/{{ $ficha->SC_Ficha_PK_ID }}/edit" class="btn btn-warning"><i class="fas fa-wrench"></i></a>
-						<form class="delete d-inline" action="/fichas/{{ $ficha->SC_Ficha_PK_ID }}" method="post">
-							@method('DELETE')
-							@csrf
-							<button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-						</form>   --}}
+						<a href="/fichas/{{ $ficha->SC_Ficha_PK_ID }}" class="btn btn-outline-default text-center p-0"><i class="fas fa-eye"></i></a>
 					</td>
 				</tr> 
 				@endforeach

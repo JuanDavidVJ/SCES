@@ -1,10 +1,8 @@
 @extends('layouts.base')
 @section('title', 'Crear Acta')
 @section('content')
-<head>
-	<link rel="stylesheet" href="{{ asset('estilos/create.css') }}">
-</head>
-	<h1 class="mt-5">Crear Acta</h1>
+<div class="container">
+	<h1 class="mt-3">Crear Acta</h1>
 	<form action="/ActaComite" method="post" enctype="multipart/form-data" id="formulario">
 		@csrf
 	  <div class="form-group">
@@ -57,6 +55,7 @@
 	  @enderror
 	</div>
 	
-	  <button type="submit" class="btn btn-primary">Crear</button>
+	  <button type="submit" class="btn btn-success mb-5">Crear</button>
 	</form>
+</div>
 @endsection

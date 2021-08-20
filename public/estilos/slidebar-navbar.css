@@ -130,7 +130,7 @@ span {
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #ff8138;
+    border-bottom: 1px solid white;
 }
 
 #sidebar ul li a {
@@ -170,6 +170,9 @@ ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #f39d6a;
+}
+ul.CTAs {
+    padding: 20px;
 }
 
 /* ---------------------------------------------------
