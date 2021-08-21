@@ -54,7 +54,7 @@
 		</div>
 		<div class="form-group">
 			<label for="SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion">Número de llamados de atención</label>
-			<input type="num" 
+			<input type="number" 
 			name="SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion" 
 			id="SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion" 
 			class="form-control" 

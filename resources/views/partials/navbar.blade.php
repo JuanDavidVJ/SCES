@@ -64,11 +64,11 @@
                 </ul>
             </li>
             <li>
-                <a href="#comite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <a href="#Actacomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-users"></i>
-                    Comite
+                    Acta Comite
                 </a>
-                <ul class="collapse list-unstyled" id="comite">
+                <ul class="collapse list-unstyled" id="Actacomite">
                     <li>
                         <a href="/ActaComite/create">Crear</a>
                     </li>
