@@ -18,7 +18,7 @@ class NovedadesController extends Controller
     {
         $novedades = Novedad::all();
         return view('novedades.index')
-                ->with('novedad', $novedades);
+                ->with('novedades', $novedades);
     }
 
     /**
@@ -70,7 +70,7 @@ class NovedadesController extends Controller
     {
         $novedad = Novedad::find($id);
         return view('novedades.show')
-                ->with('novedades', $novedad);
+                ->with('novedad', $novedad);
     }
 
     /**

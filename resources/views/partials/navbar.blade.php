@@ -107,7 +107,7 @@
             </li>
             <li>
                 <a href="#novedades" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-eye"></i>
+                    <i class="fas fa-address-card"></i>
                     Novedades
                 </a>
                 <ul class="collapse list-unstyled" id="novedades">
@@ -119,6 +119,21 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#faltas" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-exclamation-circle"></i>
+                    Faltas
+                </a>
+                <ul class="collapse list-unstyled" id="faltas">
+                    <li>
+                        <a href="/faltas/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/faltas">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            
         </ul>
         <ul class="list-unstyled CTAs text-center">
             <h6 class="card-title">Desarrollado por <br> ADSI 2068676©<br> Regional Caldas <br>2021</h6>

@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('title', 'Crear Novedad')
 @section('content')
+<div class="container">
 	<h1>Crear Novedad</h1>
 	<form action="/novedades" method="post" enctype="multipart/form-data">
 		@csrf
@@ -61,6 +62,7 @@
 				<small>{{$message}}</small>
 			@enderror
 	  </div>
-	  <button type="submit" class="btn btn-primary">Crear Novedad</button>
+	  <button type="submit" class="btn btn-success">Crear Novedad</button>
 	</form>
+</div>
 @endsection
