@@ -118,8 +118,4 @@ class EvidenciasController extends Controller
         $evidencia->delete();
         return redirect()->route('evidencias.index')->with('status', 'Evidencia Eliminada');
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> new_design
