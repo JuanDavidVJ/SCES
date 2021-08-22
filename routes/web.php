@@ -11,6 +11,8 @@ use App\Http\Controllers\EvidenciasController;
 use App\Http\Controllers\ImpugnacionesController;
 use App\Http\Controllers\NovedadesController;
 use App\Http\Controllers\FaltasController;
+use App\Http\Controllers\LlamadosAtencionController;
+use App\Models\LlamadosAtencion;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +60,6 @@ Route::resource('novedades', NovedadesController::class);
 
 //Ruta Faltas
 Route::resource('faltas', FaltasController::class);
+
+//Ruta Llamados de Atención
+Route::resource('llamadosAtencion', LlamadosAtencionController::class);

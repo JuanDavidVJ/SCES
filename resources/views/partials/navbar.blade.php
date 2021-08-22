@@ -133,7 +133,21 @@
                     </li>
                 </ul>
             </li>
-            
+            <li>
+                <a href="#llamadosAtencion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Llamados de Atención
+                </a>
+                <ul class="collapse list-unstyled" id="llamadosAtencion">
+                    <li>
+                        <a href="/llamadosAtencion/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/llamadosAtencion">Ver </a>
+                    </li>
+                </ul>
+            </li>
+
         </ul>
         <ul class="list-unstyled CTAs text-center">
             <h6 class="card-title">Desarrollado por <br> ADSI 2068676©<br> Regional Caldas <br>2021</h6>
@@ -162,7 +176,7 @@
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerrar sesión</button>
                         </form>
                     </div>
-                
+
             </div>
         </nav>
 
