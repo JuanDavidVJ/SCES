@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ActaComite;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreActaComiteoRequest;
 
 class ActaComiteController extends Controller
 {
@@ -37,9 +38,9 @@ class ActaComiteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreActaComiteoRequest $request)
     {
-     
+
         $actacomite= new ActaComite();
         $actacomite->SC_ActaComite_Codigo=$request->SC_ActaComite_Codigo;
         $actacomite->SC_ActaComite_Descripcion=$request->SC_ActaComite_Descripcion;
@@ -85,17 +86,17 @@ class ActaComiteController extends Controller
      * @param  \App\Models\ActaComite  $actaComite
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreActaComiteoRequest $request, $id)
     {
         $actacomite=ActaComite::find($id);
         $actacomite->SC_ActaComite_Codigo=$request->SC_ActaComite_Codigo;
-        $actacomite->SC_ActaComite_Descripcion=$request->SC_ActaComite_Descripcion;        
+        $actacomite->SC_ActaComite_Descripcion=$request->SC_ActaComite_Descripcion;
         $actacomite->SC_ActaComite_Estado=$request->SC_ActaComite_Estado;
         $actacomite->SC_ActaComite_NumeroSolicitud=$request->SC_ActaComite_NumeroSolicitud;
         $actacomite->SC_ActaComite_Motivo=$request->SC_ActaComite_Motivo;
         $actacomite->SC_ActaComite_Testigos=$request->SC_ActaComite_Testigos;
         $actacomite->SC_ActaComite_EnviarCitacionAntecedentes=$request->SC_ActaComite_EnviarCitacionAntecedentes;
-        
+
         $actacomite->save();
         return redirect()->route('ActaComite.index')->with('status','Acta actualizada');
     }

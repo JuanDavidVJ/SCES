@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ActoAdministrativo;
 use App\Models\Comite;
+use App\Http\Requests\StoreAdministrativoRequest;
 
 class ActoAdministrativoSancionesController extends Controller
 {
@@ -37,7 +38,7 @@ class ActoAdministrativoSancionesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAdministrativoRequest $request)
     {
         if($request->hasFile('SC_ActoAdministrativoSanciones_Pruebas')){
             $file= $request->file('SC_ActoAdministrativoSanciones_Pruebas');
@@ -47,7 +48,7 @@ class ActoAdministrativoSancionesController extends Controller
             $file->move('archivos/actoadministrativo', $SC_ActoAdministrativoSanciones_Pruebas);
 
         }
-     
+
         $actoas = new ActoAdministrativo();
          $actoas->SC_ActoAdministrativoSanciones_DescripcionHechos = $request->SC_ActoAdministrativoSanciones_DescripcionHechos;
 
@@ -100,9 +101,9 @@ class ActoAdministrativoSancionesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreAdministrativoRequest $request, $id)
     {
-        
+
         $actoas = ActoAdministrativo::find($id);
          $actoas->SC_ActoAdministrativoSanciones_DescripcionHechos = $request->SC_ActoAdministrativoSanciones_DescripcionHechos;
 

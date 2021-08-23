@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Comite;
 use App\Models\Evidencias;
 use App\Models\PlanMejoramiento;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreEvidenciasRequest;
 
 class EvidenciasController extends Controller
 {
@@ -38,7 +38,7 @@ class EvidenciasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEvidenciasRequest $request)
     {
         if($request->hasFile('SC_Evidencias_Archivo')){
             $file= $request->file('SC_Evidencias_Archivo');
@@ -93,7 +93,7 @@ class EvidenciasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreEvidenciasRequest $request, $id)
     {
         $evidencia = Evidencias::find($id);
         $evidencia->SC_Evidencias_Descripcion = $request->SC_Evidencias_Descripcion;

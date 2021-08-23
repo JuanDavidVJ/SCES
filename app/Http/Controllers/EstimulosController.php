@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Estimulos;
 use App\Models\TipoEstimulos;
 use App\Models\Aprendiz;
+use App\Http\Requests\StoreEstimuloRequest;
 
 
 class EstimulosController extends Controller
@@ -42,7 +43,7 @@ class EstimulosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEstimuloRequest $request)
     {
          $estimulos = new Estimulos();
          $estimulos->SC_Estimulos_Reconocimiento = $request->SC_Estimulos_Reconocimiento;
@@ -52,7 +53,7 @@ class EstimulosController extends Controller
          $estimulos->SC_TipoEstimulos_FK_ID = $request->SC_TipoEstimulos_FK_ID;
          $estimulos->save();
          return redirect()->route('estimulos.index')->with('status', 'Estimulo creado');
-        
+
 
     }
 
@@ -93,7 +94,7 @@ class EstimulosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreEstimuloRequest $request, $id)
     {
         $estimulos = Estimulos::find($id);
          $estimulos->SC_Estimulos_Reconocimiento = $request->SC_Estimulos_Reconocimiento;
@@ -103,7 +104,7 @@ class EstimulosController extends Controller
          $estimulos->SC_TipoEstimulos_FK_ID = $request->SC_TipoEstimulos_FK_ID;
          $estimulos->save();
          return redirect()->route('estimulos.index')->with('status', 'Estimulo creado');
-        
+
     }
 
     /**

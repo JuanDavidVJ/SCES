@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comite;
 use App\Models\Impugnacion;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreImpugnacionRequest;
 
 class ImpugnacionesController extends Controller
 {
@@ -36,8 +37,9 @@ class ImpugnacionesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreImpugnacionRequest $request)
     {
+
         $impugnacion = new Impugnacion();
         $impugnacion->SC_Impugnacion_DescripcionApelacion = $request->SC_Impugnacion_DescripcionApelacion;
         $impugnacion->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
@@ -78,7 +80,7 @@ class ImpugnacionesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreImpugnacionRequest $request, $id)
     {
         $impugnacion = Impugnacion::find($id);
         $impugnacion->SC_Impugnacion_DescripcionApelacion = $request->SC_Impugnacion_DescripcionApelacion;

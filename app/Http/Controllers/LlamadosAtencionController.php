@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ActoAdministrativo;
 use App\Models\LlamadosAtencion;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreLlamadosRequest;
 
 class LlamadosAtencionController extends Controller
 {
@@ -36,7 +37,7 @@ class LlamadosAtencionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreLlamadosRequest $request)
     {
         $llamadoAtencion = new LlamadosAtencion();
         $llamadoAtencion->SC_Llamado_Atencion_Descripcion = $request->SC_Llamado_Atencion_Descripcion;
@@ -80,7 +81,7 @@ class LlamadosAtencionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreLlamadosRequest $request, $id)
     {
         $llamadoAtencion = LlamadosAtencion::find($id);
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Novedad;
 use App\Models\Aprendiz;
 use App\Models\TipoNovedad;
+use App\Http\Requests\StoreNovedadesRequest;
 
 class NovedadesController extends Controller
 {
@@ -41,7 +42,7 @@ class NovedadesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreNovedadesRequest $request)
     {
         if ($request->hasFile('SC_Novedades_Foto')){
             $file = $request->file('SC_Novedades_Foto');
@@ -97,7 +98,7 @@ class NovedadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreNovedadesRequest $request, $id)
     {
         $novedad = Novedad::find($id);
         $novedad->SC_Novedades_Descripcion = $request->SC_Novedades_Descripcion;
