@@ -1,6 +1,10 @@
 @extends('layouts.base')
 @section('title', 'Modificar Llamado de Atención')
 @section('content')
+<head>
+	<link rel="stylesheet" href="{{ asset('estilos/estilos.css') }}">
+</head>
+
     <div class="container">
         <h1>Modificar Llamado de Atención</h1>
         <form action="/llamadosAtencion/{{ $llamados->SC_Llamado_Atencion_PK_ID }}" method="post"
@@ -9,7 +13,7 @@
             @csrf
 
             <div class="form-group">
-                <label for="SC_Llamado_Atencion_Descripcion">Descripcion: </label>
+              <span class="input-group-text" for="SC_Llamado_Atencion_Descripcion">Descripcion: </span>
                 <input type="text" class="form-control" id="SC_Llamado_Atencion_Descripcion"
                     name="SC_Llamado_Atencion_Descripcion" value="{{ $llamados->SC_Llamado_Atencion_Descripcion }}">
                 @error('SC_Llamado_Atencion_Descripcion')
@@ -17,7 +21,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="SC_Llamado_Atencion_Fecha">Fecha de llamado de atención: </label>
+               <span class="input-group-text" for="SC_Llamado_Atencion_Fecha">Fecha de llamado de atención: </span>
                 <input type="date" class="form-control" id="SC_Llamado_Atencion_Fecha" name="SC_Llamado_Atencion_Fecha"
                     value="{{ $llamados->SC_Llamado_Atencion_Fecha }}">
                 @error('SC_Llamado_Atencion_Fecha')
@@ -25,7 +29,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="SC_Llamado_Atencion_EvidenciasNoPresentadas">Evidencias No Presentadas</label>
+              <span class="input-group-text" for="SC_Llamado_Atencion_EvidenciasNoPresentadas">Evidencias No Presentadas</span>
                 <input type="text" name="SC_Llamado_Atencion_EvidenciasNoPresentadas"
                     id="SC_Llamado_Atencion_EvidenciasNoPresentadas" class="form-control"
                     value="{{ $llamados->SC_Llamado_Atencion_EvidenciasNoPresentadas }}">
@@ -34,7 +38,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="SC_ActoAdministrativoSanciones_FK_ID">Acto Administrativo: </label>
+              <span class="input-group-text" for="SC_ActoAdministrativoSanciones_FK_ID">Acto Administrativo: </span>
                 <select name="SC_ActoAdministrativoSanciones_FK_ID" id="SC_ActoAdministrativoSanciones_FK_ID"
                     class="form-control" style="font-size: 0.9em;">
                     @foreach ($actoas as $actoa)
@@ -48,7 +52,7 @@
                 @enderror
             </div>
             <br>
-            <button type="submit" class="btn btn-success" id="btn">Actualizar </button>
+            <button type="submit" class="btn btn-success" id="btnactualizar">Actualizar </button>
         </form>
     </div>
 @endsection

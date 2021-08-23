@@ -1,6 +1,10 @@
 @extends('layouts.base')
 @section('title', 'Modificar Acto')
 @section('content') 
+<head>
+	<link rel="stylesheet" href="{{ asset('estilos/estilos.css') }}">
+</head>
+
 <div class="container">
 
 	<h1>Modificar Acto administrativo sanciones </h1>
@@ -9,7 +13,7 @@
 		@csrf
 
 		<div class="form-group">
-			<label for="SC_ActoAdministrativoSanciones_DescripcionHechos">Descripción</label>
+		  <span class="input-group-text" for="SC_ActoAdministrativoSanciones_DescripcionHechos">Descripción</span>
 			<input type="text" 
 			name="SC_ActoAdministrativoSanciones_DescripcionHechos" 
 			id="SC_ActoAdministrativoSanciones_DescripcionHechos" 
@@ -20,7 +24,7 @@
 			@enderror
 		</div>
 		<div class="form-group">
-			<label for="SC_ActoAdministrativoSanciones_PresentaDescargos">Descargos</label>
+		  <span class="input-group-text" for="SC_ActoAdministrativoSanciones_PresentaDescargos">Descargos</span>
 			<input type="text" 
 			name="SC_ActoAdministrativoSanciones_PresentaDescargos" 
 			id="SC_ActoAdministrativoSanciones_PresentaDescargos" 
@@ -31,7 +35,7 @@
 			@enderror
 		</div>
 		<div class="form-group">
-			<label for="SC_ActoAdministrativoSanciones_Pruebas">Pruebas</label>
+		   <span class="input-group-text" for="SC_ActoAdministrativoSanciones_Pruebas">Pruebas</span>
 			<input type="file" 
 			name="SC_ActoAdministrativoSanciones_Pruebas" 
 			id="SC_ActoAdministrativoSanciones_Pruebas" 
@@ -42,7 +46,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor">Grado de responsabilidad del autor</label>
+		   <span class="input-group-text" for="SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor">Grado de responsabilidad del autor</span>
 			<input type="text" 
 			name="SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor" 
 			id="SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor" 
@@ -53,7 +57,7 @@
 			@enderror
 		</div>
 		<div class="form-group">
-			<label for="SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion">Número de llamados de atención</label>
+		  <span class="input-group-text" for="SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion">Número de llamados de atención</span>
 			<input type="number" 
 			name="SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion" 
 			id="SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion" 
@@ -64,7 +68,7 @@
 			@enderror
 		</div>
 		<div class="form-group">
-			<label for="SC_ActoAdministrativoSanciones_Fecha">Fecha</label>
+		<span class="input-group-text" for="SC_ActoAdministrativoSanciones_Fecha">Fecha</span>
 			<input type="date" 
 			name="SC_ActoAdministrativoSanciones_Fecha" 
 			id="SC_ActoAdministrativoSanciones_Fecha" 
@@ -77,7 +81,7 @@
 
 
 		<div class="form-group">
-			<label for="SC_Comite_FK_ID">Comite relacionado</label>
+		  <span class="input-group-text" for="SC_Comite_FK_ID">Comite relacionado</span>
 			<select name="SC_Comite_FK_ID" id="SC_Comite_FK_ID" class="form-control">
 				@foreach($comite as $comite)
 				<option value="{{$comite->SC_Comite_PK_ID}}" @if($comite->SC_Comite_PK_ID == $actoas->SC_Comite_FK_ID) selected @endif >{{$comite->SC_Comite_DescripcionHechos}}</option>
