@@ -6,7 +6,7 @@
 	<form action="/estimulos" method="post"  enctype="multipart/form-data">
 		@csrf
 		<div class="form-group">
-			<label for="SC_Estimulos_Reconocimiento">Reconocimiento estimulos</label>
+			<span class="input-group-text" for="SC_Estimulos_Reconocimiento">Reconocimiento estimulos</span>
 			<input type="text" name="SC_Estimulos_Reconocimiento" id="SC_Estimulos_Reconocimiento" class="form-control" value="{{old('SC_Estimulos_Reconocimiento')}}">
 			@error('SC_Estimulos_Reconocimiento')
 				<small>{{$message}}</small>
@@ -14,7 +14,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="SC_Estimulos_DescripcionEstimulo">Descripcion</label>
+			<span class="input-group-text" for="SC_Estimulos_DescripcionEstimulo">Descripcion</span>
 			<input type="text" name="SC_Estimulos_DescripcionEstimulo" id="SC_Estimulos_DescripcionEstimulo" class="form-control" value="{{old('SC_Estimulos_DescripcionEstimulo')}}">
 			@error('SC_Estimulos_DescripcionEstimulo')
 				<small>{{$message}}</small>
@@ -22,7 +22,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="SC_Estimulos_Fecha">Fecha</label>
+			<span class="input-group-text" for="SC_Estimulos_Fecha">Fecha</span>
 			<input type="date" name="SC_Estimulos_Fecha" id="SC_Estimulos_Fecha" class="form-control" value="{{old('SC_Estimulos_Fecha')}}">
 			@error('SC_Estimulos_Fecha')
 				<small>{{$message}}</small>
@@ -30,7 +30,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="SC_Aprendiz_FK_ID">Aprendiz</label>
+			<span class="input-group-text" for="SC_Aprendiz_FK_ID">Aprendiz</span>
 			<select name="SC_Aprendiz_FK_ID" id="SC_Aprendiz_FK_ID" class="form-control" style="font-size: 0.9em;">
 				@foreach($aprendiz as $aprendiz)
 				<option value="{{$aprendiz->SC_Aprendiz_PK_ID}}">{{$aprendiz->SC_Aprendiz_Nombres}}</option>
@@ -42,7 +42,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="SC_TipoEstimulos_FK_ID">Tipo de estimulo</label>
+			<span class="input-group-text" for="SC_TipoEstimulos_FK_ID">Tipo de estimulo</span>
 			<select name="SC_TipoEstimulos_FK_ID" id="SC_TipoEstimulos_FK_ID" class="form-control" style="font-size: 0.9em;">
 				@foreach($tipoestimulos as $tipoestimulos)
 				<option value="{{$tipoestimulos->SC_TipoEstimulos_PK_ID}}">{{$tipoestimulos->SC_TipoEstimulos_Descripcion}}</option>
