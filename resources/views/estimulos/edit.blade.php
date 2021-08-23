@@ -54,7 +54,7 @@
 			@enderror
 		</div>
 		
-		<button type="submit" class="btn btn-primary">Actualizar</button>
+		<button type="submit" class="btn btn-success">Actualizar Estimulo</button>
 	</form>
 </div>
 @endsection 
