@@ -17,7 +17,7 @@
             <input type="text" class="form-control" id="SC_Evidencias_Descripcion" name="SC_Evidencias_Descripcion"
                 value=" {{ $evidencia->SC_Evidencias_Descripcion }}">
             @error('SC_Evidencias_Descripcion')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
@@ -25,14 +25,14 @@
             <input type="text" class="form-control" id="SC_Evidencias_Detalle" name="SC_Evidencias_Detalle"
                 value=" {{ $evidencia->SC_Evidencias_Detalle }}">
             @error('SC_Evidencias_Detalle')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
          <span class="input-group-text" for="SC_Evidencias_Archivo">Evidencias</span>
             <input type="file" name="SC_Evidencias_Archivo" id="SC_Evidencias_Archivo" class="form-control" value="{{ $evidencia->SC_Evidencias_Archivo }}">
             @error('SC_Evidencias_Archivo')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
@@ -44,7 +44,7 @@
                 @endforeach
             </select>
             @error('SC_Comite_FK_ID')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
@@ -57,7 +57,7 @@
                 @endforeach
             </select>
             @error('SC_PlanMejoramiento_FK_ID')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
 

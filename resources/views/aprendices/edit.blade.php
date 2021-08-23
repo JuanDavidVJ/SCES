@@ -14,35 +14,35 @@
 	    <span class="input-group-text" for="SC_Aprendiz_Documento">Numero del documento</span>
 	    <input type="number" class="form-control" id="SC_Aprendiz_Documento" name="SC_Aprendiz_Documento" value="{{$aprendiz->SC_Aprendiz_Documento }}">
 	    @error('SC_Aprendiz_Documento')
-	    	<small>{{ $message }}</small>
+		<small style="color: red;">{{ $message }}</small>
 	    @enderror
 	  </div>
 	  <div class="form-group">
 	    <span class="input-group-text" for="SC_Aprendiz_Nombres">Nombres</span>
 	    <input type="text" class="form-control" id="SC_Aprendiz_Nombres" name="SC_Aprendiz_Nombres" value="{{$aprendiz->SC_Aprendiz_Nombres}}">
 	    @error('SC_Aprendiz_Nombres')
-	    	<small>{{ $message }}</small>
+		<small style="color: red;">{{ $message }}</small>
 	    @enderror
 	  </div>
 	  <div class="form-group">
 	   <span class="input-group-text" for="SC_Aprendiz_Apellidos">Apellidos</span>
 	    <input type="text" class="form-control" id="SC_Aprendiz_Apellidos" name="SC_Aprendiz_Apellidos" value="{{$aprendiz->SC_Aprendiz_Apellidos}}">
 	    @error('SC_Aprendiz_Apellidos')
-	    	<small>{{ $message }}</small>
+		<small style="color: red;">{{ $message }}</small>
 	    @enderror
 	  </div>
 	  <div class="form-group">
 	    <span class="input-group-text" for="SC_Aprendiz_Correo">Correo</span>
 	    <input type="email" class="form-control" id="SC_Aprendiz_Correo" name="SC_Aprendiz_Correo" value="{{$aprendiz->SC_Aprendiz_Correo }}">
 	    @error('SC_Aprendiz_Correo')
-	    	<small>{{ $message }}</small>
+		<small style="color: red;">{{ $message }}</small>
 	    @enderror
 	  </div>
 	  <div class="form-group">
 	   <span class="input-group-text" for="SC_Aprendiz_NumeroContacto">Numero de contacto</span>
 	    <input type="number" class="form-control" id="SC_Aprendiz_NumeroContacto" name="SC_Aprendiz_NumeroContacto" value="{{$aprendiz->SC_Aprendiz_NumeroContacto }}">
 	    @error('SC_Aprendiz_NumeroContacto')
-	    	<small>{{ $message }}</small>
+		<small style="color: red;">{{ $message }}</small>
 	    @enderror
 	  </div>
 	  <div class="form-group">
@@ -53,21 +53,21 @@
 				@endforeach
 			</select>
 			@error('SC_Ficha_PK_ID')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 		<div class="form-group">
 		  <span class="input-group-text" for="SC_Aprendiz_ContratoAprendizaje">Contrato de practica del aprendiz</span>
 		    <input type="text" class="form-control" id="SC_Aprendiz_ContratoAprendizaje" name="SC_Aprendiz_ContratoAprendizaje" value="{{$aprendiz->SC_Aprendiz_ContratoAprendizaje }}">
 		    @error('SC_Aprendiz_ContratoAprendizaje')
-		    	<small>{{ $message }}</small>
+			<small style="color: red;">{{ $message }}</small>
 		    @enderror
 	  </div>
 	  <div class="form-group">
 	     <span class="input-group-text" for="SC_Aprendiz_Empresa">Nombre de la empresa donde realiza la practica</span>
 		    <input type="text" class="form-control" id="SC_Aprendiz_Empresa" name="SC_Aprendiz_Empresa" value="{{$aprendiz->SC_Aprendiz_Empresa }}">
 		    @error('SC_Aprendiz_Empresa')
-		    	<small>{{ $message }}</small>
+			<small style="color: red;">{{ $message }}</small>
 		    @enderror
 	  </div>
 	  <div class="form-group">
@@ -78,7 +78,7 @@
 				@endforeach
 			</select>
 			@error('SC_Comite_FK_ID')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 	  <button type="submit" class="btn btn-success" id="btncrear">Modificar</button>

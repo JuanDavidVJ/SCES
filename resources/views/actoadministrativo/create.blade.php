@@ -18,7 +18,7 @@
 			class="form-control" 
 			value="{{old('SC_ActoAdministrativoSanciones_DescripcionHechos')}}"></textarea>
 			@error('SC_ActoAdministrativoSanciones_DescripcionHechos')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 		<div class="form-group">
@@ -29,7 +29,7 @@
 			class="form-control" 
 			value="{{old('SC_ActoAdministrativoSanciones_PresentaDescargos')}}">
 			@error('SC_ActoAdministrativoSanciones_PresentaDescargos')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 		<div class="form-group">
@@ -39,7 +39,7 @@
 			id="SC_ActoAdministrativoSanciones_Pruebas" 
 			class="form-control" >
 			@error('SC_ActoAdministrativoSanciones_Pruebas')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 
@@ -51,7 +51,7 @@
 			class="form-control" 
 			value="{{old('SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor')}}">
 			@error('SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 		<div class="form-group">
@@ -62,7 +62,7 @@
 			class="form-control" 
 			value="{{old('SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion')}}">
 			@error('SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 		<div class="form-group">
@@ -73,7 +73,7 @@
 			class="form-control" 
 			value="{{old('SC_ActoAdministrativoSanciones_Fecha')}}">
 			@error('SC_ActoAdministrativoSanciones_Fecha')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 
@@ -85,7 +85,7 @@
 				@endforeach
 			</select>
 			@error('SC_Comite_FK_ID')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 		<button type="submit" class="btn btn-success mb-5"id="btncrear">Crear</button>

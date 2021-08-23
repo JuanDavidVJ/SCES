@@ -15,28 +15,28 @@
          <span class="input-group-text" for="SC_Falta_ApoyoNoSuperado">Apoyo no superado</span>
             <input type="text" class="form-control" id="SC_Falta_ApoyoNoSuperado" name="SC_Falta_ApoyoNoSuperado" value="{{ $falta->SC_Falta_ApoyoNoSuperado }}">
             @error('SC_Falta_ApoyoNoSuperado')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
          <span class="input-group-text" for="SC_Falta_EstrategiaNoSuperada">Estrategia no superada</span>
             <input type="text" class="form-control" id="SC_Falta_EstrategiaNoSuperada" name="SC_Falta_EstrategiaNoSuperada" value="{{ $falta->SC_Falta_EstrategiaNoSuperada }}">
             @error('SC_Falta_EstrategiaNoSuperada')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
           <span class="input-group-text" for="SC_Falta_ActividadesRealizadasAprendiz">Actividades no realizadas por el Aprendiz</span>
             <input type="text" class="form-control" id="SC_Falta_ActividadesRealizadasAprendiz" name="SC_Falta_ActividadesRealizadasAprendiz" value="{{ $falta->SC_Falta_ActividadesRealizadasAprendiz }}">
             @error('SC_Falta_ActividadesRealizadasAprendiz')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
           <span class="input-group-text" for="SC_Falta_UrlDocumentosAnteriores">Url documentos Anteriores</span>
             <input type="text" class="form-control" id="SC_Falta_UrlDocumentosAnteriores" name="SC_Falta_UrlDocumentosAnterioress" value="{{ $falta->SC_Falta_UrlDocumentosAnteriores }}">
             @error('SC_Falta_UrlDocumentosAnteriores')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
         <!-- ______________________________________________________ -->
@@ -55,7 +55,7 @@
          <span class="input-group-text" for="SC_Falta_ActuacionAprendiz">Actuación del aprendiz</span>
             <input type="text" class="form-control" id="SC_Falta_ActuacionAprendiz" name="SC_Falta_ActuacionAprendiz" value="{{ $falta->SC_Falta_ActuacionAprendiz }}">
             @error('SC_Falta_ActuacionAprendiz')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
@@ -66,7 +66,7 @@
                 @endforeach
             </select>
             @error('SC_TipoFalta_FK_ID')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
@@ -77,7 +77,7 @@
                 @endforeach
             </select>
             @error('SC_Reglamento_FK_ID')
-                <small>{{ $message }}</small>
+            <small style="color: red;">{{ $message }}</small>
             @enderror
         </div>
         

@@ -10,7 +10,7 @@
 			<span class="input-group-text" for="SC_Estimulos_Reconocimiento">Estimulos reconocimiento</span>
 			<input type="text" name="SC_Estimulos_Reconocimiento" id="SC_Estimulos_Reconocimiento" class="form-control" value="{{$estimulos->SC_Estimulos_Reconocimiento}}">
 			@error('SC_Estimulos_Reconocimiento')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 
@@ -18,7 +18,7 @@
 			<span class="input-group-text" for="SC_Estimulos_DescripcionEstimulo">Descripcion</span>
 			<input type="text" name="SC_Estimulos_DescripcionEstimulo" id="SC_Estimulos_DescripcionEstimulo" class="form-control" value="{{$estimulos->SC_Estimulos_DescripcionEstimulo}}">
 			@error('SC_Estimulos_DescripcionEstimulo')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 
@@ -26,7 +26,7 @@
 			<span class="input-group-text" for="SC_Estimulos_Fecha">Fecha</span>
 			<input type="date" name="SC_Estimulos_Fecha" id="SC_Estimulos_Fecha" class="form-control" value="{{$estimulos->SC_Estimulos_Fecha}}">
 			@error('SC_Estimulos_Fecha')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 
@@ -38,7 +38,7 @@
 				@endforeach
 			</select>
 			@error('SC_Aprendiz_FK_ID')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 
@@ -50,7 +50,7 @@
 				@endforeach
 			</select>
 			@error('SC_TipoEstimulos_FK_ID')
-				<small>{{$message}}</small>
+			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 		

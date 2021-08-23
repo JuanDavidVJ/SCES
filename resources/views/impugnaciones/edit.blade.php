@@ -21,7 +21,7 @@
                     @endforeach
                 </select>
                 @error('SC_Comite_FK_ID')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <div class="form-group">
@@ -30,7 +30,7 @@
                     name="SC_Impugnacion_DescripcionApelacion"
                     value="{{ $impugnaciones->SC_Impugnacion_DescripcionApelacion }}">
                 @error('SC_Impugnacion_DescripcionApelacion')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <br>
