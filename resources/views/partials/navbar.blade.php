@@ -147,6 +147,20 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#estimulos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-book"></i>
+                    Estimulos
+                </a>
+                <ul class="collapse list-unstyled" id="estimulos">
+                    <li>
+                        <a href="/estimulos/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/estimulos">Ver </a>
+                    </li>
+                </ul>
+            </li>
 
         </ul>
         <ul class="list-unstyled CTAs text-center">

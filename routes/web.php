@@ -13,6 +13,7 @@ use App\Http\Controllers\NovedadesController;
 use App\Http\Controllers\FaltasController;
 use App\Http\Controllers\LlamadosAtencionController;
 use App\Models\LlamadosAtencion;
+use App\Http\Controllers\EstimulosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +64,6 @@ Route::resource('faltas', FaltasController::class);
 
 //Ruta Llamados de Atención
 Route::resource('llamadosAtencion', LlamadosAtencionController::class);
+
+//Ruta Estimulos
+Route::resource('estimulos', EstimulosController::class);
