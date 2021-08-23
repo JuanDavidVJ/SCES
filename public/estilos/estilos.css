@@ -1,0 +1,27 @@
+/*Diseño del formulario*/
+
+.input-group-text{
+ 	background:gray;
+    color: white;
+    width:auto;
+}
+input{
+    width: auto;
+    border-color:gray;
+    width:auto;
+
+}
+
+/*diseño botones*/
+#btncrear{
+	padding:7px;
+	margin-top:2%;
+	width: auto;
+}
+
+#btnactualizar{
+    padding:7px;
+	margin-top:2%;
+	width: auto;
+}
+
