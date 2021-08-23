@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="">Inicia Sesión</a>
+            <a class="nav-link" href="/ingreso">Inicia Sesión</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="http://oferta.senasofiaplus.edu.co/sofia-oferta/">Sofia Plus</a>

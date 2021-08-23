@@ -14,6 +14,8 @@ use App\Http\Controllers\FaltasController;
 use App\Http\Controllers\LlamadosAtencionController;
 use App\Models\LlamadosAtencion;
 use App\Http\Controllers\EstimulosController;
+use App\Http\Controllers\IngresoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -67,3 +69,6 @@ Route::resource('llamadosAtencion', LlamadosAtencionController::class);
 
 //Ruta Estimulos
 Route::resource('estimulos', EstimulosController::class);
+
+//Ruta Ingreso
+Route::get('/ingreso', [IngresoController::class, 'index']);

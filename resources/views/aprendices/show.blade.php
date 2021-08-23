@@ -12,7 +12,11 @@
                 <h6 class="card-text">Contrato Aprendizaje: {{ $aprendiz->SC_Aprendiz_ContratoAprendizajeo }}</>
                 <h6 class="card-text">Empresa: {{ $aprendiz->SC_Aprendiz_Empresa }}</h6>
                 <h6 class="card-text">Comité: {{ $aprendiz->SC_Comite_FK_ID }}</h6>
-                <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                <form class="delete d-inline" action="/aprendices/{{ $aprendiz->SC_Aprendiz_PK_ID }}" method="post">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                </form> 
                 <a href="/aprendices/{{ $aprendiz->SC_Aprendiz_PK_ID }}/edit" class="btn btn-warning"><i class="fas fa-wrench"></i></a>
                 <a href="/aprendices" class="btn btn-outline-dark"><i class="fas fa-undo-alt"></i></a>
             </div>
