@@ -10,14 +10,14 @@
 	@endif
 		<table class="table table-striped">
 		          <tr>
-		          	<th scope="col">Foto</th>
+		          	<th scope="col">id</th>
 		            <th scope="col">Aprendiz</th>
 		            <th scope="col">Descripcion</th>
 		            <th scope="col">Accion</th>
 		          </tr>
 				  @foreach($novedades as $novedad)
 		            <tr>
-		            	<td><img src="{{ asset('images/novedades/' . $novedad->SC_Novedades_Foto) }}" style="width: 50%"></td>
+		            	<td>{{$novedad->SC_Novedades_PK_ID}}</td>
 		              	<td>{{ $novedad->aprendiz->SC_Aprendiz_Documento }}</td>
 		              	<td>{{ $novedad->SC_Novedades_Descripcion }}</td>
 		              	<td>

@@ -47,6 +47,7 @@
 	  <div class="form-group">
 	     <span class="input-group-text" for="SC_Ficha_PK_ID">Ficha del Programa de Formación</span>
 			<select name="SC_Ficha_PK_ID" id="SC_Ficha_PK_ID" class="form-control" style="font-size: 0.9em;">
+				<option selected>Seleccione una opción</option>
 				@foreach($fichas as $ficha)
 				<option value="{{$ficha->SC_Ficha_PK_ID }}">{{$ficha->SC_Ficha_PK_ID}}</option>
 				@endforeach
