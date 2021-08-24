@@ -36,6 +36,21 @@
                 </ul>
             </li>
             <li>
+            <li>
+                <a href="#comite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users"></i>
+                    Comité
+                </a>
+                <ul class="collapse list-unstyled" id="comite">
+                    <li>
+                        <a href="/comite/create">Crear Comité</a>
+                    </li>
+                    <li>
+                        <a href="/comite">Ver Comites</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="#condicionamiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-bell"></i>
                     Condicionamiento
@@ -65,7 +80,7 @@
             </li>
             <li>
                 <a href="#Actacomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-hourglass-start"></i>
                     Acta Comite
                 </a>
                 <ul class="collapse list-unstyled" id="Actacomite">

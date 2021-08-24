@@ -1,10 +1,6 @@
 @extends('layouts.base')
 @section('title', 'Crear Aprendiz')
 @section('content')
-<head>
-	<link rel="stylesheet" href="{{ asset('estilos/estilos.css') }}">
-</head>
-
 <div class="container">
 	<h1>Crear Aprendiz</h1>
 	<form action="/aprendices" method="post" enctype="multipart/form-data" id="formulario">
