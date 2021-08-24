@@ -26,7 +26,7 @@ class StoreAntecedentesRequest extends FormRequest
         return [
             'SC_Antecedentes_Descripcion' => 'required',
             'SC_Antecedentes_HabilidadesDestrezas' => 'required',
-            'SC_Antecedentes_Observaciones' => 'required|file',
+            'SC_Antecedentes_Observaciones' => 'required',
             'SC_Antecedentes_Fecha' => 'required',
             'SC_Antecedentes_Foto' => 'required|image',
             'SC_Aprendiz_FK_ID' => 'required',
