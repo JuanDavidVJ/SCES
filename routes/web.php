@@ -15,6 +15,7 @@ use App\Http\Controllers\LlamadosAtencionController;
 use App\Models\LlamadosAtencion;
 use App\Http\Controllers\EstimulosController;
 use App\Http\Controllers\IngresoController;
+use App\Http\Controllers\AntecedentesController;
 
 
 /*
@@ -72,3 +73,6 @@ Route::resource('estimulos', EstimulosController::class);
 
 //Ruta Ingreso
 Route::get('/ingreso', [IngresoController::class, 'index']);
+
+// Ruta Antecedentes
+Route::resource('antecedentes', AntecedentesController::class);
