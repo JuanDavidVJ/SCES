@@ -41,7 +41,7 @@ class StoreComiteRequest extends FormRequest
             'SC_Comite_Testigos.required' => "Los testigos son obligatorios",
             'SC_Comite_Observacion.required' => "La observacion es obligatoria",
             'SC_Usuarios_FK_ID.required' => "El usuario es obligatorio",
-            'SC_Falta_FK_ID.required' => "La fata es obligatoria"
+            'SC_Falta_FK_ID.required' => "La falta es obligatoria"
             
             
             
