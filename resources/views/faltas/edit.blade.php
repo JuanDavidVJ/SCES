@@ -60,7 +60,7 @@
         </div>
         <div class="form-group">
           <span class="input-group-text" for="SC_TipoFalta_FK_ID">Tipo de falta</span>
-            <select class="form-control" id="SC_TipoFalta_FK_ID" name="SC_TipoFalta_FK_ID">
+            <select class="form-control" id="tipoFalta" name="tipoFalta">
                 @foreach($tipoFaltas as $tipoFalta)
                     <option value="{{ $tipoFalta->SC_TipoFalta_PK_ID }}" @if($tipoFalta->SC_TipoFalta_PK_ID == $falta->SC_TipoFalta_FK_ID) selected @endif>{{ $tipoFalta->SC_TipoFalta_Descripcion }}</option>
                 @endforeach
@@ -71,7 +71,7 @@
         </div>
         <div class="form-group">
           <span class="input-group-text" for="SC_Reglamento_FK_ID">Infringió</span>
-            <select class="form-control" id="SC_Reglamento_FK_ID" name="SC_Reglamento_FK_ID">
+            <select class="form-control" id="reglamento" name="reglamento">
                 @foreach($reglamentos as $reglamento)
                     <option value="{{ $reglamento->SC_Reglamento_PK_ID }}" @if($reglamento->SC_Reglamento_PK_ID == $falta->SC_Reglamento_FK_ID) selected @endif>Articulo {{ $reglamento->SC_Reglamento_Articulo }} No.{{ $reglamento->SC_Reglamento_Numeral }}</option>
                 @endforeach
