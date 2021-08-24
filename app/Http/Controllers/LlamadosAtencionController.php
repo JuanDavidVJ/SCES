@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ActoAdministrativo;
 use App\Models\LlamadosAtencion;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreLlamadosRequest;
 
 class LlamadosAtencionController extends Controller
 {
@@ -13,10 +14,18 @@ class LlamadosAtencionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $llamados = LlamadosAtencion::all();
-        return view('llamadosAtencion.index')->with('llamados', $llamados);
+        $query = trim($request->get('search'));
+
+        if($request){
+            $llamados = LlamadosAtencion::where('SC_Llamado_Atencion_Descripcion', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('llamadosAtencion.index', ['llamados' => $llamados, 'search' => $query]);
+        }
+    /*$llamados = LlamadosAtencion::all();
+        return view('llamadosAtencion.index')->with('llamados', $llamados);*/
     }
 
     /**
@@ -36,7 +45,7 @@ class LlamadosAtencionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreLlamadosRequest $request)
     {
         $llamadoAtencion = new LlamadosAtencion();
         $llamadoAtencion->SC_Llamado_Atencion_Descripcion = $request->SC_Llamado_Atencion_Descripcion;
@@ -80,7 +89,7 @@ class LlamadosAtencionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreLlamadosRequest $request, $id)
     {
         $llamadoAtencion = LlamadosAtencion::find($id);
 
