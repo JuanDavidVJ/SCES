@@ -11,30 +11,30 @@
         @csrf
         
         <div class="form-group">
-         <span class="input-group-text" for="apoyoNoSuperado">Apoyo no superado</span>
-            <input type="text" class="form-control" id="apoyoNoSuperado" name="apoyoNoSuperado" value="{{ old('apoyoNoSuperado') }}">
-            @error('apoyoNoSuperado')
+         <span class="input-group-text" for="SC_Falta_ApoyoNoSuperado">Apoyo no superado</span>
+            <input type="text" class="form-control" id="SC_Falta_ApoyoNoSuperado" name="SC_Falta_ApoyoNoSuperado" value="{{ old('apoyoNoSuperado') }}">
+            @error('SC_Falta_ApoyoNoSuperado')
                 <small>{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
-        <span class="input-group-text" for="estrategiaNoSuperada">Estrategia no superada</span>
-            <input type="text" class="form-control" id="estrategiaNoSuperada" name="estrategiaNoSuperada" value="{{ old('estrategiaNoSuperada') }}">
-            @error('estrategiaNoSuperada')
+        <span class="input-group-text" for="SC_Falta_EstrategiaNoSuperada">Estrategia no superada</span>
+            <input type="text" class="form-control" id="SC_Falta_EstrategiaNoSuperada" name="SC_Falta_EstrategiaNoSuperada" value="{{ old('estrategiaNoSuperada') }}">
+            @error('SC_Falta_EstrategiaNoSuperada')
                 <small>{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
-         <span class="input-group-text" for="actividadesNoRealizadasAprendiz">Actividades no realizadas por el Aprendiz</span>
-            <input type="text" class="form-control" id="actividadesNoRealizadasAprendiz" name="actividadesNoRealizadasAprendiz" value="{{ old('actividadesNoRealizadasAprendiz') }}">
-            @error('actividadesNoRealizadasAprendiz')
+         <span class="input-group-text" for="SC_Falta_ActividadesRealizadasAprendiz">Actividades no realizadas por el Aprendiz</span>
+            <input type="text" class="form-control" id="SC_Falta_ActividadesRealizadasAprendiz" name="SC_Falta_ActividadesRealizadasAprendiz" value="{{ old('actividadesNoRealizadasAprendiz') }}">
+            @error('SC_Falta_ActividadesRealizadasAprendiz')
                 <small>{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
-          <span class="input-group-text" for="documentosAnteriores">Url documentos Anteriores</span>
-            <input type="text" class="form-control" id="documentosAnteriores" name="documentosAnteriores">
-            @error('documentosAnteriores')
+          <span class="input-group-text" for="SC_Falta_UrlDocumentosAnteriores">Url documentos Anteriores</span>
+            <input type="text" class="form-control" id="SC_Falta_UrlDocumentosAnteriores" name="SC_Falta_UrlDocumentosAnteriores">
+            @error('SC_Falta_UrlDocumentosAnteriores')
                 <small>{{ $message }}</small>
             @enderror
         </div>
@@ -51,31 +51,31 @@
             </div>    
         -->
         <div class="form-group">
-          <span class="input-group-text" for="actuacionAprendiz">Actuación del aprendiz</span>
-            <input type="text" class="form-control" id="actuacionAprendiz" name="actuacionAprendiz" value="{{ old('actuacionAprendiz') }}">
-            @error('actuacionAprendiz')
+          <span class="input-group-text" for="SC_Falta_ActuacionAprendiz">Actuación del aprendiz</span>
+            <input type="text" class="form-control" id="SC_Falta_ActuacionAprendiz" name="SC_Falta_ActuacionAprendiz" value="{{ old('actuacionAprendiz') }}">
+            @error('SC_Falta_ActuacionAprendiz')
                 <small>{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
-          <span class="input-group-text"for="tipoFalta">Tipo de falta</span>
+          <span class="input-group-text"for="SC_TipoFalta_FK_ID">Tipo de falta</span>
             <select class="form-control" id="tipoFalta" name="tipoFalta">
                 @foreach($tipoFaltas as $tipoFalta)
                     <option value="{{ $tipoFalta->SC_TipoFalta_PK_ID }}">{{ $tipoFalta->SC_TipoFalta_Descripcion }}</option>
                 @endforeach
             </select>
-            @error('tipoFalta')
+            @error('SC_TipoFalta_FK_ID')
                 <small>{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
-          <span class="input-group-text" for="reglamento">Infringió</span>
+          <span class="input-group-text" for="SC_Reglamento_FK_ID">Infringió</span>
             <select class="form-control" id="reglamento" name="reglamento">
                 @foreach($reglamentos as $reglamento)
                     <option value="{{ $reglamento->SC_Reglamento_PK_ID }}">Articulo {{ $reglamento->SC_Reglamento_Articulo }} No.{{ $reglamento->SC_Reglamento_Numeral }}</option>
                 @endforeach
             </select>
-            @error('reglamento')
+            @error('SC_Reglamento_FK_ID')
                 <small>{{ $message }}</small>
             @enderror
         </div>
