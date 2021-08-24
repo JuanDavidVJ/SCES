@@ -176,6 +176,20 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#antecedentes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-history"></i>
+                    Antecedentes
+                </a>
+                <ul class="collapse list-unstyled" id="antecedentes">
+                    <li>
+                        <a href="/antecedentes/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/antecedentes">Ver </a>
+                    </li>
+                </ul>
+            </li>
 
         </ul>
         <ul class="list-unstyled CTAs text-center">
