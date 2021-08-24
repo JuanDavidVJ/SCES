@@ -30,7 +30,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <span>La siguiente acción eliminará la falta: <br> {{ $aprendiz->SC_Aprendiz_Nombres }} {{$aprendiz->SC_Aprendiz_Apellidos}}</span>
+                        <span>La siguiente acción eliminará la falta: <br> {{ $falta->SC_Falta_ApoyoNoSuperado }} </span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>

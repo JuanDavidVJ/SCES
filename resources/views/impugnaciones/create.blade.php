@@ -17,7 +17,7 @@
               @endforeach
           </select>
           @error('SC_Comite_FK_ID')
-              <small>{{ $message }}</small>
+          <small style="color: red;">{{ $message }}</small>
           @enderror
       </div>
       <div class="form-group">
@@ -25,7 +25,7 @@
           <input type="text" class="form-control" id="SC_Impugnacion_DescripcionApelacion"
               name="SC_Impugnacion_DescripcionApelacion" value="{{ old('SC_Impugnacion_DescripcionApelacion') }}">
           @error('SC_Impugnacion_DescripcionApelacion')
-              <small>{{ $message }}</small>
+          <small style="color: red;">{{ $message }}</small>
           @enderror
       </div>
       <button type="submit" class="btn btn-success" id="btncrear">Crear</button>
