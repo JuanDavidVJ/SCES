@@ -15,11 +15,20 @@ class NovedadesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $novedades = Novedad::all();
+        $query = trim($request->get('search'));
+
+        if($request){
+            $novedades = Novedad::where('SC_Novedades_Descripcion', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('novedades.index', ['novedades' => $novedades, 'search' => $query]);
+        }
+        
+        /*$novedades = Novedad::all();
         return view('novedades.index')
-                ->with('novedades', $novedades);
+                ->with('novedades', $novedades);*/
     }
 
     /**

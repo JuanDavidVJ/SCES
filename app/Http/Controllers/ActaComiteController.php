@@ -13,11 +13,18 @@ class ActaComiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $actacomite= ActaComite::all();
-        return view('ActaComite.index')->with('ActaComite', $actacomite);
+        $query = trim($request->get('search'));
+
+        if($request){
+            $actacomite = ActaComite::where('SC_ActaComite_Codigo', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('ActaComite.index', ['ActaComite' => $actacomite, 'search' => $query]);
+        }
+        /*$actacomite= ActaComite::all();
+        return view('ActaComite.index')->with('ActaComite', $actacomite);*/
     }
 
     /**

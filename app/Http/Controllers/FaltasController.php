@@ -16,10 +16,18 @@ class FaltasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $faltas = Falta::all();
-        return view('faltas.index')->with('faltas', $faltas);
+        $query = trim($request->get('search'));
+
+        if($request){
+            $faltas = Falta::where('SC_Falta_ApoyoNoSuperado', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('faltas.index', ['faltas' => $faltas, 'search' => $query]);
+        }
+        /*$faltas = Falta::all();
+        return view('faltas.index')->with('faltas', $faltas);*/
     }
 
     /**

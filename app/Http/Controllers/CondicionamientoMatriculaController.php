@@ -14,10 +14,19 @@ class CondicionamientoMatriculaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(request $request)
     {
+        $query = trim($request->get('search'));
+
+        if($request){
+            $condicionamientos = CondicionamientoMatricula::where('SC_CondicionamientoMatricula_Descripcion', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('condicionamientos.index', ['condicionamientos' => $condicionamientos, 'search' => $query]);
+        }
+        /*
         $condicionamientos = CondicionamientoMatricula::all();
-        return view('condicionamientos.index')->with('condicionamientos', $condicionamientos);
+        return view('condicionamientos.index')->with('condicionamientos', $condicionamientos);*/
     }
 
     /**

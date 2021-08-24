@@ -13,11 +13,20 @@ class FichasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $fichas = Ficha::all();
+        
+        $query = trim($request->get('search'));
+
+        if($request){
+            $fichas = Ficha::where('SC_Ficha_NumeroFicha', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('fichas.index', ['fichas' => $fichas, 'search' => $query]);
+        }
+        /*$fichas = Ficha::all();
         return view('fichas.index')
-                ->with('fichas', $fichas);
+                ->with('fichas', $fichas);*/
     }
 
     /**

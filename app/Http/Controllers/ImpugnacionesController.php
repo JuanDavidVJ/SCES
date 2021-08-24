@@ -14,10 +14,18 @@ class ImpugnacionesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $impugnaciones = Impugnacion::all();
-        return view('impugnaciones.index')->with('impugnaciones', $impugnaciones);
+        $query = trim($request->get('search'));
+
+        if($request){
+            $impugnaciones = Impugnacion::where('SC_Impugnacion_DescripcionApelacion', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('impugnaciones.index', ['impugnaciones' => $impugnaciones, 'search' => $query]);
+        }
+       /* $impugnaciones = Impugnacion::all();
+        return view('impugnaciones.index')->with('impugnaciones', $impugnaciones);*/
     }
 
     /**

@@ -14,10 +14,18 @@ class LlamadosAtencionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $llamados = LlamadosAtencion::all();
-        return view('llamadosAtencion.index')->with('llamados', $llamados);
+        $query = trim($request->get('search'));
+
+        if($request){
+            $llamados = LlamadosAtencion::where('SC_Llamado_Atencion_Descripcion', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('llamadosAtencion.index', ['llamados' => $llamados, 'search' => $query]);
+        }
+    /*$llamados = LlamadosAtencion::all();
+        return view('llamadosAtencion.index')->with('llamados', $llamados);*/
     }
 
     /**

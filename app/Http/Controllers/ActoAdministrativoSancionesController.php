@@ -14,11 +14,19 @@ class ActoAdministrativoSancionesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $actoas = ActoAdministrativo::all();
+        $query = trim($request->get('search'));
+
+        if($request){
+            $actoas = ActoAdministrativo::where('SC_ActoAdministrativoSanciones_DescripcionHechos', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('actoadministrativo.index', ['actoas' => $actoas, 'search' => $query]);
+        }
+        /*$actoas = ActoAdministrativo::all();
          $comite = Comite::all();
-        return view('actoadministrativo.index')->with('actoas', $actoas)->with('comite', $comite);
+        return view('actoadministrativo.index')->with('actoas', $actoas)->with('comite', $comite);*/
     }
 
     /**

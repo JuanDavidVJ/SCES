@@ -14,10 +14,18 @@ class EvidenciasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $evidencias = Evidencias::all();
-        return view('evidencias.index')->with('evidencias', $evidencias);
+        $query = trim($request->get('search'));
+
+        if($request){
+            $evidencias = Evidencias::where('SC_Evidencias_Descripcion', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('evidencias.index', ['evidencias' => $evidencias, 'search' => $query]);
+        }
+       /* $evidencias = Evidencias::all();
+        return view('evidencias.index')->with('evidencias', $evidencias);*/
     }
 
     /**

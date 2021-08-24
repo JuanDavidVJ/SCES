@@ -16,10 +16,16 @@ class EstimulosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-         $estimulos = Estimulos::all();
-        return view('estimulos.index')->with('estimulos', $estimulos);
+        $query = trim($request->get('search'));
+
+        if($request){
+            $estimulos = Estimulos::where('SC_Estimulos_DescripcionEstimulo', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('estimulos.index', ['estimulos' => $estimulos, 'search' => $query]);
+        }
 
     }
 

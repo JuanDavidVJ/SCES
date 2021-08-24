@@ -15,11 +15,21 @@ class AprendicesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $aprendices = Aprendiz::all();
+        $query = trim($request->get('search'));
+
+        if($request){
+            $aprendices = Aprendiz::where('SC_Aprendiz_Documento', 'LIKE', '%' . $query . '%')
+                          ->orderBy('SC_Aprendiz_Nombres', 'asc')
+                          ->get();
+
+                return view('aprendices.index', ['aprendices' => $aprendices, 'search' => $query]);
+        }
+
+       /* $aprendices = Aprendiz::all();
         return view('aprendices.index')
-                ->with('aprendices', $aprendices);
+                ->with('aprendices', $aprendices);*/
     }
 
     /**
