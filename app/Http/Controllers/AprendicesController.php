@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Aprendiz;
 use App\Models\Ficha;
 use App\Models\Comite;
+use App\Http\Requests\StoreAprendicesRequest;
 
 class AprendicesController extends Controller
 {
@@ -14,11 +15,21 @@ class AprendicesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $aprendices = Aprendiz::all();
+        $query = trim($request->get('search'));
+
+        if($request){
+            $aprendices = Aprendiz::where('SC_Aprendiz_Documento', 'LIKE', '%' . $query . '%')
+                          ->orderBy('SC_Aprendiz_Nombres', 'asc')
+                          ->get();
+
+                return view('aprendices.index', ['aprendices' => $aprendices, 'search' => $query]);
+        }
+
+       /* $aprendices = Aprendiz::all();
         return view('aprendices.index')
-                ->with('aprendices', $aprendices);
+                ->with('aprendices', $aprendices);*/
     }
 
     /**
@@ -41,7 +52,7 @@ class AprendicesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAprendicesRequest $request)
     {
         $aprendiz = new Aprendiz();
         $aprendiz->SC_Aprendiz_Nombres = $request->SC_Aprendiz_Nombres;
@@ -94,7 +105,7 @@ class AprendicesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreAprendicesRequest $request, $id)
     {
         $aprendiz = Aprendiz::find($id);
         $aprendiz->SC_Aprendiz_Documento = $request->SC_Aprendiz_Documento;
