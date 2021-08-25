@@ -3,7 +3,7 @@
 @section('content') 
 <div class="container">
 	<h1>Modificar Comite</h1>
-	<form action="/Comite/{{$Comite->SC_Comite_PK_ID}}" method="post" enctype="multipart/form-data">
+	<form action="/comite/{{$Comite->SC_Comite_PK_ID}}" method="post" enctype="multipart/form-data">
 		@method('PUT')
 		@csrf
 

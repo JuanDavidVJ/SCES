@@ -1,12 +1,8 @@
 @extends('layouts.base')
-@section('title', 'Crear Acta')
+@section('title', 'Crear Acta Comité')
 @section('content')
-<head>
-	<link rel="stylesheet" href="{{ asset('estilos/estilos.css') }}">
-</head>
-
 <div class="container">
-	<h1 class="mt-3">Crear Acta</h1>
+	<h1 class="mt-3">Crear Acta Comité</h1>
 	<form action="/ActaComite" method="post" enctype="multipart/form-data" id="formulario">
 		@csrf
 	  <div class="form-group">
@@ -32,7 +28,7 @@
 	  </div>
 	  <div class="form-group">
 	  <span class="input-group-text" for="SC_ActaComite_NumeroSolicitud">Numero Solicitud</span>
-	  	<input type="number" class="form-control" id="SC_ActaComite_NumeroSolicitud" name="SC_ActaComite_NumeroSolicitud">
+	  	<input type="number" class="form-control" id="SC_ActaComite_NumeroSolicitud" name="SC_ActaComite_NumeroSolicitud" max="100000">
 	  	@error('SC_ActaComite_NumeroSolicitud')
 		  <small style="color: red;">{{ $message }}</small>
 	    @enderror
