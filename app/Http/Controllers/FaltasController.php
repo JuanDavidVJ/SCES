@@ -64,11 +64,11 @@ class FaltasController extends Controller
         */        
         
         $falta = new Falta();
-        $falta->SC_Falta_ApoyoNoSuperado = $request->apoyoNoSuperado;
-        $falta->SC_Falta_EstrategiaNoSuperada = $request->estrategiaNoSuperada;
-        $falta->SC_Falta_ActividadesRealizadasAprendiz = $request->actividadesNoRealizadasAprendiz;
-        $falta->SC_Falta_UrlDocumentosAnteriores = $request->documentosAnteriores;
-        $falta->SC_Falta_ActuacionAprendiz = $request->actuacionAprendiz;
+        $falta->SC_Falta_ApoyoNoSuperado = $request->SC_Falta_ApoyoNoSuperado ;
+        $falta->SC_Falta_EstrategiaNoSuperada = $request->SC_Falta_EstrategiaNoSuperada;
+        $falta->SC_Falta_ActividadesRealizadasAprendiz = $request->SC_Falta_ActividadesRealizadasAprendiz;
+        $falta->SC_Falta_UrlDocumentosAnteriores = $request->SC_Falta_UrlDocumentosAnteriores;
+        $falta->SC_Falta_ActuacionAprendiz = $request->SC_Falta_ActuacionAprendiz;
         $falta->SC_TipoFalta_FK_ID = $request->tipoFalta;
         $falta->SC_Reglamento_FK_ID = $request->reglamento;
 
@@ -126,11 +126,11 @@ class FaltasController extends Controller
         */        
         
         $falta = Falta::find($id);
-        $falta->SC_Falta_ApoyoNoSuperado = $request->apoyoNoSuperado;
-        $falta->SC_Falta_EstrategiaNoSuperada = $request->estrategiaNoSuperada;
-        $falta->SC_Falta_ActividadesRealizadasAprendiz = $request->actividadesNoRealizadasAprendiz;
-        $falta->SC_Falta_UrlDocumentosAnteriores = $request->documentosAnteriores;
-        $falta->SC_Falta_ActuacionAprendiz = $request->actuacionAprendiz;
+        $falta->SC_Falta_ApoyoNoSuperado = $request->SC_Falta_ApoyoNoSuperado ;
+        $falta->SC_Falta_EstrategiaNoSuperada = $request->SC_Falta_EstrategiaNoSuperada;
+        $falta->SC_Falta_ActividadesRealizadasAprendiz = $request->SC_Falta_ActividadesRealizadasAprendiz;
+        $falta->SC_Falta_UrlDocumentosAnteriores = $request->SC_Falta_UrlDocumentosAnteriores;
+        $falta->SC_Falta_ActuacionAprendiz = $request->SC_Falta_ActuacionAprendiz;
         $falta->SC_TipoFalta_FK_ID = $request->tipoFalta;
         $falta->SC_Reglamento_FK_ID = $request->reglamento;
 
