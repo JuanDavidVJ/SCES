@@ -205,6 +205,21 @@
                 </ul>
             </li>
 
+            <li>
+                <a href="#plandemejoramiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-columns"></i>
+                    Plan de mejoramiento
+                </a>
+                <ul class="collapse list-unstyled" id="plandemejoramiento">
+                    <li>
+                        <a href="/planmejoramiento/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/planmejoramiento">Ver </a>
+                    </li>
+                </ul>
+            </li>
+
         </ul>
         <ul class="list-unstyled CTAs text-center">
             <h6 class="card-title">Desarrollado por <br> ADSI 2068676©<br> Regional Caldas <br>2021</h6>

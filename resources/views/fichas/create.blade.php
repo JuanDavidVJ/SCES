@@ -1,9 +1,6 @@
 @extends('layouts.base')
 @section('title', 'Crear Ficha')
 @section('content')
-<head>
-	<link rel="stylesheet" href="{{ asset('estilos/estilos.css') }}">
-</head>
 
 <div class="container">
 	<h1>Crear ficha</h1>

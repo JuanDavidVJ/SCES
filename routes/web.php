@@ -17,6 +17,9 @@ use App\Http\Controllers\EstimulosController;
 use App\Http\Controllers\IngresoController;
 use App\Http\Controllers\AntecedentesController;
 use App\Http\Controllers\CitacionController;
+use App\Http\Controllers\PlanMejoramientoController;
+
+
 
 
 /*
@@ -82,3 +85,6 @@ Route::resource('antecedentes', AntecedentesController::class);
 
 //Ruta Citacion
 Route::resource('Citacion', CitacionController::class);
+
+//Ruta Plan de mejoramiento 
+Route::resource('planmejoramiento', PlanMejoramientoController::class);
