@@ -56,6 +56,7 @@
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
+		
 		<div class="form-group">
 		  <span class="input-group-text" for="SC_Aprendiz_ContratoAprendizaje">Contrato de practica del aprendiz</span>
 		    <input type="text" class="form-control" id="SC_Aprendiz_ContratoAprendizaje" name="SC_Aprendiz_ContratoAprendizaje" value="{{$aprendiz->SC_Aprendiz_ContratoAprendizaje }}">
@@ -70,17 +71,7 @@
 			<small style="color: red;">{{ $message }}</small>
 		    @enderror
 	  </div>
-	  <div class="form-group">
-	    <span class="input-group-text" for="SC_Comite_FK_ID">Comite relacionado</span>
-			<select name="SC_Comite_FK_ID" id="SC_Comite_FK_ID" class="form-control" style="font-size: 0.9em;">
-				@foreach($comites as $comite)
-				<option value="{{$comite->SC_Comite_PK_ID}}" @if($comite->SC_Comite_PK_ID == $aprendiz->SC_Comite_FK_ID ) selected @endif>{{$comite->SC_Comite_DescripcionHechos}}</option>
-				@endforeach
-			</select>
-			@error('SC_Comite_FK_ID')
-			<small style="color: red;">{{ $message }}</small>
-			@enderror
-		</div>
+	  
 	  <button type="submit" class="btn btn-success" id="btncrear">Modificar</button>
 	</form>
 </div>

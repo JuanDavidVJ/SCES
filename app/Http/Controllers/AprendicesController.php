@@ -39,10 +39,10 @@ class AprendicesController extends Controller
      */
     public function create()
     {
-        $comites = Comite::all();
+        #$comites = Comite::all();
         $fichas = Ficha::all();
         return view('aprendices.create')
-                    ->with('comites', $comites)
+                    #->with('comites', $comites)
                     ->with('fichas', $fichas);
     }
 
@@ -63,7 +63,7 @@ class AprendicesController extends Controller
         $aprendiz->SC_Ficha_PK_ID = $request->SC_Ficha_PK_ID;
         $aprendiz->SC_Aprendiz_ContratoAprendizaje   = $request->SC_Aprendiz_ContratoAprendizaje;
         $aprendiz->SC_Aprendiz_Empresa   = $request->SC_Aprendiz_Empresa;
-        $aprendiz->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
+        #$aprendiz->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
         $aprendiz->save();
         return redirect()->route('aprendices.index')->with('status', 'Aprendiz Creado');
     }
@@ -90,11 +90,11 @@ class AprendicesController extends Controller
     public function edit($id)
     {
         $aprendiz = Aprendiz::find($id);
-        $comites = Comite::all();
+        #$comites = Comite::all();
         $fichas = Ficha::all();
         return view('aprendices.edit')
                 ->with('aprendiz', $aprendiz)
-                ->with('comites', $comites)
+                #->with('comites', $comites)
                 ->with('fichas', $fichas);
     }
 
@@ -116,7 +116,7 @@ class AprendicesController extends Controller
         $aprendiz->SC_Ficha_PK_ID = $request->SC_Ficha_PK_ID;
         $aprendiz->SC_Aprendiz_ContratoAprendizaje = $request->SC_Aprendiz_ContratoAprendizaje;
         $aprendiz->SC_Aprendiz_Empresa = $request->SC_Aprendiz_Empresa;
-        $aprendiz->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
+        #$aprendiz->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
         $aprendiz->save();
         return redirect()->route('aprendices.index')->with('status', 'Aprendiz Actualizado');
     }
