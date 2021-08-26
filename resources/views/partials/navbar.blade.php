@@ -175,6 +175,20 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#Citacion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-calendar-alt"></i>
+                    Citación
+                </a>
+                <ul class="collapse list-unstyled" id="Citacion">
+                    <li>
+                        <a href="/Citacion/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/Citacion">Ver </a>
+                    </li>
+                </ul>
+            </li>
 
         </ul>
         <ul class="list-unstyled CTAs text-center">
