@@ -56,7 +56,7 @@ class PlanMejoramientoController extends Controller
          
          $planm->SC_PlanMejoramiento_FechaMaxima  = $request->SC_PlanMejoramiento_FechaMaxima;
 
-         $planm->SC_PlanMejoramiento_EvidenciasNoPresentadas  = $request->SC_PlanMejoramiento_EvidenciasNoPresentadas;
+         #$planm->SC_PlanMejoramiento_EvidenciasNoPresentadas  = $request->SC_PlanMejoramiento_EvidenciasNoPresentadas;
 
          $planm->SC_ActoAdministrativo_FK_ID = $request->SC_ActoAdministrativo_FK_ID;
 
@@ -109,7 +109,7 @@ class PlanMejoramientoController extends Controller
          
          $planm->SC_PlanMejoramiento_FechaMaxima  = $request->SC_PlanMejoramiento_FechaMaxima;
 
-         $planm->SC_PlanMejoramiento_EvidenciasNoPresentadas  = $request->SC_PlanMejoramiento_EvidenciasNoPresentadas;
+         #$planm->SC_PlanMejoramiento_EvidenciasNoPresentadas  = $request->SC_PlanMejoramiento_EvidenciasNoPresentadas;
 
          $planm->SC_ActoAdministrativo_FK_ID = $request->SC_ActoAdministrativo_FK_ID;
 
