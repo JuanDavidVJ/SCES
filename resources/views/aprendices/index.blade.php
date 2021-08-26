@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	<h1 class="mt-3">Listado de Aprendices</h1>
-	<form class="">
+	<form>
 		<div class="input-group mb-3">
 		<input type="number" class="form-control" placeholder="Numero del documento" aria-label="Recipient's username" aria-describedby="button-addon2" name="search"id="inputbuscar">
 		<div class="input-group-append">

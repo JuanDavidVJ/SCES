@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\AprendicesController;
+use App\Http\Controllers\ComiteController;
 use App\Http\Controllers\FichasController;
 use App\Http\Controllers\CondicionamientoMatriculaController;
 use App\Http\Controllers\ActaComiteController;
@@ -12,7 +13,6 @@ use App\Http\Controllers\ImpugnacionesController;
 use App\Http\Controllers\NovedadesController;
 use App\Http\Controllers\FaltasController;
 use App\Http\Controllers\LlamadosAtencionController;
-use App\Models\LlamadosAtencion;
 use App\Http\Controllers\EstimulosController;
 use App\Http\Controllers\IngresoController;
 use App\Http\Controllers\AntecedentesController;
@@ -40,6 +40,8 @@ Route::get('/', [InicioController::class, 'index']);
 //Ruta Aprendices
 Route::resource('aprendices', AprendicesController::class);
 
+//Ruta Comite
+Route::resource('comite', ComiteController::class);
 
 //Ruta Fichas
 Route::resource('fichas', FichasController::class);

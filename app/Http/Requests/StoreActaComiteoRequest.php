@@ -26,7 +26,7 @@ class StoreActaComiteoRequest extends FormRequest
         return [
             'SC_ActaComite_Codigo' => 'required',
             'SC_ActaComite_Descripcion' => 'required',
-            'SC_ActaComite_Estado' => 'required|file',
+            'SC_ActaComite_Estado' => 'required',
             'SC_ActaComite_NumeroSolicitud' => 'required',
             'SC_ActaComite_Motivo' => 'required',
             'SC_ActaComite_Testigos' => 'required',

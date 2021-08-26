@@ -35,6 +35,7 @@
 										<span>La siguiente acción eliminará el acto administrativo: <br> ID N°: {{$actoas->SC_ActoAdministrativoSanciones_PK_Id}}</span>
 								</div>
 								<div class="modal-footer">
+									<button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
 										<form class="delete d-inline" action="/actoadministrativo/{{$actoas->SC_ActoAdministrativoSanciones_PK_Id}}" method="post">
 										@method('DELETE')
 										@csrf

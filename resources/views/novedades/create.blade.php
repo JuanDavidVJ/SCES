@@ -14,7 +14,7 @@
                 <input type="text" class="form-control" id="SC_Novedades_Descripcion" name="SC_Novedades_Descripcion"
                     value="{{ old('SC_Novedades_Descripcion') }}">
                 @error('SC_Novedades_Descripcion')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <div class="form-group">
@@ -22,7 +22,7 @@
                 <input type="text" class="form-control" id="SC_Novedades_HabilidadesDestrezas"
                     name="SC_Novedades_HabilidadesDestrezas" value="{{ old('SC_Novedades_HabilidadesDestrezas') }}">
                 @error('SC_Novedades_HabilidadesDestrezas')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <div class="form-group">
@@ -30,7 +30,7 @@
                 <input type="text" class="form-control" id="SC_Novedades_Observaciones" name="SC_Novedades_Observaciones"
                     value="{{ old('SC_Novedades_Observaciones') }}">
                 @error('SC_Novedades_Observaciones')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <div class="form-group">
@@ -38,14 +38,14 @@
                 <input type="date" class="form-control" id="SC_Novedades_Fecha" name="SC_Novedades_Fecha"
                     value="{{ old('SC_Novedades_Fecha') }}">
                 @error('SC_Novedades_Fecha')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <div class="form-group">
               <span class="input-group-text" for="SC_Novedades_Foto">Foto</span>
                 <input type="file" class="form-control" id="SC_Novedades_Foto" name="SC_Novedades_Foto">
                 @error('SC_Novedades_Foto')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <div class="form-group">
@@ -56,7 +56,7 @@
                     @endforeach
                 </select>
                 @error('SC_Aprendiz_FK_ID')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <div class="form-group">

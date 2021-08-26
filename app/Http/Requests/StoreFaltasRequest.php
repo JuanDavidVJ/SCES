@@ -21,6 +21,7 @@ class StoreFaltasRequest extends FormRequest
      *
      * @return array
      */
+    
     public function rules()
     {
         return [
@@ -28,18 +29,20 @@ class StoreFaltasRequest extends FormRequest
             'SC_Falta_EstrategiaNoSuperada'=> 'required',
             'SC_Falta_ActividadesRealizadasAprendiz'=> 'required',
             // 'SC_Falta_UrlDocumentosAnteriores'=> 'required',
-            // 'SC_Falta_ActuacionAprendiz'=> 'required',
-            'SC_TipoFalta_FK_ID'=> 'required',
-            'SC_Reglamento_FK_ID'=> 'required',
+            'SC_Falta_ActuacionAprendiz'=> 'required',
+            //'SC_TipoFalta_FK_ID'=> 'required',
+            //'SC_Reglamento_FK_ID'=> 'required'
         ];
     }
-
     public function messages()
     {
         return[
-            'SC_Falta_ApoyoNoSuperado.required' => 'El campo Descripción es obligatorio',
-            'SC_Falta_EstrategiaNoSuperada.required' => 'El campo Detalles de Evidencia es obligatorio',
-            'SC_Falta_ActividadesRealizadasAprendiz.required' => 'Este campo es obligatorio'
+            'SC_Falta_ApoyoNoSuperado.required' => 'El campo Apoyo es obligatorio',
+            'SC_Falta_EstrategiaNoSuperada.required' => 'El campo Detalles de Estrategia es obligatorio',
+            'SC_Falta_ActividadesRealizadasAprendiz.required' => 'Este campo es obligatorio',
+             'SC_Falta_ActuacionAprendiz.required'=>'El campo Actuación es obligatorio'
+    
         ];
     }
+
 }
