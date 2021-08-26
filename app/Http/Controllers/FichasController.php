@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ficha;
+use App\Http\Requests\StoreFichasRequest;
 
 class FichasController extends Controller
 {
@@ -12,11 +13,20 @@ class FichasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $fichas = Ficha::all();
+        
+        $query = trim($request->get('search'));
+
+        if($request){
+            $fichas = Ficha::where('SC_Ficha_NumeroFicha', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('fichas.index', ['fichas' => $fichas, 'search' => $query]);
+        }
+        /*$fichas = Ficha::all();
         return view('fichas.index')
-                ->with('fichas', $fichas);
+                ->with('fichas', $fichas);*/
     }
 
     /**
@@ -35,7 +45,7 @@ class FichasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFichasRequest $request)
     {
         $ficha = new Ficha();
         $ficha->SC_Ficha_FechaInicio = $request->SC_Ficha_FechaInicio;
@@ -78,7 +88,7 @@ class FichasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreFichasRequest $request, $id)
     {
         $ficha = Ficha::find($id);
         $ficha->SC_Ficha_FechaInicio = $request->SC_Ficha_FechaInicio;

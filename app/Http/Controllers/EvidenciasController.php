@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Comite;
 use App\Models\Evidencias;
 use App\Models\PlanMejoramiento;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreEvidenciasRequest;
 
 class EvidenciasController extends Controller
 {
@@ -14,10 +14,18 @@ class EvidenciasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $evidencias = Evidencias::all();
-        return view('evidencias.index')->with('evidencias', $evidencias);
+        $query = trim($request->get('search'));
+
+        if($request){
+            $evidencias = Evidencias::where('SC_Evidencias_Descripcion', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('evidencias.index', ['evidencias' => $evidencias, 'search' => $query]);
+        }
+       /* $evidencias = Evidencias::all();
+        return view('evidencias.index')->with('evidencias', $evidencias);*/
     }
 
     /**
@@ -38,7 +46,7 @@ class EvidenciasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEvidenciasRequest $request)
     {
         if($request->hasFile('SC_Evidencias_Archivo')){
             $file= $request->file('SC_Evidencias_Archivo');
@@ -93,7 +101,7 @@ class EvidenciasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreEvidenciasRequest $request, $id)
     {
         $evidencia = Evidencias::find($id);
         $evidencia->SC_Evidencias_Descripcion = $request->SC_Evidencias_Descripcion;

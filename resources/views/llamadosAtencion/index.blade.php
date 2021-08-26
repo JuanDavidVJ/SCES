@@ -3,6 +3,15 @@
 @section('content')
     <div class="container">
         <h1>Listado de Llamados de Atención</h1>
+        <form>
+            <div class="input-group mb-3">
+            <input type="search" class="form-control" placeholder="Ingresar descripción" aria-label="Recipient's username" aria-describedby="button-addon2" name="search"id="inputbuscar">
+            <div class="input-group-append">
+                <button class="btn btn-outline-success pl-5 pr-5 ml-2" type="submit" id="button-addon2">Buscar</button>
+            </div>
+            </div>
+        </form>
+
         @if (session('status'))
             <p class="alert alert-success">
                 {{ session('status') }}

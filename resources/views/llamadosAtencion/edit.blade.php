@@ -17,7 +17,7 @@
                 <input type="text" class="form-control" id="SC_Llamado_Atencion_Descripcion"
                     name="SC_Llamado_Atencion_Descripcion" value="{{ $llamados->SC_Llamado_Atencion_Descripcion }}">
                 @error('SC_Llamado_Atencion_Descripcion')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <div class="form-group">
@@ -25,7 +25,7 @@
                 <input type="date" class="form-control" id="SC_Llamado_Atencion_Fecha" name="SC_Llamado_Atencion_Fecha"
                     value="{{ $llamados->SC_Llamado_Atencion_Fecha }}">
                 @error('SC_Llamado_Atencion_Fecha')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <div class="form-group">
@@ -34,7 +34,7 @@
                     id="SC_Llamado_Atencion_EvidenciasNoPresentadas" class="form-control"
                     value="{{ $llamados->SC_Llamado_Atencion_EvidenciasNoPresentadas }}">
                 @error('SC_Llamado_Atencion_EvidenciasNoPresentadas')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <div class="form-group">
@@ -48,7 +48,7 @@
                     @endforeach
                 </select>
                 @error('SC_ActoAdministrativoSanciones_FK_ID')
-                    <small>{{ $message }}</small>
+                <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
             <br>

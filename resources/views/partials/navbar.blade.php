@@ -36,6 +36,21 @@
                 </ul>
             </li>
             <li>
+            <li>
+                <a href="#comite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users"></i>
+                    Comité
+                </a>
+                <ul class="collapse list-unstyled" id="comite">
+                    <li>
+                        <a href="/comite/create">Crear Comité</a>
+                    </li>
+                    <li>
+                        <a href="/comite">Ver Comites</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="#condicionamiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-bell"></i>
                     Condicionamiento
@@ -65,7 +80,7 @@
             </li>
             <li>
                 <a href="#Actacomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-hourglass-start"></i>
                     Acta Comite
                 </a>
                 <ul class="collapse list-unstyled" id="Actacomite">
@@ -158,6 +173,49 @@
                     </li>
                     <li>
                         <a href="/estimulos">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#antecedentes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-history"></i>
+                    Antecedentes
+                </a>
+                <ul class="collapse list-unstyled" id="antecedentes">
+                    <li>
+                        <a href="/antecedentes/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/antecedentes">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#Citacion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-calendar-alt"></i>
+                    Citación
+                </a>
+                <ul class="collapse list-unstyled" id="Citacion">
+                    <li>
+                        <a href="/Citacion/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/Citacion">Ver </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#plandemejoramiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-columns"></i>
+                    Plan de mejoramiento
+                </a>
+                <ul class="collapse list-unstyled" id="plandemejoramiento">
+                    <li>
+                        <a href="/planmejoramiento/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/planmejoramiento">Ver </a>
                     </li>
                 </ul>
             </li>
