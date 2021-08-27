@@ -27,8 +27,8 @@ class StorePlanMejoramientoRequest extends FormRequest
             'SC_PlanMejoramiento_Descripcion'=> 'required',
             'SC_PlanMejoramiento_Fecha'=> 'required',
             'SC_PlanMejoramiento_FechaMaxima'=> 'required',
-            'SC_ActoAdministrativo_FK_ID'=> 'required',
-            'SC_TipoNovedades_FK_ID'=> 'required'
+            'SC_ActoAdministrativo_FK_ID'=> 'required'
+            #'SC_TipoNovedades_FK_ID'=> 'required'
             #'SC_PlanMejoramiento'=> 'required', 
         ];
     }
@@ -39,8 +39,8 @@ class StorePlanMejoramientoRequest extends FormRequest
             'SC_PlanMejoramiento_Descripcion.required' => "La descripcion es obligatoria",
             'SC_PlanMejoramiento_Fecha.required' => "La fecha es obligatoria",
             'SC_PlanMejoramiento_FechaMaxima.required' => "La fecha maxima es obligatoria",      
-            'SC_ActoAdministrativo_FK_ID.required' => "El acto administrativo es obligatorio",
-            'SC_TipoNovedades_FK_ID.required' => "El tipo de novedades es obligatorio",
+            'SC_ActoAdministrativo_FK_ID.required' => "El acto administrativo es obligatorio"
+            #'SC_TipoNovedades_FK_ID.required' => "El tipo de novedades es obligatorio",
             #'SC_PlanMejoramiento.required' => "El plan de mejoramiento es obligatorio", 
 
         ];
