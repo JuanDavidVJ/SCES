@@ -11,7 +11,7 @@
                 <h6 class="card-text">Ficha: {{ $aprendiz->SC_Ficha_PK_ID }}</h6>
                 <h6 class="card-text">Contrato Aprendizaje: {{ $aprendiz->SC_Aprendiz_ContratoAprendizajeo }}</>
                 <h6 class="card-text">Empresa: {{ $aprendiz->SC_Aprendiz_Empresa }}</h6>
-                <h6 class="card-text">Comité: {{ $aprendiz->SC_Comite_FK_ID }}</h6>
+                
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">

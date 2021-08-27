@@ -52,32 +52,62 @@
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
+		<br>
+		<label>¿El aprendiz cuenta con contrato de aprendizaje?</label>
+		<div class="form-check">
+		  <input class="form-check-input" type="radio" name="activar" id="activar" onclick="ActivarCasilla()">
+		  <label class="form-check-label" for="si">
+		    Si
+		  </label>
+		</div>
+		<div class="form-check">
+		  <input class="form-check-input" type="radio" name="activar" id="activar" checked onclick="DesactivarCasilla()">
+		  <label class="form-check-label" for="no">
+		    no
+		  </label>
+		</div>
+		<br>
+
 		<div class="form-group">
 		   <span class="input-group-text" for="SC_Aprendiz_ContratoAprendizaje">Contrato de practica del aprendiz</span>
-		    <input type="text" class="form-control" id="SC_Aprendiz_ContratoAprendizaje" name="SC_Aprendiz_ContratoAprendizaje" value="{{ old('SC_Aprendiz_ContratoAprendizaje') }}">
+		    <input type="text" class="form-control" id="SC_Aprendiz_ContratoAprendizaje" name="SC_Aprendiz_ContratoAprendizaje" value="{{ old('SC_Aprendiz_ContratoAprendizaje') }}" disabled="">
 		    @error('SC_Aprendiz_ContratoAprendizaje')
 			<small style="color: red;">{{ $message }}</small>
 		    @enderror
 	  </div>
 	  <div class="form-group">
 	    <span class="input-group-text" for="SC_Aprendiz_Empresa">Nombre de la empresa donde realiza la practica</span>
-		    <input type="text" class="form-control" id="SC_Aprendiz_Empresa" name="SC_Aprendiz_Empresa" value="{{ old('SC_Aprendiz_Empresa') }}">
+		    <input type="text" class="form-control" id="SC_Aprendiz_Empresa" name="SC_Aprendiz_Empresa" value="{{ old('SC_Aprendiz_Empresa') }}" disabled="">
 		    @error('SC_Aprendiz_Empresa')
 			<small style="color: red;">{{ $message }}</small>
 		    @enderror
 	  </div>
-	  <div class="form-group">
-	    <span class="input-group-text" for="SC_Comite_FK_ID">Comite relacionado</span>
-			<select name="SC_Comite_FK_ID" id="SC_Comite_FK_ID" class="form-control" style="font-size: 0.9em;">
-				@foreach($comites as $comite)
-				<option value="{{$comite->SC_Comite_PK_ID}}">{{$comite->SC_Comite_DescripcionHechos}}</option>
-				@endforeach
-			</select>
-			@error('SC_Comite_FK_ID')
-			<small style="color: red;">{{ $message }}</small>
-			@enderror
-		</div>
+	  
 	  <button type="submit" class="btn btn-success" id="btncrear">Crear Aprendiz</button>
 	</form>
 </div>
 @endsection
+<script type="text/javascript">
+
+	var contraro=document.getElementById("SC_Aprendiz_ContratoAprendizaje");
+	var contraro=document.getElementById("SC_Aprendiz_Empresa");
+
+function ActivarCasilla() 
+{
+	if (activar.checked = true) {
+		var contraro=document.getElementById("SC_Aprendiz_ContratoAprendizaje").disabled =false;
+	var contraro=document.getElementById("SC_Aprendiz_Empresa").disabled=false;
+	}
+	 
+	
+}
+function DesactivarCasilla() 
+{
+	if (activar.checked = true) {
+		var contraro=document.getElementById("SC_Aprendiz_ContratoAprendizaje").disabled =true;
+	var contraro=document.getElementById("SC_Aprendiz_Empresa").disabled=true;
+	}
+	
+	
+}
+</script>
