@@ -70,7 +70,7 @@ Sesión del Comité de Evaluación y Seguimiento
 Llegada la fecha y hora de la sesión del Comité, se debe verificar si hay quórum o no para sesionar y decidir. A continuación el Coordinador Académico o el integrante de la comunidad educativa que haya sido invitado, expondrá el caso a tratar.Posteriormente, se oirá en descargos al aprendiz o aprendices citados 
 
 </p>
-                        <a href="{{ asset('manuales/Reglamento.pdf') }}" target="_blank">Manual de usuario</a>
+                        <a href="{{ asset('manuales/manual usuario.pdf') }}" target="_blank">Manual de usuario</a>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-7 col-md-7 co-sm-l2">
