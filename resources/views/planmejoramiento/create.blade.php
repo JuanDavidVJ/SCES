@@ -28,16 +28,7 @@
 			@enderror
 		</div>
 		
-		<div class="form-group">
-			<label for="SC_PlanMejoramiento_EvidenciasNoPresentadas">Evidencias no presentadas</label>
-			<input type="text" name="SC_PlanMejoramiento_EvidenciasNoPresentadas"
-			 id="SC_PlanMejoramiento_EvidenciasNoPresentadas" 
-			 class="form-control"
-			  value="{{old('SC_PlanMejoramiento_EvidenciasNoPresentadas')}}">
-			@error('SC_PlanMejoramiento_EvidenciasNoPresentadas')
-				<small style="color: red;">{{$message}}</small>
-			@enderror
-		</div>
+		
 
 		<div class="form-group">
 			<label for="SC_ActoAdministrativo_FK_ID">Acto administrativo</label>

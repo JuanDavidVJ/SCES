@@ -10,7 +10,7 @@
 				<h5 class="card-subtitle mb-2 text-muted">Descripcion: {{$planm->SC_PlanMejoramiento_Descripcion}}</h5>
 				<h6 class="card-text">Fecha: {{$planm->SC_PlanMejoramiento_Fecha}}</h6>
         <h6 class="card-text">Fecha Maxima: {{$planm->SC_PlanMejoramiento_FechaMaxima}}</h6>
-        <h6 class="card-text">Evidencias no presentadas: {{$planm->SC_PlanMejoramiento_EvidenciasNoPresentadas}}</h6>
+        
         <h6 class="card-text">Acto administrativo: {{$planm->acto->SC_ActoAdministrativoSanciones_DescripcionHechos}}</h6>
         <h6 class="card-text">Plan de mejoramiento: <a href="{{asset('/archivos/planmejoramiento/'.$planm->SC_PlanMejoramiento)}}" target="_blank">Ver</h6>
 
