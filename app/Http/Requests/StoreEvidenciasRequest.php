@@ -26,9 +26,9 @@ class StoreEvidenciasRequest extends FormRequest
         return [
             'SC_Evidencias_Descripcion' => 'required',
             'SC_Evidencias_Detalle' => 'required',
-            'SC_Evidencias_Archivo' => 'required|file',
-            'SC_Comite_FK_ID'=> 'required',
-            'SC_PlanMejoramiento_FK_ID' => 'required'
+            'SC_Evidencias_Archivo' => 'required|file'
+            //'SC_Comite_FK_ID'=> 'required',
+           // 'SC_PlanMejoramiento_FK_ID' => 'required'
         ];
     }
 

@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Comite;
+//use App\Models\Comite;
 use App\Models\Evidencias;
-use App\Models\PlanMejoramiento;
+//use App\Models\PlanMejoramiento;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreEvidenciasRequest;
 
@@ -35,9 +35,9 @@ class EvidenciasController extends Controller
      */
     public function create()
     {
-        $comites = Comite::all();
-        $plan = PlanMejoramiento::all();
-        return view('evidencias.create')->with('comites', $comites)->with('plan', $plan);
+        //$comites = Comite::all();
+       //$plan = PlanMejoramiento::all();
+        return view('evidencias.create')/*->with('comites', $comites)->with('plan', $plan)*/;
     }
 
     /**
@@ -61,8 +61,8 @@ class EvidenciasController extends Controller
         $evidencia->SC_Evidencias_Descripcion = $request->SC_Evidencias_Descripcion;
         $evidencia->SC_Evidencias_Detalle = $request->SC_Evidencias_Detalle;
         $evidencia->SC_Evidencias_Archivo = $SC_Evidencias_Archivo;
-        $evidencia->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
-        $evidencia->SC_PlanMejoramiento_FK_ID = $request->SC_PlanMejoramiento_FK_ID;
+        //$evidencia->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
+        //$evidencia->SC_PlanMejoramiento_FK_ID = $request->SC_PlanMejoramiento_FK_ID;
 
         $evidencia->save();
         return redirect()->route('evidencias.index')->with('status', 'Evidencia Creada');
@@ -89,9 +89,9 @@ class EvidenciasController extends Controller
     public function edit($id)
     {
         $evidencia = Evidencias::find($id);
-        $comites = Comite::all();
-        $plan = PlanMejoramiento::all();
-        return view('evidencias.edit')->with('evidencia', $evidencia)->with('comites', $comites)->with('plan', $plan);
+        //$comites = Comite::all();
+       // $plan = PlanMejoramiento::all();
+        return view('evidencias.edit')->with('evidencia', $evidencia)/*->with('comites', $comites)->with('plan', $plan)*/;
     }
 
     /**
@@ -107,8 +107,8 @@ class EvidenciasController extends Controller
         $evidencia->SC_Evidencias_Descripcion = $request->SC_Evidencias_Descripcion;
         $evidencia->SC_Evidencias_Detalle = $request->SC_Evidencias_Detalle;
         $evidencia->SC_Evidencias_Archivo = $request->SC_Evidencias_Archivo;
-        $evidencia->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
-        $evidencia->SC_PlanMejoramiento_FK_ID = $request->SC_PlanMejoramiento_FK_ID;
+        /*$evidencia->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;*/
+       /* $evidencia->SC_PlanMejoramiento_FK_ID = $request->SC_PlanMejoramiento_FK_ID;*/
 
         $evidencia->save();
         return redirect()->route('evidencias.index')->with('status', 'Evidencia Actualizada');

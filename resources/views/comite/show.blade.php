@@ -6,11 +6,11 @@
 	  <div class="card-body">
       <h3 class="card-title">Comité N°: {{$comite->SC_Comite_PK_ID}}</h3>
         <h5 class="card-subtitle mb-2">Descripción de los hechos: {{$comite->SC_Comite_DescripcionHechos}}</h5>
-          <h6 class="card-text">Descripción del hecho: {{$comite->SC_Comite_DescripcionHecho}}</h6>
           <h6 class="card-text">Testigos: {{$comite->SC_Comite_Testigos}}</h6>
           <h6 class="card-text">Observaciones: {{$comite->SC_Comite_Observacion}}</h6>
           <h6 class="card-text">Usuarios: {{$comite->usuario->SC_Usuarios_Nombre}}</h6>
           <h6 class="card-text">Faltas: {{$comite->falta->SC_Falta_ApoyoNoSuperado}}</h6>
+          <h6 class="card-text">Evidencia: {{$comite->evidencia->SC_Evidencias_Descripcion}}</h6>
 
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">

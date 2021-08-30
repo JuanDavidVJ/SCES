@@ -12,16 +12,7 @@
 				<small style="color: red">{{$message}}</small>
 			@enderror
 		</div>
-
-		<div class="form-group">
-			<span class="input-group-text" for="SC_Comite_DescripcionHecho">Descripcion hecho</span>
-			<input type="text" name="SC_Comite_DescripcionHecho" id="SC_Comite_DescripcionHecho" class="form-control" value="{{old('SC_Comite_DescripcionHecho')}}">
-			@error('SC_Comite_DescripcionHecho')
-				<small style="color: red">{{$message}}</small>
-			@enderror
-		</div>
-
-		<div class="form-group">
+       <div class="form-group">
 			<span class="input-group-text" for="SC_Comite_Testigos">Testigos</span>
 			<input type="text" name="SC_Comite_Testigos" id="SC_Comite_Testigos" class="form-control" value="{{old('SC_Comite_Testigos')}}">
 			@error('SC_Comite_Testigos')
@@ -61,6 +52,18 @@
 				<small style="color: red">{{$message}}</small>
 			@enderror
 		</div>
+		<div class="form-group">
+			<span class="input-group-text" for="SC_Evidencias_FK_ID">Evidencias</span>
+			<select name="SC_Evidencias_FK_ID" id="SC_Evidencias_FK_ID" class="form-control" style="font-size: 0.9em;">
+				@foreach($Evidencias as $Evidencias)
+				<option value="{{$Evidencias->SC_Evidencias_PK_ID}}">{{$Evidencias->SC_Evidencias_Descripcion}}</option>
+				@endforeach
+			</select>
+			@error('SC_Evidencias_FK_ID')
+				<small style="color: red">{{$message}}</small>
+			@enderror
+		</div>
+		
 		<button type="submit" class="btn btn-success">Crear Comité</button>
 	</form>
 </div>
