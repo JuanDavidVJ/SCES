@@ -37,6 +37,20 @@
             </li>
             <li>
             <li>
+                <a href="#solicitudcomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users"></i>
+                    Solicitud Comité
+                </a>
+                <ul class="collapse list-unstyled" id="solicitudcomite">
+                    <li>
+                        <a href="#">Crear Solicitud</a>
+                    </li>
+                    <li>
+                        <a href="#">Ver Solicitud</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="#comite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-users"></i>
                     Comité

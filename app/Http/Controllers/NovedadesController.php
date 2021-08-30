@@ -20,7 +20,7 @@ class NovedadesController extends Controller
         $query = trim($request->get('search'));
 
         if($request){
-            $novedades = Novedad::where('SC_Novedades_Descripcion', 'LIKE', '%' . $query . '%')
+            $novedades = Novedad::where('SC_Novedades_Motivo', 'LIKE', '%' . $query . '%')
                           ->get();
 
                 return view('novedades.index', ['novedades' => $novedades, 'search' => $query]);
@@ -53,19 +53,19 @@ class NovedadesController extends Controller
      */
     public function store(StoreNovedadesRequest $request)
     {
-        if ($request->hasFile('SC_Novedades_Foto')){
-            $file = $request->file('SC_Novedades_Foto');
-            $SC_Novedades_Foto = time() . $file->getClientOriginalName();
-            $file->move("images/novedades" , $SC_Novedades_Foto);
-        }
+        // if ($request->hasFile('SC_Novedades_Foto')){
+        //     $file = $request->file('SC_Novedades_Foto');
+        //     $SC_Novedades_Foto = time() . $file->getClientOriginalName();
+        //     $file->move("images/novedades" , $SC_Novedades_Foto);
+        // }
         $novedad = new Novedad();
-        $novedad->SC_Novedades_Descripcion = $request->SC_Novedades_Descripcion;
-        $novedad->SC_Novedades_HabilidadesDestrezas = $request->SC_Novedades_HabilidadesDestrezas;
-        $novedad->SC_Novedades_Observaciones = $request->SC_Novedades_Observaciones;
+        // $novedad->SC_Novedades_Descripcion = $request->SC_Novedades_Descripcion;
+        // $novedad->SC_Novedades_HabilidadesDestrezas = $request->SC_Novedades_HabilidadesDestrezas;
+        // $novedad->SC_Novedades_Observaciones = $request->SC_Novedades_Observaciones;
         $novedad->SC_Novedades_Fecha = $request->SC_Novedades_Fecha;
         $novedad->SC_Aprendiz_FK_ID = $request->SC_Aprendiz_FK_ID;
         $novedad->SC_TipoNovedades_FK_ID = $request->SC_TipoNovedades_FK_ID;
-        $novedad->SC_Novedades_Foto = $SC_Novedades_Foto;
+        $novedad->SC_Novedades_Motivo = $request -> SC_Novedades_Motivo;
         $novedad->save();
         return redirect()->route('novedades.index')->with('status', 'Novedad Creada');
     }
@@ -79,8 +79,10 @@ class NovedadesController extends Controller
     public function show($id)
     {
         $novedad = Novedad::find($id);
+        $tiponovedades = TipoNovedad::all();
         return view('novedades.show')
-                ->with('novedad', $novedad);
+                ->with('novedad', $novedad)
+                ->with('tiponovedades', $tiponovedades);
     }
 
     /**
@@ -110,17 +112,18 @@ class NovedadesController extends Controller
     public function update(StoreNovedadesRequest $request, $id)
     {
         $novedad = Novedad::find($id);
-        $novedad->SC_Novedades_Descripcion = $request->SC_Novedades_Descripcion;
-        $novedad->SC_Novedades_HabilidadesDestrezas = $request->SC_Novedades_HabilidadesDestrezas;
-        $novedad->SC_Novedades_Observaciones = $request->SC_Novedades_Observaciones;
+        // $novedad->SC_Novedades_Descripcion = $request->SC_Novedades_Descripcion;
+        // $novedad->SC_Novedades_HabilidadesDestrezas = $request->SC_Novedades_HabilidadesDestrezas;
+        // $novedad->SC_Novedades_Observaciones = $request->SC_Novedades_Observaciones;
         $novedad->SC_Novedades_Fecha = $request->SC_Novedades_Fecha;
         $novedad->SC_Aprendiz_FK_ID = $request->SC_Aprendiz_FK_ID;
         $novedad->SC_TipoNovedades_FK_ID = $request->SC_TipoNovedades_FK_ID;
-        if ($request->hasFile('SC_Novedades_Foto')) {
-            $file = $request->file('SC_Novedades_Foto');
-            $SC_Novedades_Foto = $novedad->SC_Novedades_Foto;
-            $file->move("images/novedades", $SC_Novedades_Foto);
-        }
+        $novedad->SC_Novedades_Motivo = $request->SC_Novedades_Motivo;
+        // if ($request->hasFile('SC_Novedades_Foto')) {
+        //     $file = $request->file('SC_Novedades_Foto');
+        //     $SC_Novedades_Foto = $novedad->SC_Novedades_Foto;
+        //     $file->move("images/novedades", $SC_Novedades_Foto);
+        // }
         $novedad->save();
         return redirect()->route('novedades.index')->with('status', 'Novedad Actualizada');
     }

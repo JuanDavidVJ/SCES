@@ -6,12 +6,10 @@
 
         
         <div class="card-body">
-            <h3 class="card-title">ID: {{ $novedad->SC_Aprendiz_FK_ID }}</h3>
-            <h5 class="card-subtitle mb-2 text-muted">Descripción: {{ $novedad->SC_Novedades_Descripcion }}</h5>
-            <h6 class="card-text">Habilidades: {{ $novedad->SC_Novedades_HabilidadesDestrezas }}</h6>
-            <h6 class="card-text">Observaciones: {{ $novedad->SC_Novedades_Observaciones }}</h6>
+            <h3 class="card-title">Aprendiz: {{ $novedad->aprendiz->SC_Aprendiz_Nombres}} {{ $novedad->aprendiz->SC_Aprendiz_Apellidos}}</h3>
+            <h5 class="card-subtitle mb-2 text-muted">Tipo: {{ $novedad->SC_TipoNovedades_FK_ID }}</h5>
             <h6 class="card-text">Fecha: {{ $novedad->SC_Novedades_Fecha }}</h6>
-            <h6 class="card-text">Tipo: {{ $novedad->SC_TipoNovedades_FK_ID }}</h6>
+            <h6 class="card-text">Motivo Solicitud: {{ $novedad->SC_Novedades_Motivo }}</h6>
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">

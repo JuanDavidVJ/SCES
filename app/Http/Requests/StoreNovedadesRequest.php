@@ -24,26 +24,20 @@ class StoreNovedadesRequest extends FormRequest
     public function rules()
     {
         return [
-            'SC_Novedades_Descripcion' => 'required',
-            'SC_Novedades_HabilidadesDestrezas' => 'required',
-            'SC_Novedades_Observaciones' => 'required|file',
             'SC_Novedades_Fecha'=> 'required',
             'SC_Aprendiz_FK_ID' => 'required',
             'SC_TipoNovedades_FK_ID' => 'required',
-            'SC_Novedades_Foto' => 'required|image'
+            'SC_Novedades_Motivo'=> 'required',
         ];
     }
 
     public function messages()
     {
         return[
-            'SC_Novedades_Descripcion.required' => 'El campo Descripción es obligatorio.',
-            'SC_Novedades_HabilidadesDestrezas.required' => 'Este campo es obligatorio.',
-            'SC_Novedades_Observaciones.required' => 'Este campo es obligatorio.',
             'SC_Novedades_Fecha.required' => 'El campo fecha es obligatorio.',
             'SC_Aprendiz_FK_ID.required' => 'Este campo es obligatorio.',
             'SC_TipoNovedades_FK_ID.required' => 'Este campo es obligatorio.',
-            'SC_Novedades_Foto.required' => 'No ha subido ningún archivo.'
+            'SC_Novedades_Motivo.required' => 'El campo motivo es obligatorio.',
         ];
     }
 }
