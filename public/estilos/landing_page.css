@@ -17,7 +17,7 @@
       position: relative;
       background: url(http://www.digitalavmagazine.com/en/wp-content/uploads/2015/10/Jabra-Speak-810-e.jpg);
       background-size: cover;
-      min-height: 700px;
+      min-height: 100px;
     }
     
     .background-overlay {
@@ -25,7 +25,6 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
     }
     
     .form-control, .btn{
@@ -38,7 +37,7 @@
     
     h3{
       font-size: 20px
-      text-decoration: center;
+      text-align center;
     
     }
     
@@ -72,8 +71,8 @@
          padding-bottom: 7px;
         display: block;
         text-transform: uppercase;
-      padding: 0px 0px 6px 0px;
-      
+        padding: 0px 0px 6px 0px;
+        
     }
     
     .about .about_box p {
@@ -82,6 +81,7 @@
          color: #4c4a49;
          padding: 40px 0px;
          font-weight: 500;
+         text-align: justify;
     }
     .about .about_box a {
         color:white;
@@ -95,7 +95,7 @@
     border-radius: 18px;
     }
     
-    }
+    
     .about_img {margin-top: 15px;}
     .about_img figure {margin:0;}
     .about_img figure img {width: 100%;}
