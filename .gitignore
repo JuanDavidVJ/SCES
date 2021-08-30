@@ -1,7 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
-/public/archivos
+/public/archivos/actoadministrativo
 /storage/*.key
 /vendor
 .env
