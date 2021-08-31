@@ -10,7 +10,8 @@
           <h6 class="card-text">Observaciones: {{$comite->SC_Comite_Observacion}}</h6>
           <h6 class="card-text">Usuarios: {{$comite->usuario->SC_Usuarios_Nombre}}</h6>
           <h6 class="card-text">Faltas: {{$comite->falta->SC_Falta_ApoyoNoSuperado}}</h6>
-          <h6 class="card-text">Evidencia: {{$comite->evidencia->SC_Evidencias_Descripcion}}</h6>
+          <h6 class="card-text">Pruebas: 
+						<a href="{{asset('/archivos/evidenciasComite/'.$comite->SC_Evidencias)}}" target="_blank">Ver</a></h6>
 
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">
