@@ -18,6 +18,7 @@ use App\Http\Controllers\IngresoController;
 use App\Http\Controllers\AntecedentesController;
 use App\Http\Controllers\CitacionController;
 use App\Http\Controllers\PlanMejoramientoController;
+use App\Http\Controllers\SolicitarComiteController;
 
 
 
@@ -88,3 +89,6 @@ Route::resource('Citacion', CitacionController::class);
 
 //Ruta Plan de mejoramiento 
 Route::resource('planmejoramiento', PlanMejoramientoController::class);
+
+//Ruta Solicitar Comite 
+Route::resource('solicitarComite', SolicitarComiteController::class);

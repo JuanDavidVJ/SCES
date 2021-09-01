@@ -8,45 +8,30 @@
 
         <ul class="list-unstyled components">
             <li>
-                <a href="#ficha" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-copy"></i>
-                    Ficha
-                </a>
-                <ul class="collapse list-unstyled" id="ficha">
-                    <li>
-                        <a href="/fichas/create">Crear Ficha</a>
-                    </li>
-                    <li>
-                        <a href="/fichas">Ver Fichas</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#aprendices" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-user-graduate"></i>
-                    Aprendices
-                </a>
-                <ul class="collapse list-unstyled" id="aprendices">
-                    <li>
-                        <a href="/aprendices/create">Crear Aprendices</a>
-                    </li>
-                    <li>
-                        <a href="/aprendices">Ver Aprendices</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-            <li>
                 <a href="#solicitudcomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-users"></i>
                     Solicitud Comité
                 </a>
                 <ul class="collapse list-unstyled" id="solicitudcomite">
                     <li>
-                        <a href="#">Crear Solicitud</a>
+                        <a href="/solicitarComite/create">Crear Solicitud</a>
                     </li>
                     <li>
-                        <a href="#">Ver Solicitud</a>
+                        <a href="/solicitarComite">Ver Solicitud</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#Citacion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-calendar-alt"></i>
+                    Citación
+                </a>
+                <ul class="collapse list-unstyled" id="Citacion">
+                    <li>
+                        <a href="/Citacion/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/Citacion">Ver </a>
                     </li>
                 </ul>
             </li>
@@ -65,23 +50,9 @@
                 </ul>
             </li>
             <li>
-                <a href="#condicionamiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-bell"></i>
-                    Condicionamiento
-                </a>
-                <ul class="collapse list-unstyled" id="condicionamiento">
-                    <li>
-                        <a href="/condicionamientos/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/condicionamientos">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
                 <a href="#administrativo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-toolbox"></i>
-                    Administrativo
+                    Acto Administrativo
                 </a>
                 <ul class="collapse list-unstyled" id="administrativo">
                     <li>
@@ -107,20 +78,6 @@
                 </ul>
             </li>
             <li>
-                <a href="#evidencias" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-eye"></i>
-                    Evidencias
-                </a>
-                <ul class="collapse list-unstyled" id="evidencias">
-                    <li>
-                        <a href="/evidencias/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/evidencias">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
                 <a href="#impugnaciones" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-university"></i>
                     Impugnaciones
@@ -134,6 +91,36 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#condicionamiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-bell"></i>
+                    Condicionamiento
+                </a>
+                <ul class="collapse list-unstyled" id="condicionamiento">
+                    <li>
+                        <a href="/condicionamientos/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/condicionamientos">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#evidencias" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-eye"></i>
+                    Evidencias
+                </a>
+                <ul class="collapse list-unstyled" id="evidencias">
+                    <li>
+                        <a href="/evidencias/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/evidencias">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            
             <li>
                 <a href="#novedades" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-address-card"></i>
@@ -205,21 +192,6 @@
                 </ul>
             </li>
             <li>
-                <a href="#Citacion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-calendar-alt"></i>
-                    Citación
-                </a>
-                <ul class="collapse list-unstyled" id="Citacion">
-                    <li>
-                        <a href="/Citacion/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/Citacion">Ver </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li>
                 <a href="#plandemejoramiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                 <i class="fas fa-columns"></i>
                     Plan de mejoramiento
@@ -230,6 +202,34 @@
                     </li>
                     <li>
                         <a href="/planmejoramiento">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#ficha" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Ficha
+                </a>
+                <ul class="collapse list-unstyled" id="ficha">
+                    <li>
+                        <a href="/fichas/create">Crear Ficha</a>
+                    </li>
+                    <li>
+                        <a href="/fichas">Ver Fichas</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#aprendices" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-user-graduate"></i>
+                    Aprendices
+                </a>
+                <ul class="collapse list-unstyled" id="aprendices">
+                    <li>
+                        <a href="/aprendices/create">Crear Aprendices</a>
+                    </li>
+                    <li>
+                        <a href="/aprendices">Ver Aprendices</a>
                     </li>
                 </ul>
             </li>
