@@ -1,9 +1,14 @@
 .boby{
     background-color: blueviolet;
+    flex-wrap:wrap ;
+    min-width: 250px;
+    margin-bottom: 0px;
     }
     
     .navbar {
       box-shadow: 2px 2px 5px #000;
+      flex-wrap:wrap ;
+      min-width: 250px;
       opacity:blue;
     
     }
