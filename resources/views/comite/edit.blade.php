@@ -55,16 +55,13 @@
 			@enderror
 		</div>
 		<div class="form-group">
-		<span class="input-group-text" for="SC_Evidencias_FK_ID">Evidencias</span>
-			<select name="SC_Evidencias_FK_ID" id="SC_Evidencias_FK_ID" class="form-control" style="font-size: 0.9em;">
-			@foreach($Evidencias as $Evidencias)
-				<option value="{{$Evidencias->SC_Evidencias_PK_ID}}" @if($Evidencias->SC_Evidencias_PK_ID == $Comite->SC_Evidencias_FK_ID) selected @endif>{{$Evidencias->SC_Evidencias_Descripcion}}</option>
-				@endforeach
-			</select>
-			@error('SC_Evidencias_FK_ID')
-				<small style="color: red">{{$message}}</small>
-			@enderror
-		</div>
+         <span class="input-group-text" for="SC_Evidencias">Evidencias</span>
+            <input type="file" name="SC_Evidencias" id="SC_Evidencias" class="form-control" value="{{ $Comite->SC_Evidencias}}">
+            @error('SC_Evidencias')
+            <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
+		
 		
 		
 		

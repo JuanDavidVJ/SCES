@@ -18,8 +18,9 @@ class Comite extends Model
         return $this->belongsTo(Falta::class, 'SC_Falta_FK_ID', 'SC_Falta_PK_ID');
         // This last arguments are because their are not the same that Eloquent determination
     }
-    public function evidencia(){
+    /*public function evidencia(){
         return $this->belongsTo(Evidencias::class, 'SC_Evidencias_FK_ID', 'SC_Evidencias_PK_ID');
         // This last arguments are because their are not the same that Eloquent determination
-    }
+        //LLAVE FORANEA DE EVIDENCIA
+    }*/
 }
