@@ -10,8 +10,8 @@
                 <h6 class="card-text">Archivo: <a
                         href="{{ asset('archivos/evidencias/' . $evidencia->SC_Evidencias_Archivo) }}"
                         target="_blank">Ver</a> </h6>
-                <h6 class="card-text">Comité: {{ $evidencia->SC_Comite_FK_ID }}</h6>
-                <h6 class="card-text">Plan de Mejoramiento: {{ $evidencia->SC_PlanMejoramiento_FK_ID }}</h6>
+                <h6 class="card-text">Plan Mejoramiento: {{ $evidencia->SC_PlanMejoramiento_FK_ID  }}</h6>        
+                
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">

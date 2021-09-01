@@ -52,21 +52,18 @@
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
-		<br>
-		<label>¿El aprendiz cuenta con contrato de aprendizaje?</label>
-		<div class="form-check">
-		  <input class="form-check-input" type="radio" name="activar" id="activar" onclick="ActivarCasilla()">
-		  <label class="form-check-label" for="si">
-		    Si
-		  </label>
+
+		<div class="form-group">
+			<span class="input-group-text">¿El aprendiz cuenta con contrato de aprendizaje?</span>
+			<div class="form-check form-check-inline ml-3 pt-2">
+				<input class="form-check-input" type="radio" name="activar" id="activar" onclick="ActivarCasilla()">
+				<label class="form-check-label" for="si">Si</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="radio" name="activar" id="activar" checked onclick="DesactivarCasilla()">
+				<label class="form-check-label" for="no">No</label>
+			</div>
 		</div>
-		<div class="form-check">
-		  <input class="form-check-input" type="radio" name="activar" id="activar" checked onclick="DesactivarCasilla()">
-		  <label class="form-check-label" for="no">
-		    no
-		  </label>
-		</div>
-		<br>
 
 		<div class="form-group">
 		   <span class="input-group-text" for="SC_Aprendiz_ContratoAprendizaje">Contrato de practica del aprendiz</span>

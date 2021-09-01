@@ -21,7 +21,6 @@
           <th scope="col">Descripcion Hechos</th>
           <th scope="col">Testigos</th>
           <th scope="col">Observacion</th>
-          <th scope="col">Usuario</th>
           <th scope="col">Acción</th>
         </tr>
         @foreach($Comite as $comite)
@@ -29,7 +28,6 @@
             <td>{{$comite->SC_Comite_DescripcionHechos}}</td>
             <td>{{$comite->SC_Comite_Testigos}}</td>
             <td>{{$comite->SC_Comite_Observacion}}</td>
-            <td>{{$comite->usuario->SC_Usuarios_Nombre}}</td>
             <td scope="col">
               <a class="btn btn-outline-default p-0" href="/comite/{{$comite->SC_Comite_PK_ID}}"><i class="fas fa-eye"></i></a>
             </td>

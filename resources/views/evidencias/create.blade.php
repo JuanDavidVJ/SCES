@@ -31,18 +31,6 @@
                 @enderror
             </div>
             <div class="form-group">
-             <span class="input-group-text" for="SC_Comite_FK_ID">Sanción: </span>
-                <select name="SC_Comite_FK_ID" id="SC_Comite_FK_ID" class="form-control" style="font-size: 0.9em;">
-                    @foreach ($comites as $comite)
-                        <option value="{{ $comite->SC_Comite_PK_ID }}">{{ $comite->SC_Comite_DescripcionHechos }}
-                        </option>
-                    @endforeach
-                </select>
-                @error('SC_Comite_FK_ID')
-                <small style="color: red;">{{ $message }}</small>
-                @enderror
-            </div>
-            <div class="form-group">
              <span class="input-group-text" for="SC_PlanMejoramiento_FK_ID">Plan De Mejoramiento: </span>
                 <select name="SC_PlanMejoramiento_FK_ID" id="SC_PlanMejoramiento_FK_ID" class="form-control"
                     style="font-size: 0.9em;">
@@ -55,6 +43,8 @@
                 <small style="color: red;">{{ $message }}</small>
                 @enderror
             </div>
+
+          
 
             <button type="submit" class="btn btn-success" id="btncrear">Crear Evidencia</button>
         </form>

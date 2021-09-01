@@ -12,16 +12,7 @@
 				<small style="color: red">{{$message}}</small>
 			@enderror
 		</div>
-
-		<div class="form-group">
-			<span class="input-group-text" for="SC_Comite_DescripcionHecho">Descripcion hecho</span>
-			<input type="text" name="SC_Comite_DescripcionHecho" id="SC_Comite_DescripcionHecho" class="form-control" value="{{old('SC_Comite_DescripcionHecho')}}">
-			@error('SC_Comite_DescripcionHecho')
-				<small style="color: red">{{$message}}</small>
-			@enderror
-		</div>
-
-		<div class="form-group">
+       <div class="form-group">
 			<span class="input-group-text" for="SC_Comite_Testigos">Testigos</span>
 			<input type="text" name="SC_Comite_Testigos" id="SC_Comite_Testigos" class="form-control" value="{{old('SC_Comite_Testigos')}}">
 			@error('SC_Comite_Testigos')
@@ -33,6 +24,14 @@
 			<span class="input-group-text" for="SC_Comite_Observacion">Observacion</span>
 			<input type="text" name="SC_Comite_Observacion" id="SC_Comite_Observacion" class="form-control" value="{{old('SC_Comite_Observacion')}}">
 			@error('SC_Comite_Observacion')
+				<small style="color: red">{{$message}}</small>
+			@enderror
+		</div>
+
+		<div class="form-group">
+			<span class="input-group-text" for="SC_Evidencias">Evidencias</span>
+			<input type="file" name="SC_Evidencias" id="SC_Evidencias" class="form-control">
+			@error('SC_Evidencias')
 				<small style="color: red">{{$message}}</small>
 			@enderror
 		</div>
@@ -61,6 +60,18 @@
 				<small style="color: red">{{$message}}</small>
 			@enderror
 		</div>
+		<div class="form-group">
+			<span class="input-group-text" for="SC_Citacion_FK_ID">Citación</span>
+			<select name="SC_Citacion_FK_ID" id="SC_Citacion_FK_ID" class="form-control" style="font-size: 0.9em;">
+				@foreach($Citacion as $citacion)
+				<option value="{{$citacion->SC_CitacionPK_Id}}">Id {{$citacion->SC_CitacionPK_Id}} / {{$citacion->SC_Citacion_FechaCitacion}}</option>
+				@endforeach
+			</select>
+			@error('SC_Citacion_FK_ID')
+				<small style="color: red">{{$message}}</small>
+			@enderror
+		</div>
+		
 		<button type="submit" class="btn btn-success">Crear Comité</button>
 	</form>
 </div>

@@ -7,13 +7,13 @@
 
 		<div class="card-body">
 
-			<h3>{{$citacion->SC_ActaComite_FK_ID}}</h3>
-			<h4>{{$citacion->SC_Citacion_FechaCitacion}}</h4>
-			<h4>{{$citacion->SC_Citacion_Hora}}</h4>
-			<h4>{{$citacion->SC_Citacion_Lugar}}</h4>
-			<h4>{{$citacion->SC_Citacion_Ciudad}}</h4>
-			<h4>{{$citacion->SC_Citacion_Centro}}</h4>
-			<h4>{{$citacion->SC_Comite_FK_ID}}</h4>
+			<h3 class="card-title">Citación N° {{$citacion->SC_CitacionPK_Id}}</h3>
+			<h5 class="card-subtitle mb-2">Fecha: {{$citacion->SC_Citacion_FechaCitacion}}</h5>
+			<h6 class="card-text">Hora: {{$citacion->SC_Citacion_Hora}}</h6>
+			<h6 class="card-text">Lugar: {{$citacion->SC_Citacion_Lugar}}</h6>
+			<h6 class="card-text">Ciudad: {{$citacion->SC_Citacion_Ciudad}}</h6>
+			<h6 class="card-text">Centro: {{$citacion->SC_Citacion_Centro}}</h6>
+			<h6 class="card-text">N° Solicitud: {{$citacion->SC_Solicitud_FK}}</h6>
 			
 			<!-- Button trigger modal -->
 			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">

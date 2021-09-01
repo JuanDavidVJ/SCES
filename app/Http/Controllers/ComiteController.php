@@ -8,7 +8,7 @@ use App\Models\Falta;
 use App\Models\Usuario;
 use App\Models\ActoAdministrativoSanciones;
 use App\Models\Aprendiz;
-use App\Models\Evidencias;
+use App\Models\Citacion;
 use App\Models\Impugnacion;
 use App\Http\Requests\StoreComiteRequest;
 
@@ -22,13 +22,17 @@ class ComiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $comite=Comite::all();
-        return view('comite.index')->with('Comite', $comite);
-    }
+        $query = trim($request->get('search'));
 
+        if($request){
+            $comite = Comite::where('SC_Comite_DescripcionHechos', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('Comite.index', ['Comite' => $comite, 'search' => $query]);
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -36,11 +40,20 @@ class ComiteController extends Controller
      */
     public function create()
     {
-        //
-        $comite=Comite::all();
+        
+        //$comite=Comite::all();
         $falta=Falta::all();   
-        $usuario=Usuario::all();             
-        return view('comite.create')->with('Comite', $comite)->with('Falta',$falta)->with('Usuario',$usuario);
+        $usuario=Usuario::all();  
+        $citacion=Citacion::all();           
+           
+        return view('comite.create')
+        //->with('Comite', $comite)
+        ->with('Falta',$falta)
+        ->with('Usuario',$usuario)
+        ->with('Citacion', $citacion);
+
+
+        
     }
 
     /**
@@ -51,14 +64,25 @@ class ComiteController extends Controller
      */
     public function store(StoreComiteRequest $request)
     {
+        if($request->hasFile('SC_Evidencias')){
+            $file= $request->file('SC_Evidencias');
+            //cambiar nombre para no generar conflicto
+            $SC_Evidencias = time() . $file->getClientOriginalName();
+            //movemos el archivo
+            $file->move('archivos/evidenciasComite', $SC_Evidencias);
+
+        }
      
         $comite= new Comite();
         $comite->SC_Comite_DescripcionHechos=$request->SC_Comite_DescripcionHechos;
-        $comite->SC_Comite_DescripcionHecho=$request->SC_Comite_DescripcionHecho;
         $comite->SC_Comite_Testigos=$request->SC_Comite_Testigos;
         $comite->SC_Comite_Observacion=$request->SC_Comite_Observacion;
         $comite->SC_Usuarios_FK_ID=$request->SC_Usuarios_FK_ID;
         $comite->SC_Falta_FK_ID=$request->SC_Falta_FK_ID;
+        $comite->SC_Evidencias=$SC_Evidencias;
+        $comite->SC_Citacion_FK_ID=$request->SC_Citacion_FK_ID;
+        
+
         $comite->save();
         return redirect()->route('comite.index')->with('status', 'Comite creado');
 
@@ -87,8 +111,10 @@ class ComiteController extends Controller
     {
         $comite=Comite::find($id);
         $usuario=Usuario::all();
-        $falta=Falta::all();        
-        return view('comite.edit')->with('Comite',$comite)->with('Falta',$falta)->with('Usuario',$usuario);
+        $falta=Falta::all(); 
+        $citacion=Citacion::all();          
+        return view('comite.edit')->with('Comite',$comite)->with('Falta',$falta)->with('Usuario',$usuario) ->with('Citacion', $citacion);
+        
     }
 
     /**
@@ -98,15 +124,19 @@ class ComiteController extends Controller
      * @param  \App\Models\Comite  $comite
      * @return \Illuminate\Http\Responsee
      */
-    public function update(StoreComiteRequest $request, $id)
+    public function update(StoreComiteRequest $request,$id)
     {
         $comite=Comite::find($id);
-        $comite->SC_Comite_DescripcionHechos=$request->SC_Comite_DescripcionHechos;
-        $comite->SC_Comite_DescripcionHecho=$request->SC_Comite_DescripcionHecho;        
+        //$comite = new Comite();
+        $comite->SC_Comite_DescripcionHechos=$request->SC_Comite_DescripcionHechos;      
         $comite->SC_Comite_Testigos=$request->SC_Comite_Testigos;
         $comite->SC_Comite_Observacion=$request->SC_Comite_Observacion;
         $comite->SC_Usuarios_FK_ID=$request->SC_Usuarios_FK_ID;
-        $comite->SC_Falta_FK_ID=$request->SC_Falta_FK_ID;       
+        $comite->SC_Falta_FK_ID=$request->SC_Falta_FK_ID;    
+        $comite->SC_Evidencias=$request->SC_Evidencias;
+        $comite->SC_Falta_FK_ID=$request->SC_Falta_FK_ID;    
+        $comite->SC_Citacion_FK_ID=$request->SC_Citacion_FK_ID;
+       
         $comite->save();
         return redirect()->route('comite.index')->with('status','Comite actualizado');
     }
