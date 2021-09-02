@@ -30,7 +30,7 @@
                       </button>
                   </div>
                   <div class="modal-body">
-                      <span>La siguiente acción eliminará el comité: <br> Comité N°: {{$comite->SC_Comite_PK_ID}}</span>
+                      <span>La siguiente acción eliminará el plan de mejoramiento: <br> Plan de mejoramiento N°: {{$planm->SC_PlanMejoramiento_PK_ID}}</span>
                   </div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>

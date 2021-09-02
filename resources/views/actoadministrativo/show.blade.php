@@ -10,7 +10,7 @@
 					<h6 class="card-text">Descargos: {{$actoas->SC_ActoAdministrativoSanciones_PresentaDescargos}} </h6>
 				
 					<h6 class="card-text">Pruebas: 
-						<a href="{{asset('/archivos/actoadministrativo/'.$actoas->SC_ActoAdministrativoSanciones_Pruebas)}}" target="_blank">Ver</a></h6>
+						<a href="{{asset('/archivos/actoadministrativo/'.$actoas->SC_ActoAdministrativoSanciones_Pruebas)}}" target="_blank">Ver</h6>
 
 					<h6 class="card-text">grado de responsabilidad: {{$actoas->SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor}}</h6>
 					<h6 class="card-text">Numero de llamados de atencion: {{$actoas->SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion}}</h6>
