@@ -14,7 +14,7 @@
 	    @enderror
 	  </div>
 	  <div class="form-group">
-	   <span class="input-group-text" for="SC_Ficha_NumeroFicha">Número del programa de formación</span>
+	   <span class="input-group-text" for="SC_Ficha_NumeroFicha">Número de ficha</span>
 	    <input type="number" class="form-control" id="SC_Ficha_NumeroFicha" name="SC_Ficha_NumeroFicha" value="{{ old('SC_Ficha_NumeroFicha') }}">
 	    @error('SC_Ficha_NumeroFicha')
 		<small style="color: red;">{{ $message }}</small>
@@ -28,7 +28,7 @@
 	    @enderror
 	  </div>
 	  <div class="form-group">
-	   <span class="input-group-text" for="SC_Ficha_FechaFin">Fecha de Finalización</span>
+	   <span class="input-group-text" for="SC_Ficha_FechaFin">Fecha de Finalización del programa</span>
 	    <input type="date" class="form-control" id="SC_Ficha_FechaFin" name="SC_Ficha_FechaFin" value="{{ old('SC_Ficha_FechaFin') }}">
 	    @error('SC_Ficha_FechaFin')
 		<small style="color: red;">{{ $message }}</small>
