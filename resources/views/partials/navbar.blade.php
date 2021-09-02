@@ -50,20 +50,6 @@
                 </ul>
             </li>
             <li>
-                <a href="#administrativo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-toolbox"></i>
-                    Acto Administrativo
-                </a>
-                <ul class="collapse list-unstyled" id="administrativo">
-                    <li>
-                        <a href="/actoadministrativo/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/actoadministrativo">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
                 <a href="#Actacomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-hourglass-start"></i>
                     Acta Comite
@@ -74,6 +60,20 @@
                     </li>
                     <li>
                         <a href="/ActaComite">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#administrativo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-toolbox"></i>
+                    Acto Administrativo
+                </a>
+                <ul class="collapse list-unstyled" id="administrativo">
+                    <li>
+                        <a href="/actoadministrativo/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/actoadministrativo">Ver </a>
                     </li>
                 </ul>
             </li>

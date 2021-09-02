@@ -68,7 +68,7 @@
 				<small>{{$message}}</small>
 			@enderror
 		</div>
-		<button type="submit" class="btn btn-primary">Crear</button>
+		<button type="submit" class="btn btn-success">Crear Citación</button>
 	</form>
 </div>
 @endsection 
