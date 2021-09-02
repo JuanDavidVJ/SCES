@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ActaComite;
 use App\Models\Citacion;
-use App\Models\Comite;
+use App\Models\SolicitarComite;
 use App\Http\Requests\StoreCitacionRequest;
 
 class CitacionController extends Controller
@@ -36,9 +35,8 @@ class CitacionController extends Controller
     {
         //
         $citacion=Citacion::all();
-        $actacomite=ActaComite::all();
-        $comite=Comite::all();
-        return view('Citacion.create')->with('Citacion', $citacion)->with('ActaComite',$actacomite)->with('Comite',$comite);
+        $solicitud=SolicitarComite::all();
+        return view('Citacion.create')->with('Citacion', $citacion)->with('SolicitarComite',$solicitud);
     }
 
     /**
@@ -51,13 +49,12 @@ class CitacionController extends Controller
     {
      
         $citacion= new Citacion();
-        $citacion->SC_ActaComite_FK_ID=$request->SC_ActaComite_FK_ID;
         $citacion->SC_Citacion_FechaCitacion=$request->SC_Citacion_FechaCitacion;
         $citacion->SC_Citacion_Hora=$request->SC_Citacion_Hora;
         $citacion->SC_Citacion_Lugar=$request->SC_Citacion_Lugar;
         $citacion->SC_Citacion_Ciudad=$request->SC_Citacion_Ciudad;
         $citacion->SC_Citacion_Centro=$request->SC_Citacion_Centro;
-        $citacion->SC_Comite_FK_ID=$request->SC_Comite_FK_ID;
+        $citacion->SC_Solicitud_FK=$request->SC_Solicitud_FK;
         $citacion->save();
         return redirect()->route('Citacion.index')->with('status', 'Citacion creada');
 
@@ -72,8 +69,9 @@ class CitacionController extends Controller
     public function show($id)
     {
         $citacion=Citacion::find($id);
+        $solicitud=SolicitarComite::all();
         return view('Citacion.show')
-        ->with('citacion', $citacion);
+        ->with('citacion', $citacion)->with('SolicitarComite',$solicitud);
     }
 
     /**
@@ -85,9 +83,8 @@ class CitacionController extends Controller
     public function edit($id)
     {
         $citacion=Citacion::find($id);
-        $actacomite=Actacomite::all();
-        $comite=Comite::all();
-        return view('Citacion.edit')->with('citacion',$citacion)->with('actaComite',$actacomite)->with('comite',$comite);
+        $solicitud=SolicitarComite::all();
+        return view('Citacion.edit')->with('citacion', $citacion)->with('SolicitarComite',$solicitud);
     }
 
     /**
@@ -100,13 +97,12 @@ class CitacionController extends Controller
     public function update(StoreCitacionRequest $request, $id)
     {
         $citacion=Citacion::find($id);
-        $citacion->SC_ActaComite_FK_ID=$request->SC_ActaComite_FK_ID;
-        $citacion->SC_Citacion_FechaCitacion=$request->SC_Citacion_FechaCitacion;        
+        $citacion->SC_Citacion_FechaCitacion=$request->SC_Citacion_FechaCitacion;
         $citacion->SC_Citacion_Hora=$request->SC_Citacion_Hora;
         $citacion->SC_Citacion_Lugar=$request->SC_Citacion_Lugar;
         $citacion->SC_Citacion_Ciudad=$request->SC_Citacion_Ciudad;
         $citacion->SC_Citacion_Centro=$request->SC_Citacion_Centro;
-        $citacion->SC_Comite_FK_ID=$request->SC_Comite_FK_ID;        
+        $citacion->SC_Solicitud_FK=$request->SC_Solicitud_FK;
         $citacion->save();
         return redirect()->route('Citacion.index')->with('status','Citacion actualizada');
     }

@@ -6,18 +6,6 @@
 	<form action="/Citacion" method="post" enctype="multipart/form-data">
 		@csrf
 		<div class="form-group">
-			<span class="input-group-text" for="SC_ActaComite_FK_ID">Acta Comite</span>
-			<select name="SC_ActaComite_FK_ID" id="SC_ActaComite_FK_ID" class="form-control" style="font-size: 0.9em;">
-				@foreach($ActaComite as $ActaComite)
-				<option value="{{$ActaComite->SC_ActaComite_PK_ID}}">{{$ActaComite->SC_ActaComite_Codigo}}</option>
-				@endforeach
-			</select>
-			@error('SC_ActaComite_FK_ID')
-				<small>{{$message}}</small>
-			@enderror
-		</div>
-
-		<div class="form-group">
 			<span class="input-group-text" for="SC_Citacion_FechaCitacion">Fecha Citacion</span>
 			<input type="date" name="SC_Citacion_FechaCitacion" id="SC_Citacion_FechaCitacion" class="form-control" value="{{old('SC_Citacion_FechaCitacion')}}">
 			@error('SC_Citacion_FechaCitacion')
@@ -58,16 +46,18 @@
 		</div>
 
 		<div class="form-group">
-			<span class="input-group-text" for="SC_Comite_FK_ID">Comite</span>
-			<select name="SC_Comite_FK_ID" id="SC_Comite_FK_ID" class="form-control" style="font-size: 0.9em;">
-				@foreach($Comite as $Comite)
-				<option value="{{$Comite->SC_Comite_PK_ID}}">{{$Comite->SC_Comite_DescripcionHechos}}</option>
+			<span class="input-group-text" for="SC_Solicitud_FK">Solicitud</span>
+			<select name="SC_Solicitud_FK" id="SC_Solicitud_FK" class="form-control">
+				<option selected>Seleccione una solicitud</option>
+				@foreach($SolicitarComite as $solicitud)
+				<option value="{{$solicitud->	SC_SolicitarComite_ID}}">{{$solicitud-> SC_SolicitarComite_ID}}</option>
 				@endforeach
 			</select>
-			@error('SC_Comite_FK_ID')
+			@error('SC_Solicitud_FK')
 				<small>{{$message}}</small>
 			@enderror
 		</div>
+
 		<button type="submit" class="btn btn-success">Crear Citación</button>
 	</form>
 </div>
