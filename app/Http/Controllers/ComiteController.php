@@ -8,7 +8,7 @@ use App\Models\Falta;
 use App\Models\Usuario;
 use App\Models\ActoAdministrativoSanciones;
 use App\Models\Aprendiz;
-//use App\Models\Evidencias;
+use App\Models\Citacion;
 use App\Models\Impugnacion;
 use App\Http\Requests\StoreComiteRequest;
 
@@ -44,13 +44,13 @@ class ComiteController extends Controller
         //$comite=Comite::all();
         $falta=Falta::all();   
         $usuario=Usuario::all();  
-       // $evidencia=Evidencias::all();           
+        $citacion=Citacion::all();           
            
         return view('comite.create')
         //->with('Comite', $comite)
         ->with('Falta',$falta)
-        ->with('Usuario',$usuario);
-        //->with('Evidencias', $evidencia);
+        ->with('Usuario',$usuario)
+        ->with('Citacion', $citacion);
 
 
         
@@ -79,9 +79,9 @@ class ComiteController extends Controller
         $comite->SC_Comite_Observacion=$request->SC_Comite_Observacion;
         $comite->SC_Usuarios_FK_ID=$request->SC_Usuarios_FK_ID;
         $comite->SC_Falta_FK_ID=$request->SC_Falta_FK_ID;
-        $comite->SC_Evidencias=$request->SC_Evidencias;
-
-       // $comite->SC_Evidencias_FK_ID=$request->SC_Evidencias_FK_ID;
+        $comite->SC_Evidencias=$SC_Evidencias;
+        $comite->SC_Citacion_FK_ID=$request->SC_Citacion_FK_ID;
+        
 
         $comite->save();
         return redirect()->route('comite.index')->with('status', 'Comite creado');
@@ -112,8 +112,8 @@ class ComiteController extends Controller
         $comite=Comite::find($id);
         $usuario=Usuario::all();
         $falta=Falta::all(); 
-        //$evidencia=Evidencias::all();          
-        return view('comite.edit')->with('Comite',$comite)->with('Falta',$falta)->with('Usuario',$usuario) /*->with('Evidencias', $evidencia)*/;
+        $citacion=Citacion::all();          
+        return view('comite.edit')->with('Comite',$comite)->with('Falta',$falta)->with('Usuario',$usuario) ->with('Citacion', $citacion);
         
     }
 
@@ -134,8 +134,9 @@ class ComiteController extends Controller
         $comite->SC_Usuarios_FK_ID=$request->SC_Usuarios_FK_ID;
         $comite->SC_Falta_FK_ID=$request->SC_Falta_FK_ID;    
         $comite->SC_Evidencias=$request->SC_Evidencias;
-        
-   
+        $comite->SC_Falta_FK_ID=$request->SC_Falta_FK_ID;    
+        $comite->SC_Citacion_FK_ID=$request->SC_Citacion_FK_ID;
+       
         $comite->save();
         return redirect()->route('comite.index')->with('status','Comite actualizado');
     }

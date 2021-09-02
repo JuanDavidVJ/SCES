@@ -28,7 +28,8 @@ class StoreComiteRequest extends FormRequest
             'SC_Comite_Testigos'=>'required',
             'SC_Comite_Observacion'=> 'required',
             'SC_Usuarios_FK_ID'=> 'required', 
-            'SC_Falta_FK_ID'=> 'required'
+            'SC_Falta_FK_ID'=> 'required',
+            'SC_Citacion_FK_ID' =>'required'
            
         ];
     }
@@ -40,7 +41,8 @@ class StoreComiteRequest extends FormRequest
             'SC_Comite_Testigos.required' => "Los testigos son obligatorios",
             'SC_Comite_Observacion.required' => "La observacion es obligatoria",
             'SC_Usuarios_FK_ID.required' => "El usuario es obligatorio",
-            'SC_Falta_FK_ID.required' => "La falta es obligatoria"
+            'SC_Falta_FK_ID.required' => "La falta es obligatoria",
+            'SC_Citacion_FK_ID' =>"La Citacion es obligatoria"
         ];
     }
 }

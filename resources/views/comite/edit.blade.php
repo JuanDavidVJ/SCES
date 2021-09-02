@@ -30,6 +30,13 @@
 				<small style="color: red">{{$message}}</small>
 			@enderror
 		</div>
+		<div class="form-group">
+         <span class="input-group-text" for="SC_Evidencias">Evidencias</span>
+            <input type="file" name="SC_Evidencias" id="SC_Evidencias" class="form-control" value="{{ $Comite->SC_Evidencias}}">
+            @error('SC_Evidencias')
+            <small style="color: red;">{{ $message }}</small>
+            @enderror
+        </div>
 
 		<div class="form-group">
 			<span class="input-group-text"for="SC_Usuarios_FK_ID">Usuario</span>
@@ -54,14 +61,18 @@
 				<small style="color: red">{{$message}}</small>
 			@enderror
 		</div>
-		<div class="form-group">
-         <span class="input-group-text" for="SC_Evidencias">Evidencias</span>
-            <input type="file" name="SC_Evidencias" id="SC_Evidencias" class="form-control" value="{{ $Comite->SC_Evidencias}}">
-            @error('SC_Evidencias')
-            <small style="color: red;">{{ $message }}</small>
-            @enderror
-        </div>
 		
+		<div class="form-group">
+			<span class="input-group-text"for="SC_Citacion_FK_ID">Citación</span>
+			<select name="SC_Citacion_FK_ID" id="SC_Citacion_FK_ID" class="form-control" style="font-size: 0.9em;">
+				@foreach($Citacion as $citacion)
+				<option value="{{$citacion->SC_CitacionPK_Id}}" @if($citacion->SC_CitacionPK_Id == $Comite->SC_Citacion_FK_ID) selected @endif>Id {{$citacion->SC_CitacionPK_Id}} / {{$citacion->SC_Citacion_FechaCitacion}}</option>
+				@endforeach
+			</select>
+			@error('SC_Falta_FK_ID')
+				<small style="color: red">{{$message}}</small>
+			@enderror
+		</div>
 		
 		
 		
