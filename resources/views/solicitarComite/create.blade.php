@@ -4,7 +4,7 @@
 <div class="container">
 
 	<h1>Crear Solicitud</h1>
-	<form action="/solicitar" method="post" enctype="multipart/form-data">
+	<form action="/solicitarComite" method="post" enctype="multipart/form-data">
 		@csrf
 	  <div class="form-group">
 	    <span class="input-group-text" for="Fecha">Fecha</span>

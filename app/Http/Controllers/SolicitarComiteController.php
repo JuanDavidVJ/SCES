@@ -65,7 +65,7 @@ class SolicitarComiteController extends Controller
         $solicitar->SC_SolicitarComite_Descripcion = $request->Descripcion;
         $solicitar->SC_SolicitarComite_Testigos = $request->Testigos;
         $solicitar->SC_SolicitarComite_Observaciones = $request->Observaciones;
-        $solicitar->SC_SolicitarComite_Anexo = $Anexo;
+        $solicitar->SC_SolicitarComite_Anexo = $request->Anexo;
         $solicitar->SC_Falta_FK = $request->Falta;
         $solicitar->SC_Usuario_FK = $request->Usuario;
         $solicitar->SC_Usuario_FK = $request->Usuario;
