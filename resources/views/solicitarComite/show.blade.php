@@ -5,22 +5,27 @@
         <div class="card text-center" style="width: 40rem;">
           <div class="card-body">
           
-            <h3 class="card-title" id="h3show">{{ $solicitar->SC_SolicitarComite_Descripcion }}</h3>
+            <h3 class="card-title" id="h3show">Solicitud N° {{$solicitar->SC_SolicitarComite_ID }}</h3>
         </div>
             <table class="table table-responsive table-hover " id="tableshow">
     <tbody>
 
         <tr>
+           <th class="thshow">Responsable</th>
+            <td>{{ $solicitar->SC_SolicitarComite_Responsable }}</td>
+        </tr>
+        <tr>
            <th class="thshow">Fecha</th>
             <td>{{ $solicitar->SC_SolicitarComite_Fecha }}</td>
         </tr>
         <tr>
-           <th class="thshow">Testigos</th>
-            <td>{{ $solicitar->SC_SolicitarComite_Testigos }}</td>
+        <tr>
+           <th class="thshow">Descripción</th>
+            <td>{{ $solicitar->SC_SolicitarComite_Descripcion }}</td>
         </tr>
         <tr>
-           <th class="thshow">Aprendiz</th>
-            <td>{{ $solicitar->aprendiz->SC_Aprendiz_Documento }}</td>
+           <th class="thshow">Testigos</th>
+            <td>{{ $solicitar->SC_SolicitarComite_Testigos }}</td>
         </tr>
         <tr>
            <th class="thshow">Observaciones</th>
@@ -31,16 +36,24 @@
             <td id="linkshow"><a href="assets('/archivos/solicitarComite{{ $solicitar->SC_SolicitarComite_Anexo }}')" target="_blank">Ver</a></td>
         </tr>
         <tr>
-           <th class="thshow">Falta</th>
-            <td> {{ $solicitar->falta->SC_Falta_ApoyoNoSuperado  }}</td>
+           <th class="thshow">Aprendiz</th>
+            <td>{{ $solicitar->aprendiz->SC_Aprendiz_Nombre }}{{ $solicitar->aprendiz->SC_Aprendiz_Apellidos }}</td>
         </tr>
         <tr>
-           <th class="thshow">Gestor</th>
-            <td> {{ $solicitar->usuario->SC_Usuarios_Documento }}</td>
+           <th class="thshow">Gestor de grupo</th>
+            <td> {{ $solicitar->usuario->SC_Usuarios_Nombre}}</td>
         </tr>
         <tr>
-           <th class="thshow">Instructor</th>
-            <td>{{ $solicitar->SC_Usuario_FK }}</td>
+           <th class="thshow">Tipo de falta</th>
+            <td> {{ $solicitar->tipofalta->SC_TipoFalta_Descripcion }}</td>
+        </tr>
+        <tr>
+           <th class="thshow">Gravedad de la falta</th>
+            <td> {{ $solicitar->gravedad->SC_Gravedad_Nombre }}</td>
+        </tr>
+        <tr>
+           <th class="thshow">Reglamento</th>
+            <td>{{ $solicitar->reglamento->	SC_Reglamento_Numeral }}</td>
         </tr>
         
     </tbody>

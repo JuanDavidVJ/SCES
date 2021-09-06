@@ -12,6 +12,7 @@ class TipoPlan extends Model
     protected $table ="sc_tipoplan";
     protected $primaryKey = "SC_TipoPlan_ID";
 
+    //la relacion con el acto administrativo
     public function ActoAdministrativo(){
         return $this->hasMany(ActoAdministrativo::class, 'SC_Notifacion_ID', 'SC_TipoPlan_ID');
     }

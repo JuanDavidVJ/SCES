@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSolicitarComiteRequest;
 use Illuminate\Http\Request;
 use App\Models\SolicitarComite;
-use App\Models\Falta;
+use App\Models\TipoFalta;
 use App\Models\Usuario;
 use App\Models\Aprendiz;
+use App\Models\Gravedad;
+use App\Models\Reglamento;
 
 class SolicitarComiteController extends Controller
 {
@@ -35,12 +38,16 @@ class SolicitarComiteController extends Controller
     public function create()
     {
         $aprendices = Aprendiz::all();
-        $faltas = Falta::all();
+        $tipofaltas = TipoFalta::all();
         $usuarios = Usuario::all();
+        $gravedad = Gravedad::all();
+        $reglamento = Reglamento::all();
         return view('solicitarComite.create')
                     ->with('aprendices', $aprendices)
-                    ->with('faltas', $faltas)
-                    ->with('usuarios', $usuarios);
+                    ->with('tipofaltas', $tipofaltas)
+                    ->with('usuarios', $usuarios)
+                    ->with('gravedad', $gravedad)
+                    ->with('reglamento', $reglamento);
     }
 
     /**
@@ -49,27 +56,29 @@ class SolicitarComiteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSolicitarComiteRequest $request)
     {
         if($request->hasFile('Anexo')){
             $file= $request->file('Anexo');
             //cambiar nombre para no generar conflicto
             $Anexo = time() . $file->getClientOriginalName();
             //movemos el archivo
-            $file->move('Solicitudes/solicitarComite', $Anexo);
+            $file->move('archivos/solicitarComite', $Anexo);
 
         }
 
         $solicitar = new SolicitarComite();
+        $solicitar->SC_SolicitarComite_Responsable = $request->Responsable;
         $solicitar->SC_SolicitarComite_Fecha = $request->Fecha;
         $solicitar->SC_SolicitarComite_Descripcion = $request->Descripcion;
         $solicitar->SC_SolicitarComite_Testigos = $request->Testigos;
         $solicitar->SC_SolicitarComite_Observaciones = $request->Observaciones;
         $solicitar->SC_SolicitarComite_Anexo = $request->Anexo;
-        $solicitar->SC_Falta_FK = $request->Falta;
-        $solicitar->SC_Usuario_FK = $request->Usuario;
+        $solicitar->SC_Falta_FK = $request->TipoFalta;
         $solicitar->SC_Usuario_FK = $request->Usuario;
         $solicitar->SC_Aprendiz_FK = $request->Aprendiz;
+        $solicitar->SC_Gravedad_FK = $request->Gravedad;
+        $solicitar->SC_Reglamento_FK = $request->Reglamento;
         $solicitar->save();
         return redirect()->route('solicitarComite.index')->with('status', 'Solicitud Creada');
     }
@@ -83,8 +92,18 @@ class SolicitarComiteController extends Controller
     public function show($id)
     {
         $solicitar = SolicitarComite::find($id);
+        $aprendices = Aprendiz::all();
+        $tipofaltas = TipoFalta::all();
+        $usuarios = Usuario::all();
+        $gravedad = Gravedad::all();
+        $reglamento = Reglamento::all();
         return view('solicitarComite.show')
-                ->with('solicitar', $solicitar);
+                ->with('solicitar', $solicitar)
+                ->with('aprendices', $aprendices)
+                ->with('tipofaltas', $tipofaltas)
+                ->with('usuarios', $usuarios)
+                ->with('gravedad', $gravedad)
+                ->with('reglamento', $reglamento);
     }
 
     /**
@@ -97,13 +116,17 @@ class SolicitarComiteController extends Controller
     {
         $solicitar = SolicitarComite::find($id);
         $aprendices = Aprendiz::all();
-        $faltas = Falta::all();
+        $tipofaltas = TipoFalta::all();
         $usuarios = Usuario::all();
+        $gravedad = Gravedad::all();
+        $reglamento = Reglamento::all();
         return view('solicitarComite.edit')
-                ->with('solicitar', $solicitar)
-                ->with('aprendices', $aprendices)
-                ->with('faltas', $faltas)
-                ->with('usuarios', $usuarios);
+                    ->with('solicitar', $solicitar)
+                    ->with('aprendices', $aprendices)
+                    ->with('tipofaltas', $tipofaltas)
+                    ->with('usuarios', $usuarios)
+                    ->with('gravedad', $gravedad)
+                    ->with('reglamento', $reglamento);
     }
 
     /**
@@ -116,18 +139,20 @@ class SolicitarComiteController extends Controller
     public function update(Request $request, $id)
     {
         $solicitar = SolicitarComite::Find($id);
+        $solicitar->SC_SolicitarComite_Responsable = $request->Responsable;
         $solicitar->SC_SolicitarComite_Fecha = $request->Fecha;
         $solicitar->SC_SolicitarComite_Descripcion = $request->Descripcion;
         $solicitar->SC_SolicitarComite_Testigos = $request->Testigos;
         $solicitar->SC_SolicitarComite_Observaciones = $request->Observaciones;
-        $solicitar->SC_Falta_FK = $request->Falta;
-        $solicitar->SC_Usuario_FK = $request->Usuario;
+        $solicitar->SC_Falta_FK = $request->TipoFalta;
         $solicitar->SC_Usuario_FK = $request->Usuario;
         $solicitar->SC_Aprendiz_FK = $request->Aprendiz;
+        $solicitar->SC_Gravedad_FK = $request->Gravedad;
+        $solicitar->SC_Reglamento_FK = $request->Reglamento;
         if ($request->hasFile('Anexo')) {
             $file = $request->file('Anexo');
             $Anexo = $solicitar->Anexo;
-            $file->move("Solicitudes/solicitarComite", $Anexo);
+            $file->move("archivos/solicitarComite", $Anexo);
         }
         $solicitar->save();
         return redirect()->route('solicitarComite.index')->with('status', 'Solicitud Actualizada');
