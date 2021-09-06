@@ -24,10 +24,12 @@ class StoreEstimuloRequest extends FormRequest
     public function rules()
     {
         return [
-            'SC_Estimulos_Reconocimiento' => 'required',
-            'SC_Estimulos_DescripcionEstimulo' => 'required',
+            'SC_Estimulos_Reporta' => 'required',
+            'SC_Estimulos_Razon' => 'required',
+            'SC_Estimulos_Detalles' => 'required',
             'SC_Estimulos_Fecha' => 'required',
             'SC_Aprendiz_FK_ID'=> 'required',
+            'SC_Ficha_FK_ID'=> 'required',
             'SC_TipoEstimulos_FK_ID' => 'required'
         ];
     }
@@ -35,10 +37,12 @@ class StoreEstimuloRequest extends FormRequest
     public function messages()
     {
         return[
-            'SC_Estimulos_Reconocimiento.required' => 'Este campo es obligatorio.',
-            'SC_Estimulos_DescripcionEstimulo.required' => 'Este campo es obligatorio.',
+            'SC_Estimulos_Reporta.required' => 'Este campo es obligatorio.',
+            'SC_Estimulos_Razon.required' => 'Este campo es obligatorio.',
+            'SC_Estimulos_Detalles.required' => 'Este campo es obligatorio.',
             'SC_Estimulos_Fecha.required' => 'La fecha es requerida.',
             'SC_Aprendiz_FK_ID.required' => 'Este campo es obligatorio.',
+            'SC_Ficha_FK_ID.required' => 'Este campo es obligatorio.',
             'SC_TipoEstimulos_FK_ID.required' => 'Este campo es obligatorio.'
         ];
     }

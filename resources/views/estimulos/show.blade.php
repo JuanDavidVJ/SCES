@@ -13,13 +13,21 @@
             					<th class="thshow">Aprendiz</th>
             					<td>{{$estimulos->aprendiz->SC_Aprendiz_Nombres}} {{$estimulos->aprendiz->SC_Aprendiz_Apellidos}} </td>
         				    </tr>
-          					<tr>
-            					<th class="thshow">Estimulos Reconocidos</th>
-            					<td>{{$estimulos->SC_Estimulos_Reconocimiento}}</td>
+							<tr>
+            					<th class="thshow">Ficha</th>
+            					<td>{{$estimulos->ficha->SC_Ficha_NumeroFicha}}</td>
         				    </tr>
 							<tr>
-            					<th class="thshow">Descripción</th>
-            					<td>{{$estimulos->SC_Estimulos_DescripcionEstimulo}}</td>
+            					<th class="thshow">Reporta</th>
+            					<td>{{$estimulos->SC_Estimulos_Reporta}}</td>
+        				    </tr>
+          					<tr>
+            					<th class="thshow">Razón</th>
+            					<td>{{$estimulos->SC_Estimulos_Razon}}</td>
+        				    </tr>
+							<tr>
+            					<th class="thshow">Detalles</th>
+            					<td>{{$estimulos->SC_Estimulos_Detalles}}</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Fecha</th>
@@ -27,7 +35,7 @@
         				    </tr>
 							<tr>
             					<th class="thshow">Tipo</th>
-            					<td>{{$estimulos->SC_TipoEstimulos_FK_ID}}</td>
+            					<td>{{$estimulos->tipoestimulos->SC_TipoEstimulos_Descripcion}}</td>
         				    </tr>
 							</tbody>
 
@@ -49,7 +57,7 @@
 							</button>
 						</div>
 						<div class="modal-body">
-							<span>La siguiente acción eliminará el siguiente estimulo: <br> {{$estimulos->SC_Estimulos_Reconocimiento}}</span>
+							<span>La siguiente acción eliminará el  estimulo {{$estimulos->SC_Estimulos_PK_ID}} del aprendiz: <br> {{$estimulos->aprendiz->SC_Aprendiz_Nombres}} {{$estimulos->aprendiz->SC_Aprendiz_Apellidos}}</span>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>

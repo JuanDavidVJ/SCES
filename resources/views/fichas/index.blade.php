@@ -21,12 +21,12 @@
 			<tr>
 				<th scope="col">Número de ficha</th>
 				<th scope="col">Nombre</th>
-				<th scope="col">Opciones</th>
+				<th scope="col">Acción</th>
 			</tr>
 			@foreach($fichas as $ficha)
-			<tr class="p-3">
-					<td class="text text-center">{{ $ficha->SC_Ficha_NumeroFicha }}</td>
-					<td class="p-3">{{ $ficha->SC_Ficha_NombreProgramaFormacion }}</td>
+			<tr>
+					<td>{{ $ficha->SC_Ficha_NumeroFicha }}</td>
+					<td style="width:50%">{{ $ficha->SC_Ficha_NombreProgramaFormacion }}</td>
 					<td>
 						<a href="/fichas/{{ $ficha->SC_Ficha_PK_ID }}" class="btn btn-outline-default text-center p-0"><i class="fas fa-eye"></i></a>
 					</td>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ActoAdministrativo;
-use App\Models\Comite;
+use App\Models\TipoPlan;
+use App\Models\ActaComite;
+use App\Models\TipoNotificacion;
 use App\Http\Requests\StoreAdministrativoRequest;
 
 class ActoAdministrativoSancionesController extends Controller
@@ -19,7 +21,7 @@ class ActoAdministrativoSancionesController extends Controller
         $query = trim($request->get('search'));
 
         if($request){
-            $actoas = ActoAdministrativo::where('SC_ActoAdministrativoSanciones_DescripcionHechos', 'LIKE', '%' . $query . '%')
+            $actoas = ActoAdministrativo::where('SC_ActaComite_FK', 'LIKE', '%' . $query . '%')
                           ->get();
 
                 return view('actoadministrativo.index', ['actoas' => $actoas, 'search' => $query]);
@@ -36,8 +38,10 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function create()
     {
-        $comite = Comite::all();
-        return view('actoadministrativo.create')->with('comite', $comite);
+        $ActaC = ActaComite::all();
+        $TipoN = TipoNotificacion::all();
+        $TipoP = TipoPlan::all();
+        return view('actoadministrativo.create')->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP);
     }
 
     /**
@@ -48,32 +52,34 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function store(StoreAdministrativoRequest $request)
     {
-        if($request->hasFile('SC_ActoAdministrativoSanciones_Pruebas')){
-            $file= $request->file('SC_ActoAdministrativoSanciones_Pruebas');
+        if($request->hasFile('SC_Notificacion_Plan')){
+            $file= $request->file('SC_Notificacion_Plan');
             //cambiar nombre para no generar conflicto
-            $SC_ActoAdministrativoSanciones_Pruebas = time() . $file->getClientOriginalName();
+            $SC_Notificacion_Plan = time() . $file->getClientOriginalName();
             //movemos el archivo
-            $file->move('archivos/actoadministrativo', $SC_ActoAdministrativoSanciones_Pruebas);
+            $file->move('archivos/actoadministrativo', $SC_Notificacion_Plan);
 
         }
 
         $actoas = new ActoAdministrativo();
-         $actoas->SC_ActoAdministrativoSanciones_DescripcionHechos = $request->SC_ActoAdministrativoSanciones_DescripcionHechos;
+         $actoas->SC_Notificacion_Sugerencia = $request->SC_Notificacion_Sugerencia;
 
-         $actoas->SC_ActoAdministrativoSanciones_PresentaDescargos = $request->SC_ActoAdministrativoSanciones_PresentaDescargos;
+         $actoas->SC_Notificacion_TipoPlan = $request->SC_Notificacion_TipoPlan;
 
-         $actoas->SC_ActoAdministrativoSanciones_Pruebas = $SC_ActoAdministrativoSanciones_Pruebas;
+         $actoas->SC_Notificacion_Plan = $SC_Notificacion_Plan;
 
-         $actoas->SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor = $request->SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor;
+         $actoas->SC_Notificacion_Instructor = $request->SC_Notificacion_Instructor;
 
-         $actoas->SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion  = $request->SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion;
+         $actoas->SC_Notificacion_FechaInicial = $request->SC_Notificacion_FechaInicial;
 
-         $actoas->SC_ActoAdministrativoSanciones_Fecha = $request->SC_ActoAdministrativoSanciones_Fecha;
+         $actoas->SC_Notificacion_FechaLimite = $request->SC_Notificacion_FechaLimite;
 
-         $actoas->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
+         $actoas->SC_ActaComite_FK = $request->SC_ActaComite_FK;
+
+         $actoas->SC_TipoNotificacion_FK = $request->SC_TipoNotificacion_FK;
 
          $actoas->save();
-         return redirect()->route('actoadministrativo.index')->with('status', 'Acto Administrativo Sanciones Creado');
+         return redirect()->route('actoadministrativo.index')->with('status', 'Notificacion Creada');
     }
 
     /**
@@ -85,8 +91,12 @@ class ActoAdministrativoSancionesController extends Controller
     public function show($id)
     {
         $actoas = ActoAdministrativo::find($id);
-        $comite = Comite::all();
-        return view('actoadministrativo.show')->with('actoas', $actoas)->with('comite', $comite);
+        $ActaC = ActaComite::all();
+        $TipoN = TipoNotificacion::all();
+        $TipoP = TipoPlan::all();
+        return view('actoadministrativo.show')->with('actoas', $actoas)->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP);
+
+
     }
 
     /**
@@ -98,8 +108,10 @@ class ActoAdministrativoSancionesController extends Controller
     public function edit($id)
     {
         $actoas = ActoAdministrativo::find($id);
-        $comite = Comite::all();
-        return view('actoadministrativo.edit')->with('actoas', $actoas)->with('comite', $comite);
+        $ActaC = ActaComite::all();
+        $TipoN = TipoNotificacion::all();
+        $TipoP = TipoPlan::all();
+        return view('actoadministrativo.edit')->with('actoas', $actoas)->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP);
     }
 
     /**
@@ -113,28 +125,33 @@ class ActoAdministrativoSancionesController extends Controller
     {
 
         $actoas = ActoAdministrativo::find($id);
-         $actoas->SC_ActoAdministrativoSanciones_DescripcionHechos = $request->SC_ActoAdministrativoSanciones_DescripcionHechos;
 
-         $actoas->SC_ActoAdministrativoSanciones_PresentaDescargos = $request->SC_ActoAdministrativoSanciones_PresentaDescargos;
 
-         if($request->hasFile('SC_ActoAdministrativoSanciones_Pruebas')){
-            $file= $request->file('SC_ActoAdministrativoSanciones_Pruebas');
+         if($request->hasFile('SC_Notificacion_Plan')){
+            $file= $request->file('SC_Notificacion_Plan');
             //cambiar nombre para no generar conflicto
-            $SC_ActoAdministrativoSanciones_Pruebas=$actoas->SC_ActoAdministrativoSanciones_Pruebas;
+            $SC_Notificacion_Plan=$actoas->SC_Notificacion_Plan;
             //movemos el archivo
-            $file->move('archivos/actoadministrativo', $SC_ActoAdministrativoSanciones_Pruebas);
+            $file->move('archivos/actoadministrativo', $SC_Notificacion_Plan);
 
         }
-         $actoas->SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor = $request->SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor;
+        $actoas->SC_Notificacion_Sugerencia = $request->SC_Notificacion_Sugerencia;
 
-         $actoas->SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion  = $request->SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion;
+         $actoas->SC_Notificacion_TipoPlan = $request->SC_Notificacion_TipoPlan;
 
-         $actoas->SC_ActoAdministrativoSanciones_Fecha = $request->SC_ActoAdministrativoSanciones_Fecha;
+         $actoas->SC_Notificacion_Instructor = $request->SC_Notificacion_Instructor;
 
-         $actoas->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
+         $actoas->SC_Notificacion_FechaInicial = $request->SC_Notificacion_FechaInicial;
+
+         $actoas->SC_Notificacion_FechaLimite = $request->SC_Notificacion_FechaLimite;
+
+         $actoas->SC_ActaComite_FK = $request->SC_ActaComite_FK;
+
+         $actoas->SC_TipoNotificacion_FK = $request->SC_TipoNotificacion_FK;
+         
 
          $actoas->save();
-         return redirect()->route('actoadministrativo.index')->with('status', 'Acto Administrativo Sanciones Actualizado');
+         return redirect()->route('actoadministrativo.index')->with('status', 'Notificacion Actualizada');
     }
 
     /**
@@ -147,6 +164,6 @@ class ActoAdministrativoSancionesController extends Controller
     {
         $actoas = ActoAdministrativo::find($id);
         $actoas->delete();
-        return redirect()->route('actoadministrativo.index')->with('status', 'Acto Administrativo eliminado');
+        return redirect()->route('actoadministrativo.index')->with('status', 'la notificacion se ha eliminado');
     }
 }
