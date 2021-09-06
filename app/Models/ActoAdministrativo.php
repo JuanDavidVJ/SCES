@@ -11,8 +11,8 @@ class ActoAdministrativo extends Model
     use HasFactory;
     protected $table ="sc_notificaciones";
     protected $primaryKey = "SC_Notificacion_ID";
-}
-// conection whit tipo plan
+
+    // conection whit tipo plan
     public function TipoPlan(){
         return $this->belongsTo(TipoPlan::class, 'SC_Notifiacion_TipoPlan', 'SC_TipoPlan_ID');
     }
@@ -25,3 +25,4 @@ class ActoAdministrativo extends Model
     public function TipoNotifiacion(){
         return $this->belongsTo(TipoNotifiacion::class, 'SC_TipoNotificacion_FK', 'SC_TipoNotificacion_ID');
     }
+}
