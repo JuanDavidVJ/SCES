@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ActoAdministrativo;
 use App\Models\CondicionamientoMatricula;
+use App\Http\Requests\StoreCondicionamientoRequest;
 
 class CondicionamientoMatriculaController extends Controller
 {
@@ -13,10 +14,19 @@ class CondicionamientoMatriculaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(request $request)
     {
+        $query = trim($request->get('search'));
+
+        if($request){
+            $condicionamientos = CondicionamientoMatricula::where('SC_CondicionamientoMatricula_Descripcion', 'LIKE', '%' . $query . '%')
+                          ->get();
+
+                return view('condicionamientos.index', ['condicionamientos' => $condicionamientos, 'search' => $query]);
+        }
+        /*
         $condicionamientos = CondicionamientoMatricula::all();
-        return view('condicionamientos.index')->with('condicionamientos', $condicionamientos);
+        return view('condicionamientos.index')->with('condicionamientos', $condicionamientos);*/
     }
 
     /**
@@ -36,20 +46,20 @@ class CondicionamientoMatriculaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCondicionamientoRequest $request)
     {
         $condicionamientos = new CondicionamientoMatricula();
          $condicionamientos->SC_CondicionamientoMatricula_Descripcion = $request->SC_CondicionamientoMatricula_Descripcion;
 
          $condicionamientos->SC_CondicionamientoMatricula_Fecha = $request->SC_CondicionamientoMatricula_Fecha;
-         
+
          $condicionamientos->SC_CondicionamientoMatricula_FechaMaxima  = $request->SC_CondicionamientoMatricula_FechaMaxima;
 
          $condicionamientos->SC_CondicionamientoMatricula_EvidenciasNoPresentadas  = $request->SC_CondicionamientoMatricula_EvidenciasNoPresentadas;
 
          $condicionamientos->SC_Acto_Administrativo_FK_ID = $request->SC_Acto_Administrativo_FK_ID;
 
-         
+
          $condicionamientos->save();
          return redirect()->route('condicionamientos.index')->with('status', 'Condicionamiento Matricula creado');
     }
@@ -86,20 +96,25 @@ class CondicionamientoMatriculaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreCondicionamientoRequest $request, $id)
     {
         $condicionamientos = CondicionamientoMatricula::find($id);
 
          $condicionamientos->SC_CondicionamientoMatricula_Descripcion = $request->SC_CondicionamientoMatricula_Descripcion;
 
          $condicionamientos->SC_CondicionamientoMatricula_Fecha = $request->SC_CondicionamientoMatricula_Fecha;
-         
+
          $condicionamientos->SC_CondicionamientoMatricula_FechaMaxima  = $request->SC_CondicionamientoMatricula_FechaMaxima;
 
          $condicionamientos->SC_CondicionamientoMatricula_EvidenciasNoPresentadas  = $request->SC_CondicionamientoMatricula_EvidenciasNoPresentadas;
 
          $condicionamientos->SC_Acto_Administrativo_FK_ID = $request->SC_Acto_Administrativo_FK_ID;
+<<<<<<< HEAD
          
+=======
+
+
+>>>>>>> 0157711791d49162947f8f5bd19f9e99d44f9d4b
          $condicionamientos->save();
          return redirect()->route('condicionamientos.index')->with('status', 'Condicionamiento Matricula actualizado');
     }

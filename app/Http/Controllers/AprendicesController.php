@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Aprendiz;
 use App\Models\Ficha;
 use App\Models\Comite;
+use App\Http\Requests\StoreAprendicesRequest;
 
 class AprendicesController extends Controller
 {
@@ -14,11 +15,21 @@ class AprendicesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $aprendices = Aprendiz::all();
+        $query = trim($request->get('search'));
+
+        if($request){
+            $aprendices = Aprendiz::where('SC_Aprendiz_Documento', 'LIKE', '%' . $query . '%')
+                          ->orderBy('SC_Aprendiz_Nombres', 'asc')
+                          ->get();
+
+                return view('aprendices.index', ['aprendices' => $aprendices, 'search' => $query]);
+        }
+
+       /* $aprendices = Aprendiz::all();
         return view('aprendices.index')
-                ->with('aprendices', $aprendices);
+                ->with('aprendices', $aprendices);*/
     }
 
     /**
@@ -28,10 +39,10 @@ class AprendicesController extends Controller
      */
     public function create()
     {
-        $comites = Comite::all();
+        #$comites = Comite::all();
         $fichas = Ficha::all();
         return view('aprendices.create')
-                    ->with('comites', $comites)
+                    #->with('comites', $comites)
                     ->with('fichas', $fichas);
     }
 
@@ -41,7 +52,7 @@ class AprendicesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAprendicesRequest $request)
     {
         $aprendiz = new Aprendiz();
         $aprendiz->SC_Aprendiz_Nombres = $request->SC_Aprendiz_Nombres;
@@ -52,7 +63,7 @@ class AprendicesController extends Controller
         $aprendiz->SC_Ficha_PK_ID = $request->SC_Ficha_PK_ID;
         $aprendiz->SC_Aprendiz_ContratoAprendizaje   = $request->SC_Aprendiz_ContratoAprendizaje;
         $aprendiz->SC_Aprendiz_Empresa   = $request->SC_Aprendiz_Empresa;
-        $aprendiz->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
+        #$aprendiz->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
         $aprendiz->save();
         return redirect()->route('aprendices.index')->with('status', 'Aprendiz Creado');
     }
@@ -79,11 +90,11 @@ class AprendicesController extends Controller
     public function edit($id)
     {
         $aprendiz = Aprendiz::find($id);
-        $comites = Comite::all();
+        #$comites = Comite::all();
         $fichas = Ficha::all();
         return view('aprendices.edit')
                 ->with('aprendiz', $aprendiz)
-                ->with('comites', $comites)
+                #->with('comites', $comites)
                 ->with('fichas', $fichas);
     }
 
@@ -94,7 +105,7 @@ class AprendicesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreAprendicesRequest $request, $id)
     {
         $aprendiz = Aprendiz::find($id);
         $aprendiz->SC_Aprendiz_Documento = $request->SC_Aprendiz_Documento;
@@ -105,7 +116,7 @@ class AprendicesController extends Controller
         $aprendiz->SC_Ficha_PK_ID = $request->SC_Ficha_PK_ID;
         $aprendiz->SC_Aprendiz_ContratoAprendizaje = $request->SC_Aprendiz_ContratoAprendizaje;
         $aprendiz->SC_Aprendiz_Empresa = $request->SC_Aprendiz_Empresa;
-        $aprendiz->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
+        #$aprendiz->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
         $aprendiz->save();
         return redirect()->route('aprendices.index')->with('status', 'Aprendiz Actualizado');
     }

@@ -1,0 +1,111 @@
+.boby{
+    background-color: blueviolet;
+    flex-wrap:wrap ;
+    min-width: 251px;
+    margin-bottom: 0px;
+    }
+    
+    .navbar {
+      box-shadow: 2px 2px 5px #000;
+      flex-wrap:wrap ;
+      min-width: 250px;
+      opacity:blue;
+    
+    }
+    
+    .navbar .nav-item .nav-link {
+      color: black;
+    }
+    
+    
+    .main-header {
+      position: relative;
+      background: url(http://www.digitalavmagazine.com/en/wp-content/uploads/2015/10/Jabra-Speak-810-e.jpg);
+      background-size: cover;
+      min-height: 100px;
+    }
+    
+    .background-overlay {
+      background: rgba( 5,7,12, 0.75 );
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    
+    .form-control, .btn{
+      border-radius: 0;
+    }
+    
+    .team, footer {
+      background: #FA771C;
+    }
+    
+    h3{
+      font-size: 20px
+      text-align center;
+    
+    }
+    
+    p{
+      font-size: 20px;
+      line-height: 50px;
+    }
+    #img{
+      
+     float: left;
+      
+    }
+    .about {
+         padding: 90px 0;
+    }
+    
+    .about .about_img figure {
+         margin: 0px;
+    }
+    
+    .about .about_box {
+         text-align: left;
+         
+    }
+    
+    .about .about_box h2 {
+         font-weight: 500;
+         font-size: 43px;
+         color: #FA8D24;
+         line-height: 55px;
+         padding-bottom: 7px;
+        display: block;
+        text-transform: uppercase;
+        padding: 0px 0px 6px 0px;
+        
+    }
+    
+    .about .about_box p {
+         font-size: 17px;
+         line-height: 33px;
+         color: #4c4a49;
+         padding: 40px 0px;
+         font-weight: 500;
+         text-align: justify;
+    }
+    .about .about_box a {
+        color:white;
+        font-size: 17px;
+        line-height: 29px;
+        background: #40BF2C;
+        padding: 12px 40px;
+        display: inline-block;
+        width: 231px;
+    text-align: center;
+    border-radius: 18px;
+    }
+    
+    
+    .about_img {margin-top: 15px;}
+    .about_img figure {margin:0;}
+    .about_img figure img {width: 100%;}
+    
+    .imagen {margin-top: 15px;}
+    .imagen figure {margin:0;}
+    .imagen figure img {width: 100%;}
+    

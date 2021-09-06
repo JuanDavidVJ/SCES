@@ -8,6 +8,204 @@
 
         <ul class="list-unstyled components">
             <li>
+                <a href="#solicitudcomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users"></i>
+                    Solicitud Comité
+                </a>
+                <ul class="collapse list-unstyled" id="solicitudcomite">
+                    <li>
+                        <a href="/solicitarComite/create">Crear Solicitud</a>
+                    </li>
+                    <li>
+                        <a href="/solicitarComite">Ver Solicitud</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#Citacion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-calendar-alt"></i>
+                    Citación
+                </a>
+                <ul class="collapse list-unstyled" id="Citacion">
+                    <li>
+                        <a href="/Citacion/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/Citacion">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#comite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users"></i>
+                    Comité
+                </a>
+                <ul class="collapse list-unstyled" id="comite">
+                    <li>
+                        <a href="/comite/create">Crear Comité</a>
+                    </li>
+                    <li>
+                        <a href="/comite">Ver Comites</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#Actacomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-hourglass-start"></i>
+                    Acta Comite
+                </a>
+                <ul class="collapse list-unstyled" id="Actacomite">
+                    <li>
+                        <a href="/ActaComite/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/ActaComite">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#administrativo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-toolbox"></i>
+                    Acto Administrativo
+                </a>
+                <ul class="collapse list-unstyled" id="administrativo">
+                    <li>
+                        <a href="/actoadministrativo/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/actoadministrativo">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#impugnaciones" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-university"></i>
+                    Impugnaciones
+                </a>
+                <ul class="collapse list-unstyled" id="impugnaciones">
+                    <li>
+                        <a href="/impugnaciones/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/impugnaciones">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#condicionamiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-bell"></i>
+                    Condicionamiento
+                </a>
+                <ul class="collapse list-unstyled" id="condicionamiento">
+                    <li>
+                        <a href="/condicionamientos/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/condicionamientos">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#evidencias" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-eye"></i>
+                    Evidencias
+                </a>
+                <ul class="collapse list-unstyled" id="evidencias">
+                    <li>
+                        <a href="/evidencias/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/evidencias">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#novedades" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-address-card"></i>
+                    Novedades
+                </a>
+                <ul class="collapse list-unstyled" id="novedades">
+                    <li>
+                        <a href="/novedades/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/novedades">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#faltas" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-exclamation-circle"></i>
+                    Faltas
+                </a>
+                <ul class="collapse list-unstyled" id="faltas">
+                    <li>
+                        <a href="/faltas/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/faltas">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#llamadosAtencion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Llamados Atención
+                </a>
+                <ul class="collapse list-unstyled" id="llamadosAtencion">
+                    <li>
+                        <a href="/llamadosAtencion/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/llamadosAtencion">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#estimulos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-book"></i>
+                    Estimulos
+                </a>
+                <ul class="collapse list-unstyled" id="estimulos">
+                    <li>
+                        <a href="/estimulos/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/estimulos">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#antecedentes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-history"></i>
+                    Antecedentes
+                </a>
+                <ul class="collapse list-unstyled" id="antecedentes">
+                    <li>
+                        <a href="/antecedentes/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/antecedentes">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#plandemejoramiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-columns"></i>
+                    Plan de mejoramiento
+                </a>
+                <ul class="collapse list-unstyled" id="plandemejoramiento">
+                    <li>
+                        <a href="/planmejoramiento/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/planmejoramiento">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="#ficha" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-copy"></i>
                     Ficha
@@ -35,76 +233,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#condicionamiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-bell"></i>
-                    Condicionamiento
-                </a>
-                <ul class="collapse list-unstyled" id="condicionamiento">
-                    <li>
-                        <a href="/condicionamientos/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/condicionamientos">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#administrativo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-toolbox"></i>
-                    Administrativo
-                </a>
-                <ul class="collapse list-unstyled" id="administrativo">
-                    <li>
-                        <a href="/actoadministrativo/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/actoadministrativo">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#Actacomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-users"></i>
-                    Acta Comite
-                </a>
-                <ul class="collapse list-unstyled" id="Actacomite">
-                    <li>
-                        <a href="/ActaComite/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/ActaComite">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#evidencias" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-eye"></i>
-                    Evidencias
-                </a>
-                <ul class="collapse list-unstyled" id="evidencias">
-                    <li>
-                        <a href="/evidencias/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/evidencias">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#impugnaciones" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-university"></i>
-                    Impugnaciones
-                </a>
-                <ul class="collapse list-unstyled" id="impugnaciones">
-                    <li>
-                        <a href="/impugnaciones/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/impugnaciones">Ver </a>
-                    </li>
-                </ul>
-            </li>
+
         </ul>
         <ul class="list-unstyled CTAs text-center">
             <h6 class="card-title">Desarrollado por <br> ADSI 2068676©<br> Regional Caldas <br>2021</h6>
@@ -133,7 +262,7 @@
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerrar sesión</button>
                         </form>
                     </div>
-                
+
             </div>
         </nav>
 
