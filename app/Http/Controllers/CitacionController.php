@@ -7,6 +7,9 @@ use App\Models\Citacion;
 use App\Models\SolicitarComite;
 use App\Http\Requests\StoreCitacionRequest;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MessageReceived;
+
 class CitacionController extends Controller
 {
      /**
@@ -56,7 +59,16 @@ class CitacionController extends Controller
         $citacion->SC_Citacion_Centro=$request->SC_Citacion_Centro;
         $citacion->SC_Solicitud_FK=$request->SC_Solicitud_FK;
         $citacion->save();
+
+        // for ($i=0; $i < count($citacion->solicitarComite->aprendiz); $i++) { 
+        //     Mail::to($citacion->solicitarComite->aprendiz[$i]->SC_Aprendiz_Correo)->queue(new MessageReceived($citacion, $citacion->solicitarComite->aprendiz[$i]));    
+        // }
+
+        Mail::to($citacion->solicitarComite->aprendiz->SC_Aprendiz_Correo)->queue(new MessageReceived($citacion, $citacion->solicitarComite->aprendiz));
+        
         return redirect()->route('Citacion.index')->with('status', 'Citacion creada');
+        // return redirect()->route('Citacion.index')->with('status', count($citacion->solicitarComite->aprendiz));
+        // return redirect()->route('Citacion.index')->with('status', $citacion->solicitarComite->aprendiz);
 
     }
 

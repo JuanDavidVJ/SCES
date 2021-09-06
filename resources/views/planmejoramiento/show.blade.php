@@ -6,14 +6,35 @@
 	<div class="card text-center" style="width: 40rem;">
 
 		<div class="card-body">
-				<h3 class="card-title">ID N°: {{$planm->SC_PlanMejoramiento_PK_ID}}</h3>
-				<h5 class="card-subtitle mb-2 text-muted">Descripcion: {{$planm->SC_PlanMejoramiento_Descripcion}}</h5>
-				<h6 class="card-text">Fecha: {{$planm->SC_PlanMejoramiento_Fecha}}</h6>
-        <h6 class="card-text">Fecha Maxima: {{$planm->SC_PlanMejoramiento_FechaMaxima}}</h6>
-        
-        <h6 class="card-text">Acto administrativo: {{$planm->acto->SC_ActoAdministrativoSanciones_DescripcionHechos}}</h6>
-        <h6 class="card-text">Plan de mejoramiento: <a href="{{asset('/archivos/planmejoramiento/'.$planm->SC_PlanMejoramiento)}}" target="_blank">Ver</h6>
+				<h3 class="card-title" id="h3show">ID N°: {{$planm->SC_PlanMejoramiento_PK_ID}}</h3>
+		</div>
 
+        <table class="table table-responsive table-hover " id="tableshow">
+      					<tbody>
+						        <tr>
+            					<th class="thshow">Descripción</th>
+            					<td>{{$planm->SC_PlanMejoramiento_Descripcion}}</td>
+        				    </tr>
+                    <tr>
+            					<th class="thshow">Fecha</th>
+            					<td>{{$planm->SC_PlanMejoramiento_Fecha}} </td>
+        				    </tr>
+                    <tr>
+            					<th class="thshow">Fecha Máxima</th>
+            					<td>{{$planm->SC_PlanMejoramiento_FechaMaxima}} </td>
+        				    </tr>
+                    <tr>
+            					<th class="thshow">Acto Administrativo</th>
+            					<td>{{$planm->acto->SC_ActoAdministrativoSanciones_DescripcionHechos}}</td>
+        				    </tr>
+                    <tr>
+            					<th class="thshow">Plan de Mejoramiento</th>
+            					<td><a href="{{asset('/archivos/planmejoramiento/'.$planm->SC_PlanMejoramiento)}}" target="_blank">Ver </td>
+        				    </tr>
+                    </tbody>
+
+						</table>
+        <div id="botones">
          <!-- Button trigger modal -->
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">
         <i class="fas fa-trash-alt"></i>

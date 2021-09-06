@@ -50,7 +50,7 @@
 			<select name="SC_Solicitud_FK" id="SC_Solicitud_FK" class="form-control">
 				<option selected>Seleccione una solicitud</option>
 				@foreach($SolicitarComite as $solicitud)
-				<option value="{{$solicitud->	SC_SolicitarComite_ID}}">{{$solicitud-> SC_SolicitarComite_ID}}</option>
+				<option value="{{$solicitud->SC_SolicitarComite_ID}}">{{$solicitud->SC_SolicitarComite_ID}}</option>
 				@endforeach
 			</select>
 			@error('SC_Solicitud_FK')
