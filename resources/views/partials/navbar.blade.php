@@ -66,7 +66,7 @@
             <li>
                 <a href="#administrativo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-toolbox"></i>
-                    Acto Administrativo
+                    Notificaciones
                 </a>
                 <ul class="collapse list-unstyled" id="administrativo">
                     <li>
@@ -91,20 +91,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#condicionamiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-bell"></i>
-                    Condicionamiento
-                </a>
-                <ul class="collapse list-unstyled" id="condicionamiento">
-                    <li>
-                        <a href="/condicionamientos/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/condicionamientos">Ver </a>
-                    </li>
-                </ul>
-            </li>
+            
             
             <li>
                 <a href="#evidencias" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -149,20 +136,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#llamadosAtencion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    Llamados Atención
-                </a>
-                <ul class="collapse list-unstyled" id="llamadosAtencion">
-                    <li>
-                        <a href="/llamadosAtencion/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/llamadosAtencion">Ver </a>
-                    </li>
-                </ul>
-            </li>
+            
             <li>
                 <a href="#estimulos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-book"></i>
