@@ -6,15 +6,39 @@
 	<div class="card text-center" style="width: 40rem;">		
 
 		<div class="card-body">
+            <h3 class="card-title" id="h3show">Citación N° {{$citacion->SC_CitacionPK_Id}}</h3>
+		</div>
 
-			<h3 class="card-title">Citación N° {{$citacion->SC_CitacionPK_Id}}</h3>
-			<h5 class="card-subtitle mb-2">Fecha: {{$citacion->SC_Citacion_FechaCitacion}}</h5>
-			<h6 class="card-text">Hora: {{$citacion->SC_Citacion_Hora}}</h6>
-			<h6 class="card-text">Lugar: {{$citacion->SC_Citacion_Lugar}}</h6>
-			<h6 class="card-text">Ciudad: {{$citacion->SC_Citacion_Ciudad}}</h6>
-			<h6 class="card-text">Centro: {{$citacion->SC_Citacion_Centro}}</h6>
-			<h6 class="card-text">N° Solicitud: {{$citacion->SC_Solicitud_FK}}</h6>
-			
+			<table class="table table-responsive table-hover " id="tableshow">
+    <tbody>
+          <tr>
+            <th class="thshow">Fecha</th>
+            <td>{{$citacion->SC_Citacion_FechaCitacion}}</td>
+         </tr>
+		 <tr>
+            <th class="thshow">Hora</th>
+            <td>{{$citacion->SC_Citacion_Hora}}</td>
+         </tr>
+		 <tr>
+            <th class="thshow">Lugar</th>
+            <td>{{$citacion->SC_Citacion_Lugar}}</td>
+         </tr>
+		 <tr>
+            <th class="thshow">Ciudad</th>
+            <td>{{$citacion->SC_Citacion_Ciudad}}</td>
+         </tr>
+		 <tr>
+            <th class="thshow">Centro</th>
+            <td>{{$citacion->SC_Citacion_Centro}}</td>
+         </tr>
+		 <tr>
+            <th class="thshow">N° Acta</th>
+            <td>{{$citacion->SC_Citacion_NumeroActa}}</td>
+         </tr>
+		 </tbody>
+
+</table>
+			<div id="botones">
 			<!-- Button trigger modal -->
 			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">
 				<i class="fas fa-trash-alt"></i>
@@ -57,5 +81,7 @@
 			<a href="/Citacion" class="btn btn-outline-dark">ver Citaciones</a>-->
 		</div>
 	</div>
+  </div>
+</div>
 </div>
 @endsection 

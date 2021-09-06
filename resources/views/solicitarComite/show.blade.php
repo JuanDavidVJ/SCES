@@ -4,16 +4,62 @@
 	<div class="container d-flex justify-content-center">
         <div class="card text-center" style="width: 40rem;">
           <div class="card-body">
-            <h3 class="card-title">Fecha: {{ $solicitar->SC_SolicitarComite_Fecha }}</h3>
-            <h6>Descripción: {{ $solicitar->SC_SolicitarComite_Descripcion }}</h6>
-            <h6>Testigos: {{ $solicitar->SC_SolicitarComite_Testigos }}</h6>
-            <h6>Aprendiz: {{ $solicitar->aprendiz->SC_Aprendiz_Documento }}</h6>
-            <h6>Observaciones: {{ $solicitar->SC_SolicitarComite_Observaciones }}</h6>
-            <h6>Anexo: <a href="assets('/archivos/solicitarComite{{ $solicitar->SC_SolicitarComite_Anexo }}')" target="_blank">Ver</a></h6>
-            <h6>Falta: {{ $solicitar->falta->SC_Falta_ApoyoNoSuperado  }}</h6>
-            <h6>Gestor: {{ $solicitar->usuario->SC_Usuarios_Documento }}</h6>
-            <h6>Instructor: {{ $solicitar->SC_Usuario_FK }}</h6>
+          
+            <h3 class="card-title" id="h3show">Solicitud N° {{$solicitar->SC_SolicitarComite_ID }}</h3>
+        </div>
+            <table class="table table-responsive table-hover " id="tableshow">
+    <tbody>
 
+        <tr>
+           <th class="thshow">Responsable</th>
+            <td>{{ $solicitar->SC_SolicitarComite_Responsable }}</td>
+        </tr>
+        <tr>
+           <th class="thshow">Fecha</th>
+            <td>{{ $solicitar->SC_SolicitarComite_Fecha }}</td>
+        </tr>
+        <tr>
+        <tr>
+           <th class="thshow">Descripción</th>
+            <td>{{ $solicitar->SC_SolicitarComite_Descripcion }}</td>
+        </tr>
+        <tr>
+           <th class="thshow">Testigos</th>
+            <td>{{ $solicitar->SC_SolicitarComite_Testigos }}</td>
+        </tr>
+        <tr>
+           <th class="thshow">Observaciones</th>
+            <td>{{ $solicitar->SC_SolicitarComite_Observaciones }}</td>
+        </tr>
+        <tr>
+           <th class="thshow">Anexo</th>
+            <td id="linkshow"><a href="assets('/archivos/solicitarComite{{ $solicitar->SC_SolicitarComite_Anexo }}')" target="_blank">Ver</a></td>
+        </tr>
+        <tr>
+           <th class="thshow">Aprendiz</th>
+            <td>{{ $solicitar->aprendiz->SC_Aprendiz_Nombre }}{{ $solicitar->aprendiz->SC_Aprendiz_Apellidos }}</td>
+        </tr>
+        <tr>
+           <th class="thshow">Gestor de grupo</th>
+            <td> {{ $solicitar->usuario->SC_Usuarios_Nombre}}</td>
+        </tr>
+        <tr>
+           <th class="thshow">Tipo de falta</th>
+            <td> {{ $solicitar->tipofalta->SC_TipoFalta_Descripcion }}</td>
+        </tr>
+        <tr>
+           <th class="thshow">Gravedad de la falta</th>
+            <td> {{ $solicitar->gravedad->SC_Gravedad_Nombre }}</td>
+        </tr>
+        <tr>
+           <th class="thshow">Reglamento</th>
+            <td>{{ $solicitar->reglamento->	SC_Reglamento_Numeral }}</td>
+        </tr>
+        
+    </tbody>
+
+</table>
+<div id="botones">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">
                 <i class="fas fa-trash-alt"></i>
@@ -30,7 +76,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <span>La siguiente acción eliminará la solicitud a comité: </span>
+                            <span>La siguiente acción eliminará la solicitud a comité: {{$solicitar->SC_SolicitarComite_ID}} </span>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
@@ -47,5 +93,6 @@
             <a href="/solicitarComite" class="btn btn-outline-dark"><i class="fas fa-undo-alt"></i></a>
           </div>
         </div>
+      </div>
     </div>
 @endsection

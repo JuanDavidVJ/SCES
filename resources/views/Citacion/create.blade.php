@@ -46,11 +46,19 @@
 		</div>
 
 		<div class="form-group">
+			<span class="input-group-text" for="SC_Citacion_NumeroActa">N° Acta</span>
+			<input type="number" name="SC_Citacion_NumeroActa" id="SC_Citacion_NumeroActa" class="form-control" value="{{old('SC_Citacion_NumeroActa')}}">
+			@error('SC_Citacion_NumeroActa')
+				<small>{{$message}}</small>
+			@enderror
+		</div>
+
+		<div class="form-group">
 			<span class="input-group-text" for="SC_Solicitud_FK">Solicitud</span>
 			<select name="SC_Solicitud_FK" id="SC_Solicitud_FK" class="form-control">
 				<option selected>Seleccione una solicitud</option>
 				@foreach($SolicitarComite as $solicitud)
-				<option value="{{$solicitud->	SC_SolicitarComite_ID}}">{{$solicitud-> SC_SolicitarComite_ID}}</option>
+				<option value="{{$solicitud->SC_SolicitarComite_ID}}">{{$solicitud->SC_SolicitarComite_ID}}</option>
 				@endforeach
 			</select>
 			@error('SC_Solicitud_FK')

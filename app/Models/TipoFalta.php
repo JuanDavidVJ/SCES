@@ -11,8 +11,8 @@ class TipoFalta extends Model
     protected $table = 'sc_tipofalta'; // their name isn't tipoFaltas
     protected $primaryKey = 'SC_TipoFalta_PK_ID'; // their name isn't id
 
-    public function faltas(){
-        return $this->hasMany(Falta::class, 'SC_TipoFalta_FK_ID', 'SC_TipoFalta_PK_ID');
+    public function solicitar(){
+        return $this->hasMany(SolicitarComite::class, 'SC_Falta_FK', 'SC_TipoFalta_PK_ID');
     }
 }
 

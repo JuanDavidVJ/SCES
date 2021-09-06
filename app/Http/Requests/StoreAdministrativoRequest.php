@@ -24,26 +24,27 @@ class StoreAdministrativoRequest extends FormRequest
     public function rules()
     {
         return [
-            'SC_ActoAdministrativoSanciones_DescripcionHechos' => 'required',
-            'SC_ActoAdministrativoSanciones_PresentaDescargos' => 'required',
-            'SC_ActoAdministrativoSanciones_Pruebas' => 'required|file',
-            'SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor' => 'required',
-            'SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion' => 'required',
-            'SC_ActoAdministrativoSanciones_Fecha' => 'required',
-            'SC_Comite_FK_ID' => 'required'
+            'SC_Notificacion_Sugerencia' => 'required',
+            //'SC_Notificacion_TipoPlan' => 'required',
+            //'SC_Notificacion_Plan' => 'required|file',
+            'SC_ActaComite_FK' => 'required',
+            'SC_Notificacion_FechaInicial' => 'required',
+            //'SC_Notificacion_FechaLimite' => 'required',
+            'SC_Comite_FK_ID' => 'required',
+            'SC_TipoNotificacion_FK' => 'required'
         ];
     }
 
     public function messages()
     {
         return[
-            'SC_ActoAdministrativoSanciones_DescripcionHechos.required' => 'Este campo es obligatorio.',
-            'SC_ActoAdministrativoSanciones_PresentaDescargos.required' => 'Este campo es obligatorio.',
-            'SC_ActoAdministrativoSanciones_Pruebas.required' => 'Debe adjuntar las pruebas.',
-            'SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor.required' => 'Este campo es obligatorio.',
-            'SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion.required' => 'Este campo es obligatorio.',
-            'SC_ActoAdministrativoSanciones_Fecha.required' => 'La fecha es requerida.',
-            'SC_Comite_FK_ID.required' => 'Este campo es obligatorio.'
+            'SC_Notificacion_Sugerencia.required' => 'Este campo es obligatorio.',
+            //'SC_Notificacion_TipoPlan.required' => 'Este campo es obligatorio.',
+            //'SC_Notificacion_Plan.required' => 'Debe adjuntar el plan.',
+            'SC_Notificacion_FechaInicial.required' => 'Este campo es obligatorio.',
+            //'SC_Notificacion_FechaLimite.required' => 'Este campo es obligatorio.',
+            'SC_ActaComite_FK.required' => 'Este campo es obligatorio.',
+            'SC_TipoNotificacion_FK.required' => 'Este campo es obligatorio.'
         ];
     }
 }

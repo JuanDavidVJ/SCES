@@ -11,7 +11,7 @@ class Usuario extends Model
     protected $table="sc_usuario";
     protected $primaryKey="SC_Usuarios_ID";
 
-    public function comite(){
-        return $this->hasMany(Comite::class, 'SC_Usuarios_FK_ID', 'SC_Usuarios_ID');
+    public function solicitar(){
+        return $this->hasMany(SolicitarComite::class, 'SC_Usuario_FK', 'SC_Usuarios_ID');
     }
 }

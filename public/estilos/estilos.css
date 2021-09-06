@@ -25,3 +25,36 @@ input{
 	width: auto;
 }
 
+/*Vista show*/
+.card {
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+	width: 50%;
+	height: 70%;
+
+}
+
+#h3show{
+	color:#ff8138;
+}
+
+#tableshow{
+    border-left:#ff8138 10px solid;
+	width: auto;
+	margin-left: 15%;
+	text-align: justify;
+}
+
+.thshow{
+	color: #ff8138;
+}
+
+#botones{
+	margin:auto;
+	margin-top:3%;
+	margin-bottom:5%;
+}
+#linkshow{
+	color:green;
+}
+
+

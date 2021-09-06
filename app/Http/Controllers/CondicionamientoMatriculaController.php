@@ -99,7 +99,8 @@ class CondicionamientoMatriculaController extends Controller
     public function update(StoreCondicionamientoRequest $request, $id)
     {
         $condicionamientos = CondicionamientoMatricula::find($id);
-        $condicionamientos->SC_CondicionamientoMatricula_Descripcion = $request->SC_CondicionamientoMatricula_Descripcion;
+
+         $condicionamientos->SC_CondicionamientoMatricula_Descripcion = $request->SC_CondicionamientoMatricula_Descripcion;
 
          $condicionamientos->SC_CondicionamientoMatricula_Fecha = $request->SC_CondicionamientoMatricula_Fecha;
 
@@ -108,8 +109,12 @@ class CondicionamientoMatriculaController extends Controller
          $condicionamientos->SC_CondicionamientoMatricula_EvidenciasNoPresentadas  = $request->SC_CondicionamientoMatricula_EvidenciasNoPresentadas;
 
          $condicionamientos->SC_Acto_Administrativo_FK_ID = $request->SC_Acto_Administrativo_FK_ID;
+<<<<<<< HEAD
+         
+=======
 
 
+>>>>>>> 0157711791d49162947f8f5bd19f9e99d44f9d4b
          $condicionamientos->save();
          return redirect()->route('condicionamientos.index')->with('status', 'Condicionamiento Matricula actualizado');
     }

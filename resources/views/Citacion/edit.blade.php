@@ -48,6 +48,14 @@
 		</div>
 
 		<div class="form-group">
+			<span class="input-group-text" for="SC_Citacion_NumeroActa">N° Acta</span>
+			<input type="number" name="SC_Citacion_NumeroActa" id="SC_Citacion_NumeroActa" class="form-control" value="{{$citacion->SC_Citacion_NumeroActa}}">
+			@error('SC_Citacion_NumeroActa')
+				<small>{{$message}}</small>
+			@enderror
+		</div>
+
+		<div class="form-group">
 			<span class="input-group-text" for="SC_Solicitud_FK">Solicitud</span>
 			<select name="SC_Solicitud_FK" id="SC_Solicitud_FK" class="form-control">
 

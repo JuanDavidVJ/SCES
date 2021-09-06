@@ -22,7 +22,8 @@
 				<th scope="col">Hora</th>
 				<th scope="col">Lugar</th>
 				<th scope="col">Ciudad</th>
-				<th scope="col">Acción</th>
+				<th scope="col">Centro</th>
+				<th scope="col">N° Acta</th>
 			</tr>
 			@foreach($Citacion as $citacion)
 				<tr >
@@ -30,6 +31,8 @@
                <td>{{$citacion->SC_Citacion_Hora}}</td>
                <td>{{$citacion->SC_Citacion_Lugar}}</td>
                <td>{{$citacion->SC_Citacion_Ciudad}}</td>
+			   <td>{{$citacion->SC_Citacion_Centro}}</td>
+			   <td>{{$citacion->SC_Citacion_NumeroActa}}</td>
                <td>
                   <a href="/Citacion/{{$citacion->SC_CitacionPK_Id}}" class="btn btn-outline-default p-0"><i class="fas fa-eye"></i></a>
                </td>
