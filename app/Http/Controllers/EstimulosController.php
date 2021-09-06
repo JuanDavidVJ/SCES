@@ -92,7 +92,8 @@ class EstimulosController extends Controller
 
          $aprendiz = Aprendiz::all();
          $tipoestimulos = TipoEstimulos::all();
-         return view('estimulos.edit')->with('estimulos', $estimulos)->with('aprendiz', $aprendiz)->with('tipoestimulos', $tipoestimulos);
+         $ficha = Ficha::all();
+         return view('estimulos.edit')->with('estimulos', $estimulos)->with('aprendiz', $aprendiz)->with('tipoestimulos', $tipoestimulos)->with('ficha', $ficha);
 
 
     }
