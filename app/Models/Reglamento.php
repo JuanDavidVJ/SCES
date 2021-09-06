@@ -11,8 +11,8 @@ class Reglamento extends Model
     protected $table = 'sc_reglamento'; // their name isn't reglamentos
     protected $primaryKey = 'SC_Reglamento_PK_ID'; // their name isn't id
 
-    public function faltas(){
-        return $this->hasMany(Falta::class, 'SC_TipoFalta_FK_ID', 'SC_Reglamento_PK_ID');
+    public function solicitar(){
+        return $this->hasMany(SolicitarComite::class, 'SC_Reglamento_FK', 'SC_Reglamento_PK_ID');
     }
 
 }
