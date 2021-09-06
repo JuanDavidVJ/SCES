@@ -13,6 +13,10 @@
             				<td>{{ $ficha->SC_Ficha_NombreProgramaFormacion }}</td>
         				</tr>
                         <tr>
+            				<th class="thshow">Gestor de Grupo</th>
+            				<td>{{ $ficha->usuario->SC_Usuarios_Nombre }}</td>
+        				</tr>
+                        <tr>
             				<th class="thshow">Fecha Inicio</th>
             				<td>{{ $ficha->SC_Ficha_FechaInicio }}</td>
         				</tr>
