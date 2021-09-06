@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Estimulos;
 use App\Models\TipoEstimulos;
 use App\Models\Aprendiz;
+use App\Models\Ficha;
 use App\Http\Requests\StoreEstimuloRequest;
 
 

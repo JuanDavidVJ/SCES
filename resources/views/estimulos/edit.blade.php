@@ -15,9 +15,17 @@
 		</div>
 
 		<div class="form-group">
-			<span class="input-group-text" for="SC_Estimulos_DescripcionEstimulo">Descripcion</span>
-			<input type="text" name="SC_Estimulos_DescripcionEstimulo" id="SC_Estimulos_DescripcionEstimulo" class="form-control" value="{{$estimulos->SC_Estimulos_DescripcionEstimulo}}">
-			@error('SC_Estimulos_DescripcionEstimulo')
+			<span class="input-group-text" for="SC_Estimulos_Razon">Razón</span>
+			<input type="text" name="SC_Estimulos_Razon" id="SC_Estimulos_Razon" class="form-control" value="{{$estimulos->SC_Estimulos_Razon}}">
+			@error('SC_Estimulos_Razon')
+			<small style="color: red;">{{ $message }}</small>
+			@enderror
+		</div>
+
+		<div class="form-group">
+			<span class="input-group-text" for="SC_Estimulos_Detalles">Detalles</span>
+			<input type="text" name="SC_Estimulos_Detalles" id="SC_Estimulos_Detalles" class="form-control" value="{{$estimulos->SC_Estimulos_Detalles}}">
+			@error('SC_Estimulos_Detalles')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
