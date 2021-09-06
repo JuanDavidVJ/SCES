@@ -137,9 +137,8 @@ class ActaComiteController extends Controller
         }
         
     }
-<<<<<<< HEAD
-}
-=======
 
 }
->>>>>>> 2a0056e2e9f0d44b21e3f8f39f4127e1faa42e54
+
+
+
