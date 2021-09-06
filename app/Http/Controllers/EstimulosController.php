@@ -39,7 +39,8 @@ class EstimulosController extends Controller
 
          $aprendiz = Aprendiz::all();
          $tipoestimulos = TipoEstimulos::all();
-        return view('estimulos.create')->with('aprendiz', $aprendiz)->with('tipoestimulos', $tipoestimulos);
+         $ficha = Ficha::all();
+        return view('estimulos.create')->with('aprendiz', $aprendiz)->with('tipoestimulos', $tipoestimulos)->with('ficha', $ficha);
 
     }
 
@@ -52,9 +53,11 @@ class EstimulosController extends Controller
     public function store(StoreEstimuloRequest $request)
     {
          $estimulos = new Estimulos();
-         $estimulos->SC_Estimulos_Reconocimiento = $request->SC_Estimulos_Reconocimiento;
-         $estimulos->SC_Estimulos_DescripcionEstimulo = $request->SC_Estimulos_DescripcionEstimulo;
+         $estimulos->SC_Estimulos_Reporta = $request->SC_Estimulos_Reporta;
+         $estimulos->SC_Estimulos_Razon = $request->SC_Estimulos_Razon;
+         $estimulos->SC_Estimulos_Detalles = $request->SC_Estimulos_Detalles;
          $estimulos->SC_Estimulos_Fecha = $request->SC_Estimulos_Fecha;
+         $estimulos->SC_Ficha_FK_ID = $request->SC_Ficha_FK_ID;
          $estimulos->SC_Aprendiz_FK_ID =$request->SC_Aprendiz_FK_ID;
          $estimulos->SC_TipoEstimulos_FK_ID = $request->SC_TipoEstimulos_FK_ID;
          $estimulos->save();
@@ -103,12 +106,14 @@ class EstimulosController extends Controller
     public function update(StoreEstimuloRequest $request, $id)
     {
         $estimulos = Estimulos::find($id);
-         $estimulos->SC_Estimulos_Reconocimiento = $request->SC_Estimulos_Reconocimiento;
-         $estimulos->SC_Estimulos_DescripcionEstimulo = $request->SC_Estimulos_DescripcionEstimulo;
-         $estimulos->SC_Estimulos_Fecha = $request->SC_Estimulos_Fecha;
-         $estimulos->SC_Aprendiz_FK_ID =$request->SC_Aprendiz_FK_ID;
-         $estimulos->SC_TipoEstimulos_FK_ID = $request->SC_TipoEstimulos_FK_ID;
-         $estimulos->save();
+        $estimulos->SC_Estimulos_Reporta = $request->SC_Estimulos_Reporta;
+        $estimulos->SC_Estimulos_Razon = $request->SC_Estimulos_Razon;
+        $estimulos->SC_Estimulos_Detalles = $request->SC_Estimulos_Detalles;
+        $estimulos->SC_Estimulos_Fecha = $request->SC_Estimulos_Fecha;
+        $estimulos->SC_Ficha_FK_ID = $request->SC_Ficha_FK_ID;
+        $estimulos->SC_Aprendiz_FK_ID =$request->SC_Aprendiz_FK_ID;
+        $estimulos->SC_TipoEstimulos_FK_ID = $request->SC_TipoEstimulos_FK_ID;
+        $estimulos->save();
          return redirect()->route('estimulos.index')->with('status', 'Estimulo creado');
 
     }

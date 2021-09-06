@@ -7,9 +7,9 @@
 		@method('PUT')
 		@csrf
 		<div class="form-group">
-			<span class="input-group-text" for="SC_Estimulos_Reconocimiento">Estimulos reconocimiento</span>
-			<input type="text" name="SC_Estimulos_Reconocimiento" id="SC_Estimulos_Reconocimiento" class="form-control" value="{{$estimulos->SC_Estimulos_Reconocimiento}}">
-			@error('SC_Estimulos_Reconocimiento')
+			<span class="input-group-text" for="SC_Estimulos_Reporta">Estimulos reporta</span>
+			<input type="text" name="SC_Estimulos_Reporta" id="SC_Estimulos_Reporta" class="form-control" value="{{$estimulos->SC_Estimulos_Reporta}}">
+			@error('SC_Estimulos_Reporta')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
@@ -38,6 +38,18 @@
 				@endforeach
 			</select>
 			@error('SC_Aprendiz_FK_ID')
+			<small style="color: red;">{{ $message }}</small>
+			@enderror
+		</div>
+
+		<div class="form-group">
+			<span class="input-group-text" for="SC_Ficha_FK_ID">Ficha</span>
+			<select name="SC_Ficha_FK_ID" id="SC_Ficha_FK_ID" class="form-control" style="font-size: 0.9em;">
+				@foreach($ficha as $ficha)
+				<option value="{{$ficha->SC_Ficha_PK_ID}}" @if($ficha->SC_Ficha_PK_ID == $estimulos->SC_Ficha_FK_ID) selected @endif>{{$ficha->SC_Ficha_NumeroFicha}}</option>
+				@endforeach
+			</select>
+			@error('SC_Ficha_FK_ID')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
