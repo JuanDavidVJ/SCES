@@ -25,11 +25,11 @@ class StoreAdministrativoRequest extends FormRequest
     {
         return [
             'SC_Notificacion_Sugerencia' => 'required',
-            'SC_Notificacion_TipoPlan' => 'required',
-            'SC_Notificacion_Plan' => 'required|file',
+            //'SC_Notificacion_TipoPlan' => 'required',
+            //'SC_Notificacion_Plan' => 'required|file',
             'SC_ActaComite_FK' => 'required',
             'SC_Notificacion_FechaInicial' => 'required',
-            'SC_Notificacion_FechaLimite' => 'required',
+            //'SC_Notificacion_FechaLimite' => 'required',
             'SC_Comite_FK_ID' => 'required',
             'SC_TipoNotificacion_FK' => 'required'
         ];
@@ -39,10 +39,10 @@ class StoreAdministrativoRequest extends FormRequest
     {
         return[
             'SC_Notificacion_Sugerencia.required' => 'Este campo es obligatorio.',
-            'SC_Notificacion_TipoPlan.required' => 'Este campo es obligatorio.',
-            'SC_Notificacion_Plan.required' => 'Debe adjuntar el plan.',
+            //'SC_Notificacion_TipoPlan.required' => 'Este campo es obligatorio.',
+            //'SC_Notificacion_Plan.required' => 'Debe adjuntar el plan.',
             'SC_Notificacion_FechaInicial.required' => 'Este campo es obligatorio.',
-            'SC_Notificacion_FechaLimite.required' => 'Este campo es obligatorio.',
+            //'SC_Notificacion_FechaLimite.required' => 'Este campo es obligatorio.',
             'SC_ActaComite_FK.required' => 'Este campo es obligatorio.',
             'SC_TipoNotificacion_FK.required' => 'Este campo es obligatorio.'
         ];
