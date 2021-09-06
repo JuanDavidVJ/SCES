@@ -21,7 +21,7 @@ class EstimulosController extends Controller
         $query = trim($request->get('search'));
 
         if($request){
-            $estimulos = Estimulos::where('SC_Estimulos_DescripcionEstimulo', 'LIKE', '%' . $query . '%')
+            $estimulos = Estimulos::where('SC_Estimulos_Razon', 'LIKE', '%' . $query . '%')
                           ->get();
 
                 return view('estimulos.index', ['estimulos' => $estimulos, 'search' => $query]);
@@ -128,6 +128,6 @@ class EstimulosController extends Controller
     {
         $estimulos = Estimulos::find($id);
         $estimulos->delete();
-        return redirect()->route('estimulos.index')->with('status', 'estimulo eliminado');
+        return redirect()->route('estimulos.index')->with('status', 'Estimulo eliminado');
     }
 }
