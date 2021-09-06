@@ -5,13 +5,44 @@
 
     <div class="card text-center" style="width: 40rem;">
           <div class="card-body">
-            <h3 class="card-title">Código N° {{ $actacomite->SC_ActaComite_Codigo}}</h3>
-            <h6 class="card-text">Descripción: {{ $actacomite->SC_ActaComite_Descripcion }}</h6>
-            <h6 class="card-text">Estado: {{ $actacomite->SC_ActaComite_Estado }}</h6>
-			<h6 class="card-text">Numero de solicitud: {{ $actacomite->SC_ActaComite_NumeroSolicitud}}</h6>
-            <h6 class="card-text">Motivo:{{ $actacomite->SC_ActaComite_Motivo }}</h6>
-            <h6 class="card-text">Testigos: {{ $actacomite->SC_ActaComite_Testigos }}</h6>
-            <h6 class="card-text">Antecedentes: {{ $actacomite->SC_ActaComite_EnviarCitacionAntecedentes }}</h6>
+            <h3 class="card-title" id="h3show">Código N° {{ $actacomite->SC_ActaComite_Codigo}}</h3>
+        </div>
+
+            <table class="table table-responsive table-hover " id="tableshow">
+    <tbody>
+          <tr>
+            <th class="thshow">Descripción</th>
+            <td>{{ $actacomite->SC_ActaComite_Descripcion }}</td>
+         </tr>  
+         <tr>
+            <th class="thshow">Estado</th>
+            <td>{{ $actacomite->SC_ActaComite_Estado }}</td>
+         </tr>
+         <tr>
+            <th class="thshow">Número Solicitud</th>
+            <td> {{ $actacomite->SC_ActaComite_NumeroSolicitud}}</td>
+         </tr>  
+         <tr>
+            <th class="thshow">Motivo</th>
+            <td>{{ $actacomite->SC_ActaComite_Motivo }}</td>
+         </tr>  
+         <tr>
+            <th class="thshow">Testigos</th>
+            <td>{{ $actacomite->SC_ActaComite_Testigos }}</td>
+         </tr>  
+         <tr>
+            <th class="thshow">Antecedentes</th>
+            <td>{{ $actacomite->SC_ActaComite_EnviarCitacionAntecedentes }}</td>
+         </tr> 
+         
+
+         </tbody>
+
+</table>
+
+
+
+            <div id="botones">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">
                 <i class="fas fa-trash-alt"></i>
@@ -43,6 +74,7 @@
         <a href="/ActaComite/{{ $actacomite->SC_ActaComite_PK_ID }}/edit" class="btn btn-warning"><i class="fas fa-wrench"></i></a>
             <a href="/ActaComite" class="btn btn-outline-dark"><i class="fas fa-undo-alt"></i></a>
         </div>
+    </div>
     </div>
 </div>
 @endsection

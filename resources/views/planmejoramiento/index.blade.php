@@ -1,12 +1,13 @@
 @extends('layouts.base')
 @section('title', 'Listado Plan Mejoramiento')
 @section('content')
-@if(session('status'))
+<div class="container">
+	<h1>Listado Planes de mejoramiento</h1>
+	@if(session('status'))
 		<div class="alert alert-success">
 			{{session('status')}}
 		</div>
 	@endif
-	<h1>Listado Planes de mejoramiento</h1>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -24,10 +25,11 @@
 		          <td>{{$planm->SC_PlanMejoramiento_FechaMaxima}}</td>
 		          
 		          <td>
-		          	<a href="/planmejoramiento/{{$planm->SC_PlanMejoramiento_PK_ID}}">ver</a>
+		          	<a href="/planmejoramiento/{{$planm->SC_PlanMejoramiento_PK_ID}}"><i class="fas fa-eye"></i></a>
 		      	  </td>
        			 </tr>
 		@endforeach
 		</table>
+	</div>
 	</div>
 @endsection
