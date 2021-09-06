@@ -127,7 +127,7 @@ class SolicitarComiteController extends Controller
         if ($request->hasFile('Anexo')) {
             $file = $request->file('Anexo');
             $Anexo = $solicitar->Anexo;
-            $file->move("Solicitudes/solicitarComite", $Anexo);
+            $file->move("archivos/solicitarComite", $Anexo);
         }
         $solicitar->save();
         return redirect()->route('solicitarComite.index')->with('status', 'Solicitud Actualizada');
