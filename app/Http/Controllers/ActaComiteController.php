@@ -112,4 +112,5 @@ class ActaComiteController extends Controller
         $actacomite->delete();
         return redirect()->route('ActaComite.index')->with('status','Acta eliminada');
     }
+
 }
