@@ -6,12 +6,34 @@
 	<div class="card text-center" style="width: 40rem;">
 
 		<div class="card-body">
-			<h3>{{$estimulos->SC_Aprendiz_FK_ID}}</h3>
-			<h3 class="card-title">{{$estimulos->SC_Estimulos_Reconocimiento}}</h3>
-			<h5 class="card-text">{{$estimulos->SC_Estimulos_DescripcionEstimulo}}</h5>
-			<h5 class="card-text">{{$estimulos->SC_Estimulos_Fecha}}</h5>
-			<h5 class="card-text">{{$estimulos->SC_TipoEstimulos_FK_ID}}</h5>
+			<h3 id="h3show">N° Documento {{$estimulos->aprendiz->SC_Aprendiz_Documento}}</h3>
+					<table class="table table-responsive table-hover " id="tableshow">
+      					<tbody>
+						  <tr>
+            					<th class="thshow">Aprendiz</th>
+            					<td>{{$estimulos->aprendiz->SC_Aprendiz_Nombres}} {{$estimulos->aprendiz->SC_Aprendiz_Apellidos}} </td>
+        				    </tr>
+          					<tr>
+            					<th class="thshow">Estimulos Reconocidos</th>
+            					<td>{{$estimulos->SC_Estimulos_Reconocimiento}}</td>
+        				    </tr>
+							<tr>
+            					<th class="thshow">Descripción</th>
+            					<td>{{$estimulos->SC_Estimulos_DescripcionEstimulo}}</td>
+        				    </tr>
+							<tr>
+            					<th class="thshow">Fecha</th>
+            					<td>{{$estimulos->SC_Estimulos_Fecha}}</td>
+        				    </tr>
+							<tr>
+            					<th class="thshow">Tipo</th>
+            					<td>{{$estimulos->SC_TipoEstimulos_FK_ID}}</td>
+        				    </tr>
+							</tbody>
 
+						</table>
+
+		<div id="botones">
 			<!-- Button trigger modal -->
 			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">
 			<i class="fas fa-trash-alt"></i>
@@ -44,6 +66,7 @@
 			<a class="btn btn-warning" href="/estimulos/{{$estimulos->SC_Estimulos_PK_ID}}/edit" ><i class="fas fa-wrench"></i></a>
 			<a class="btn btn-outline-dark" href="/estimulos" class="btn btn-outline-dark"><i class="fas fa-undo-alt"></i></a>
 		</div>
-	</div>
+   </div>
+
 </div>
 @endsection 

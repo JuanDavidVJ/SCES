@@ -3,16 +3,45 @@
 @section('content')
 <div class="container d-flex justify-content-center">
              <div class="card text-center" style="width: 40rem;">
-                <div class="card-body">
-                <h3 class="card-title">{{ $aprendiz->SC_Aprendiz_Nombres }} {{$aprendiz->SC_Aprendiz_Apellidos}}</h3>
-                <h5 class="card-subtitle mb-2">Documento: <span class="text-muted">{{ $aprendiz->SC_Aprendiz_Documento }}</span></h5>
-                <h6 class="card-text">Correo: <span class="text-muted">{{ $aprendiz->SC_Aprendiz_Correo }}</span></h6>
-                <h6 class="card-text">Contacto: {{ $aprendiz->SC_Aprendiz_NumeroContacto }}</h6>
-                <h6 class="card-text">Ficha: {{ $aprendiz->SC_Ficha_PK_ID }}</h6>
-                <h6 class="card-text">Contrato Aprendizaje: {{ $aprendiz->SC_Aprendiz_ContratoAprendizajeo }}</>
-                <h6 class="card-text">Empresa: {{ $aprendiz->SC_Aprendiz_Empresa }}</h6>
-                
+             <div class="card-body">
+                    <h3 class="card-title" id="h3show">{{ $aprendiz->SC_Aprendiz_Nombres }} {{$aprendiz->SC_Aprendiz_Apellidos}}</h3>
+            </div>
+            <table class="table table-responsive table-hover " id="tableshow">
+    <tbody>
 
+        <tr>
+           <th class="thshow">Documento</th>
+            <td>{{ $aprendiz->SC_Aprendiz_Documento }}</td>
+            
+        </tr>
+        <tr>
+           <th class="thshow">Correo</th>
+            <td>{{ $aprendiz->SC_Aprendiz_Correo }}</td>
+        </tr>
+        <tr>
+           <th class="thshow">Contacto</th>
+            <td>{{ $aprendiz->SC_Aprendiz_NumeroContacto }}</td>
+        </tr>
+         <tr>
+           <th class="thshow">Ficha</th>
+            <td>{{ $aprendiz->SC_Ficha_PK_ID }}</td>
+        </tr>
+         <tr>
+           <th class="thshow">Contrato de Aprendizaje</th>
+            <td>{{ $aprendiz->SC_Aprendiz_ContratoAprendizaje }}</td>
+        </tr>
+         <tr>
+           <th class="thshow">Empresa</th>
+            <td>{{ $aprendiz->SC_Aprendiz_Empresa }}</td>
+        </tr>
+         <tr>
+          
+          </tr>
+    </tbody>
+
+</table>
+                
+<div id="botones">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#alertDelete">
                 <i class="fas fa-trash-alt"></i>
@@ -51,5 +80,6 @@
                 <a href="/aprendices" class="btn btn-outline-dark"><i class="fas fa-undo-alt"></i></a>
             </div>
            </div>
+        </div>
 </div>
 @endsection
