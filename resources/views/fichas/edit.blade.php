@@ -39,6 +39,30 @@
 		<small style="color: red;">{{ $message }}</small>
 	    @enderror
 	  </div>
+	  <div class="form-group">
+		<span class="input-group-text" for="Usuario">Gestor de grupo</span>
+		<select name="Usuario" id="Usuario" class="form-control">
+			<option selected>Seleccione un gestor</option>
+			@foreach($usuarios as $usuario)
+			 <option value="{{$usuario->SC_Usuarios_ID }}">{{$usuario->SC_Usuarios_Nombre}}</option>
+			@endforeach
+		</select>
+			@error('Usuario')
+				<small>{{$message}}</small>
+			@enderror
+	  </div>
+
+	 <!-- <div class="form-group">
+		<span class="input-group-text" for="SC_">Ficha</span>
+		<select name="SC_Ficha_FK_ID" id="SC_Ficha_FK_ID" class="form-control" style="font-size: 0.9em;">
+			@foreach($usuarios as $usuario)
+			<option value="{{$usuario->SC_Ficha_PK_ID}}" @if($usuario->SC_Ficha_PK_ID == $usuario->SC_Ficha_FK_ID) selected @endif>{{$usuario->SC_Ficha_NumeroFicha}}</option>
+			@endforeach
+		</select>
+		@error('SC_Ficha_FK_ID')
+		<small style="color: red;">{{ $message }}</small>
+		@enderror
+	</div>-->
 	  <button type="submit" class="btn btn-success" id="btn">Actualizar Ficha</button>
 	</form>
 </div>

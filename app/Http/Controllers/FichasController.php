@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ficha;
 use App\Http\Requests\StoreFichasRequest;
+use App\Models\Usuario;
 
 class FichasController extends Controller
 {
@@ -36,7 +37,9 @@ class FichasController extends Controller
      */
     public function create()
     {
-        return view('fichas.create');
+        $usuario = Usuario::all();
+        return view('fichas.create')->with('usuario',$usuario);
+        
     }
 
     /**
@@ -52,6 +55,7 @@ class FichasController extends Controller
         $ficha->SC_Ficha_NumeroFicha = $request->SC_Ficha_NumeroFicha;
         $ficha->SC_Ficha_FechaFin = $request->SC_Ficha_FechaFin;
         $ficha->SC_Ficha_NombreProgramaFormacion = $request->SC_Ficha_NombreProgramaFormacion;
+        $ficha->SC_Ficha_Gestor = $request->SC_Ficha_Gestor;
         $ficha->save();
         return redirect()->route('fichas.index')->with('status', 'Ficha Creada');
     }
@@ -78,7 +82,8 @@ class FichasController extends Controller
     public function edit($id)
     {
         $ficha = Ficha::find($id);
-        return view('fichas.edit')->with('ficha', $ficha);
+        $usuario = Usuario::all();
+        return view('fichas.edit')->with('ficha', $ficha)->with('usuario', $usuario);
     }
 
     /**
@@ -95,6 +100,7 @@ class FichasController extends Controller
         $ficha->SC_Ficha_NumeroFicha = $request->SC_Ficha_NumeroFicha;
         $ficha->SC_Ficha_FechaFin = $request->SC_Ficha_FechaFin;
         $ficha->SC_Ficha_NombreProgramaFormacion = $request->SC_Ficha_NombreProgramaFormacion;
+        $ficha->SC_Ficha_Gestor = $request->SC_Ficha_Gestor;
         $ficha->save();
         return redirect()->route('fichas.index')->with('status', 'Ficha Actualizada');
     }
