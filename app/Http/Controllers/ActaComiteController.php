@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\ActaComite;
+use App\Models\Citacion;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreActaComiteoRequest;
+use App\Http\Requests\StoreActaComiteRequest;
 
 class ActaComiteController extends Controller
 {
@@ -18,13 +19,11 @@ class ActaComiteController extends Controller
         $query = trim($request->get('search'));
 
         if($request){
-            $actacomite = ActaComite::where('SC_ActaComite_Codigo', 'LIKE', '%' . $query . '%')
+            $actacomite = ActaComite::where('SC_Citacion_FK', 'LIKE', '%' . $query . '%')
                           ->get();
 
                 return view('ActaComite.index', ['ActaComite' => $actacomite, 'search' => $query]);
         }
-        /*$actacomite= ActaComite::all();
-        return view('ActaComite.index')->with('ActaComite', $actacomite);*/
     }
 
     /**
@@ -34,9 +33,9 @@ class ActaComiteController extends Controller
      */
     public function create()
     {
-        //
-        $actacomite=ActaComite::all();
-        return view('ActaComite.create')->with('ActaComite', $actacomite);
+        $citaciones = Citacion::all();
+        return view('ActaComite.create')
+                ->with('citaciones', $citaciones);
     }
 
     /**
@@ -45,17 +44,21 @@ class ActaComiteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreActaComiteoRequest $request)
+    public function store(StoreActaComiteRequest $request)
     {
-
-        $actacomite= new ActaComite();
-        $actacomite->SC_ActaComite_Codigo=$request->SC_ActaComite_Codigo;
-        $actacomite->SC_ActaComite_Descripcion=$request->SC_ActaComite_Descripcion;
-        $actacomite->SC_ActaComite_Estado=$request->SC_ActaComite_Estado;
-        $actacomite->SC_ActaComite_NumeroSolicitud=$request->SC_ActaComite_NumeroSolicitud;
-        $actacomite->SC_ActaComite_Motivo=$request->SC_ActaComite_Motivo;
-        $actacomite->SC_ActaComite_Testigos=$request->SC_ActaComite_Testigos;
-        $actacomite->SC_ActaComite_EnviarCitacionAntecedentes=$request->SC_ActaComite_EnviarCitacionAntecedentes;
+        $actacomite = new ActaComite();
+        $actacomite->SC_ActaComite_Nombre = $request->Nombre;
+        $actacomite->SC_ActaComite_Ciudad = $request->Ciudad;
+        $actacomite->SC_ActaComite_Fecha = $request->Fecha;
+        $actacomite->SC_ActaComite_HoraInicio = $request->HoraInicio;
+        $actacomite->SC_ActaComite_HoraFin = $request->HoraFin;
+        $actacomite->SC_ActaComite_DeclaracionesAprendiz = $request->DeclaracionA;
+        $actacomite->SC_ActaComite_DeclaracionesOtros = $request->DeclaracionO;
+        $actacomite->SC_ActaComite_DeclaracionesResponsable = $request->DeclaracionR;
+        $actacomite->SC_ActaComite_Decision = $request->Desicion;
+        $actacomite->SC_ActaComite_Descargos = $request->Descargo;
+        $actacomite->SC_ActaComite_Asistentes = $request->Asistente;
+        $actacomite->SC_Citacion_FK = $request->Citacion;
         $actacomite->save();
         return redirect()->route('ActaComite.index')->with('status', 'Acta creada');
 
@@ -69,9 +72,9 @@ class ActaComiteController extends Controller
      */
     public function show($id)
     {
-        $actacomite=ActaComite::find($id);
+        $actacomite = ActaComite::find($id);
         return view('ActaComite.show')
-        ->with('actacomite', $actacomite);
+                ->with('actacomite', $actacomite);
     }
 
     /**
@@ -82,8 +85,11 @@ class ActaComiteController extends Controller
      */
     public function edit($id)
     {
-        $actacomite=ActaComite::find($id);
-        return view('ActaComite.edit')->with('ActaComite',$actacomite);
+        $actacomite = ActaComite::find($id);
+        $citaciones = Citacion::all();
+        return view('ActaComite.edit')
+                ->with('ActaComite', $actacomite)
+                ->with('citaciones', $citaciones);
     }
 
     /**
@@ -93,17 +99,22 @@ class ActaComiteController extends Controller
      * @param  \App\Models\ActaComite  $actaComite
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreActaComiteoRequest $request, $id)
+    public function update(StoreActaComiteRequest $request, $id)
     {
-        $actacomite=ActaComite::find($id);
-        $actacomite->SC_ActaComite_Codigo=$request->SC_ActaComite_Codigo;
-        $actacomite->SC_ActaComite_Descripcion=$request->SC_ActaComite_Descripcion;
-        $actacomite->SC_ActaComite_Estado=$request->SC_ActaComite_Estado;
-        $actacomite->SC_ActaComite_NumeroSolicitud=$request->SC_ActaComite_NumeroSolicitud;
-        $actacomite->SC_ActaComite_Motivo=$request->SC_ActaComite_Motivo;
-        $actacomite->SC_ActaComite_Testigos=$request->SC_ActaComite_Testigos;
-        $actacomite->SC_ActaComite_EnviarCitacionAntecedentes=$request->SC_ActaComite_EnviarCitacionAntecedentes;
-
+        $actacomite = ActaComite::find($id);
+        $actacomite->SC_ActaComite_Numero = $request->Numero;
+        $actacomite->SC_ActaComite_Nombre = $request->Nombre;
+        $actacomite->SC_ActaComite_Ciudad = $request->Ciudad;
+        $actacomite->SC_ActaComite_Fecha = $request->Fecha;
+        $actacomite->SC_ActaComite_HoraInicio = $request->HoraInicio;
+        $actacomite->SC_ActaComite_HoraFin = $request->HoraFin;
+        $actacomite->SC_ActaComite_DeclaracionesAprendiz = $request->DeclaracionA;
+        $actacomite->SC_ActaComite_DeclaracionesOtros = $request->DeclaracionO;
+        $actacomite->SC_ActaComite_DeclaracionesResponsable = $request->DeclaracionR;
+        $actacomite->SC_ActaComite_Decision = $request->Desicion;
+        $actacomite->SC_ActaComite_Descargos = $request->Descargo;
+        $actacomite->SC_ActaComite_Asistentes = $request->Asistente;
+        $actacomite->SC_Citacion_FK = $request->Citacion; 
         $actacomite->save();
         return redirect()->route('ActaComite.index')->with('status','Acta actualizada');
     }
@@ -116,8 +127,14 @@ class ActaComiteController extends Controller
      */
     public function destroy($id)
     {
-        $actacomite=ActaComite::find($id);
-        $actacomite->delete();
-        return redirect()->route('ActaComite.index')->with('status','Acta eliminada');
+        try{
+            $actacomite = ActaComite::find($id);
+            $actacomite->delete();
+            return redirect()->route('ActaComite.index')->with('status','Acta eliminada');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('ActaComite.index')->with('status','No se pueden eliminar elementos con Integridad Referencial');
+        }
+        
     }
 }

@@ -104,11 +104,16 @@ class FichasController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function destroy($id)
     {
-        $ficha = Ficha::find($id);
-        $ficha->delete();
-        return redirect()->route('fichas.index')->with('status', 'Ficha eliminada');
+        try{
+            $ficha = Ficha::find($id);
+            $ficha->delete();
+            return redirect()->route('fichas.index')->with('status', 'Ficha eliminada'); 
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('fichas.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        }
     }
 }
