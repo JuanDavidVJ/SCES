@@ -25,4 +25,8 @@ class ActoAdministrativo extends Model
     public function TipoNotificacion(){
         return $this->belongsTo(TipoNotifiacion::class, 'SC_TipoNotificacion_FK', 'SC_TipoNotificacion_ID');
     }
+// conection whit usuarios
+    public function Usuario(){
+        return $this->belongsTo(Usuario::class, 'SC_Notificacion_Instructor', 'SC_Usuarios_ID');
+    }
 }

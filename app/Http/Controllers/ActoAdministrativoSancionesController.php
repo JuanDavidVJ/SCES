@@ -7,6 +7,7 @@ use App\Models\ActoAdministrativo;
 use App\Models\TipoPlan;
 use App\Models\ActaComite;
 use App\Models\TipoNotificacion;
+use App\Models\Usuario;
 use App\Http\Requests\StoreAdministrativoRequest;
 
 class ActoAdministrativoSancionesController extends Controller
@@ -41,7 +42,8 @@ class ActoAdministrativoSancionesController extends Controller
         $ActaC = ActaComite::all();
         $TipoN = TipoNotificacion::all();
         $TipoP = TipoPlan::all();
-        return view('actoadministrativo.create')->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP);
+        $usuario = Usuario::all();
+        return view('actoadministrativo.create')->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP)->with('usuario', $usuario);
     }
 
     /**
@@ -78,6 +80,10 @@ class ActoAdministrativoSancionesController extends Controller
 
          $actoas->SC_TipoNotificacion_FK = $request->SC_TipoNotificacion_FK;
 
+         $actoas->SC_Notificacion_Forma = $request->SC_Notificacion_Forma;
+
+         $actoas->SC_Notificacion_Funcionario = $request->SC_Notificacion_Funcionario;
+
          $actoas->save();
          return redirect()->route('actoadministrativo.index')->with('status', 'Notificacion Creada');
     }
@@ -94,7 +100,8 @@ class ActoAdministrativoSancionesController extends Controller
         $ActaC = ActaComite::all();
         $TipoN = TipoNotificacion::all();
         $TipoP = TipoPlan::all();
-        return view('actoadministrativo.show')->with('actoas', $actoas)->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP);
+        $usuario = Usuario::all();
+        return view('actoadministrativo.show')->with('actoas', $actoas)->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP)->with('usuario', $usuario);
 
 
     }
@@ -111,7 +118,8 @@ class ActoAdministrativoSancionesController extends Controller
         $ActaC = ActaComite::all();
         $TipoN = TipoNotificacion::all();
         $TipoP = TipoPlan::all();
-        return view('actoadministrativo.edit')->with('actoas', $actoas)->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP);
+        $usuario = Usuario::all();
+        return view('actoadministrativo.edit')->with('actoas', $actoas)->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP)->with('usuario', $usuario);
     }
 
     /**
@@ -148,7 +156,10 @@ class ActoAdministrativoSancionesController extends Controller
          $actoas->SC_ActaComite_FK = $request->SC_ActaComite_FK;
 
          $actoas->SC_TipoNotificacion_FK = $request->SC_TipoNotificacion_FK;
-         
+
+          $actoas->SC_Notificacion_Forma = $request->SC_Notificacion_Forma;
+
+         $actoas->SC_Notificacion_Funcionario = $request->SC_Notificacion_Funcionario;
 
          $actoas->save();
          return redirect()->route('actoadministrativo.index')->with('status', 'Notificacion Actualizada');
