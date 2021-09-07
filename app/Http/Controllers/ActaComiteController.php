@@ -102,7 +102,6 @@ class ActaComiteController extends Controller
     public function update(StoreActaComiteRequest $request, $id)
     {
         $actacomite = ActaComite::find($id);
-        $actacomite->SC_ActaComite_Numero = $request->Numero;
         $actacomite->SC_ActaComite_Nombre = $request->Nombre;
         $actacomite->SC_ActaComite_Ciudad = $request->Ciudad;
         $actacomite->SC_ActaComite_Fecha = $request->Fecha;

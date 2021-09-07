@@ -7,7 +7,11 @@
 
 <div class="container">
 
+<<<<<<< HEAD
 	<h1>Crear Notificacion</h1>
+=======
+	<h1>Crear Notificación</h1>
+>>>>>>> a8445c6065526cab218fdd669f47daa24a138847
 	
 	<form action="/actoadministrativo" method="post"enctype="multipart/form-data" id="formulario">
 		@csrf

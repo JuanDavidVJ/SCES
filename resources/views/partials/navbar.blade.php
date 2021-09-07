@@ -36,20 +36,6 @@
                 </ul>
             </li>
             <li>
-                <a href="#comite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-users"></i>
-                    Comité
-                </a>
-                <ul class="collapse list-unstyled" id="comite">
-                    <li>
-                        <a href="/comite/create">Crear Comité</a>
-                    </li>
-                    <li>
-                        <a href="/comite">Ver Comites</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
                 <a href="#Actacomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-hourglass-start"></i>
                     Acta Comite
@@ -91,52 +77,7 @@
                     </li>
                 </ul>
             </li>
-            
-            
-            <li>
-                <a href="#evidencias" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-eye"></i>
-                    Evidencias
-                </a>
-                <ul class="collapse list-unstyled" id="evidencias">
-                    <li>
-                        <a href="/evidencias/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/evidencias">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            
-            <li>
-                <a href="#novedades" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-address-card"></i>
-                    Novedades
-                </a>
-                <ul class="collapse list-unstyled" id="novedades">
-                    <li>
-                        <a href="/novedades/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/novedades">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#faltas" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-exclamation-circle"></i>
-                    Faltas
-                </a>
-                <ul class="collapse list-unstyled" id="faltas">
-                    <li>
-                        <a href="/faltas/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/faltas">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            
+
             <li>
                 <a href="#estimulos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-book"></i>
@@ -148,34 +89,6 @@
                     </li>
                     <li>
                         <a href="/estimulos">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#antecedentes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-history"></i>
-                    Antecedentes
-                </a>
-                <ul class="collapse list-unstyled" id="antecedentes">
-                    <li>
-                        <a href="/antecedentes/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/antecedentes">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#plandemejoramiento" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="fas fa-columns"></i>
-                    Plan de mejoramiento
-                </a>
-                <ul class="collapse list-unstyled" id="plandemejoramiento">
-                    <li>
-                        <a href="/planmejoramiento/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/planmejoramiento">Ver </a>
                     </li>
                 </ul>
             </li>
