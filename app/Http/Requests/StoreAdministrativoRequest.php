@@ -30,7 +30,7 @@ class StoreAdministrativoRequest extends FormRequest
             'SC_ActaComite_FK' => 'required',
             'SC_Notificacion_FechaInicial' => 'required',
             //'SC_Notificacion_FechaLimite' => 'required',
-            'SC_Comite_FK_ID' => 'required',
+            
             'SC_TipoNotificacion_FK' => 'required'
         ];
     }

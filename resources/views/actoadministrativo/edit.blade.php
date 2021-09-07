@@ -7,7 +7,7 @@
 
 <div class="container">
 
-	<h1>Modificar Acto administrativo </h1>
+	<h1>Modificar Notificacion </h1>
 	<form action="/actoadministrativo/{{$actoas->SC_Notificacion_ID}}" method="post" enctype="multipart/form-data" id="formularioactoadministrativo">
 		@method('PUT')
 		@csrf
@@ -18,17 +18,17 @@
 				<option value="{{$ActaC->SC_ActaComite_PK_ID}}" @if($ActaC->SC_ActaComite_PK_ID == $actoas->SC_ActaComite_FK) selected @endif>{{$ActaC->SC_ActaComite_PK_ID}}</option>
 				@endforeach
 			</select>
-			@error('SC_ActaComite_FK_ID')
+			@error('SC_ActaComite_FK')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
 
        <div class="form-group">
 	      <span class="input-group-text"for="SC_Notificacion_Sugerencia">sugerencia</span>
-			<textarea class="form-control" rows="2"name="SC_Notificacion_Sugerencia" 
+			<input class="form-control" rows="2"name="SC_Notificacion_Sugerencia" 
 			id="SC_Notificacion_Sugerencia" 
 			class="form-control" 
-			value="{{$actoas->SC_Notificacion_Sugerencia}}"></textarea>
+			value="{{$actoas->SC_Notificacion_Sugerencia}}">
 			@error('SC_Notificacion_Sugerencia')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
@@ -47,12 +47,12 @@
 		</div>
 		<div class="form-group">
 		   <span class="input-group-text" for="SC_TipoNotificacion_FK">Tipo de notificacion</span>
-			<select name="SC_ActaComite_FK" id="SC_ActaComite_FK" class="form-control">
+			<select name="SC_TipoNotificacion_FK" id="SC_TipoNotificacion_FK" class="form-control">
 				@foreach($TipoN as $TipoN)
 				<option value="{{$TipoN->SC_TipoNotificacion_ID}}" @if($TipoN->SC_TipoNotificacion_ID == $actoas->SC_TipoNotificacion_ID) selected @endif>{{$TipoN->SC_TipoNotificacion_Descripcion}}</option>
 				@endforeach
 			</select>
-			@error('SC_TipoNotificacion_ID')
+			@error('SC_TipoNotificacion_FK')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>

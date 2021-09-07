@@ -18,11 +18,11 @@ class ActoAdministrativo extends Model
     }
 
 // conection whit  Acta de comite
-    public function Acta(){
+    public function ActaComite(){
         return $this->belongsTo(ActaComite::class, 'SC_ActaComite_FK', 'SC_ActaComite_PK_ID');
     }
 // conection whit tipo de notifiacion
-    public function TipoNotifiacion(){
+    public function TipoNotificacion(){
         return $this->belongsTo(TipoNotifiacion::class, 'SC_TipoNotificacion_FK', 'SC_TipoNotificacion_ID');
     }
 }

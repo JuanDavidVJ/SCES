@@ -14,11 +14,12 @@
         				    </tr>
 							<tr>
             					<th class="thshow">Tipo de plan </th>
-            					<td>{{$actoas->SC_Notificacion_TipoPlan->SC_TipoPlan_Descripcion}}</td>
+            					<td>{{$actoas->SC_Notificacion_TipoPlan}}</td>
         				    </tr>
+        				    
         				    <tr>
             					<th class="thshow">Tipo de notificacion </th>
-            					<td>{{$actoas->SC_TipoNotificacion_FK->SC_TipoNotificacion_Descripcion}}</td>
+            					<td>{{$actoas->SC_TipoNotificacion_FK}}</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Plan</th>
