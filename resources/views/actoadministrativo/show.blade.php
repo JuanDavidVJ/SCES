@@ -33,6 +33,14 @@
             					<th class="thshow">Notificacion instructor</th>
             					<td>{{$actoas->SC_Notificacion_Instructor}}</td>
 						    </tr>
+						    <tr>
+            					<th class="thshow">Forma en la que debe entregar el plan</th>
+            					<td>{{$actoas->SC_Notificacion_Forma}}</td>
+						    </tr>
+						    <tr>
+            					<th class="thshow">Servidor publico ante el cual se presenta el plan</th>
+            					<td>{{$actoas->SC_Notificacion_Funcionario}}</td>
+						    </tr>
 							<tr>
             					<th class="thshow">Fecha Inicial</th>
             					<td>{{$actoas->SC_Notificacion_FechaInicial}}</td>
