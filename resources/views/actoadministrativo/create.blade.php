@@ -7,7 +7,7 @@
 
 <div class="container">
 
-	<h1>Crear Acto administrativo</h1>
+	<h1>Crear Notificación</h1>
 	
 	<form action="/actoadministrativo" method="post"enctype="multipart/form-data" id="formulario">
 		@csrf
