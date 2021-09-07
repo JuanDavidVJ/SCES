@@ -1,10 +1,16 @@
 @extends('layouts.base')
 @section('title', 'Listado de Actas')
 @section('content')
-	<h1>Listado de actas</h1>
-	<div class="row">
+<div class="container">
+	<h1>Listado de Actas</h1>
+	<div class="input-group mb-3">
+	<input type="search" class="form-control" placeholder="Ingresar Descripción" aria-label="Recipient's username" aria-describedby="button-addon2" name="search"id="inputbuscar">
+		<div class="input-group-append">
+			<button class="btn btn-outline-success pl-5 pr-5 ml-2" type="submit" id="button-addon2">Buscar</button>
+		</div>
+		</div>
 		@foreach($ActaComite as $actacomite)
-		<table class="table table-dark table-striped" style="text-align: justify;">
+		<table class="table table-striped">
 			<thead>
 			  <tr style="font-size: 1.5em;">
 				<th scope="col">Numero del acta</th>
@@ -37,4 +43,5 @@
 	  </table>
 		@endforeach
 	</div>
+</div>
 @endsection
