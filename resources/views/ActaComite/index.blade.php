@@ -16,7 +16,7 @@
 				<th scope="col">Asistentes</th>
 			  </tr>
 			  <tr>
-			 	<td>{{$actacomite->SC_Citacion_FK}}</td>
+			 	<td>{{$actacomite->citacion->SC_Citacion_NumeroActa}}</td>
 				<td>{{$actacomite->SC_ActaComite_Nombre}}</td>
 				<td>{{$actacomite->SC_ActaComite_Ciudad}}</td>
 				<td>{{$actacomite->SC_ActaComite_Fecha}}</td>
