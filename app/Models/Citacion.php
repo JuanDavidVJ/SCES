@@ -16,8 +16,7 @@ class Citacion extends Model
         return $this->belongsTo(SolicitarComite::class, 'SC_Solicitud_FK', 'SC_SolicitarComite_ID');
     }
 
-    // // relation with comite
-    // public function comite(){
-    //     return $this->belongsTo(Comite::class, 'SC_Comite_FK_ID', 'SC_Comite_PK_ID');
-    // }
+    public function actacomite(){
+        return $this->hasMany(ActaComite::class, 'SC_Citacion_FK', 'SC_CitacionPK_Id');
+    }
 }

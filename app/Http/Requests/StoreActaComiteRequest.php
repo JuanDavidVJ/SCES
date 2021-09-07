@@ -24,36 +24,36 @@ class StoreActaComiteRequest extends FormRequest
     public function rules()
     {
         return [
-            'SC_ActaComite_Nombre' => 'required',
-            'SC_ActaComite_Ciudad' => 'required',
-            'SC_ActaComite_Fecha' => 'required',
-            'SC_ActaComite_HoraInicio' => 'required',
-            'SC_ActaComite_HoraFin' => 'required',
-            'SC_ActaComite_Asistentes' => 'required',
-            'SC_ActaComite_DeclaracionesAprendiz' => 'required',
-            'SC_ActaComite_DeclaracionesOtros' => 'required',
-            'SC_ActaComite_Decision' => 'required',
-            'SC_ActaComite_Descargos' => 'required',
-            'SC_ActaComite_DeclaracionesResponsable' => 'required',
-            'SC_Citacion_FK' => 'required'
+            'Nombre' => 'required',
+            'Ciudad' => 'required',
+            'Fecha' => 'required',
+            'HoraInicio' => 'required',
+            'HoraFin' => 'required',
+            'Asistente' => 'required',
+            'DeclaracionA' => 'required',
+            'DeclaracionO' => 'required',
+            'Desicion' => 'required',
+            'Descargo' => 'required',
+            'DeclaracionR' => 'required',
+            'Citacion' => 'required'
         ];
     }
 
     public function messages()
     {
         return[
-            'SC_ActaComite_Nombre.required' => 'Este campo es obligatorio.',
-            'SC_ActaComite_Ciudad.required' => 'Este campo es obligatorio.',
-            'SC_ActaComite_Fecha.required' => 'Este campo es obligatorio.',
-            'SC_ActaComite_HoraInicio.required' => 'Este campo es obligatorio.',
-            'SC_ActaComite_HoraFin.required' => 'Este campo es obligatorio.',
-            'SC_ActaComite_Asistentes.required' => 'Este campo es obligatorio.',
-            'SC_ActaComite_DeclaracionesAprendiz.required' => 'Este campo es obligatorio.',
-            'SC_ActaComite_DeclaracionesOtros.required' => 'Este campo es obligatorio.',
-            'SC_ActaComite_Decision.required' => 'Este campo es obligatorio.',
-            'SC_ActaComite_Descargos.required' => 'Este campo es obligatorio.',
-            'SC_ActaComite_DeclaracionesResponsable.required' => 'Este campo es obligatorio.',
-            'SC_Citacion_FK.required' => 'Este campo es obligatorio.'
+            'Nombre.required' => 'Este campo es obligatorio.',
+            'Ciudad.required' => 'Este campo es obligatorio.',
+            'Fecha.required' => 'Este campo es obligatorio.',
+            'HoraInicio.required' => 'Este campo es obligatorio.',
+            'HoraFin.required' => 'Este campo es obligatorio.',
+            'Asistente.required' => 'Este campo es obligatorio.',
+            'DeclaracionA.required' => 'Este campo es obligatorio.',
+            'DeclaracionO.required' => 'Este campo es obligatorio.',
+            'Desicion.required' => 'Este campo es obligatorio.',
+            'Descargo.required' => 'Este campo es obligatorio.',
+            'DeclaracionR.required' => 'Este campo es obligatorio.',
+            'Citacion.required' => 'Este campo es obligatorio.'
         ];
     }
 }
