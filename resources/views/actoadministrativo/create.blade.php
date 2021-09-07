@@ -3,18 +3,17 @@
 @section('content') 
 <head>
 	<link rel="stylesheet" href="{{ asset('estilos/estilos.css') }}">
+
 </head>
 
 <div class="container">
 
-<<<<<<< HEAD
 	<h1>Crear Notificacion</h1>
-=======
-	<h1>Crear Notificación</h1>
->>>>>>> a8445c6065526cab218fdd669f47daa24a138847
+
 	
 	<form action="/actoadministrativo" method="post"enctype="multipart/form-data" id="formulario">
 		@csrf
+
 		<div class="form-group">
 		   <span class="input-group-text" for="SC_ActaComite_FK">Acta de comite relacionada</span>
 			<select name="SC_ActaComite_FK" id="SC_ActaComite_FK" class="form-control">
@@ -28,7 +27,7 @@
 		</div>
 
        <div class="form-group">
-	      <span class="input-group-text"for="SC_Notificacion_Sugerencia">sugerencia</span>
+	      <span class="input-group-text"for="SC_Notificacion_Sugerencia">sugerencias</span>
 			<input class="form-control" rows="2"name="SC_Notificacion_Sugerencia" 
 			id="SC_Notificacion_Sugerencia" 
 			class="form-control" 
@@ -39,19 +38,8 @@
 		</div>
 
 		<div class="form-group">
-		   <span class="input-group-text" for="SC_Notificacion_TipoPlan">Tipo de plan</span>
-			<select name="SC_Notificacion_TipoPlan" id="SC_Notificacion_TipoPlan" class="form-control">
-				@foreach($TipoP as $TipoP)
-				<option value="{{$TipoP->SC_TipoPlan_ID}}">{{$TipoP->SC_TipoPlan_Descripcion}}</option>
-				@endforeach
-			</select>
-			@error('SC_Notificacion_TipoPlan')
-			<small style="color: red;">{{ $message }}</small>
-			@enderror
-		</div>
-		<div class="form-group">
 		   <span class="input-group-text" for="SC_TipoNotificacion_FK">Tipo de notificacion</span>
-			<select name="SC_TipoNotificacion_FK" id="SC_TipoNotificacion_FK" class="form-control">
+			<select name="SC_TipoNotificacion_FK" id="SC_TipoNotificacion_FK" class="form-control" onChange="mostrar()">
 				@foreach($TipoN as $TipoN)
 				<option value="{{$TipoN->SC_TipoNotificacion_ID}}">{{$TipoN->SC_TipoNotificacion_Descripcion}}</option>
 				@endforeach
@@ -61,7 +49,20 @@
 			@enderror
 		</div>
 
-		<div class="form-group">
+		<div class="form-group" >
+		   <span class="input-group-text" for="SC_Notificacion_TipoPlan">Tipo de plan</span>
+			<select name="SC_Notificacion_TipoPlan" id="SC_Notificacion_TipoPlan" class="form-control" >
+				@foreach($TipoP as $TipoP)
+				<option value="{{$TipoP->SC_TipoPlan_ID}}">{{$TipoP->SC_TipoPlan_Descripcion}}</option>
+				@endforeach
+			</select>
+			@error('SC_Notificacion_TipoPlan')
+			<small style="color: red;">{{ $message }}</small>
+			@enderror
+		</div>
+
+		
+		<div class="form-group" >
 		   <span class="input-group-text" for="SC_Notificacion_Plan">Plan asignado</span>
 			<input type="file" 
 			name="SC_Notificacion_Plan" 
@@ -72,18 +73,38 @@
 			@enderror
 		</div>
 
-		<div class="form-group">
-		   <span class="input-group-text" for="SC_Notificacion_Instructor">Notificacion instructor</span>
-			<input type="number" 
-			name="SC_Notificacion_Instructor" 
-			id="SC_Notificacion_Instructor" 
-			class="form-control" 
-			value="{{old('SC_Notificacion_Instructor')}}">
+		<div class="form-group" >
+		   <span class="input-group-text" for="SC_Notificacion_Instructor">Instructor designado para el plan de mejoramiento</span>
+			<select name="SC_Notificacion_Instructor" id="SC_Notificacion_Instructor" class="form-control">
+				@foreach($usuario as $usuario)
+				<option value="{{$usuario->SC_Usuarios_ID}}">{{$usuario->SC_Usuarios_Nombre}}</option>
+				@endforeach
+			</select>
 			@error('SC_Notificacion_Instructor')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
-		
+
+		<div class="form-group"  >
+	      <span class="input-group-text"for="SC_Notificacion_Forma">Indique la forma en la que debe entregar el plan de mejoramiento</span>
+			<input class="form-control" rows="2"name="SC_Notificacion_Forma" 
+			id="SC_Notificacion_Forma" 
+			class="form-control" 
+			value="{{old('SC_Notificacion_Forma')}}">
+			@error('SC_Notificacion_Forma')
+			<small style="color: red;">{{ $message }}</small>
+			@enderror
+		</div>
+		<div class="form-group" >
+	      <span class="input-group-text"for="SC_Notificacion_Funcionario">Indique el servidor público ante quien debe presentarlo</span>
+			<input class="form-control" rows="2"name="SC_Notificacion_Funcionario" 
+			id="SC_Notificacion_Funcionario" 
+			class="form-control" 
+			value="{{old('SC_Notificacion_Funcionario')}}">
+			@error('SC_Notificacion_Funcionario')
+			<small style="color: red;">{{ $message }}</small>
+			@enderror
+		</div>
 
 		<div class="form-group">
 		  <span class="input-group-text" for="SC_Notificacion_FechaInicial">Fecha Inicial</span>
@@ -96,7 +117,7 @@
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
-		<div class="form-group">
+		<div class="form-group"  >
 		  <span class="input-group-text" for="SC_Notificacion_FechaLimite">Fecha limite</span>
 			<input type="date" 
 			name="SC_Notificacion_FechaLimite" 
@@ -113,3 +134,70 @@
 	</form>
 </div>
 @endsection 
+<script type="text/javascript">
+	 
+/*	
+function mostrar() 
+{
+	var opciones = document.getElementById("SC_TipoNotificacion_FK").value 
+	var plan=document.getElementById("SC_Notificacion_TipoPlan");
+	var plan1=document.getElementById("SC_Notificacion_Plan");
+	var forma=document.getElementById("SC_Notificacion_Forma");
+	var fechal=document.getElementById("SC_Notificacion_FechaLimite");
+	var instru=document.getElementById("SC_Notificacion_Instructor");
+	var funci=document.getElementById("SC_Notificacion_Funcionario");
+	
+	/*switch(opciones){
+		case 'Condicionamiento de Matricula':
+			plan.style.display = "block";
+			plan1.style.display = "block";
+			forma.style.display = "block";
+			instru.style.display= "block";
+			funci.style.display = "block";
+			fechal.style.display = "block";
+			break;
+
+	}*/
+	/*
+	if (opciones = "Condicionamiento de Matricula") {
+		
+		plan.style.display = "block";
+		plan1.style.display = "block";
+		forma.style.display = "block";
+		instru.style.display= "block";
+		funci.style.display = "block";
+		fechal.style.display = "block";
+	}
+
+	else
+	{
+		plan.style.display = "none";
+		plan1.style.display = "none";
+		forma.style.display = "none";
+		instru.style.display= "none";
+		funci.style.display = "none";
+		fechal.style.display = "none";
+	}*/
+	/*if (opciones = "Llamados de atención")
+	{
+		plan.style.display = "none";
+		plan1.style.display = "none";
+		forma.style.display = "none";
+		instru.style.display= "none";
+		funci.style.display = "none";
+		fechal.style.display = "none";
+	}if (opciones = "Cancelación de matricula")
+	{
+		plan.style.display = "none";
+		plan1.style.display = "none";
+		forma.style.display = "none";
+		instru.style.display= "none";
+		funci.style.display = "none";
+		fechal.style.display = "none";
+	}
+	 
+	
+}*/
+
+
+</script>
