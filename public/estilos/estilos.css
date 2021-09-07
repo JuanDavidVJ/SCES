@@ -30,6 +30,7 @@ input{
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 	width: 50%;
 	height: 70%;
+	text-align: justify;
 
 }
 
@@ -56,5 +57,7 @@ input{
 #linkshow{
 	color:green;
 }
-
+.tdshow{
+	text-align: center;
+}
 

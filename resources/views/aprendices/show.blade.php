@@ -11,28 +11,28 @@
 
         <tr>
            <th class="thshow">Documento</th>
-            <td>{{ $aprendiz->SC_Aprendiz_Documento }}</td>
+            <td class="tdshow">{{ $aprendiz->SC_Aprendiz_Documento }}</td>
             
         </tr>
         <tr>
            <th class="thshow">Correo</th>
-            <td>{{ $aprendiz->SC_Aprendiz_Correo }}</td>
+           <td class="tdshow">{{ $aprendiz->SC_Aprendiz_Correo }}</td>
         </tr>
         <tr>
            <th class="thshow">Contacto</th>
-            <td>{{ $aprendiz->SC_Aprendiz_NumeroContacto }}</td>
+           <td class="tdshow">{{ $aprendiz->SC_Aprendiz_NumeroContacto }}</td>
         </tr>
          <tr>
            <th class="thshow">Ficha</th>
-            <td>{{ $aprendiz->SC_Ficha_PK_ID }}</td>
+           <td class="tdshow">{{ $aprendiz->SC_Ficha_PK_ID }}</td>
         </tr>
          <tr>
            <th class="thshow">Contrato de Aprendizaje</th>
-            <td>{{ $aprendiz->SC_Aprendiz_ContratoAprendizaje }}</td>
+           <td class="tdshow">{{ $aprendiz->SC_Aprendiz_ContratoAprendizaje }}</td>
         </tr>
          <tr>
            <th class="thshow">Empresa</th>
-            <td>{{ $aprendiz->SC_Aprendiz_Empresa }}</td>
+           <td class="tdshow">{{ $aprendiz->SC_Aprendiz_Empresa }}</td>
         </tr>
          <tr>
           

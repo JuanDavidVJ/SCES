@@ -10,36 +10,36 @@
       					<tbody>
           					<tr>
             					<th class="thshow">Acta de comite</th>
-            					<td>{{$actoas->SC_ActaComite_FK}}</td>
+            					<td class="tdshow">{{$actoas->SC_ActaComite_FK}}</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Tipo de plan </th>
-            					<td>{{$actoas->SC_Notificacion_TipoPlan}}</td>
+            					<td class="tdshow">{{$actoas->SC_Notificacion_TipoPlan}}</td>
         				    </tr>
         				    
         				    <tr>
             					<th class="thshow">Tipo de notificacion </th>
-            					<td>{{$actoas->SC_TipoNotificacion_FK}}</td>
+            					<td class="tdshow">{{$actoas->SC_TipoNotificacion_FK}}</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Plan</th>
-            					<td><a href="{{asset('/archivos/actoadministrativo/'.$actoas->SC_Notificacion_Plan)}}" target="_blank">Ver</a></td>
+            					<td class="tdshow"><a href="{{asset('/archivos/actoadministrativo/'.$actoas->SC_Notificacion_Plan)}}" target="_blank">Ver</a></td>
         				    </tr>
 							<tr>
             					<th class="thshow">Sugerencias</th>
-            					<td> {{$actoas->SC_Notificacion_Sugerencia}}</td>
+            					<td<td class="tdshow">{{$actoas->SC_Notificacion_Sugerencia}}</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Notificacion instructor</th>
-            					<td>{{$actoas->SC_Notificacion_Instructor}}</td>
+            					<td class="tdshow">{{$actoas->SC_Notificacion_Instructor}}</td>
 						    </tr>
 							<tr>
             					<th class="thshow">Fecha Inicial</th>
-            					<td>{{$actoas->SC_Notificacion_FechaInicial}}</td>
+            					<td class="tdshow">{{$actoas->SC_Notificacion_FechaInicial}}</td>
         				    </tr>
         				    <tr>
             					<th class="thshow">Fecha limite</th>
-            					<td>{{$actoas->SC_Notificacion_FechaLimite }}</td>
+            					<td class="tdshow">{{$actoas->SC_Notificacion_FechaLimite }}</td>
         				    </tr>
 							</tbody>
 
