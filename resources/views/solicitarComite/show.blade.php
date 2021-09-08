@@ -33,7 +33,7 @@
         </tr>
         <tr>
            <th class="thshow">Anexo</th>
-            <td id="linkshow"><a href="{{asset('/archivos/solicitarComite/'.$solicitar->SC_SolicitarComite_Anexo)}}" target="_blank">Ver</a></td>
+            <td class="tdshow" id="linkshow"><a href="{{asset('/archivos/solicitarComite/'.$solicitar->SC_SolicitarComite_Anexo)}}" target="_blank">Ver</a></td>
         </tr>
         <tr>
            <th class="thshow">Aprendiz</th>
