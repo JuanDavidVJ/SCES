@@ -17,11 +17,10 @@ use App\Http\Controllers\EstimulosController;
 use App\Http\Controllers\IngresoController;
 use App\Http\Controllers\AntecedentesController;
 use App\Http\Controllers\CitacionController;
+use App\Http\Controllers\RecursosController;
 //use App\Http\Controllers\PlanMejoramientoController;
 use App\Http\Controllers\SolicitarComiteController;
-
-
-
+use App\Models\Recursos;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,5 +86,8 @@ Route::resource('Citacion', CitacionController::class);
 
 
 
-//Ruta Solicitar Comite 
+//Ruta Solicitar Comite
 Route::resource('solicitarComite', SolicitarComiteController::class);
+
+//Ruta Recursos de Reposición
+Route::resource('recursosReposicion', RecursosController::class);
