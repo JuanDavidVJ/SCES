@@ -21,10 +21,7 @@
             					<th class="thshow">Tipo de notificacion </th>
             					<td class="tdshow">{{$actoas->SC_TipoNotificacion_FK}}</td>
         				    </tr>
-							<tr>
-            					<th class="thshow">Plan</th>
-            					<td class="tdshow"><a href="{{asset('/archivos/actoadministrativo/'.$actoas->SC_Notificacion_Plan)}}" target="_blank">Ver</a></td>
-        				    </tr>
+							
 							<tr>
             					<th class="thshow">Sugerencias</th>
             					<td<td class="tdshow">{{$actoas->SC_Notificacion_Sugerencia}}</td>

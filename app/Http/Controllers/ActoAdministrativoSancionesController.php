@@ -54,21 +54,12 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function store(StoreAdministrativoRequest $request)
     {
-        if($request->hasFile('SC_Notificacion_Plan')){
-            $file= $request->file('SC_Notificacion_Plan');
-            //cambiar nombre para no generar conflicto
-            $SC_Notificacion_Plan = time() . $file->getClientOriginalName();
-            //movemos el archivo
-            $file->move('archivos/actoadministrativo', $SC_Notificacion_Plan);
-
-        }
-
+        
         $actoas = new ActoAdministrativo();
          $actoas->SC_Notificacion_Sugerencia = $request->SC_Notificacion_Sugerencia;
 
          $actoas->SC_Notificacion_TipoPlan = $request->SC_Notificacion_TipoPlan;
 
-         $actoas->SC_Notificacion_Plan = $SC_Notificacion_Plan;
 
          $actoas->SC_Notificacion_Instructor = $request->SC_Notificacion_Instructor;
 
@@ -135,14 +126,7 @@ class ActoAdministrativoSancionesController extends Controller
         $actoas = ActoAdministrativo::find($id);
 
 
-         if($request->hasFile('SC_Notificacion_Plan')){
-            $file= $request->file('SC_Notificacion_Plan');
-            //cambiar nombre para no generar conflicto
-            $SC_Notificacion_Plan=$actoas->SC_Notificacion_Plan;
-            //movemos el archivo
-            $file->move('archivos/actoadministrativo', $SC_Notificacion_Plan);
-
-        }
+         
         $actoas->SC_Notificacion_Sugerencia = $request->SC_Notificacion_Sugerencia;
 
          $actoas->SC_Notificacion_TipoPlan = $request->SC_Notificacion_TipoPlan;

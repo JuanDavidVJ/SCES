@@ -61,17 +61,6 @@
 			@enderror
 		</div>
 
-		
-		<div class="form-group" >
-		   <span class="input-group-text" for="SC_Notificacion_Plan">Plan asignado</span>
-			<input type="file" 
-			name="SC_Notificacion_Plan" 
-			id="SC_Notificacion_Plan" 
-			class="form-control" >
-			@error('SC_Notificacion_Plan')
-			<small style="color: red;">{{ $message }}</small>
-			@enderror
-		</div>
 
 		<div class="form-group" >
 		   <span class="input-group-text" for="SC_Notificacion_Instructor">Instructor designado para el plan de mejoramiento</span>
