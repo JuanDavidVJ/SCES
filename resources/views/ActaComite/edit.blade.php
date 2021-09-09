@@ -6,7 +6,7 @@
 		@method('PUT')
 		@csrf
 	  <div class="form-group">
-	  	<label for="Citacion">Numero del acta</label>
+	  <span class="input-group-text" for="Citacion">Numero del acta</span>
 	  	<select class="form-control" id="Citacion" name="Citacion">
 	  		@foreach($citaciones as $citacion)
 	  			<option value="{{$citacion->SC_CitacionPK_Id }}" @if($citacion->SC_CitacionPK_Id == $ActaComite->SC_Citacion_FK) selected 
@@ -18,83 +18,83 @@
 	    @enderror
 	  </div>
 	  <div class="form-group">
-	    <label for="Nombre">Nombre del Comité o de la Reunión</label>
+	  <span class="input-group-text" for="Nombre">Nombre del Comité o de la Reunión</span>
 	    <input type="text" class="form-control" id="Nombre" name="Nombre" value="{{$ActaComite->SC_ActaComite_Nombre}}"> 
 	    @error('Nombre')
 	    	<small>{{ $message }}</small>
 	    @enderror
 	  </div>	
 	  <div class="form-group">
-	  	<label for="Ciudad">Ciudad</label>
+	  <span class="input-group-text" for="Ciudad">Ciudad</span>
 	  	<input type="text" class="form-control" id="Ciudad" name="Ciudad" value="{{$ActaComite->SC_ActaComite_Ciudad}}">
 	  	@error('Ciudad')
 	    	<small>{{ $message }}</small>
 	    @enderror
 	  </div>
 	  <div class="form-group">
-		<label for="Fecha">Fecha</label>
+	  <span class="input-group-text" for="Fecha">Fecha</span>
 		<input type="date" class="form-control" id="Fecha" name="Fecha" value="{{$ActaComite->SC_ActaComite_Fecha}}">
 		@error('Fecha')
 		  <small>{{ $message }}</small>
 	  @enderror
 	</div>
 	<div class="form-group">
-		<label for="HoraInicio">Hora de inicio</label>
+	<span class="input-group-text" for="HoraInicio">Hora de inicio</span>
 		<input type="time" class="form-control" id="HoraInicio" name="HoraInicio" value="{{$ActaComite->SC_ActaComite_HoraInicio}}">
 		@error('HoraInicio')
 		  <small>{{ $message }}</small>
 	  @enderror
 	</div>
 	<div class="form-group">
-		<label for="HoraFin">Hora de fin</label>
+	 <span class="input-group-text" for="HoraFin">Hora de fin</span>
 		<input type="time" class="form-control" id="HoraFin" name="HoraFin" value="{{$ActaComite->SC_ActaComite_HoraFin}}">
 		@error('HoraFin')
 		  <small>{{ $message }}</small>
 	  @enderror
 	</div>
 	<div class="form-group">
-	  	<label for="DeclaracionA">Declaraciones del Aprendiz</label>
+	   <span class="input-group-text" for="DeclaracionA">Declaraciones del Aprendiz</span>
 	  	<input type="text" class="form-control" id="DeclaracionA" name="DeclaracionA" value="{{$ActaComite->SC_ActaComite_DeclaracionesAprendiz}}">
 	  	@error('DeclaracionA')
 	    	<small>{{ $message }}</small>
 	    @enderror
 	  </div>
 	  <div class="form-group">
-	  	<label for="DeclaracionR">Declaraciones del responsable que solicito comité</label>
+	    <span class="input-group-text" for="DeclaracionR">Declaraciones del responsable que solicito comité</span>
 	  	<input type="text" class="form-control" id="DeclaracionR" name="DeclaracionR" value="{{$ActaComite->SC_ActaComite_DeclaracionesResponsable}}">
 	  	@error('DeclaracionR')
 	    	<small>{{ $message }}</small>
 	    @enderror
 	  </div>
 	  <div class="form-group">
-	  	<label for="DeclaracionO">Otras declaraciones</label>
+	   <span class="input-group-text" for="DeclaracionO">Otras declaraciones</span>
 	  	<input type="text" class="form-control" id="DeclaracionO" name="DeclaracionO" value="{{$ActaComite->SC_ActaComite_DeclaracionesOtros}}">
 	  	@error('DeclaracionO')
 	    	<small>{{ $message }}</small>
 	    @enderror
 	  </div>
 	  <div class="form-group">
-	  	<label for="Asistente">Asistentes</label>
+	  <span class="input-group-text" for="Asistente">Asistentes</span>
 	  	<input type="text" class="form-control" id="Asistente" name="Asistente" value="{{$ActaComite->SC_ActaComite_Asistentes}}">
 	  	@error('Objetivo')
 	    	<small>{{ $message }}</small>
 	    @enderror
 	  </div>
 	  <div class="form-group">
-	  	<label for="Descargo">Descargos del Aprendiz</label>
+	  <span class="input-group-text" for="Descargo">Descargos del Aprendiz</span>
 	  	<input type="text" class="form-control" id="Descargo" name="Descargo" value="{{$ActaComite->SC_ActaComite_Descargos}}">
 	  	@error('Descargo')
 	    	<small>{{ $message }}</small>
 	    @enderror
 	  </div>
 	  <div class="form-group">
-	  	<label for="Desicion">Desicion</label>
+	  <span class="input-group-text" for="Desicion">Desicion</span>
 	  	<input type="text" class="form-control" id="Desicion" name="Desicion" value="{{$ActaComite->SC_ActaComite_Descargos}}">
 	  	@error('Desicion')
 	    	<small>{{ $message }}</small>
 	    @enderror
 	  </div>
-	  <button type="submit" class="btn btn-primary">Actualizar</button>
+	  <button type="submit" class="btn btn-success">Actualizar</button>
 	</form>
 @endsection
 

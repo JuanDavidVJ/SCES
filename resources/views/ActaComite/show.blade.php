@@ -6,34 +6,58 @@
 
     <div class="card text-center" style="width: 40rem;">
           <div class="card-body">
-            <h3 class="card-title" id="h3show">Código N° {{ $actacomite->SC_ActaComite_Codigo}}</h3>
+            <h3 class="card-title" id="h3show">Código N° {{ $actacomite->SC_ActaComite_PK_ID}}</h3>
         </div>
 
             <table class="table table-responsive table-hover " id="tableshow">
     <tbody>
           <tr>
-            <th class="thshow">Descripción</th>
-            <td class="tdshow">{{ $actacomite->SC_ActaComite_Descripcion }}</td>
+            <th class="thshow">Nombre Acta</th>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_Nombre }}</td>
          </tr>  
          <tr>
-            <th class="thshow">Estado</th>
-            <td class="tdshow">{{ $actacomite->SC_ActaComite_Estado }}</td>
+            <th class="thshow">Ciudad</th>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_Ciudad}}</td>
          </tr>
          <tr>
-            <th class="thshow">Número Solicitud</th>
-            <td class="tdshow"> {{ $actacomite->SC_ActaComite_NumeroSolicitud}}</td>
+            <th class="thshow">Fecha</th>
+            <td class="tdshow"> {{ $actacomite->SC_ActaComite_Fecha}}</td>
          </tr>  
          <tr>
-            <th class="thshow">Motivo</th>
-            <td class="tdshow">{{ $actacomite->SC_ActaComite_Motivo }}</td>
+            <th class="thshow">Hora Inicio</th>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_HoraInicio }}</td>
          </tr>  
          <tr>
-            <th class="thshow">Testigos</th>
-            <td class="tdshow">{{ $actacomite->SC_ActaComite_Testigos }}</td>
+            <th class="thshow">Hora Fin</th>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_HoraFin }}</td>
          </tr>  
          <tr>
-            <th class="thshow">Antecedentes</th>
-            <td class="tdshow">{{ $actacomite->SC_ActaComite_EnviarCitacionAntecedentes }}</td>
+            <th class="thshow">Asistentes</th>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_Asistentes}}</td>
+         </tr> 
+         <tr>
+            <th class="thshow">Declaración Aprendiz</th>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_DeclaracionesAprendiz }}</td>
+         </tr> 
+         <tr>
+            <th class="thshow">Declaración Aprendiz</th>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_DeclaracionesResponsable}}</td>
+         </tr>
+         <tr>
+            <th class="thshow">Declaraciones Otros</th>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_DeclaracionesOtros}}</td>
+         </tr> 
+         <tr>
+            <th class="thshow">Descargos</th>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_Descargos}}</td>
+         </tr> 
+         <tr>
+            <th class="thshow">Decisión</th>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_Decision}}</td>
+         </tr> 
+         <tr>
+            <th class="thshow">Citación</th>
+            <td class="tdshow">{{ $actacomite->SC_Citacion_FK}}</td>
          </tr> 
          
 
