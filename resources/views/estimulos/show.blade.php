@@ -11,31 +11,31 @@
       					<tbody>
 						  <tr>
             					<th class="thshow">Aprendiz</th>
-            					<td>{{$estimulos->aprendiz->SC_Aprendiz_Nombres}} {{$estimulos->aprendiz->SC_Aprendiz_Apellidos}} </td>
+            					<td class="tdshow">{{$estimulos->aprendiz->SC_Aprendiz_Nombres}} {{$estimulos->aprendiz->SC_Aprendiz_Apellidos}} </td>
         				    </tr>
 							<tr>
             					<th class="thshow">Ficha</th>
-            					<td>{{$estimulos->ficha->SC_Ficha_NumeroFicha}}</td>
+            					<td class="tdshow">{{$estimulos->ficha->SC_Ficha_NumeroFicha}}</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Reporta</th>
-            					<td>{{$estimulos->SC_Estimulos_Reporta}}</td>
+            					<td class="tdshow">{{$estimulos->SC_Estimulos_Reporta}}</td>
         				    </tr>
           					<tr>
             					<th class="thshow">Razón</th>
-            					<td>{{$estimulos->SC_Estimulos_Razon}}</td>
+            					<td class="tdshow">{{$estimulos->SC_Estimulos_Razon}}</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Detalles</th>
-            					<td>{{$estimulos->SC_Estimulos_Detalles}}</td>
+            					<td class="tdshow">{{$estimulos->SC_Estimulos_Detalles}}</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Fecha</th>
-            					<td>{{$estimulos->SC_Estimulos_Fecha}}</td>
+            					<td class="tdshow">{{$estimulos->SC_Estimulos_Fecha}}</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Tipo</th>
-            					<td>{{$estimulos->tipoestimulos->SC_TipoEstimulos_Descripcion}}</td>
+            					<td class="tdshow">{{$estimulos->tipoestimulos->SC_TipoEstimulos_Descripcion}}</td>
         				    </tr>
 							</tbody>
 

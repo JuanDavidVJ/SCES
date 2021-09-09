@@ -57,25 +57,35 @@
 			@enderror
 		</div>
 
-		<div class="form-group">
-		   <span class="input-group-text" for="SC_Notificacion_Plan">Plan asignado</span>
-			<input type="file" 
-			name="SC_Notificacion_Plan" 
-			id="SC_Notificacion_Plan" 
-			class="form-control" >
-			@error('SC_Notificacion_Plan')
+		
+		<div class="form-group" >
+		   <span class="input-group-text" for="SC_Notificacion_Instructor">Instructor designado para el plan de mejoramiento</span>
+			<select name="SC_Notificacion_Instructor" id="SC_Notificacion_Instructor" class="form-control">
+				@foreach($usuario as $usuario)
+				<option value="{{$usuario->SC_Usuarios_ID}}" @if($usuario->SC_Usuarios_ID == $actoas->SC_Notificacion_Instructor) selected @endif>{{$usuario->SC_Usuarios_Nombre}}</option>
+				@endforeach
+			</select>
+			@error('SC_Notificacion_Instructor')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
-
-		<div class="form-group">
-		   <span class="input-group-text" for="SC_Notificacion_Instructor">Notificacion instructor</span>
-			<input type="text" 
-			name="SC_Notificacion_Instructor" 
-			id="SC_Notificacion_Instructor" 
+		<div class="form-group"  >
+	      <span class="input-group-text"for="SC_Notificacion_Forma">Indique la forma en la que debe entregar el plan de mejoramiento</span>
+			<input class="form-control" rows="2"name="SC_Notificacion_Forma" 
+			id="SC_Notificacion_Forma" 
 			class="form-control" 
-			value="{{$actoas->SC_Notificacion_Instructor}}">
-			@error('SC_Notificacion_Instructor')
+			value="{{$actoas->SC_Notificacion_Forma}}">
+			@error('SC_Notificacion_Forma')
+			<small style="color: red;">{{ $message }}</small>
+			@enderror
+		</div>
+		<div class="form-group" >
+	      <span class="input-group-text"for="SC_Notificacion_Funcionario">Indique el servidor público ante quien debe presentarlo</span>
+			<input class="form-control" rows="2"name="SC_Notificacion_Funcionario" 
+			id="SC_Notificacion_Funcionario" 
+			class="form-control" 
+			value="{{$actoas->SC_Notificacion_Funcionario}}">
+			@error('SC_Notificacion_Funcionario')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>

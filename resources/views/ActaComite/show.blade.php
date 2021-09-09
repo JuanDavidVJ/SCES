@@ -1,43 +1,7 @@
 @extends('layouts.base')
 @section('title', 'Detalles de Acta')
 @section('content')
-<<<<<<< HEAD
-    <div class="row">
-        <div class="col-sm-8">
-            <h5>Numero del acta:</h5>
-            <p>{{ $actacomite->SC_Citacion_FK}}</p>
-            <h5>Nombre:</h5>
-            <p>{{ $actacomite->SC_ActaComite_Nombre }}</p>
-            <h5>Ciudad:</h5>
-            <p>{{ $actacomite->SC_ActaComite_Ciudad }}</p>
-            <h5>Fecha:</h5>
-			<p>{{ $actacomite->SC_ActaComite_Fecha}}</p>
-            <h5>Hora de Inicio:</h5>
-            <p>{{ $actacomite->SC_ActaComite_HoraInicio }}</p>
-            <h5>Hora de Fin:</h5>
-            <p>{{ $actacomite->SC_ActaComite_HoraFin }}</p>
-            <h5>Declaraciones del Aprendiz:</h5>
-            <p>{{ $actacomite->SC_ActaComite_DeclaracionesAprendiz }}</p>
-            <h5>Declaraciones del responsable a comité:</h5>
-            <p>{{ $actacomite->SC_ActaComite_DeclaracionesOtros }}</p>
-            <h5>Otras declaraciones:</h5>
-            <p>{{ $actacomite->SC_ActaComite_DeclaracionesResponsable }}</p>
-            <h5>Asistentes:</h5>
-            <p>{{ $actacomite->SC_ActaComite_Asistentes }}</p>
-            <h5>Descargos del Aprendiz:</h5>
-            <p>{{ $actacomite->SC_ActaComite_Descargos }}</p>
-            <h5>Desición:</h5>
-            <p>{{ $actacomite->SC_ActaComite_Decision }}</p>
-                <a href="/ActaComite/{{ $actacomite->SC_ActaComite_PK_ID }}/edit" class="btn btn-warning"><i class="fas fa-wrench"></i></a>
-                <form class="delete d-inline" action="/ActaComite/{{ $actacomite->SC_ActaComite_PK_ID }}" method="post">
-                    @method('DELETE')
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                </form>       
-            <a href="/ActaComite" class="btn btn-outline-dark"><i class="fas fa-undo-alt"></i></a>
-        </div>
-    </div>
-=======
+
 <div class="container d-flex justify-content-center">
 
     <div class="card text-center" style="width: 40rem;">
@@ -49,27 +13,27 @@
     <tbody>
           <tr>
             <th class="thshow">Descripción</th>
-            <td>{{ $actacomite->SC_ActaComite_Descripcion }}</td>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_Descripcion }}</td>
          </tr>  
          <tr>
             <th class="thshow">Estado</th>
-            <td>{{ $actacomite->SC_ActaComite_Estado }}</td>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_Estado }}</td>
          </tr>
          <tr>
             <th class="thshow">Número Solicitud</th>
-            <td> {{ $actacomite->SC_ActaComite_NumeroSolicitud}}</td>
+            <td class="tdshow"> {{ $actacomite->SC_ActaComite_NumeroSolicitud}}</td>
          </tr>  
          <tr>
             <th class="thshow">Motivo</th>
-            <td>{{ $actacomite->SC_ActaComite_Motivo }}</td>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_Motivo }}</td>
          </tr>  
          <tr>
             <th class="thshow">Testigos</th>
-            <td>{{ $actacomite->SC_ActaComite_Testigos }}</td>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_Testigos }}</td>
          </tr>  
          <tr>
             <th class="thshow">Antecedentes</th>
-            <td>{{ $actacomite->SC_ActaComite_EnviarCitacionAntecedentes }}</td>
+            <td class="tdshow">{{ $actacomite->SC_ActaComite_EnviarCitacionAntecedentes }}</td>
          </tr> 
          
 
@@ -114,6 +78,6 @@
     </div>
     </div>
 </div>
->>>>>>> 2a0056e2e9f0d44b21e3f8f39f4127e1faa42e54
+
 @endsection
 

@@ -10,19 +10,19 @@
       			<tbody>
 						 <tr>
             				<th class="thshow">Nombre Programa</th>
-            				<td>{{ $ficha->SC_Ficha_NombreProgramaFormacion }}</td>
+            				<td class="tdshow">{{ $ficha->SC_Ficha_NombreProgramaFormacion }}</td>
         				</tr>
                         <tr>
             				<th class="thshow">Gestor de Grupo</th>
-            				<td>{{ $ficha->usuario->SC_Usuarios_Nombre }}</td>
+            				<td class="tdshow">{{ $ficha->usuario->SC_Usuarios_Nombre }}</td>
         				</tr>
                         <tr>
             				<th class="thshow">Fecha Inicio</th>
-            				<td>{{ $ficha->SC_Ficha_FechaInicio }}</td>
+            				<td class="tdshow">{{ $ficha->SC_Ficha_FechaInicio }}</td>
         				</tr>
                         <tr>
             				<th class="thshow">Fecha Final</th>
-            				<td>{{ $ficha->SC_Ficha_FechaFin }}</td>
+            				<td class="tdshow">{{ $ficha->SC_Ficha_FechaFin }}</td>
         				</tr>
                 </tbody>
 

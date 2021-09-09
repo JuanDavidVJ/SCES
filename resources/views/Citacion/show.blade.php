@@ -13,27 +13,27 @@
     <tbody>
           <tr>
             <th class="thshow">Fecha</th>
-            <td>{{$citacion->SC_Citacion_FechaCitacion}}</td>
+            <td class="tdshow">{{$citacion->SC_Citacion_FechaCitacion}}</td>
          </tr>
 		 <tr>
             <th class="thshow">Hora</th>
-            <td>{{$citacion->SC_Citacion_Hora}}</td>
+            <td class="tdshow">{{$citacion->SC_Citacion_Hora}}</td>
          </tr>
 		 <tr>
             <th class="thshow">Lugar</th>
-            <td>{{$citacion->SC_Citacion_Lugar}}</td>
+            <td class="tdshow">{{$citacion->SC_Citacion_Lugar}}</td>
          </tr>
 		 <tr>
             <th class="thshow">Ciudad</th>
-            <td>{{$citacion->SC_Citacion_Ciudad}}</td>
+            <td class="tdshow">{{$citacion->SC_Citacion_Ciudad}}</td>
          </tr>
 		 <tr>
             <th class="thshow">Centro</th>
-            <td>{{$citacion->SC_Citacion_Centro}}</td>
+            <td class="tdshow">{{$citacion->SC_Citacion_Centro}}</td>
          </tr>
 		 <tr>
             <th class="thshow">N° Acta</th>
-            <td>{{$citacion->SC_Citacion_NumeroActa}}</td>
+            <td class="tdshow">{{$citacion->SC_Citacion_NumeroActa}}</td>
          </tr>
 		 </tbody>
 

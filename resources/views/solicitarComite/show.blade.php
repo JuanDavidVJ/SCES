@@ -4,7 +4,7 @@
 	<div class="container d-flex justify-content-center">
         <div class="card text-center" style="width: 40rem;">
           <div class="card-body">
-          
+
             <h3 class="card-title" id="h3show">Solicitud N° {{$solicitar->SC_SolicitarComite_ID }}</h3>
         </div>
             <table class="table table-responsive table-hover " id="tableshow">
@@ -12,48 +12,48 @@
 
         <tr>
            <th class="thshow">Responsable</th>
-            <td>{{ $solicitar->SC_SolicitarComite_Responsable }}</td>
+           <td class="tdshow">{{ $solicitar->SC_SolicitarComite_Responsable }}</td>
         </tr>
         <tr>
            <th class="thshow">Fecha</th>
-            <td>{{ $solicitar->SC_SolicitarComite_Fecha }}</td>
+           <td class="tdshow">{{ $solicitar->SC_SolicitarComite_Fecha }}</td>
         </tr>
         <tr>
         <tr>
            <th class="thshow">Descripción</th>
-            <td>{{ $solicitar->SC_SolicitarComite_Descripcion }}</td>
+           <td class="tdshow">{{ $solicitar->SC_SolicitarComite_Descripcion }}</td>
         </tr>
         <tr>
            <th class="thshow">Testigos</th>
-            <td>{{ $solicitar->SC_SolicitarComite_Testigos }}</td>
+           <td class="tdshow">{{ $solicitar->SC_SolicitarComite_Testigos }}</td>
         </tr>
         <tr>
            <th class="thshow">Observaciones</th>
-            <td>{{ $solicitar->SC_SolicitarComite_Observaciones }}</td>
+           <td class="tdshow">{{ $solicitar->SC_SolicitarComite_Observaciones }}</td>
         </tr>
         <tr>
            <th class="thshow">Anexo</th>
-            <td id="linkshow"><a href="assets('/archivos/solicitarComite{{ $solicitar->SC_SolicitarComite_Anexo }}')" target="_blank">Ver</a></td>
+            <td id="linkshow"><a href="{{asset('/archivos/solicitarComite/'.$solicitar->SC_SolicitarComite_Anexo)}}" target="_blank">Ver</a></td>
         </tr>
         <tr>
            <th class="thshow">Aprendiz</th>
-            <td>{{ $solicitar->aprendiz->SC_Aprendiz_Nombre }}{{ $solicitar->aprendiz->SC_Aprendiz_Apellidos }}</td>
+           <td class="tdshow">{{ $solicitar->aprendiz->SC_Aprendiz_Nombre }}{{ $solicitar->aprendiz->SC_Aprendiz_Apellidos }}</td>
         </tr>
         <tr>
            <th class="thshow">Gestor de grupo</th>
-            <td> {{ $solicitar->usuario->SC_Usuarios_Nombre}}</td>
+           <td class="tdshow"> {{ $solicitar->usuario->SC_Usuarios_Nombre}}</td>
         </tr>
         <tr>
            <th class="thshow">Tipo de falta</th>
-            <td> {{ $solicitar->tipofalta->SC_TipoFalta_Descripcion }}</td>
+           <td class="tdshow"> {{ $solicitar->tipofalta->SC_TipoFalta_Descripcion }}</td>
         </tr>
         <tr>
            <th class="thshow">Gravedad de la falta</th>
-            <td> {{ $solicitar->gravedad->SC_Gravedad_Nombre }}</td>
+           <td class="tdshow"> {{ $solicitar->gravedad->SC_Gravedad_Nombre }}</td>
         </tr>
         <tr>
            <th class="thshow">Reglamento</th>
-            <td>{{ $solicitar->reglamento->	SC_Reglamento_Numeral }}</td>
+           <td class="tdshow">{{ $solicitar->reglamento->	SC_Reglamento_Numeral }}</td>
         </tr>
         
     </tbody>
