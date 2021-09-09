@@ -13,7 +13,7 @@ class TipoNotificacion extends Model
     protected $primaryKey = "SC_TipoNotificacion_ID";
 
     public function ActoAdministrativo(){
-        return $this->hasMany(ActoAdministrativo::class, 'SC_Notifacion_ID', 'SC_TipoNotificacion_ID');
+        return $this->hasMany(ActoAdministrativo::class, 'SC_TipoNotificacion_FK', 'SC_TipoNotificacion_ID');
     }
 }
 

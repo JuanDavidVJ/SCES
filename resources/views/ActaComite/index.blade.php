@@ -9,7 +9,7 @@
 			<button class="btn btn-outline-success pl-5 pr-5 ml-2" type="submit" id="button-addon2">Buscar</button>
 		</div>
 		</div>
-		@foreach($ActaComite as $actacomite)
+		
 		<table class="table table-striped">
 			<thead>
 			  <tr style="font-size: 1.5em;">
@@ -21,6 +21,9 @@
 				<th scope="col">Hora de Fin</th>
 				<th scope="col">Asistentes</th>
 			  </tr>
+			</thead>
+			<tbody>
+			@foreach($ActaComite as $actacomite)
 			  <tr>
 			 	<td>{{$actacomite->citacion->SC_Citacion_NumeroActa}}</td>
 				<td>{{$actacomite->SC_ActaComite_Nombre}}</td>
@@ -39,9 +42,9 @@
 				   </form>				
 				  </td>
 				  </tr>		  
-	  </thead>
-	  </table>
-		@endforeach
+			@endforeach
+			</tbody>
+	  	</table>
 	</div>
 </div>
 @endsection

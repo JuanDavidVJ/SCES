@@ -9,7 +9,7 @@ use App\Http\Controllers\FichasController;
 use App\Http\Controllers\ActaComiteController;
 use App\Http\Controllers\ActoAdministrativoSancionesController;
 use App\Http\Controllers\EvidenciasController;
-use App\Http\Controllers\ImpugnacionesController;
+// use App\Http\Controllers\ImpugnacionesController;
 use App\Http\Controllers\NovedadesController;
 use App\Http\Controllers\FaltasController;
 //use App\Http\Controllers\LlamadosAtencionController;
@@ -50,10 +50,6 @@ Route::resource('comite', ComiteController::class);
 Route::resource('fichas', FichasController::class);
 
 
-
-// Ruta Impugnaciones
-
-Route::resource('impugnaciones', ImpugnacionesController::class);
 
 //Ruta Actas de comites
 Route::resource('ActaComite', ActaComiteController::class);

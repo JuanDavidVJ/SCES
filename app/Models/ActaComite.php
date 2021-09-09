@@ -17,6 +17,10 @@ class ActaComite extends Model
     }
 
     public function recursos(){
-        return $this->hasMany(Recursos::class, 'SC_Citacion_FK', 'SC_ActaComite_PK_ID');
+        return $this->hasMany(Recursos::class, 'SC_ActaComite_FK', 'SC_ActaComite_PK_ID');
+    }
+
+    public function notificaciones(){
+        return $this->hasMany(ActoAdministrativo::class, 'SC_ActaComite_FK', 'SC_ActaComite_PK_ID');
     }
 }
