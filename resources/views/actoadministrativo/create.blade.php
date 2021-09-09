@@ -60,9 +60,9 @@
 		<div class="form-group" id="tipo_plan" style="display: none">
 		   <span class="input-group-text" for="SC_Notificacion_TipoPlan">Tipo de plan</span>
 			<select name="SC_Notificacion_TipoPlan" id="SC_Notificacion_TipoPlan" class="form-control" >
-				<option selected>Selecciones el tipo de plan</option>
+				<option selected >Selecciones el tipo de plan</option>
 				@foreach($TipoP as $TipoP)
-				<option value="{{$TipoP->SC_TipoPlan_ID}}">{{$TipoP->SC_TipoPlan_Descripcion}}</option>
+				<option value="{{$TipoP->SC_TipoPlan_ID}}" selected="3">{{$TipoP->SC_TipoPlan_Descripcion}}</option>
 				@endforeach
 			</select>
 			@error('SC_Notificacion_TipoPlan')
@@ -75,7 +75,7 @@
 			<select name="SC_Notificacion_Instructor" id="SC_Notificacion_Instructor" class="form-control">
 				<option selected>Seleccione un instructor</option>
 				@foreach($usuario as $usuario)
-				<option value="{{$usuario->SC_Usuarios_ID}}">{{$usuario->SC_Usuarios_Nombre}}</option>
+				<option value="{{$usuario->SC_Usuarios_ID}}" selected="4">{{$usuario->SC_Usuarios_Nombre}}</option>
 				@endforeach
 			</select>
 			@error('SC_Notificacion_Instructor')
