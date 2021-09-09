@@ -32,21 +32,15 @@
 			<tbody>
 			@foreach($ActaComite as $actacomite)
 			  <tr>
-			 	<td>{{$actacomite->citacion->SC_Citacion_NumeroActa}}</td>
-				<td>{{$actacomite->SC_ActaComite_Nombre}}</td>
-				<td>{{$actacomite->SC_ActaComite_Ciudad}}</td>
-				<td>{{$actacomite->SC_ActaComite_Asistentes}}</td>	
-				<td scope="col">
-					<button type="button" class="btn btn-success"><a style="color: black; text-decoration: none;" href="/ActaComite/{{$actacomite->SC_ActaComite_PK_ID}}">ver</a></button>
-					<button type="button" class="btn btn-warning"> <a style="color: black; text-decoration: none;" href="/ActaComite/{{$actacomite->SC_ActaComite_PK_ID}}/edit" >Modificar</a></button>
-					<form class="delete d-inline" action="/ActaComite/{{$actacomite->SC_ActaComite_PK_ID}}" method="post">
-				  @method('DELETE')
-				  @csrf
-				  <button type="submit" class="btn btn-danger">Eliminar</button>				  
-				   </form>				
-				  </td>
-				  </tr>		  
-			@endforeach
+					<td>{{$actacomite->citacion->SC_Citacion_NumeroActa}}</td>
+					<td>{{$actacomite->SC_ActaComite_Nombre}}</td>
+					<td>{{$actacomite->SC_ActaComite_Ciudad}}</td>
+					<td>{{$actacomite->SC_ActaComite_Asistentes}}</td>	
+					<td scope="col">
+						<a href="/ActaComite/{{$actacomite->SC_ActaComite_PK_ID}}" class="btn btn-outline-default p-0"><i class="fas fa-eye"></i></a>
+					</td>
+				</tr>
+				@endforeach
 			</tbody>
 	  	</table>
 	</div>
