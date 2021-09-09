@@ -15,11 +15,7 @@
 		<div class="alert alert-success">
 			{{session('status')}}
 		</div>
-<<<<<<< HEAD
-		
-=======
 	@endif
->>>>>>> fb823949847ab191e969f0c63d17a4965ed0faf0
 		<table class="table table-striped">
 				<tr>
 					<th scope="col">Numero del acta</th>
@@ -28,9 +24,7 @@
 					<th scope="col">Asistentes</th>
 					<th scope="col">Acción</th>
 			  </tr>
-			</thead>
-			<tbody>
-			@foreach($ActaComite as $actacomite)
+				@foreach($ActaComite as $actacomite)
 			  <tr>
 					<td>{{$actacomite->citacion->SC_Citacion_NumeroActa}}</td>
 					<td>{{$actacomite->SC_ActaComite_Nombre}}</td>
@@ -41,8 +35,7 @@
 					</td>
 				</tr>
 				@endforeach
-			</tbody>
-	  	</table>
+	  </table>
 	</div>
 </div>
 @endsection
