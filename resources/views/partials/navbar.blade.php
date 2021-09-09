@@ -63,7 +63,7 @@
                     </li>
                 </ul>
             </li>
-            <li>
+           <!-- <li>
                 <a href="#impugnaciones" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-university"></i>
                     Impugnaciones
@@ -76,7 +76,7 @@
                         <a href="/impugnaciones">Ver </a>
                     </li>
                 </ul>
-            </li>
+            </li>-->
 
             <li>
                 <a href="#estimulos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">

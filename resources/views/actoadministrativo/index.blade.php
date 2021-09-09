@@ -28,8 +28,8 @@
         		<tr>
         		  <td>{{$actoas->SC_Notificacion_ID}}</td>
                   <td class="descripcion">{{$actoas->SC_ActaComite_FK}} </td>
-                  <td class="descripcion">{{$actoas->SC_Notificacion_TipoPlan}}</td>
-		          <td>{{$actoas->SC_TipoNotificacion_FK}}</td>
+                  <td class="descripcion">{{$actoas->TipoP->SC_TipoPlan_Descripcion}}</td>
+		          <td>{{$actoas->TipoN->SC_TipoNotificacion_Descripcion }}</td>
 
 	                <td scope="col">
 			          	<a href="/actoadministrativo/{{$actoas->SC_Notificacion_ID}}" class="btn btn-outline-default"><i class="fas fa-eye"></i></a>

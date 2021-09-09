@@ -13,8 +13,8 @@ class ActoAdministrativo extends Model
     protected $primaryKey = "SC_Notificacion_ID";
 
     // conection whit tipo plan
-    public function TipoPlan(){
-        return $this->belongsTo(TipoPlan::class, 'SC_Notifiacion_TipoPlan', 'SC_TipoPlan_ID');
+    public function TipoP(){
+        return $this->belongsTo(TipoPlan::class, 'SC_Notificacion_TipoPlan', 'SC_TipoPlan_ID');
     }
 
 // conection whit  Acta de comite
@@ -22,8 +22,8 @@ class ActoAdministrativo extends Model
         return $this->belongsTo(ActaComite::class, 'SC_ActaComite_FK', 'SC_ActaComite_PK_ID');
     }
 // conection whit tipo de notifiacion
-    public function TipoNotificacion(){
-        return $this->belongsTo(TipoNotifiacion::class, 'SC_TipoNotificacion_FK', 'SC_TipoNotificacion_ID');
+    public function TipoN(){
+        return $this->belongsTo(TipoNotificacion::class, 'SC_TipoNotificacion_FK', 'SC_TipoNotificacion_ID');
     }
 // conection whit usuarios
     public function Usuario(){
