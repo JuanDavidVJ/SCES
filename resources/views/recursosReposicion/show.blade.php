@@ -54,7 +54,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-							<form class="delete d-inline" action="/Citacion/{{$recursos->SC_Recursos_ID}}" method="post">
+							<form class="delete d-inline" action="/recursosReposicion/{{$recursos->SC_Recursos_ID}}" method="post">
 								@method('DELETE')
 								@csrf
 								<button type="submit" class="btn btn-danger">Eliminar</button>

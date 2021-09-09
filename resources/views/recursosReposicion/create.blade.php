@@ -47,7 +47,7 @@
 			@error('SC_Fichas_FK_ID')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
-		</div>>
+		</div>
 
 		<button type="submit" class="btn btn-success" id="btncrear">Crear Recurso</button>
 	</form>

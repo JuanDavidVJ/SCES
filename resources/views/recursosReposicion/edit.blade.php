@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	<h1>Modificar Reposición</h1>
-	<form action="/recursosReposicion" method="post"  enctype="multipart/form-data">
+	<form action="/recursosReposicion/{{$recursos->SC_Recursos_ID }}" method="post"  enctype="multipart/form-data">
         @method('PUT')
 		@csrf
 		<div class="form-group">
@@ -49,7 +49,7 @@
 			@error('SC_Fichas_FK_ID')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
-		</div>>
+		</div>
 
 		<button type="submit" class="btn btn-success" id="btncrear">Actualizar</button>
 	</form>
