@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-09-2021 a las 01:20:15
+-- Tiempo de generación: 09-09-2021 a las 19:54:26
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -125,6 +125,13 @@ CREATE TABLE `sc_estimulos` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `sc_estimulos`
+--
+
+INSERT INTO `sc_estimulos` (`SC_Estimulos_PK_ID`, `SC_Estimulos_Reporta`, `SC_Estimulos_Razon`, `SC_Estimulos_Detalles`, `SC_Estimulos_Fecha`, `SC_Aprendiz_FK_ID`, `SC_Ficha_FK_ID`, `SC_TipoEstimulos_FK_ID`, `updated_at`, `created_at`) VALUES
+(6, 'pepito perez', 'alguna', 'detalle', '2021-09-07', 13, 2068678, 6, '2021-09-09 20:39:46', '2021-09-09 20:39:46');
+
 -- --------------------------------------------------------
 
 --
@@ -177,9 +184,9 @@ INSERT INTO `sc_gravedad` (`SC_Gravedad_ID`, `SC_Gravedad_Nombre`) VALUES
 
 CREATE TABLE `sc_notificaciones` (
   `SC_Notificacion_ID` int(11) NOT NULL,
-  `SC_Notificacion_TipoPlan` int(11) DEFAULT NULL,
+  `SC_Notificacion_TipoPlan` int(11) DEFAULT 3,
   `SC_Notificacion_Sugerencia` varchar(200) NOT NULL,
-  `SC_Notificacion_Instructor` int(11) DEFAULT NULL,
+  `SC_Notificacion_Instructor` int(11) DEFAULT 4,
   `SC_Notificacion_FechaInicial` date NOT NULL,
   `SC_Notificacion_FechaLimite` date DEFAULT NULL,
   `SC_ActaComite_FK` int(11) NOT NULL,
@@ -195,8 +202,10 @@ CREATE TABLE `sc_notificaciones` (
 --
 
 INSERT INTO `sc_notificaciones` (`SC_Notificacion_ID`, `SC_Notificacion_TipoPlan`, `SC_Notificacion_Sugerencia`, `SC_Notificacion_Instructor`, `SC_Notificacion_FechaInicial`, `SC_Notificacion_FechaLimite`, `SC_ActaComite_FK`, `SC_TipoNotificacion_FK`, `SC_Notificacion_Forma`, `SC_Notificacion_Funcionario`, `updated_at`, `created_at`) VALUES
-(1, 1, 'alguna', 1, '2021-09-07', '2021-09-07', 4, 1, NULL, NULL, '2021-09-07 20:06:53', '2021-09-07 19:55:23'),
-(2, 1, 'alguna', 1, '2022-06-05', NULL, 4, 1, NULL, NULL, '2021-09-08 03:28:24', '2021-09-08 03:28:24');
+(1, 1, 'alguna', 2, '2021-09-07', '2021-09-07', 4, 1, NULL, NULL, '2021-09-09 19:04:20', '2021-09-07 19:55:23'),
+(2, 1, 'alguna', 1, '2022-06-05', NULL, 4, 1, NULL, NULL, '2021-09-08 03:28:24', '2021-09-08 03:28:24'),
+(3, 1, 'ejemplo sin datos extra', 1, '2021-09-07', NULL, 4, 1, NULL, NULL, '2021-09-09 22:03:14', '2021-09-09 22:03:14'),
+(4, 3, 'ejemplo sin datos extra 2', 4, '2021-08-07', NULL, 4, 1, NULL, NULL, '2021-09-09 22:50:43', '2021-09-09 22:50:43');
 
 -- --------------------------------------------------------
 
@@ -214,6 +223,13 @@ CREATE TABLE `sc_recursos_reposicion` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `sc_recursos_reposicion`
+--
+
+INSERT INTO `sc_recursos_reposicion` (`SC_Recursos_ID`, `SC_Recursos_FechaGenerado`, `SC_Recursos_FechaLimite`, `SC_Recursos_Radicado`, `SC_Recursos_Evidencias`, `SC_ActaComite_FK`, `updated_at`, `created_at`) VALUES
+(1, '2021-07-06', '2021-08-08', 6, 'ninguna', 4, '2021-09-09 22:12:30', '2021-09-09 22:12:30');
 
 -- --------------------------------------------------------
 
@@ -400,7 +416,8 @@ CREATE TABLE `sc_tipoplan` (
 
 INSERT INTO `sc_tipoplan` (`SC_TipoPlan_ID`, `SC_TipoPlan_Descripcion`) VALUES
 (1, 'Académico '),
-(2, 'Disciplinario');
+(2, 'Disciplinario'),
+(3, 'N/A');
 
 -- --------------------------------------------------------
 
@@ -446,7 +463,8 @@ CREATE TABLE `sc_usuario` (
 INSERT INTO `sc_usuario` (`SC_Usuarios_ID`, `SC_Usuarios_Documento`, `SC_Usuarios_Nombre`, `SC_Usuarios_Username`, `SC_Usuarios_Password`, `SC_TipoUsuario_FK_ID`, `updated_at`, `created_at`) VALUES
 (1, '123456', 'juan ramiro', 'juanRamiro1', '123456', 1, '2021-08-12 14:00:16', NULL),
 (2, '10077112', 'marta cruz', 'cMarta', '123456', 2, '2021-08-12 14:00:16', NULL),
-(3, '38756912', 'Claudia patricia lopez', 'CpLopez', '123456', 3, '2021-08-12 14:00:16', NULL);
+(3, '38756912', 'Claudia patricia lopez', 'CpLopez', '123456', 3, '2021-08-12 14:00:16', NULL),
+(4, NULL, 'NO Aplica', NULL, NULL, 2, '2021-09-09 16:55:50', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -593,7 +611,7 @@ ALTER TABLE `sc_citacion`
 -- AUTO_INCREMENT de la tabla `sc_estimulos`
 --
 ALTER TABLE `sc_estimulos`
-  MODIFY `SC_Estimulos_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `SC_Estimulos_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_ficha`
@@ -611,13 +629,13 @@ ALTER TABLE `sc_gravedad`
 -- AUTO_INCREMENT de la tabla `sc_notificaciones`
 --
 ALTER TABLE `sc_notificaciones`
-  MODIFY `SC_Notificacion_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `SC_Notificacion_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_recursos_reposicion`
 --
 ALTER TABLE `sc_recursos_reposicion`
-  MODIFY `SC_Recursos_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SC_Recursos_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_reglamento`
@@ -653,7 +671,7 @@ ALTER TABLE `sc_tiponotificacion`
 -- AUTO_INCREMENT de la tabla `sc_tipoplan`
 --
 ALTER TABLE `sc_tipoplan`
-  MODIFY `SC_TipoPlan_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `SC_TipoPlan_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_tipousuario`
@@ -665,7 +683,7 @@ ALTER TABLE `sc_tipousuario`
 -- AUTO_INCREMENT de la tabla `sc_usuario`
 --
 ALTER TABLE `sc_usuario`
-  MODIFY `SC_Usuarios_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `SC_Usuarios_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -732,3 +750,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
