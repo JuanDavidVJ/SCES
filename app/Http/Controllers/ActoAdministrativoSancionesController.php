@@ -10,6 +10,9 @@ use App\Models\TipoNotificacion;
 use App\Models\Usuario;
 use App\Http\Requests\StoreAdministrativoRequest;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MessageReceivedNotificacion;
+
 class ActoAdministrativoSancionesController extends Controller
 {
     /**
@@ -76,7 +79,23 @@ class ActoAdministrativoSancionesController extends Controller
          $actoas->SC_Notificacion_Funcionario = $request->SC_Notificacion_Funcionario;
 
          $actoas->save();
+
+
+         Mail::to($actoas->ActaComite->citacion->solicitarComite->aprendiz->SC_Aprendiz_Correo)->queue(new MessageReceivedNotificacion(
+             $actoas, 
+             $actoas->ActaComite->citacion->solicitarComite->aprendiz, 
+             $actoas->ActaComite->citacion->solicitarComite, 
+             $actoas->ActaComite, 
+             $actoas->ActaComite->citacion->solicitarComite->tipofalta, 
+             $actoas->ActaComite->citacion->solicitarComite->gravedad, 
+             $actoas->ActaComite->citacion->solicitarComite->reglamento,  
+             $actoas->ActaComite->citacion, 
+             $actoas->TipoP , 
+             $actoas->TipoN , 
+             $actoas->Usuario));
+
          return redirect()->route('actoadministrativo.index')->with('status', 'Notificacion Creada');
+        //  return redirect()->route('actoadministrativo.index')->with('status', $actoas->TipoP->SC_TipoPlan_Descripcion . $actoas->TipoN->SC_TipoNotificacion_Descripcion . $actoas->Usuario->SC_Usuarios_Nombre);
     }
 
     /**
