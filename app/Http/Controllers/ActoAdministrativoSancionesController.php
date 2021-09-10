@@ -30,6 +30,7 @@ class ActoAdministrativoSancionesController extends Controller
 
                 return view('actoadministrativo.index', ['actoas' => $actoas, 'search' => $query]);
         }
+        
         /*$actoas = ActoAdministrativo::all();
          $comite = Comite::all();
         return view('actoadministrativo.index')->with('actoas', $actoas)->with('comite', $comite);*/

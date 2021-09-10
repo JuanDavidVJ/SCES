@@ -19,7 +19,7 @@
   <table class="table table-striped">
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Acta Comite</th>
+      
       <th scope="col">Tipo plan</th>
       <th scope="col">Tipo notificacion</th>
       <th scope="col">Opciones</th>
@@ -27,7 +27,9 @@
     @foreach($actoas as $actoas)
         		<tr>
         		  <td>{{$actoas->SC_Notificacion_ID}}</td>
-                  <td class="descripcion">{{$actoas->SC_ActaComite_FK}} </td>
+        		 
+				
+
                   <td class="descripcion">{{$actoas->TipoP->SC_TipoPlan_Descripcion}}</td>
 		          <td>{{$actoas->TipoN->SC_TipoNotificacion_Descripcion }}</td>
 
