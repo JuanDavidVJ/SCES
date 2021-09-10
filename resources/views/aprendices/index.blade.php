@@ -24,17 +24,25 @@
 					<th scope="col">Ficha</th>
 					<th scope="col">Accion</th>
 				</tr>
+				@if(count($aprendices)<=0)
+					<tr>
+						<td>No hay resultados</td>
+					</tr>
+				@else
 					@foreach($aprendices as $aprendiz)
-						<tr class="">
-								<td>{{ $aprendiz->SC_Aprendiz_Nombres }}</td>
-								<td>{{ $aprendiz->SC_Aprendiz_Apellidos }}</td>
-								<td>{{ $aprendiz->SC_Aprendiz_Documento}}</td>
-								<td>{{ $aprendiz->SC_Ficha_PK_ID }}</td>
-								<td>
-									<a href="/aprendices/{{ $aprendiz->SC_Aprendiz_PK_ID }}" class="btn btn-outline-default p-0"><i class="fas fa-eye"></i></a>
-								</td>
-						</tr> 
-				@endforeach
-						</table>
+							<tr class="">
+									<td>{{ $aprendiz->SC_Aprendiz_Nombres }}</td>
+									<td>{{ $aprendiz->SC_Aprendiz_Apellidos }}</td>
+									<td>{{ $aprendiz->SC_Aprendiz_Documento}}</td>
+									<td>{{ $aprendiz->SC_Ficha_PK_ID }}</td>
+									<td>
+										<a href="/aprendices/{{ $aprendiz->SC_Aprendiz_PK_ID }}" class="btn btn-outline-default p-0"><i class="fas fa-eye"></i></a>
+									</td>
+							</tr> 
+					@endforeach
+				@endif
+		</table>
+				<br>
+				{{$aprendices->links()}}			
 </div>
 @endsection
