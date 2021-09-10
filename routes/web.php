@@ -41,49 +41,49 @@ Route::get('/', function () {
 Route::get('/', [InicioController::class, 'index']);
 
 //Ruta Aprendices
-Route::resource('aprendices', AprendicesController::class);
+Route::resource('aprendices', AprendicesController::class)->middleware('auth');
 
 //Ruta Comite
-Route::resource('comite', ComiteController::class);
+Route::resource('comite', ComiteController::class)->middleware('auth');
 
 //Ruta Fichas
-Route::resource('fichas', FichasController::class);
+Route::resource('fichas', FichasController::class)->middleware('auth');
 
 
 
 //Ruta Actas de comites
-Route::resource('ActaComite', ActaComiteController::class);
+Route::resource('ActaComite', ActaComiteController::class)->middleware('auth');
 
 //Ruta Acto Administrativo Sanciones
-Route::resource('actoadministrativo', ActoAdministrativoSancionesController::class);
+Route::resource('actoadministrativo', ActoAdministrativoSancionesController::class)->middleware('auth');
 
 //Ruta Evidencias
-Route::resource('evidencias', EvidenciasController::class);
+Route::resource('evidencias', EvidenciasController::class)->middleware('auth');
 
 //Ruta Novedades
-Route::resource('novedades', NovedadesController::class);
+Route::resource('novedades', NovedadesController::class)->middleware('auth');
 
 //Ruta Faltas
-Route::resource('faltas', FaltasController::class);
+Route::resource('faltas', FaltasController::class)->middleware('auth');
 
 
 
 //Ruta Estimulos
-Route::resource('estimulos', EstimulosController::class);
+Route::resource('estimulos', EstimulosController::class)->middleware('auth');
 
 //Ruta Ingreso
 Route::get('/ingreso', [IngresoController::class, 'index']);
 
 // Ruta Antecedentes
-Route::resource('antecedentes', AntecedentesController::class);
+Route::resource('antecedentes', AntecedentesController::class)->middleware('auth');
 
 //Ruta Citacion
-Route::resource('Citacion', CitacionController::class);
+Route::resource('Citacion', CitacionController::class)->middleware('auth');
 
 
 
 //Ruta Solicitar Comite
-Route::resource('solicitarComite', SolicitarComiteController::class);
+Route::resource('solicitarComite', SolicitarComiteController::class)->middleware('auth');
 
 //Ruta Recursos de Reposición
-Route::resource('recursosReposicion', RecursosController::class);
+Route::resource('recursosReposicion', RecursosController::class)->middleware('auth');
