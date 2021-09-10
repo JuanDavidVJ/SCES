@@ -47,10 +47,7 @@
             <th class="thshow">Declaraciones Otros</th>
             <td class="tdshow">{{ $actacomite->SC_ActaComite_DeclaracionesOtros}}</td>
          </tr> 
-         <tr>
-            <th class="thshow">Descargos</th>
-            <td class="tdshow">{{ $actacomite->SC_ActaComite_Descargos}}</td>
-         </tr> 
+         
          <tr>
             <th class="thshow">Decisión</th>
             <td class="tdshow">{{ $actacomite->SC_ActaComite_Decision}}</td>

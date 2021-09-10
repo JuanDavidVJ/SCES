@@ -80,13 +80,7 @@
 	    	<small>{{ $message }}</small>
 	    @enderror
 	  </div>
-	  <div class="form-group">
-	  <span class="input-group-text" for="Descargo">Descargos del Aprendiz</span>
-	  	<input type="text" class="form-control" id="Descargo" name="Descargo" value="{{$ActaComite->SC_ActaComite_Descargos}}">
-	  	@error('Descargo')
-	    	<small>{{ $message }}</small>
-	    @enderror
-	  </div>
+	  
 	  <div class="form-group">
 	  <span class="input-group-text" for="Desicion">Desicion</span>
 	  	<input type="text" class="form-control" id="Desicion" name="Desicion" value="{{$ActaComite->SC_ActaComite_Descargos}}">
