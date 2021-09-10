@@ -10,6 +10,9 @@ use App\Models\TipoNotificacion;
 use App\Models\Usuario;
 use App\Http\Requests\StoreAdministrativoRequest;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MessageReceivedNotificacion;
+
 class ActoAdministrativoSancionesController extends Controller
 {
     /**
@@ -54,21 +57,12 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function store(StoreAdministrativoRequest $request)
     {
-        if($request->hasFile('SC_Notificacion_Plan')){
-            $file= $request->file('SC_Notificacion_Plan');
-            //cambiar nombre para no generar conflicto
-            $SC_Notificacion_Plan = time() . $file->getClientOriginalName();
-            //movemos el archivo
-            $file->move('archivos/actoadministrativo', $SC_Notificacion_Plan);
-
-        }
-
+        
         $actoas = new ActoAdministrativo();
          $actoas->SC_Notificacion_Sugerencia = $request->SC_Notificacion_Sugerencia;
 
          $actoas->SC_Notificacion_TipoPlan = $request->SC_Notificacion_TipoPlan;
 
-         $actoas->SC_Notificacion_Plan = $SC_Notificacion_Plan;
 
          $actoas->SC_Notificacion_Instructor = $request->SC_Notificacion_Instructor;
 
@@ -85,7 +79,23 @@ class ActoAdministrativoSancionesController extends Controller
          $actoas->SC_Notificacion_Funcionario = $request->SC_Notificacion_Funcionario;
 
          $actoas->save();
+
+
+         Mail::to($actoas->ActaComite->citacion->solicitarComite->aprendiz->SC_Aprendiz_Correo)->queue(new MessageReceivedNotificacion(
+             $actoas, 
+             $actoas->ActaComite->citacion->solicitarComite->aprendiz, 
+             $actoas->ActaComite->citacion->solicitarComite, 
+             $actoas->ActaComite, 
+             $actoas->ActaComite->citacion->solicitarComite->tipofalta, 
+             $actoas->ActaComite->citacion->solicitarComite->gravedad, 
+             $actoas->ActaComite->citacion->solicitarComite->reglamento,  
+             $actoas->ActaComite->citacion, 
+             $actoas->TipoP , 
+             $actoas->TipoN , 
+             $actoas->Usuario));
+
          return redirect()->route('actoadministrativo.index')->with('status', 'Notificacion Creada');
+        //  return redirect()->route('actoadministrativo.index')->with('status', $actoas->TipoP->SC_TipoPlan_Descripcion . $actoas->TipoN->SC_TipoNotificacion_Descripcion . $actoas->Usuario->SC_Usuarios_Nombre);
     }
 
     /**
@@ -135,14 +145,7 @@ class ActoAdministrativoSancionesController extends Controller
         $actoas = ActoAdministrativo::find($id);
 
 
-         if($request->hasFile('SC_Notificacion_Plan')){
-            $file= $request->file('SC_Notificacion_Plan');
-            //cambiar nombre para no generar conflicto
-            $SC_Notificacion_Plan=$actoas->SC_Notificacion_Plan;
-            //movemos el archivo
-            $file->move('archivos/actoadministrativo', $SC_Notificacion_Plan);
-
-        }
+         
         $actoas->SC_Notificacion_Sugerencia = $request->SC_Notificacion_Sugerencia;
 
          $actoas->SC_Notificacion_TipoPlan = $request->SC_Notificacion_TipoPlan;

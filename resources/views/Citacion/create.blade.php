@@ -66,7 +66,7 @@
 			@enderror
 		</div>
 
-		<button type="submit" class="btn btn-success">Crear Citación</button>
+		<button type="submit" class="btn btn-success">Crear y Enviar Citación</button>
 	</form>
 </div>
 @endsection 

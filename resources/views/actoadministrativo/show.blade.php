@@ -4,7 +4,7 @@
 <div class="container d-flex justify-content-center">
 		 <div class="card text-center" style="width: 40rem;">
 					<div class="card-body">
-					<h3 class="card-title" id="h3show">ID N°: {{$actoas->SC_Notificacion_ID}}</h3>
+					<h3 class="card-title" id="h3show">ID N° {{$actoas->SC_Notificacion_ID}}</h3>
 					
 					<table class="table table-responsive table-hover " id="tableshow">
       					<tbody>
@@ -14,32 +14,29 @@
         				    </tr>
 							<tr>
             					<th class="thshow">Tipo de plan </th>
-            					<td class="tdshow">{{$actoas->SC_Notificacion_TipoPlan}}</td>
+            					<td class="tdshow">{{$actoas->TipoP->SC_TipoPlan_Descripcion}}</td>
         				    </tr>
         				    
         				    <tr>
             					<th class="thshow">Tipo de notificacion </th>
-            					<td class="tdshow">{{$actoas->SC_TipoNotificacion_FK}}</td>
+            					<td class="tdshow">{{$actoas->TipoN->SC_TipoNotificacion_Descripcion}}</td>
         				    </tr>
-							<tr>
-            					<th class="thshow">Plan</th>
-            					<td class="tdshow"><a href="{{asset('/archivos/actoadministrativo/'.$actoas->SC_Notificacion_Plan)}}" target="_blank">Ver</a></td>
-        				    </tr>
+							
 							<tr>
             					<th class="thshow">Sugerencias</th>
-            					<td<td class="tdshow">{{$actoas->SC_Notificacion_Sugerencia}}</td>
+            					<td class="tdshow">{{$actoas->SC_Notificacion_Sugerencia}}</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Notificacion instructor</th>
-            					<td class="tdshow">{{$actoas->SC_Notificacion_Instructor}}</td>
+            					<td class="tdshow">{{$actoas->usuario->SC_Usuarios_Nombre}}</td>
 						    </tr>
 						    <tr>
             					<th class="thshow">Forma en la que debe entregar el plan</th>
-            					<td>{{$actoas->SC_Notificacion_Forma}}</td>
+            					<td class="tdshow">{{$actoas->SC_Notificacion_Forma}}</td>
 						    </tr>
 						    <tr>
             					<th class="thshow">Servidor publico ante el cual se presenta el plan</th>
-            					<td>{{$actoas->SC_Notificacion_Funcionario}}</td>
+            					<td class="tdshow">{{$actoas->SC_Notificacion_Funcionario}}</td>
 						    </tr>
 							<tr>
             					<th class="thshow">Fecha Inicial</th>
@@ -68,7 +65,7 @@
 										</button>
 								</div>
 								<div class="modal-body">
-										<span>La siguiente acción eliminará el acto administrativo: <br> ID N°: {{$actoas->SC_Notificacion_ID}}</span>
+										<span>La siguiente acción eliminará la Notificación: <br> ID N° {{$actoas->SC_Notificacion_ID}}</span>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>

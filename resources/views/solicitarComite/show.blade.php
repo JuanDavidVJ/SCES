@@ -4,7 +4,7 @@
 	<div class="container d-flex justify-content-center">
         <div class="card text-center" style="width: 40rem;">
           <div class="card-body">
-          
+
             <h3 class="card-title" id="h3show">Solicitud N° {{$solicitar->SC_SolicitarComite_ID }}</h3>
         </div>
             <table class="table table-responsive table-hover " id="tableshow">
@@ -33,7 +33,7 @@
         </tr>
         <tr>
            <th class="thshow">Anexo</th>
-            <td id="linkshow"><a href="assets('/archivos/solicitarComite{{ $solicitar->SC_SolicitarComite_Anexo }}')" target="_blank">Ver</a></td>
+            <td class="tdshow" id="linkshow"><a href="{{asset('/archivos/solicitarComite/'.$solicitar->SC_SolicitarComite_Anexo)}}" target="_blank">Ver</a></td>
         </tr>
         <tr>
            <th class="thshow">Aprendiz</th>

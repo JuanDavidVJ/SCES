@@ -64,6 +64,20 @@
                 </ul>
             </li>
             <li>
+                <a href="#recursos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-pencil-alt"></i>
+                    Recursos de Reposición
+                </a>
+                <ul class="collapse list-unstyled" id="recursos">
+                    <li>
+                        <a href="/recursosReposicion/create">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/recursosReposicion">Ver</a>
+                    </li>
+                </ul>
+            </li>
+           <!-- <li>
                 <a href="#impugnaciones" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-university"></i>
                     Impugnaciones
@@ -76,7 +90,7 @@
                         <a href="/impugnaciones">Ver </a>
                     </li>
                 </ul>
-            </li>
+            </li>-->
 
             <li>
                 <a href="#estimulos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -120,6 +134,7 @@
                     </li>
                 </ul>
             </li>
+
 
         </ul>
         <ul class="list-unstyled CTAs text-center">

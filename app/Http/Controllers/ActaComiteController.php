@@ -56,7 +56,7 @@ class ActaComiteController extends Controller
         $actacomite->SC_ActaComite_DeclaracionesOtros = $request->DeclaracionO;
         $actacomite->SC_ActaComite_DeclaracionesResponsable = $request->DeclaracionR;
         $actacomite->SC_ActaComite_Decision = $request->Desicion;
-        $actacomite->SC_ActaComite_Descargos = $request->Descargo;
+        
         $actacomite->SC_ActaComite_Asistentes = $request->Asistente;
         $actacomite->SC_Citacion_FK = $request->Citacion;
         $actacomite->save();
@@ -111,7 +111,7 @@ class ActaComiteController extends Controller
         $actacomite->SC_ActaComite_DeclaracionesOtros = $request->DeclaracionO;
         $actacomite->SC_ActaComite_DeclaracionesResponsable = $request->DeclaracionR;
         $actacomite->SC_ActaComite_Decision = $request->Desicion;
-        $actacomite->SC_ActaComite_Descargos = $request->Descargo;
+        
         $actacomite->SC_ActaComite_Asistentes = $request->Asistente;
         $actacomite->SC_Citacion_FK = $request->Citacion; 
         $actacomite->save();

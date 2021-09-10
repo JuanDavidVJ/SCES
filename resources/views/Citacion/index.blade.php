@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('title', 'Lista de Citaciones')
-@section('content') 
+@section('content')
 <div class="container">
 	<h1>Listado de Citaciones</h1>
 	<form>
@@ -24,6 +24,7 @@
 				<th scope="col">Ciudad</th>
 				<th scope="col">Centro</th>
 				<th scope="col">N° Acta</th>
+                <th scope="col">Acción</th>
 			</tr>
 			@foreach($Citacion as $citacion)
 				<tr >

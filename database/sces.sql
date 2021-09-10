@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-09-2021 a las 17:40:10
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 8.0.1
+-- Tiempo de generación: 09-09-2021 a las 19:54:26
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,16 +29,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `sc_actacomite` (
   `SC_ActaComite_PK_ID` int(11) NOT NULL,
-  `SC_ActaComite_Numero` int(11) NOT NULL,
   `SC_ActaComite_Nombre` varchar(100) NOT NULL,
   `SC_ActaComite_Ciudad` varchar(30) NOT NULL,
   `SC_ActaComite_Fecha` date NOT NULL,
   `SC_ActaComite_HoraInicio` time NOT NULL,
   `SC_ActaComite_HoraFin` time NOT NULL,
-  `SC_ActaComite_Lugar` varchar(50) NOT NULL,
-  `SC_ActaComite_Objetivos` varchar(200) NOT NULL,
   `SC_ActaComite_Asistentes` varchar(500) NOT NULL,
-  `SC_Comite_FK` int(11) NOT NULL,
+  `SC_ActaComite_DeclaracionesAprendiz` varchar(300) NOT NULL,
+  `SC_ActaComite_DeclaracionesOtros` varchar(300) NOT NULL,
+  `SC_ActaComite_Decision` varchar(200) NOT NULL,
+  `SC_ActaComite_Descargos` varchar(500) NOT NULL,
+  `SC_ActaComite_DeclaracionesResponsable` varchar(300) NOT NULL,
+  `SC_Citacion_FK` int(11) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -47,45 +49,8 @@ CREATE TABLE `sc_actacomite` (
 -- Volcado de datos para la tabla `sc_actacomite`
 --
 
-INSERT INTO `sc_actacomite` (`SC_ActaComite_PK_ID`, `SC_ActaComite_Numero`, `SC_ActaComite_Nombre`, `SC_ActaComite_Ciudad`, `SC_ActaComite_Fecha`, `SC_ActaComite_HoraInicio`, `SC_ActaComite_HoraFin`, `SC_ActaComite_Lugar`, `SC_ActaComite_Objetivos`, `SC_ActaComite_Asistentes`, `SC_Comite_FK`, `updated_at`, `created_at`) VALUES
-(3, 123456, 'Comité de Evaluación', 'Manizales', '2021-08-30', '07:30:00', '12:00:00', 'Meet', 'Recepcionar y/o practicar pruebas relacionadas con los hechos informados que presuntamente constituyen falta sancionable, y en los cuales aparece como presunto implicado el aprendiz relacionado.', 'Muchos', 1, '2021-08-31 02:42:40', '2021-08-31 01:58:13');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sc_actoadministrativosanciones`
---
-
-CREATE TABLE `sc_actoadministrativosanciones` (
-  `SC_ActoAdministrativoSanciones_PK_Id` int(11) NOT NULL,
-  `SC_ActoAdministrativoSanciones_DescripcionHechos` varchar(100) DEFAULT NULL,
-  `SC_ActoAdministrativoSanciones_PresentaDescargos` varchar(100) DEFAULT NULL,
-  `SC_ActoAdministrativoSanciones_Pruebas` varchar(100) DEFAULT NULL,
-  `SC_ActoAdministrativoSanciones_GradoResponsabilidadAutor` varchar(50) DEFAULT NULL,
-  `SC_ActoAdministrativoSanciones_NumeroLLamadosAtencion` int(11) DEFAULT NULL,
-  `SC_ActoAdministrativoSanciones_Fecha` date DEFAULT NULL,
-  `SC_Comite_FK_ID` int(11) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sc_antecedentes`
---
-
-CREATE TABLE `sc_antecedentes` (
-  `SC_Antecedentes_PK_ID` int(11) NOT NULL,
-  `SC_Antecedentes_Descripcion` varchar(100) DEFAULT NULL,
-  `SC_Antecedentes_HabilidadesDestrezas` varchar(100) DEFAULT NULL,
-  `SC_Antecedentes_Observaciones` varchar(100) DEFAULT NULL,
-  `SC_Antecedentes_Fecha` date DEFAULT NULL,
-  `SC_Antecedentes_Foto` varchar(100) DEFAULT NULL,
-  `SC_Aprendiz_FK_ID` int(11) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `sc_actacomite` (`SC_ActaComite_PK_ID`, `SC_ActaComite_Nombre`, `SC_ActaComite_Ciudad`, `SC_ActaComite_Fecha`, `SC_ActaComite_HoraInicio`, `SC_ActaComite_HoraFin`, `SC_ActaComite_Asistentes`, `SC_ActaComite_DeclaracionesAprendiz`, `SC_ActaComite_DeclaracionesOtros`, `SC_ActaComite_Decision`, `SC_ActaComite_Descargos`, `SC_ActaComite_DeclaracionesResponsable`, `SC_Citacion_FK`, `updated_at`, `created_at`) VALUES
+(4, 'comite de seguimiento', 'manizales', '2021-09-07', '10:47:35', '11:47:35', 'pepito', 'ninguna', 'ejemplo de otra', 'se le pondrá un llamado de atención al aprendiz', 'ninguno', 'ninguna', 6, '2021-09-07 13:49:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -112,7 +77,8 @@ CREATE TABLE `sc_aprendiz` (
 --
 
 INSERT INTO `sc_aprendiz` (`SC_Aprendiz_PK_ID`, `SC_Aprendiz_Documento`, `SC_Aprendiz_Nombres`, `SC_Aprendiz_Apellidos`, `SC_Aprendiz_Correo`, `SC_Aprendiz_NumeroContacto`, `SC_Ficha_PK_ID`, `SC_Aprendiz_ContratoAprendizaje`, `SC_Aprendiz_Empresa`, `updated_at`, `created_at`) VALUES
-(12, '1053869649', 'Jaime Andres', 'Cardona Diaz', 'jacd99@hotmail.com', 3053721414, 2068678, 'No', 'No', '2021-08-27 05:02:41', '2021-08-27 05:02:41');
+(12, '1053869649', 'Jaime Andres', 'Cardona Diaz', 'jacd99@hotmail.com', 3053721414, 2068678, 'No', 'No', '2021-08-27 05:02:41', '2021-08-27 05:02:41'),
+(13, '1234567', 'gisela', 'criollo suarez', 'giselacriollo16@gmail.com', 3158845440, 2068678, 'practica y patrocinio', 'Torres guarin', '2021-09-07 17:47:41', '2021-09-07 17:47:41');
 
 -- --------------------------------------------------------
 
@@ -127,52 +93,18 @@ CREATE TABLE `sc_citacion` (
   `SC_Citacion_Lugar` varchar(50) DEFAULT NULL,
   `SC_Citacion_Ciudad` varchar(50) DEFAULT NULL,
   `SC_Citacion_Centro` varchar(50) DEFAULT NULL,
+  `SC_Citacion_NumeroActa` int(11) NOT NULL,
   `SC_Solicitud_FK` int(11) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `sc_comite`
+-- Volcado de datos para la tabla `sc_citacion`
 --
 
-CREATE TABLE `sc_comite` (
-  `SC_Comite_PK_ID` int(11) NOT NULL,
-  `SC_Comite_DescripcionHechos` varchar(200) DEFAULT NULL,
-  `SC_Comite_Testigos` varchar(100) DEFAULT NULL,
-  `SC_Comite_Observacion` varchar(100) DEFAULT NULL,
-  `SC_Evidencias` varchar(200) DEFAULT NULL,
-  `SC_Usuarios_FK_ID` int(11) NOT NULL,
-  `SC_Falta_FK_ID` int(11) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `sc_comite`
---
-
-INSERT INTO `sc_comite` (`SC_Comite_PK_ID`, `SC_Comite_DescripcionHechos`, `SC_Comite_Testigos`, `SC_Comite_Observacion`, `SC_Evidencias`, `SC_Usuarios_FK_ID`, `SC_Falta_FK_ID`, `updated_at`, `created_at`) VALUES
-(1, 'Hechos', 'Testigos', 'Observaciones', 'Evidencias', 1, 3, '2021-08-30 20:45:58', NULL);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sc_condicionamientomatricula`
---
-
-CREATE TABLE `sc_condicionamientomatricula` (
-  `SC_CondicionamientoMatricula_PK_ID` int(11) NOT NULL,
-  `SC_CondicionamientoMatricula_Descripcion` varchar(100) DEFAULT NULL,
-  `SC_CondicionamientoMatricula_Fecha` date DEFAULT NULL,
-  `SC_CondicionamientoMatricula_FechaMaxima` date DEFAULT NULL,
-  `SC_CondicionamientoMatricula_EvidenciasNoPresentadas` varchar(100) DEFAULT NULL,
-  `SC_Acto_Administrativo_FK_ID` int(11) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `sc_citacion` (`SC_CitacionPK_Id`, `SC_Citacion_FechaCitacion`, `SC_Citacion_Hora`, `SC_Citacion_Lugar`, `SC_Citacion_Ciudad`, `SC_Citacion_Centro`, `SC_Citacion_NumeroActa`, `SC_Solicitud_FK`, `updated_at`, `created_at`) VALUES
+(6, '2021-09-07', '10:30:00', 'bodega', 'manizales', 'automa', 1, 11, '2021-09-07 17:58:48', '2021-09-07 17:58:48');
 
 -- --------------------------------------------------------
 
@@ -182,57 +114,23 @@ CREATE TABLE `sc_condicionamientomatricula` (
 
 CREATE TABLE `sc_estimulos` (
   `SC_Estimulos_PK_ID` int(11) NOT NULL,
-  `SC_Estimulos_Reconocimiento` varchar(100) DEFAULT NULL,
-  `SC_Estimulos_DescripcionEstimulo` varchar(100) DEFAULT NULL,
+  `SC_Estimulos_Reporta` varchar(100) DEFAULT NULL,
+  `SC_Estimulos_Razon` varchar(100) DEFAULT NULL,
+  `SC_Estimulos_Detalles` varchar(300) NOT NULL,
   `SC_Estimulos_Fecha` date DEFAULT NULL,
   `SC_Aprendiz_FK_ID` int(11) NOT NULL,
+  `SC_Ficha_FK_ID` int(11) NOT NULL,
   `SC_TipoEstimulos_FK_ID` int(11) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `sc_evidencias`
+-- Volcado de datos para la tabla `sc_estimulos`
 --
 
-CREATE TABLE `sc_evidencias` (
-  `SC_Evidencias_PK_ID` int(11) NOT NULL,
-  `SC_Evidencias_Descripcion` varchar(100) DEFAULT NULL,
-  `SC_Evidencias_Detalle` varchar(100) DEFAULT NULL,
-  `SC_Evidencias_Archivo` varchar(100) DEFAULT NULL,
-  `SC_PlanMejoramiento_FK_ID` int(11) DEFAULT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sc_falta`
---
-
-CREATE TABLE `sc_falta` (
-  `SC_Falta_PK_ID` int(11) NOT NULL,
-  `SC_Falta_ApoyoNoSuperado` varchar(100) DEFAULT NULL,
-  `SC_Falta_EstrategiaNoSuperada` varchar(100) DEFAULT NULL,
-  `SC_Falta_ActividadesRealizadasAprendiz` varchar(100) DEFAULT NULL,
-  `SC_Falta_UrlDocumentosAnteriores` varchar(200) DEFAULT NULL,
-  `SC_Falta_ActuacionAprendiz` varchar(100) DEFAULT NULL,
-  `SC_TipoFalta_FK_ID` int(11) NOT NULL,
-  `SC_Reglamento_FK_ID` int(11) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `sc_falta`
---
-
-INSERT INTO `sc_falta` (`SC_Falta_PK_ID`, `SC_Falta_ApoyoNoSuperado`, `SC_Falta_EstrategiaNoSuperada`, `SC_Falta_ActividadesRealizadasAprendiz`, `SC_Falta_UrlDocumentosAnteriores`, `SC_Falta_ActuacionAprendiz`, `SC_TipoFalta_FK_ID`, `SC_Reglamento_FK_ID`, `updated_at`, `created_at`) VALUES
-(1, 'evidencia 1', 'no cumplió con los requisitos establecidos', 'no presento el prototipo', NULL, NULL, 4, 4, '2021-08-17 19:36:24', NULL),
-(3, 'Alguno edit', 'Alguna', 'Estas', 'No se', 'aCTUACION', 5, 24, '2021-08-17 19:37:56', '2021-08-17 19:37:47');
+INSERT INTO `sc_estimulos` (`SC_Estimulos_PK_ID`, `SC_Estimulos_Reporta`, `SC_Estimulos_Razon`, `SC_Estimulos_Detalles`, `SC_Estimulos_Fecha`, `SC_Aprendiz_FK_ID`, `SC_Ficha_FK_ID`, `SC_TipoEstimulos_FK_ID`, `updated_at`, `created_at`) VALUES
+(6, 'pepito perez', 'alguna', 'detalle', '2021-09-07', 13, 2068678, 6, '2021-09-09 20:39:46', '2021-09-09 20:39:46');
 
 -- --------------------------------------------------------
 
@@ -256,71 +154,82 @@ CREATE TABLE `sc_ficha` (
 --
 
 INSERT INTO `sc_ficha` (`SC_Ficha_PK_ID`, `SC_Ficha_FechaInicio`, `SC_Ficha_FechaFin`, `SC_Ficha_NombreProgramaFormacion`, `SC_Ficha_NumeroFicha`, `SC_Ficha_Gestor`, `updated_at`, `created_at`) VALUES
-(2068678, '2020-04-13', '2022-04-11', 'Análisis y Diseño de Sistemas de Información', 2068676, 2, '2021-08-27 04:48:53', '2021-08-27 04:47:27'),
-(2068679, '2019-04-15', '2020-04-13', 'Tecnico en Mantenimiento de Equipos de Computo', 1810558, 2, '2021-08-31 00:51:44', '2021-08-31 00:51:44');
+(2068678, '2020-04-13', '2022-04-11', 'Análisis y Diseño de Sistemas de Información', 2068676, 2, '2021-08-27 04:48:53', '2021-08-27 04:47:27');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sc_impugnacion`
+-- Estructura de tabla para la tabla `sc_gravedad`
 --
 
-CREATE TABLE `sc_impugnacion` (
-  `SC_Impugnacion_PK_ID` int(11) NOT NULL,
-  `SC_Impugnacion_DescripcionApelacion` varchar(100) DEFAULT NULL,
-  `SC_Comite_FK_ID` int(11) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT NULL
+CREATE TABLE `sc_gravedad` (
+  `SC_Gravedad_ID` int(11) NOT NULL,
+  `SC_Gravedad_Nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `sc_gravedad`
+--
+
+INSERT INTO `sc_gravedad` (`SC_Gravedad_ID`, `SC_Gravedad_Nombre`) VALUES
+(1, 'Leve'),
+(2, 'Grave'),
+(3, 'Gravísima ');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sc_llamado_atencion`
+-- Estructura de tabla para la tabla `sc_notificaciones`
 --
 
-CREATE TABLE `sc_llamado_atencion` (
-  `SC_Llamado_Atencion_PK_ID` int(11) NOT NULL,
-  `SC_Llamado_Atencion_Descripcion` varchar(100) DEFAULT NULL,
-  `SC_Llamado_Atencion_Fecha` date DEFAULT NULL,
-  `SC_Llamado_Atencion_EvidenciasNoPresentadas` varchar(100) DEFAULT NULL,
-  `SC_ActoAdministrativoSanciones_FK_ID` int(11) NOT NULL,
+CREATE TABLE `sc_notificaciones` (
+  `SC_Notificacion_ID` int(11) NOT NULL,
+  `SC_Notificacion_TipoPlan` int(11) DEFAULT 3,
+  `SC_Notificacion_Sugerencia` varchar(200) NOT NULL,
+  `SC_Notificacion_Instructor` int(11) DEFAULT 4,
+  `SC_Notificacion_FechaInicial` date NOT NULL,
+  `SC_Notificacion_FechaLimite` date DEFAULT NULL,
+  `SC_ActaComite_FK` int(11) NOT NULL,
+  `SC_TipoNotificacion_FK` int(11) NOT NULL,
+  `SC_Notificacion_Forma` varchar(200) DEFAULT NULL,
+  `SC_Notificacion_Funcionario` varchar(200) DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `sc_notificaciones`
+--
+
+INSERT INTO `sc_notificaciones` (`SC_Notificacion_ID`, `SC_Notificacion_TipoPlan`, `SC_Notificacion_Sugerencia`, `SC_Notificacion_Instructor`, `SC_Notificacion_FechaInicial`, `SC_Notificacion_FechaLimite`, `SC_ActaComite_FK`, `SC_TipoNotificacion_FK`, `SC_Notificacion_Forma`, `SC_Notificacion_Funcionario`, `updated_at`, `created_at`) VALUES
+(1, 1, 'alguna', 2, '2021-09-07', '2021-09-07', 4, 1, NULL, NULL, '2021-09-09 19:04:20', '2021-09-07 19:55:23'),
+(2, 1, 'alguna', 1, '2022-06-05', NULL, 4, 1, NULL, NULL, '2021-09-08 03:28:24', '2021-09-08 03:28:24'),
+(3, 1, 'ejemplo sin datos extra', 1, '2021-09-07', NULL, 4, 1, NULL, NULL, '2021-09-09 22:03:14', '2021-09-09 22:03:14'),
+(4, 3, 'ejemplo sin datos extra 2', 4, '2021-08-07', NULL, 4, 1, NULL, NULL, '2021-09-09 22:50:43', '2021-09-09 22:50:43');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sc_novedades`
+-- Estructura de tabla para la tabla `sc_recursos_reposicion`
 --
 
-CREATE TABLE `sc_novedades` (
-  `SC_Novedades_PK_ID` int(11) NOT NULL,
-  `SC_Novedades_Fecha` date DEFAULT NULL,
-  `SC_Aprendiz_FK_ID` int(11) NOT NULL,
-  `SC_TipoNovedades_FK_ID` int(11) NOT NULL,
-  `SC_Novedades_Motivo` varchar(500) NOT NULL,
+CREATE TABLE `sc_recursos_reposicion` (
+  `SC_Recursos_ID` int(11) NOT NULL,
+  `SC_Recursos_FechaGenerado` date NOT NULL,
+  `SC_Recursos_FechaLimite` date NOT NULL,
+  `SC_Recursos_Radicado` int(11) NOT NULL,
+  `SC_Recursos_Evidencias` varchar(100) NOT NULL,
+  `SC_ActaComite_FK` int(11) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `sc_planmejoramiento`
+-- Volcado de datos para la tabla `sc_recursos_reposicion`
 --
 
-CREATE TABLE `sc_planmejoramiento` (
-  `SC_PlanMejoramiento_PK_ID` int(11) NOT NULL,
-  `SC_PlanMejoramiento_Descripcion` varchar(100) DEFAULT NULL,
-  `SC_PlanMejoramiento_Fecha` date DEFAULT NULL,
-  `SC_PlanMejoramiento_FechaMaxima` date DEFAULT NULL,
-  `SC_ActoAdministrativo_FK_ID` int(11) NOT NULL,
-  `SC_PlanMejoramiento` varchar(45) DEFAULT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `sc_recursos_reposicion` (`SC_Recursos_ID`, `SC_Recursos_FechaGenerado`, `SC_Recursos_FechaLimite`, `SC_Recursos_Radicado`, `SC_Recursos_Evidencias`, `SC_ActaComite_FK`, `updated_at`, `created_at`) VALUES
+(1, '2021-07-06', '2021-08-08', 6, 'ninguna', 4, '2021-09-09 22:12:30', '2021-09-09 22:12:30');
 
 -- --------------------------------------------------------
 
@@ -404,6 +313,7 @@ INSERT INTO `sc_reglamento` (`SC_Reglamento_PK_ID`, `SC_Reglamento_Articulo`, `S
 
 CREATE TABLE `sc_solicitar_comite` (
   `SC_SolicitarComite_ID` int(11) NOT NULL,
+  `SC_SolicitarComite_Responsable` varchar(100) NOT NULL,
   `SC_SolicitarComite_Fecha` date NOT NULL,
   `SC_SolicitarComite_Descripcion` varchar(200) NOT NULL,
   `SC_SolicitarComite_Testigos` varchar(300) NOT NULL,
@@ -412,6 +322,8 @@ CREATE TABLE `sc_solicitar_comite` (
   `SC_Falta_FK` int(11) NOT NULL,
   `SC_Usuario_FK` int(11) NOT NULL,
   `SC_Aprendiz_FK` int(11) NOT NULL,
+  `SC_Gravedad_FK` int(11) NOT NULL,
+  `SC_Reglamento_FK` int(11) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -420,8 +332,8 @@ CREATE TABLE `sc_solicitar_comite` (
 -- Volcado de datos para la tabla `sc_solicitar_comite`
 --
 
-INSERT INTO `sc_solicitar_comite` (`SC_SolicitarComite_ID`, `SC_SolicitarComite_Fecha`, `SC_SolicitarComite_Descripcion`, `SC_SolicitarComite_Testigos`, `SC_SolicitarComite_Observaciones`, `SC_SolicitarComite_Anexo`, `SC_Falta_FK`, `SC_Usuario_FK`, `SC_Aprendiz_FK`, `updated_at`, `created_at`) VALUES
-(10, '2021-08-26', 'Aqui va la descripcion', 'Lista de testigos', 'Observaciones', '1630022578constancia_TituladaPresencial (1).pdf', 1, 1, 12, '2021-08-27 05:02:58', '2021-08-27 05:02:58');
+INSERT INTO `sc_solicitar_comite` (`SC_SolicitarComite_ID`, `SC_SolicitarComite_Responsable`, `SC_SolicitarComite_Fecha`, `SC_SolicitarComite_Descripcion`, `SC_SolicitarComite_Testigos`, `SC_SolicitarComite_Observaciones`, `SC_SolicitarComite_Anexo`, `SC_Falta_FK`, `SC_Usuario_FK`, `SC_Aprendiz_FK`, `SC_Gravedad_FK`, `SC_Reglamento_FK`, `updated_at`, `created_at`) VALUES
+(11, 'pepito perez', '2021-09-07', 'ejemplo de descripcion', 'ninguno', 'no se porto bien', 'C:\\xampp\\tmp\\php9DFD.tmp', 4, 1, 13, 1, 2, '2021-09-07 17:50:48', '2021-09-07 17:50:48');
 
 -- --------------------------------------------------------
 
@@ -464,30 +376,48 @@ CREATE TABLE `sc_tipofalta` (
 
 INSERT INTO `sc_tipofalta` (`SC_TipoFalta_PK_ID`, `SC_TipoFalta_Descripcion`) VALUES
 (4, 'Académica'),
-(5, 'Disciplinaria');
+(5, 'Disciplinaria'),
+(6, 'Académica-Disciplinaria ');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sc_tiponovedades`
+-- Estructura de tabla para la tabla `sc_tiponotificacion`
 --
 
-CREATE TABLE `sc_tiponovedades` (
-  `SC_TipoNovedades_PK_ID` int(11) NOT NULL,
-  `SC_TipoNovedades_Descripcion` varchar(100) DEFAULT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT NULL
+CREATE TABLE `sc_tiponotificacion` (
+  `SC_TipoNotificacion_ID` int(11) NOT NULL,
+  `SC_TipoNotificacion_Descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `sc_tiponovedades`
+-- Volcado de datos para la tabla `sc_tiponotificacion`
 --
 
-INSERT INTO `sc_tiponovedades` (`SC_TipoNovedades_PK_ID`, `SC_TipoNovedades_Descripcion`, `updated_at`, `created_at`) VALUES
-(1, 'Traslado', '2021-08-12 14:30:58', NULL),
-(2, 'Aplazamiento', '2021-08-12 14:30:58', NULL),
-(3, 'Reingreso', '2021-08-12 14:31:30', NULL),
-(4, 'Retiro Voluntario', '2021-08-12 14:31:30', NULL);
+INSERT INTO `sc_tiponotificacion` (`SC_TipoNotificacion_ID`, `SC_TipoNotificacion_Descripcion`) VALUES
+(1, 'Llamado de atención'),
+(2, 'Condicionamiento de Matricula'),
+(3, 'Cancelación de Matricula');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sc_tipoplan`
+--
+
+CREATE TABLE `sc_tipoplan` (
+  `SC_TipoPlan_ID` int(11) NOT NULL,
+  `SC_TipoPlan_Descripcion` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `sc_tipoplan`
+--
+
+INSERT INTO `sc_tipoplan` (`SC_TipoPlan_ID`, `SC_TipoPlan_Descripcion`) VALUES
+(1, 'Académico '),
+(2, 'Disciplinario'),
+(3, 'N/A');
 
 -- --------------------------------------------------------
 
@@ -533,7 +463,8 @@ CREATE TABLE `sc_usuario` (
 INSERT INTO `sc_usuario` (`SC_Usuarios_ID`, `SC_Usuarios_Documento`, `SC_Usuarios_Nombre`, `SC_Usuarios_Username`, `SC_Usuarios_Password`, `SC_TipoUsuario_FK_ID`, `updated_at`, `created_at`) VALUES
 (1, '123456', 'juan ramiro', 'juanRamiro1', '123456', 1, '2021-08-12 14:00:16', NULL),
 (2, '10077112', 'marta cruz', 'cMarta', '123456', 2, '2021-08-12 14:00:16', NULL),
-(3, '38756912', 'Claudia patricia lopez', 'CpLopez', '123456', 3, '2021-08-12 14:00:16', NULL);
+(3, '38756912', 'Claudia patricia lopez', 'CpLopez', '123456', 3, '2021-08-12 14:00:16', NULL),
+(4, NULL, 'NO Aplica', NULL, NULL, 2, '2021-09-09 16:55:50', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -544,21 +475,7 @@ INSERT INTO `sc_usuario` (`SC_Usuarios_ID`, `SC_Usuarios_Documento`, `SC_Usuario
 --
 ALTER TABLE `sc_actacomite`
   ADD PRIMARY KEY (`SC_ActaComite_PK_ID`),
-  ADD KEY `FK_Comite` (`SC_Comite_FK`);
-
---
--- Indices de la tabla `sc_actoadministrativosanciones`
---
-ALTER TABLE `sc_actoadministrativosanciones`
-  ADD PRIMARY KEY (`SC_ActoAdministrativoSanciones_PK_Id`),
-  ADD KEY `fk_sc_acto_administrativo_sc_Comite1_idx` (`SC_Comite_FK_ID`);
-
---
--- Indices de la tabla `sc_antecedentes`
---
-ALTER TABLE `sc_antecedentes`
-  ADD PRIMARY KEY (`SC_Antecedentes_PK_ID`),
-  ADD KEY `fk_sc_Novedades_sc_aprendiz1_idx` (`SC_Aprendiz_FK_ID`);
+  ADD KEY `FK_Citacion2` (`SC_Citacion_FK`);
 
 --
 -- Indices de la tabla `sc_aprendiz`
@@ -576,42 +493,13 @@ ALTER TABLE `sc_citacion`
   ADD KEY `FK_Solicitud` (`SC_Solicitud_FK`);
 
 --
--- Indices de la tabla `sc_comite`
---
-ALTER TABLE `sc_comite`
-  ADD PRIMARY KEY (`SC_Comite_PK_ID`),
-  ADD KEY `fk_sc_citacion_sc_Usuarios1_idx` (`SC_Usuarios_FK_ID`),
-  ADD KEY `fk_sc_citacion_sc_falta_academica1_idx` (`SC_Falta_FK_ID`);
-
---
--- Indices de la tabla `sc_condicionamientomatricula`
---
-ALTER TABLE `sc_condicionamientomatricula`
-  ADD PRIMARY KEY (`SC_CondicionamientoMatricula_PK_ID`),
-  ADD KEY `fk_sc_plan_mejoramiento_sc_acto_administrativo1_idx` (`SC_Acto_Administrativo_FK_ID`);
-
---
 -- Indices de la tabla `sc_estimulos`
 --
 ALTER TABLE `sc_estimulos`
   ADD PRIMARY KEY (`SC_Estimulos_PK_ID`),
   ADD KEY `fk_sc_estimulos_sc_aprendiz1_idx` (`SC_Aprendiz_FK_ID`),
-  ADD KEY `fk_sc_estimulos_sc_Tipo_estimulos1_idx` (`SC_TipoEstimulos_FK_ID`);
-
---
--- Indices de la tabla `sc_evidencias`
---
-ALTER TABLE `sc_evidencias`
-  ADD PRIMARY KEY (`SC_Evidencias_PK_ID`),
-  ADD KEY `sc_plan_mejoramiento_PLA_PK_Id_idx` (`SC_PlanMejoramiento_FK_ID`);
-
---
--- Indices de la tabla `sc_falta`
---
-ALTER TABLE `sc_falta`
-  ADD PRIMARY KEY (`SC_Falta_PK_ID`),
-  ADD KEY `fk_sc_falta_academica_sc_Tipo_Falta1_idx` (`SC_TipoFalta_FK_ID`),
-  ADD KEY `fk_sc_falta_academica_sc_Reglamento1_idx` (`SC_Reglamento_FK_ID`);
+  ADD KEY `fk_sc_estimulos_sc_Tipo_estimulos1_idx` (`SC_TipoEstimulos_FK_ID`),
+  ADD KEY `FK_Ficha` (`SC_Ficha_FK_ID`);
 
 --
 -- Indices de la tabla `sc_ficha`
@@ -621,33 +509,27 @@ ALTER TABLE `sc_ficha`
   ADD KEY `FK_Gestor` (`SC_Ficha_Gestor`);
 
 --
--- Indices de la tabla `sc_impugnacion`
+-- Indices de la tabla `sc_gravedad`
 --
-ALTER TABLE `sc_impugnacion`
-  ADD PRIMARY KEY (`SC_Impugnacion_PK_ID`),
-  ADD KEY `fk_sc_Apelacion_sc_Comite1_idx` (`SC_Comite_FK_ID`);
+ALTER TABLE `sc_gravedad`
+  ADD PRIMARY KEY (`SC_Gravedad_ID`);
 
 --
--- Indices de la tabla `sc_llamado_atencion`
+-- Indices de la tabla `sc_notificaciones`
 --
-ALTER TABLE `sc_llamado_atencion`
-  ADD PRIMARY KEY (`SC_Llamado_Atencion_PK_ID`),
-  ADD KEY `fk_sc_plan_mejoramiento_sc_acto_administrativo1_idx` (`SC_ActoAdministrativoSanciones_FK_ID`);
+ALTER TABLE `sc_notificaciones`
+  ADD PRIMARY KEY (`SC_Notificacion_ID`),
+  ADD KEY `FK_Acta` (`SC_ActaComite_FK`),
+  ADD KEY `FK_TipoNotificacion` (`SC_TipoNotificacion_FK`),
+  ADD KEY `FK_TipoPlan` (`SC_Notificacion_TipoPlan`),
+  ADD KEY `FK_Instructor` (`SC_Notificacion_Instructor`);
 
 --
--- Indices de la tabla `sc_novedades`
+-- Indices de la tabla `sc_recursos_reposicion`
 --
-ALTER TABLE `sc_novedades`
-  ADD PRIMARY KEY (`SC_Novedades_PK_ID`),
-  ADD KEY `fk_sc_Novedades_sc_aprendiz1_idx` (`SC_Aprendiz_FK_ID`),
-  ADD KEY `fk_sc_Novedades_sc_Tipo_novedades1_idx` (`SC_TipoNovedades_FK_ID`);
-
---
--- Indices de la tabla `sc_planmejoramiento`
---
-ALTER TABLE `sc_planmejoramiento`
-  ADD PRIMARY KEY (`SC_PlanMejoramiento_PK_ID`),
-  ADD KEY `fk_sc_plan_mejoramiento_sc_acto_administrativo1_idx` (`SC_ActoAdministrativo_FK_ID`);
+ALTER TABLE `sc_recursos_reposicion`
+  ADD PRIMARY KEY (`SC_Recursos_ID`),
+  ADD KEY `FK_Acta2` (`SC_ActaComite_FK`);
 
 --
 -- Indices de la tabla `sc_reglamento`
@@ -661,8 +543,10 @@ ALTER TABLE `sc_reglamento`
 ALTER TABLE `sc_solicitar_comite`
   ADD PRIMARY KEY (`SC_SolicitarComite_ID`),
   ADD KEY `FK_Usuarios` (`SC_Usuario_FK`),
-  ADD KEY `FK_Aprendiz` (`SC_Falta_FK`),
-  ADD KEY `FK_Aprendiz_2` (`SC_Aprendiz_FK`);
+  ADD KEY `FK_Aprendiz_2` (`SC_Aprendiz_FK`),
+  ADD KEY `FK_Falta` (`SC_Falta_FK`),
+  ADD KEY `FK_Gravedad` (`SC_Gravedad_FK`),
+  ADD KEY `FK_Reglamento` (`SC_Reglamento_FK`);
 
 --
 -- Indices de la tabla `sc_tipoestimulos`
@@ -677,10 +561,16 @@ ALTER TABLE `sc_tipofalta`
   ADD PRIMARY KEY (`SC_TipoFalta_PK_ID`);
 
 --
--- Indices de la tabla `sc_tiponovedades`
+-- Indices de la tabla `sc_tiponotificacion`
 --
-ALTER TABLE `sc_tiponovedades`
-  ADD PRIMARY KEY (`SC_TipoNovedades_PK_ID`);
+ALTER TABLE `sc_tiponotificacion`
+  ADD PRIMARY KEY (`SC_TipoNotificacion_ID`);
+
+--
+-- Indices de la tabla `sc_tipoplan`
+--
+ALTER TABLE `sc_tipoplan`
+  ADD PRIMARY KEY (`SC_TipoPlan_ID`);
 
 --
 -- Indices de la tabla `sc_tipousuario`
@@ -703,91 +593,49 @@ ALTER TABLE `sc_usuario`
 -- AUTO_INCREMENT de la tabla `sc_actacomite`
 --
 ALTER TABLE `sc_actacomite`
-  MODIFY `SC_ActaComite_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `sc_actoadministrativosanciones`
---
-ALTER TABLE `sc_actoadministrativosanciones`
-  MODIFY `SC_ActoAdministrativoSanciones_PK_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `sc_antecedentes`
---
-ALTER TABLE `sc_antecedentes`
-  MODIFY `SC_Antecedentes_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `SC_ActaComite_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_aprendiz`
 --
 ALTER TABLE `sc_aprendiz`
-  MODIFY `SC_Aprendiz_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `SC_Aprendiz_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_citacion`
 --
 ALTER TABLE `sc_citacion`
-  MODIFY `SC_CitacionPK_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `sc_comite`
---
-ALTER TABLE `sc_comite`
-  MODIFY `SC_Comite_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `sc_condicionamientomatricula`
---
-ALTER TABLE `sc_condicionamientomatricula`
-  MODIFY `SC_CondicionamientoMatricula_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `SC_CitacionPK_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_estimulos`
 --
 ALTER TABLE `sc_estimulos`
-  MODIFY `SC_Estimulos_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `sc_evidencias`
---
-ALTER TABLE `sc_evidencias`
-  MODIFY `SC_Evidencias_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `sc_falta`
---
-ALTER TABLE `sc_falta`
-  MODIFY `SC_Falta_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `SC_Estimulos_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_ficha`
 --
 ALTER TABLE `sc_ficha`
-  MODIFY `SC_Ficha_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2068680;
+  MODIFY `SC_Ficha_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2068683;
 
 --
--- AUTO_INCREMENT de la tabla `sc_impugnacion`
+-- AUTO_INCREMENT de la tabla `sc_gravedad`
 --
-ALTER TABLE `sc_impugnacion`
-  MODIFY `SC_Impugnacion_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `sc_gravedad`
+  MODIFY `SC_Gravedad_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `sc_llamado_atencion`
+-- AUTO_INCREMENT de la tabla `sc_notificaciones`
 --
-ALTER TABLE `sc_llamado_atencion`
-  MODIFY `SC_Llamado_Atencion_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `sc_notificaciones`
+  MODIFY `SC_Notificacion_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `sc_novedades`
+-- AUTO_INCREMENT de la tabla `sc_recursos_reposicion`
 --
-ALTER TABLE `sc_novedades`
-  MODIFY `SC_Novedades_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `sc_planmejoramiento`
---
-ALTER TABLE `sc_planmejoramiento`
-  MODIFY `SC_PlanMejoramiento_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `sc_recursos_reposicion`
+  MODIFY `SC_Recursos_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_reglamento`
@@ -799,7 +647,7 @@ ALTER TABLE `sc_reglamento`
 -- AUTO_INCREMENT de la tabla `sc_solicitar_comite`
 --
 ALTER TABLE `sc_solicitar_comite`
-  MODIFY `SC_SolicitarComite_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `SC_SolicitarComite_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_tipoestimulos`
@@ -811,13 +659,19 @@ ALTER TABLE `sc_tipoestimulos`
 -- AUTO_INCREMENT de la tabla `sc_tipofalta`
 --
 ALTER TABLE `sc_tipofalta`
-  MODIFY `SC_TipoFalta_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `SC_TipoFalta_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `sc_tiponovedades`
+-- AUTO_INCREMENT de la tabla `sc_tiponotificacion`
 --
-ALTER TABLE `sc_tiponovedades`
-  MODIFY `SC_TipoNovedades_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `sc_tiponotificacion`
+  MODIFY `SC_TipoNotificacion_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `sc_tipoplan`
+--
+ALTER TABLE `sc_tipoplan`
+  MODIFY `SC_TipoPlan_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_tipousuario`
@@ -829,7 +683,7 @@ ALTER TABLE `sc_tipousuario`
 -- AUTO_INCREMENT de la tabla `sc_usuario`
 --
 ALTER TABLE `sc_usuario`
-  MODIFY `SC_Usuarios_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `SC_Usuarios_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -839,19 +693,7 @@ ALTER TABLE `sc_usuario`
 -- Filtros para la tabla `sc_actacomite`
 --
 ALTER TABLE `sc_actacomite`
-  ADD CONSTRAINT `FK_Comite` FOREIGN KEY (`SC_Comite_FK`) REFERENCES `sc_comite` (`SC_Comite_PK_ID`);
-
---
--- Filtros para la tabla `sc_actoadministrativosanciones`
---
-ALTER TABLE `sc_actoadministrativosanciones`
-  ADD CONSTRAINT `fk_sc_acto_administrativo_sc_Comite1` FOREIGN KEY (`SC_Comite_FK_ID`) REFERENCES `sc_comite` (`SC_Comite_PK_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `sc_antecedentes`
---
-ALTER TABLE `sc_antecedentes`
-  ADD CONSTRAINT `fk_sc_Novedades_sc_aprendiz10` FOREIGN KEY (`SC_Aprendiz_FK_ID`) REFERENCES `sc_aprendiz` (`SC_Aprendiz_PK_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `FK_Citacion2` FOREIGN KEY (`SC_Citacion_FK`) REFERENCES `sc_citacion` (`SC_CitacionPK_Id`);
 
 --
 -- Filtros para la tabla `sc_aprendiz`
@@ -866,75 +708,36 @@ ALTER TABLE `sc_citacion`
   ADD CONSTRAINT `FK_Solicitud` FOREIGN KEY (`SC_Solicitud_FK`) REFERENCES `sc_solicitar_comite` (`SC_SolicitarComite_ID`);
 
 --
--- Filtros para la tabla `sc_comite`
---
-ALTER TABLE `sc_comite`
-  ADD CONSTRAINT `fk_sc_citacion_sc_Usuarios1` FOREIGN KEY (`SC_Usuarios_FK_ID`) REFERENCES `sc_usuario` (`SC_Usuarios_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_sc_citacion_sc_falta_academica1` FOREIGN KEY (`SC_Falta_FK_ID`) REFERENCES `sc_falta` (`SC_Falta_PK_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `sc_condicionamientomatricula`
---
-ALTER TABLE `sc_condicionamientomatricula`
-  ADD CONSTRAINT `fk_sc_plan_mejoramiento_sc_acto_administrativo10` FOREIGN KEY (`SC_Acto_Administrativo_FK_ID`) REFERENCES `sc_actoadministrativosanciones` (`SC_ActoAdministrativoSanciones_PK_Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Filtros para la tabla `sc_estimulos`
 --
 ALTER TABLE `sc_estimulos`
+  ADD CONSTRAINT `FK_Ficha` FOREIGN KEY (`SC_Ficha_FK_ID`) REFERENCES `sc_ficha` (`SC_Ficha_PK_ID`),
   ADD CONSTRAINT `fk_sc_estimulos_sc_Tipo_estimulos1` FOREIGN KEY (`SC_TipoEstimulos_FK_ID`) REFERENCES `sc_tipoestimulos` (`SC_TipoEstimulos_PK_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_sc_estimulos_sc_aprendiz1` FOREIGN KEY (`SC_Aprendiz_FK_ID`) REFERENCES `sc_aprendiz` (`SC_Aprendiz_PK_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `sc_evidencias`
+-- Filtros para la tabla `sc_notificaciones`
 --
-ALTER TABLE `sc_evidencias`
-  ADD CONSTRAINT `sc_plan_mejoramiento_PLA_PK_Id` FOREIGN KEY (`SC_PlanMejoramiento_FK_ID`) REFERENCES `sc_planmejoramiento` (`SC_PlanMejoramiento_PK_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `sc_notificaciones`
+  ADD CONSTRAINT `FK_Acta` FOREIGN KEY (`SC_ActaComite_FK`) REFERENCES `sc_actacomite` (`SC_ActaComite_PK_ID`),
+  ADD CONSTRAINT `FK_Instructor` FOREIGN KEY (`SC_Notificacion_Instructor`) REFERENCES `sc_usuario` (`SC_Usuarios_ID`),
+  ADD CONSTRAINT `FK_TipoNotificacion` FOREIGN KEY (`SC_TipoNotificacion_FK`) REFERENCES `sc_tiponotificacion` (`SC_TipoNotificacion_ID`),
+  ADD CONSTRAINT `FK_TipoPlan` FOREIGN KEY (`SC_Notificacion_TipoPlan`) REFERENCES `sc_tipoplan` (`SC_TipoPlan_ID`);
 
 --
--- Filtros para la tabla `sc_falta`
+-- Filtros para la tabla `sc_recursos_reposicion`
 --
-ALTER TABLE `sc_falta`
-  ADD CONSTRAINT `fk_sc_falta_academica_sc_Reglamento1` FOREIGN KEY (`SC_Reglamento_FK_ID`) REFERENCES `sc_reglamento` (`SC_Reglamento_PK_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_sc_falta_academica_sc_Tipo_Falta1` FOREIGN KEY (`SC_TipoFalta_FK_ID`) REFERENCES `sc_tipofalta` (`SC_TipoFalta_PK_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `sc_ficha`
---
-ALTER TABLE `sc_ficha`
-  ADD CONSTRAINT `FK_Gestor` FOREIGN KEY (`SC_Ficha_Gestor`) REFERENCES `sc_usuario` (`SC_Usuarios_ID`);
-
---
--- Filtros para la tabla `sc_impugnacion`
---
-ALTER TABLE `sc_impugnacion`
-  ADD CONSTRAINT `fk_sc_Apelacion_sc_Comite1` FOREIGN KEY (`SC_Comite_FK_ID`) REFERENCES `sc_comite` (`SC_Comite_PK_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `sc_llamado_atencion`
---
-ALTER TABLE `sc_llamado_atencion`
-  ADD CONSTRAINT `fk_sc_plan_mejoramiento_sc_acto_administrativo11` FOREIGN KEY (`SC_ActoAdministrativoSanciones_FK_ID`) REFERENCES `sc_actoadministrativosanciones` (`SC_ActoAdministrativoSanciones_PK_Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `sc_novedades`
---
-ALTER TABLE `sc_novedades`
-  ADD CONSTRAINT `fk_sc_Novedades_sc_Tipo_novedades1` FOREIGN KEY (`SC_TipoNovedades_FK_ID`) REFERENCES `sc_tiponovedades` (`SC_TipoNovedades_PK_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_sc_Novedades_sc_aprendiz1` FOREIGN KEY (`SC_Aprendiz_FK_ID`) REFERENCES `sc_aprendiz` (`SC_Aprendiz_PK_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `sc_planmejoramiento`
---
-ALTER TABLE `sc_planmejoramiento`
-  ADD CONSTRAINT `fk_sc_plan_mejoramiento_sc_acto_administrativo1` FOREIGN KEY (`SC_ActoAdministrativo_FK_ID`) REFERENCES `sc_actoadministrativosanciones` (`SC_ActoAdministrativoSanciones_PK_Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `sc_recursos_reposicion`
+  ADD CONSTRAINT `FK_Acta2` FOREIGN KEY (`SC_ActaComite_FK`) REFERENCES `sc_actacomite` (`SC_ActaComite_PK_ID`);
 
 --
 -- Filtros para la tabla `sc_solicitar_comite`
 --
 ALTER TABLE `sc_solicitar_comite`
   ADD CONSTRAINT `FK_Aprendiz_2` FOREIGN KEY (`SC_Aprendiz_FK`) REFERENCES `sc_aprendiz` (`SC_Aprendiz_PK_ID`),
-  ADD CONSTRAINT `FK_Faltas` FOREIGN KEY (`SC_Falta_FK`) REFERENCES `sc_falta` (`SC_Falta_PK_ID`),
+  ADD CONSTRAINT `FK_Falta` FOREIGN KEY (`SC_Falta_FK`) REFERENCES `sc_tipofalta` (`SC_TipoFalta_PK_ID`),
+  ADD CONSTRAINT `FK_Gravedad` FOREIGN KEY (`SC_Gravedad_FK`) REFERENCES `sc_gravedad` (`SC_Gravedad_ID`),
+  ADD CONSTRAINT `FK_Reglamento` FOREIGN KEY (`SC_Reglamento_FK`) REFERENCES `sc_reglamento` (`SC_Reglamento_PK_ID`),
   ADD CONSTRAINT `FK_Usuarios` FOREIGN KEY (`SC_Usuario_FK`) REFERENCES `sc_usuario` (`SC_Usuarios_ID`);
 
 --
@@ -947,3 +750,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
