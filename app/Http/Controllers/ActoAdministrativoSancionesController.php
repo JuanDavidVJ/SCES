@@ -9,9 +9,10 @@ use App\Models\ActaComite;
 use App\Models\TipoNotificacion;
 use App\Models\Usuario;
 use App\Http\Requests\StoreAdministrativoRequest;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MessageReceivedNotificacion;
+use Illuminate\Pagination\Paginator;
 
 class ActoAdministrativoSancionesController extends Controller
 {
@@ -23,16 +24,14 @@ class ActoAdministrativoSancionesController extends Controller
     public function index(Request $request)
     {
         $query = trim($request->get('search'));
+        $actoas = DB::table('sc_notificaciones')
+                        ->select('*')
+                        ->where('SC_Notificacion_FechaInicial', 'LIKE', '%' .$query. '%')
+                        ->paginate(10);
 
-        if($request){
-            $actoas = ActoAdministrativo::where('SC_ActaComite_FK', 'LIKE', '%' . $query . '%')
-                          ->get();
+                        return view('actoadministrativo.index', compact('actoas'));
 
-                return view('actoadministrativo.index', ['actoas' => $actoas, 'search' => $query]);
-        }
-        /*$actoas = ActoAdministrativo::all();
-         $comite = Comite::all();
-        return view('actoadministrativo.index')->with('actoas', $actoas)->with('comite', $comite);*/
+        
     }
 
     /**

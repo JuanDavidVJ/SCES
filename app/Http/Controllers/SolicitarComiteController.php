@@ -10,6 +10,7 @@ use App\Models\Usuario;
 use App\Models\Aprendiz;
 use App\Models\Gravedad;
 use App\Models\Reglamento;
+use Illuminate\Support\Facades\DB;
 
 class SolicitarComiteController extends Controller
 {
@@ -21,13 +22,12 @@ class SolicitarComiteController extends Controller
     public function index(Request $request)
     {
         $query = trim($request->get('search'));
+        $solicitudes = DB::table('sc_solicitar_comite')
+                        ->select('*')
+                        ->where('SC_SolicitarComite_Responsable', 'LIKE', '%' .$query. '%')
+                        ->paginate(10);
 
-        if($request){
-            $solicitudes = SolicitarComite::where('SC_SolicitarComite_Descripcion', 'LIKE', '%' . $query . '%')
-                          ->get();
-
-                return view('solicitarComite.index', ['solicitudes' => $solicitudes, 'search' => $query]);
-        }
+                        return view('solicitarComite.index', compact('solicitudes'));
     }
 
     /**

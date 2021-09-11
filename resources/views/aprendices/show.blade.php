@@ -24,7 +24,7 @@
         </tr>
          <tr>
            <th class="thshow">Ficha</th>
-           <td class="tdshow">{{ $aprendiz->SC_Ficha_PK_ID }}</td>
+           <td class="tdshow">{{ $aprendiz->ficha->SC_Ficha_NumeroFicha }}</td>
         </tr>
          <tr>
            <th class="thshow">Contrato de Aprendizaje</th>

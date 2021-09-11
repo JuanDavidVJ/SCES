@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Aprendiz;
 use App\Models\Ficha;
 use App\Models\Comite;
 use App\Http\Requests\StoreAprendicesRequest;
+use Illuminate\Pagination\Paginator;
 
 class AprendicesController extends Controller
 {
@@ -18,18 +20,14 @@ class AprendicesController extends Controller
     public function index(Request $request)
     {
         $query = trim($request->get('search'));
+        $aprendices = DB::table('sc_aprendiz')
+                        ->select('*')
+                        ->where('SC_Aprendiz_Documento', 'LIKE', '%' .$query. '%')
+                        ->paginate(10);
 
-        if($request){
-            $aprendices = Aprendiz::where('SC_Aprendiz_Documento', 'LIKE', '%' . $query . '%')
-                          ->orderBy('SC_Aprendiz_Nombres', 'asc')
-                          ->get();
+                        return view('aprendices.index', compact('aprendices'));
 
-                return view('aprendices.index', ['aprendices' => $aprendices, 'search' => $query]);
-        }
-
-       /* $aprendices = Aprendiz::all();
-        return view('aprendices.index')
-                ->with('aprendices', $aprendices);*/
+            
     }
 
     /**
@@ -37,6 +35,7 @@ class AprendicesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         #$comites = Comite::all();

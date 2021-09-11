@@ -1,5 +1,5 @@
 <div class="wrapper">
-    {{--  <!-- Sidebar  -->  --}}
+    {{-- <!-- Sidebar  --> --}}
     <nav id="sidebar">
         <div class="sidebar-header">
             <h3>Sistema de Comité y Evaluación</h3>
@@ -77,7 +77,7 @@
                     </li>
                 </ul>
             </li>
-           <!-- <li>
+            <!-- <li>
                 <a href="#impugnaciones" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-university"></i>
                     Impugnaciones
@@ -142,7 +142,7 @@
         </ul>
     </nav>
 
-    {{--  <!-- Page Content  -->  --}}
+    {{-- <!-- Page Content  --> --}}
     <div id="content">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -153,18 +153,18 @@
                 </button>
                 <a class="navbar-brand ml-2 font-weight-bolder" href="/">SENA</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-user"></i> Usuario</a>
-                            </li>
-                        </ul>
-                        <a class="nav-link " href="#"></a>
-                        <form class="form-inline my-2 my-lg-0" action="" method="POST">
-                            @csrf
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerrar sesión</button>
-                        </form>
-                    </div>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i
+                                    class="fas fa-user"></i>{{ Auth::user()->name }}</a>
+                        </li>
+                    </ul>
+                    <a class="nav-link " href="#"></a>
+                    <form class="form-inline my-2 my-lg-0" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerrar sesión</button>
+                    </form>
+                </div>
 
             </div>
         </nav>
-

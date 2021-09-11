@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+@extends('layouts.base')
+@section('title', 'Inicio')
+@section('content')
+
+    <div class="container">
+
+    </div>
+
+@endsection
+
+{{-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -15,7 +25,7 @@
     <nav class="navbar navbar-expand-lg navbar-light"style="background-color:#FA771C;">
       <div class="container">
         <a class="navbar-brand" href="/">
-          
+
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -42,8 +52,8 @@
               <h1>
                 COMITE DE EVALUACIÓN Y SEGUIMIENTO
               </h1>
-              
-              
+
+
             </div>
             <div class="col-sm-6">
               <img src="{{ asset('estilos/img/logoSena.png') }}" class="img-fluid d-none d-sm-block">
@@ -54,7 +64,7 @@
     </header>
 
     <!-- ABOUT -->
-    
+
 
       <div id="about" class="about">
         <div class="container">
@@ -65,9 +75,9 @@
                         <h2>Comite de evalución y de seguimiento<br></h2>
                         <p>El Comité de Evaluación y Seguimiento se reunirá por lo menos una vez cada trimestre, y cada vez que sea necesario para la aplicación del procedimiento.
 Este comité realizará seguimiento a programas de formación afines tecnológicamente, en espacios en los que puedan interactuar varios grupos de aprendices de especialidades afines.<br>
-Sesión del Comité de Evaluación y Seguimiento 
+Sesión del Comité de Evaluación y Seguimiento
 
-Llegada la fecha y hora de la sesión del Comité, se debe verificar si hay quórum o no para sesionar y decidir. A continuación el Coordinador Académico o el integrante de la comunidad educativa que haya sido invitado, expondrá el caso a tratar.Posteriormente, se oirá en descargos al aprendiz o aprendices citados 
+Llegada la fecha y hora de la sesión del Comité, se debe verificar si hay quórum o no para sesionar y decidir. A continuación el Coordinador Académico o el integrante de la comunidad educativa que haya sido invitado, expondrá el caso a tratar.Posteriormente, se oirá en descargos al aprendiz o aprendices citados
 
 </p>
                         <a href="{{ asset('manuales/manual usuario.pdf') }}" target="_blank">Manual de usuario</a>
@@ -89,7 +99,7 @@ Llegada la fecha y hora de la sesión del Comité, se debe verificar si hay quó
         </div>
       </div>
     </section>
-       
+
 
     <!-- TEAM -->
      <footer>
@@ -102,7 +112,7 @@ Llegada la fecha y hora de la sesión del Comité, se debe verificar si hay quó
             <p>Tecnólogo en Desarrollo de Sistemas de Información 2068676</p>
           </div>
         </div>
-      </div>       
+      </div>
     </footer>
 
     <!-- BOOTSTRAP SCRIPTS -->
@@ -110,4 +120,4 @@ Llegada la fecha y hora de la sesión del Comité, se debe verificar si hay quó
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   </body>
-</html>
+</html> --}}

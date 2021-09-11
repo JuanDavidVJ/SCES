@@ -45,7 +45,7 @@
 			<select name="SC_Ficha_PK_ID" id="SC_Ficha_PK_ID" class="form-control" style="font-size: 0.9em;">
 				<option selected>Seleccione una opción</option>
 				@foreach($fichas as $ficha)
-				<option value="{{$ficha->SC_Ficha_PK_ID }}">{{$ficha->SC_Ficha_PK_ID}}</option>
+				<option value="{{$ficha->SC_Ficha_PK_ID }}">{{$ficha->SC_Ficha_NumeroFicha}}</option>
 				@endforeach
 			</select>
 			@error('SC_Ficha_PK_ID')

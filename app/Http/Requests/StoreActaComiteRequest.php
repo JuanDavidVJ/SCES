@@ -33,7 +33,7 @@ class StoreActaComiteRequest extends FormRequest
             'DeclaracionA' => 'required',
             'DeclaracionO' => 'required',
             'Desicion' => 'required',
-            'Descargo' => 'required',
+            
             'DeclaracionR' => 'required',
             'Citacion' => 'required'
         ];
@@ -51,7 +51,7 @@ class StoreActaComiteRequest extends FormRequest
             'DeclaracionA.required' => 'Este campo es obligatorio.',
             'DeclaracionO.required' => 'Este campo es obligatorio.',
             'Desicion.required' => 'Este campo es obligatorio.',
-            'Descargo.required' => 'Este campo es obligatorio.',
+            
             'DeclaracionR.required' => 'Este campo es obligatorio.',
             'Citacion.required' => 'Este campo es obligatorio.'
         ];

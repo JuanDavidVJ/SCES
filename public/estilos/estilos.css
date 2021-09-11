@@ -1,63 +1,142 @@
 /*Diseño del formulario*/
 
-.input-group-text{
- 	background:gray;
+.input-group-text {
+    background: gray;
     color: white;
-    width:auto;
-}
-input{
     width: auto;
-    border-color:gray;
-    width:auto;
-
 }
+
+input {
+    width: auto;
+    border-color: gray;
+    width: auto;
+}
+
 
 /*diseño botones*/
-#btncrear{
-	padding:7px;
-	margin-top:2%;
-	width: auto;
+
+#btncrear {
+    padding: 7px;
+    margin-top: 2%;
+    width: auto;
 }
 
-#btnactualizar{
-    padding:7px;
-	margin-top:2%;
-	width: auto;
+#btnactualizar {
+    padding: 7px;
+    margin-top: 2%;
+    width: auto;
 }
+
 
 /*Vista show*/
+
 .card {
-	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-	width: 50%;
-	height: 70%;
-	text-align: justify;
-
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    height: 70%;
+    text-align: justify;
 }
 
-#h3show{
-	color:#ff8138;
+#h3show {
+    color: #ff8138;
 }
 
-#tableshow{
-    border-left:#ff8138 10px solid;
-	width: auto;
-	margin-left: 15%;
-	text-align: justify;
+#tableshow {
+    border-left: #ff8138 10px solid;
+    width: auto;
+    margin-left: 15%;
+    text-align: justify;
 }
 
-.thshow{
-	color: #ff8138;
+.thshow {
+    color: #ff8138;
 }
 
-#botones{
-	margin:auto;
-	margin-top:3%;
-	margin-bottom:5%;
-}
-#linkshow{
-	color:green;
-}
-.tdshow{
-	text-align: center;
+#botones {
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 5%;
 }
 
+#linkshow {
+    color: green;
+}
+
+.tdshow {
+    text-align: center;
+}
+
+
+/* ESTILOS LOGIN Y REGISTER */
+
+.container {
+    height: 100%;
+    align-content: center;
+}
+
+.card-login {
+    height: 34em;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 1em;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.link-login {
+    color: #fc7323;
+}
+
+.link-login:hover {
+    color: #000;
+}
+
+.card-login2 {
+    height: 20em;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 1em;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.card-header h3 {
+    color: white;
+}
+
+.social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background-color: #fc7323;
+    color: black;
+    border: 0 !important;
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.login_btn {
+    color: black;
+    background-color: #fc7323;
+    width: 100%;
+}
+
+.login_btn:hover {
+    color: #fff;
+    background-color: #ff8a46;
+}
+
+.links {
+    color: #fff;
+}
+
+.links a {
+    margin-left: 4px;
+}

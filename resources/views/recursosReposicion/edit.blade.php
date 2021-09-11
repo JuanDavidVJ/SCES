@@ -37,6 +37,13 @@
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>
+		<div class="form-group">
+			<span class="input-group-text" for="SC_Recursos_Decision">Decison tomada para el recurso: </span>
+			<input type="text" name="SC_Recursos_Decision" id="SC_Recursos_Decision" class="form-control" value="{{$recursos->SC_Recursos_Decision}}">
+			@error('SC_Recursos_Decision')
+			<small style="color: red;">{{ $message }}</small>
+			@enderror
+		</div>
 
 		<div class="form-group">
 			<span class="input-group-text" for="SC_ActaComite_FK">Acta Comité</span>

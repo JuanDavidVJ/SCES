@@ -92,16 +92,9 @@
 			@enderror
 	</div>
 
-	<div class="form-group">
-	<span class="input-group-text">Descargos del Aprendiz</span>
-				<input type="text-area" class="form-control" id="Descargo" name="Descargo">
-			@error('SC_Novedades_Fecha')
-                <small style="color: red;">{{ $message }}</small>
-			@enderror
-	</div>
 
 	<div class="form-group">
-	<span class="input-group-text">Desición</span>
+	<span class="input-group-text">Decisión</span>
 				<input type="text-area" class="form-control" id="Desicion" name="Desicion">
 			@error('SC_Novedades_Fecha')
                 <small style="color: red;">{{ $message }}</small>

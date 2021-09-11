@@ -27,6 +27,10 @@
             <th class="thshow">Evidencias: </th>
             <td class="tdshow">{{$recursos->SC_Recursos_Evidencias}}</td>
          </tr>
+         <tr>
+            <th class="thshow">Decision del recurso: </th>
+            <td class="tdshow">{{$recursos->SC_Recursos_Decision}}</td>
+         </tr>
 		 <tr>
             <th class="thshow">Acta Comité: </th>
             <td class="tdshow">{{$recursos->actoComites->SC_ActaComite_Nombre}}</td>

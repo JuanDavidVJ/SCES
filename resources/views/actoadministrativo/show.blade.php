@@ -10,7 +10,15 @@
       					<tbody>
           					<tr>
             					<th class="thshow">Acta de comite</th>
-            					<td class="tdshow">{{$actoas->SC_ActaComite_FK}}</td>
+            					<td class="tdshow">
+            					@foreach($ActaC as $ActaC)
+            					@if($ActaC->SC_ActaComite_PK_ID == $actoas->SC_ActaComite_FK)  
+            					{{$ActaC->citacion->SC_Citacion_NumeroActa}}
+            					@endif 
+            					
+            					@endforeach
+
+            				</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Tipo de plan </th>
@@ -32,11 +40,11 @@
 						    </tr>
 						    <tr>
             					<th class="thshow">Forma en la que debe entregar el plan</th>
-            					<td>{{$actoas->SC_Notificacion_Forma}}</td>
+            					<td class="tdshow">{{$actoas->SC_Notificacion_Forma}}</td>
 						    </tr>
 						    <tr>
             					<th class="thshow">Servidor publico ante el cual se presenta el plan</th>
-            					<td>{{$actoas->SC_Notificacion_Funcionario}}</td>
+            					<td class="tdshow">{{$actoas->SC_Notificacion_Funcionario}}</td>
 						    </tr>
 							<tr>
             					<th class="thshow">Fecha Inicial</th>

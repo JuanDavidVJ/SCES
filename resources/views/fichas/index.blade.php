@@ -23,15 +23,22 @@
 				<th scope="col">Nombre</th>
 				<th scope="col">Acción</th>
 			</tr>
-			@foreach($fichas as $ficha)
-			<tr>
-					<td>{{ $ficha->SC_Ficha_NumeroFicha }}</td>
-					<td style="width:50%">{{ $ficha->SC_Ficha_NombreProgramaFormacion }}</td>
-					<td>
-						<a href="/fichas/{{ $ficha->SC_Ficha_PK_ID }}" class="btn btn-outline-default text-center p-0"><i class="fas fa-eye"></i></a>
-					</td>
-				</tr> 
+			@if(count($fichas)<=0)
+					<tr>
+						<td>No hay resultados</td>
+					</tr>
+			@else
+				@foreach($fichas as $ficha)
+				<tr>
+						<td>{{ $ficha->SC_Ficha_NumeroFicha }}</td>
+						<td style="width:50%">{{ $ficha->SC_Ficha_NombreProgramaFormacion }}</td>
+						<td>
+							<a href="/fichas/{{ $ficha->SC_Ficha_PK_ID }}" class="btn btn-outline-default text-center p-0"><i class="fas fa-eye"></i></a>
+						</td>
+					</tr> 
 				@endforeach
-						</table>
-</div>
+			@endif
+		</table>
+			{{$fichas->links()}}
+	</div>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreRecursosRequest;
 use App\Models\ActaComite;
 use App\Models\Recursos;
@@ -17,13 +18,12 @@ class RecursosController extends Controller
     public function index(Request $request)
     {
         $query = trim($request->get('search'));
+        $recursos = DB::table('sc_recursos_reposicion')
+                        ->select('*')
+                        ->where('SC_Recursos_Radicado', 'LIKE', '%' .$query. '%')
+                        ->paginate(10);
 
-        if ($request) {
-            $recursos = Recursos::where('SC_ActaComite_FK', 'LIKE', '%' . $query . '%')
-                ->get();
-
-            return view('recursosReposicion.index', ['recursos' => $recursos, 'search' => $query]);
-        }
+                        return view('recursosReposicion.index', compact('recursos'));
     }
 
     /**
@@ -50,6 +50,7 @@ class RecursosController extends Controller
         $recursos->SC_Recursos_FechaLimite = $request->SC_Recursos_FechaLimite;
         $recursos->SC_Recursos_Radicado = $request->SC_Recursos_Radicado;
         $recursos->SC_Recursos_Evidencias = $request->SC_Recursos_Evidencias;
+        $recursos->SC_Recursos_Decision = $request->SC_Recursos_Decision;
         $recursos->SC_ActaComite_FK = $request->SC_ActaComite_FK;
 
         $recursos->save();
@@ -99,6 +100,7 @@ class RecursosController extends Controller
         $recursos->SC_Recursos_FechaLimite = $request->SC_Recursos_FechaLimite;
         $recursos->SC_Recursos_Radicado = $request->SC_Recursos_Radicado;
         $recursos->SC_Recursos_Evidencias = $request->SC_Recursos_Evidencias;
+        $recursos->SC_Recursos_Decision = $request->SC_Recursos_Decision;
         $recursos->SC_ActaComite_FK = $request->SC_ActaComite_FK;
 
         $recursos->save();
