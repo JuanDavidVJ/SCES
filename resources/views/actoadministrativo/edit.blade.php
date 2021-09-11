@@ -15,7 +15,7 @@
 		   <span class="input-group-text" for="SC_ActaComite_FK">Acta de comite relacionada</span>
 			<select name="SC_ActaComite_FK" id="SC_ActaComite_FK" class="form-control">
 				@foreach($ActaC as $ActaC)
-				<option value="{{$ActaC->SC_ActaComite_PK_ID}}" @if($ActaC->SC_ActaComite_PK_ID == $actoas->SC_ActaComite_FK) selected @endif>{{$ActaC->SC_ActaComite_PK_ID}}</option>
+				<option value="{{$ActaC->SC_ActaComite_PK_ID}}" @if($ActaC->SC_ActaComite_PK_ID == $actoas->SC_ActaComite_FK) selected @endif>{{$ActaC->citacion->SC_Citacion_NumeroActa}}</option>
 				@endforeach
 			</select>
 			@error('SC_ActaComite_FK')

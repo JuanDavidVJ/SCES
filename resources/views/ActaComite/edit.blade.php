@@ -82,7 +82,7 @@
 	  </div>
 	  
 	  <div class="form-group">
-	  <span class="input-group-text" for="Desicion">Desicion</span>
+	  <span class="input-group-text" for="Desicion">Decision</span>
 	  	<input type="text" class="form-control" id="Desicion" name="Desicion" value="{{$ActaComite->SC_ActaComite_Descargos}}">
 	  	@error('Desicion')
 	    	<small>{{ $message }}</small>

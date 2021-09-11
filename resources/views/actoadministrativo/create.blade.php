@@ -13,7 +13,7 @@
 			<select name="SC_ActaComite_FK" id="SC_ActaComite_FK" class="form-control">
 				<option selected>Seleccione el acta relacionada</option>
 				@foreach($ActaC as $ActaC)
-				<option value="{{$ActaC->SC_ActaComite_PK_ID}}">{{$ActaC->SC_ActaComite_PK_ID}}</option>
+				<option value="{{$ActaC->SC_ActaComite_PK_ID}}">{{$ActaC->citacion->SC_Citacion_NumeroActa}}</option>
 				@endforeach
 			</select>
 			@error('SC_ActaComite_FK')

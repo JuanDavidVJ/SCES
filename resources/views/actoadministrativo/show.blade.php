@@ -10,7 +10,15 @@
       					<tbody>
           					<tr>
             					<th class="thshow">Acta de comite</th>
-            					<td class="tdshow">{{$actoas->SC_ActaComite_FK}}</td>
+            					<td class="tdshow">
+            					@foreach($ActaC as $ActaC)
+            					@if($ActaC->SC_ActaComite_PK_ID == $actoas->SC_ActaComite_FK)  
+            					{{$ActaC->citacion->SC_Citacion_NumeroActa}}
+            					@endif 
+            					
+            					@endforeach
+
+            				</td>
         				    </tr>
 							<tr>
             					<th class="thshow">Tipo de plan </th>
