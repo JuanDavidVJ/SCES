@@ -54,7 +54,7 @@
          </tr> 
          <tr>
             <th class="thshow">Citación</th>
-            <td class="tdshow">{{ $actacomite->SC_Citacion_FK}}</td>
+            <td class="tdshow">{{ $actacomite->citacion->SC_Citacion_NumeroActa}}</td>
          </tr> 
          
 

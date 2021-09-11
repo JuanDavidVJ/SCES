@@ -21,7 +21,7 @@
 					<th scope="col">Nombres</th>
 					<th scope="col">Apellidos</th>
 					<th scope="col">Documento</th>
-					<th scope="col">Ficha</th>
+					<th scope="col">Correo</th>
 					<th scope="col">Accion</th>
 				</tr>
 				@if(count($aprendices)<=0)
@@ -34,7 +34,7 @@
 									<td>{{ $aprendiz->SC_Aprendiz_Nombres }}</td>
 									<td>{{ $aprendiz->SC_Aprendiz_Apellidos }}</td>
 									<td>{{ $aprendiz->SC_Aprendiz_Documento}}</td>
-									<td>{{ $aprendiz->SC_Ficha_PK_ID }}</td>
+									<td>{{ $aprendiz->SC_Aprendiz_Correo }}</td>
 									<td>
 										<a href="/aprendices/{{ $aprendiz->SC_Aprendiz_PK_ID }}" class="btn btn-outline-default p-0"><i class="fas fa-eye"></i></a>
 									</td>

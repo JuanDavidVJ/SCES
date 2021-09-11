@@ -37,7 +37,7 @@
 			@enderror
 		</div>
 		<div class="form-group">
-			<span class="input-group-text" for="SC_Recursos_Decision">Decison tomada para el recurso: </span>
+			<span class="input-group-text" for="SC_Recursos_Decision">Decisión tomada para el recurso: </span>
 			<input type="text" name="SC_Recursos_Decision" id="SC_Recursos_Decision" class="form-control" value="{{old('SC_Recursos_Decision')}}">
 			@error('SC_Recursos_Decision')
 			<small style="color: red;">{{ $message }}</small>

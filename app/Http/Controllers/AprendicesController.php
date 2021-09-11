@@ -21,16 +21,12 @@ class AprendicesController extends Controller
     {
         $query = trim($request->get('search'));
         $aprendices = DB::table('sc_aprendiz')
-                        ->select('SC_Aprendiz_PK_ID', 'SC_Aprendiz_Nombres', 'SC_Aprendiz_Apellidos', 'SC_Aprendiz_Documento', 'SC_Ficha_PK_ID')
+                        ->select('*')
                         ->where('SC_Aprendiz_Documento', 'LIKE', '%' .$query. '%')
                         ->paginate(10);
+
                         return view('aprendices.index', compact('aprendices'));
-        /*if(count($aprendices)<=0){
-            
-        }
-        else{
-            return redirect()->route('aprendices.index')->with('status', 'El aprendiz no ha sido encontrado');
-        }*/
+
             
     }
 

@@ -37,7 +37,7 @@
         </tr>
         <tr>
            <th class="thshow">Aprendiz</th>
-           <td class="tdshow">{{ $solicitar->aprendiz->SC_Aprendiz_Nombre }}{{ $solicitar->aprendiz->SC_Aprendiz_Apellidos }}</td>
+           <td class="tdshow">{{ $solicitar->aprendiz->SC_Aprendiz_Nombres }} {{ $solicitar->aprendiz->SC_Aprendiz_Apellidos }}</td>
         </tr>
         <tr>
            <th class="thshow">Gestor de grupo</th>

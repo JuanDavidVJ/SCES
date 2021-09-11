@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Citacion;
 use App\Models\SolicitarComite;
 use App\Http\Requests\StoreCitacionRequest;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MessageReceived;
 
@@ -20,13 +20,12 @@ class CitacionController extends Controller
     public function index(Request $request)
     {
         $query = trim($request->get('search'));
+        $Citacion = DB::table('sc_citacion')
+                        ->select('*')
+                        ->where('SC_Citacion_NumeroActa', 'LIKE', '%' .$query. '%')
+                        ->paginate(10);
 
-        if($request){
-            $citacion = Citacion::where('SC_Citacion_FechaCitacion', 'LIKE', '%' . $query . '%')
-                          ->get();
-
-                return view('Citacion.index', ['Citacion' => $citacion, 'search' => $query]);
-        }
+                        return view('Citacion.index', compact('Citacion'));
     }
 
     /**

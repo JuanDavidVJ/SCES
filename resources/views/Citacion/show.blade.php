@@ -35,6 +35,10 @@
             <th class="thshow">N° Acta</th>
             <td class="tdshow">{{$citacion->SC_Citacion_NumeroActa}}</td>
          </tr>
+		 <tr>
+            <th class="thshow">Responsable citación</th>
+            <td class="tdshow">{{$citacion->solicitarComite->SC_SolicitarComite_Responsable}}</td>
+         </tr>
 		 </tbody>
 
 </table>

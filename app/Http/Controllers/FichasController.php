@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ficha;
 use App\Http\Requests\StoreFichasRequest;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\DB;
 
 class FichasController extends Controller
 {
@@ -16,18 +17,14 @@ class FichasController extends Controller
      */
     public function index(Request $request)
     {
-        
         $query = trim($request->get('search'));
+        $fichas = DB::table('sc_ficha')
+                        ->select('*')
+                        ->where('SC_Ficha_NumeroFicha', 'LIKE', '%' .$query. '%')
+                        ->paginate(10);
 
-        if($request){
-            $fichas = Ficha::where('SC_Ficha_NumeroFicha', 'LIKE', '%' . $query . '%')
-                          ->get();
+                        return view('fichas.index', compact('fichas'));
 
-                return view('fichas.index', ['fichas' => $fichas, 'search' => $query]);
-        }
-        /*$fichas = Ficha::all();
-        return view('fichas.index')
-                ->with('fichas', $fichas);*/
     }
 
     /**

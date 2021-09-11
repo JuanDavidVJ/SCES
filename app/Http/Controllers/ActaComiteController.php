@@ -6,6 +6,7 @@ use App\Models\ActaComite;
 use App\Models\Citacion;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreActaComiteRequest;
+use Illuminate\Support\Facades\DB;
 
 class ActaComiteController extends Controller
 {
@@ -17,13 +18,19 @@ class ActaComiteController extends Controller
     public function index(Request $request)
     {
         $query = trim($request->get('search'));
+        $ActaComite = DB::table('sc_actacomite')
+                        ->select('SC_ActaComite_PK_ID', 'SC_ActaComite_Nombre', 'SC_ActaComite_Ciudad', 'SC_ActaComite_Fecha', 'SC_ActaComite_Decision')
+                        ->where('SC_ActaComite_Fecha', 'LIKE', '%' .$query. '%')
+                        ->paginate(10);
+                        return view('ActaComite.index', compact('ActaComite'));
+        $query = trim($request->get('search'));
 
-        if($request){
+        /*if($request){
             $actacomite = ActaComite::where('SC_Citacion_FK', 'LIKE', '%' . $query . '%')
                           ->get();
 
                 return view('ActaComite.index', ['ActaComite' => $actacomite, 'search' => $query]);
-        }
+        }*/
     }
 
     /**
