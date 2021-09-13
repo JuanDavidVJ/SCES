@@ -20,8 +20,6 @@
 		</div>
     </form>
 
-	<div class="row">
-
 		<table class="table table-striped">
 		        <tr>
 		            <th scope="col">Fecha</th>
@@ -48,5 +46,4 @@
 		</table>
 		{{$recursos->links()}}
 	</div>
-</div>
 @endsection

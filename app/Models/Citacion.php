@@ -19,4 +19,5 @@ class Citacion extends Model
     public function actacomite(){
         return $this->hasMany(ActaComite::class, 'SC_Citacion_FK', 'SC_CitacionPK_Id');
     }
+
 }

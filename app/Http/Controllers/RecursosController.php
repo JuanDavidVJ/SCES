@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreRecursosRequest;
 use App\Models\ActaComite;
 use App\Models\Recursos;
+use App\Models\Citacion;
 use Illuminate\Http\Request;
 
 class RecursosController extends Controller
@@ -34,7 +35,8 @@ class RecursosController extends Controller
     public function create()
     {
         $actas = ActaComite::all();
-        return view('recursosReposicion.create')->with('actas', $actas);
+        $citacion = Citacion::all();
+        return view('recursosReposicion.create')->with('actas', $actas)->with('citacion', $citacion);
     }
 
     /**

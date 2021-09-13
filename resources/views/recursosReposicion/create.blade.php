@@ -46,9 +46,10 @@
 
 		<div class="form-group">
 			<span class="input-group-text" for="SC_ActaComite_FK">Acta Comité</span>
-			<select name="SC_ActaComite_FK" id="SC_ActaComite_FK" class="form-control" style="font-size: 0.9em;">
+			<select name="SC_ActaComite_FK" id="SC_ActaComite_FK" class="form-control">
+				<option selected>Selecione una opción</option>
 				@foreach($actas as $acta)
-					<option value="{{$acta->SC_ActaComite_PK_ID}}">{{$acta->SC_ActaComite_FK}} - {{$acta->SC_ActaComite_Nombre}}</option>
+					<option value="{{$acta->SC_ActaComite_PK_ID}}">{{$acta->citacion->SC_Citacion_NumeroActa}} - {{$acta->SC_ActaComite_Nombre}}</option>
 				@endforeach
 			</select>
 			@error('SC_ActaComite_FK')
