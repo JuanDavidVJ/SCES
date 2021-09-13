@@ -16,7 +16,7 @@
 
 <body>
     <!-- NAVIGATION -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FA771C;">
+    <nav class="navbar navbar-expand-lg navbar-light m-0" style="background-color:#FA771C;">
         <div class="container">
             <a class="navbar-brand" href="/">
 
@@ -114,10 +114,9 @@
         <div class="container p-3">
             <div class="row text-center text-white">
                 <div class="col ml-auto">
-                    <p>Servicio Nacional de Aprendizaje SENA </p>
-
-
-                    <p>Tecnólogo en Desarrollo de Sistemas de Información 2068676</p>
+                    <p class="text-light">Servicio Nacional de Aprendizaje SENA <br>
+                    Tecnólogo en Desarrollo de Sistemas de Información 2068676</p>
+                    <p></p>
                 </div>
             </div>
         </div>

@@ -11,7 +11,8 @@
 		@csrf
 		<div class="form-group">
 		<span class="input-group-text">Numero del acta</span>
-			<select name="Citacion" id="Citacion" class="form-control" style="font-size: 0.9em;">
+			<select name="Citacion" id="Citacion" class="form-control">
+				<option selected>Seleccione una opción</option>
 				@foreach($citaciones as $citacion)
 					<option value="{{$citacion->SC_CitacionPK_Id }}">{{$citacion->SC_Citacion_NumeroActa }}</option>
 				@endforeach

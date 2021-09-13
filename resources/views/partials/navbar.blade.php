@@ -94,7 +94,7 @@
 
             <li>
                 <a href="#estimulos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-book"></i>
+                <i class="fas fa-bookmark"></i>
                     Estimulos
                 </a>
                 <ul class="collapse list-unstyled" id="estimulos">
@@ -134,6 +134,12 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a  href="{{ asset('manuales/Reglamento.pdf') }}" target="_blank">
+                <i class="fas fa-book"></i>
+                    Reglamento Aprendiz
+                </a>
+            </li>
 
 
         </ul>
@@ -156,7 +162,7 @@
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i
-                                    class="fas fa-user"></i>{{ Auth::user()->name }}</a>
+                                    class="fas fa-user"></i> {{ Auth::user()->name }}</a>
                         </li>
                     </ul>
                     <a class="nav-link " href="#"></a>
