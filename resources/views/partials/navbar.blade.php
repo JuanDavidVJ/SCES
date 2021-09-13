@@ -94,7 +94,7 @@
 
             <li>
                 <a href="#estimulos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-book"></i>
+                <i class="fas fa-bookmark"></i>
                     Estimulos
                 </a>
                 <ul class="collapse list-unstyled" id="estimulos">
@@ -133,6 +133,12 @@
                         <a href="/aprendices">Ver Aprendices</a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a  href="{{ asset('manuales/Reglamento.pdf') }}" target="_blank">
+                <i class="fas fa-book"></i>
+                    Reglamento Aprendiz
+                </a>
             </li>
 
 
