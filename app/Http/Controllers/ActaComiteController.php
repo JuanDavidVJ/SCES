@@ -24,13 +24,6 @@ class ActaComiteController extends Controller
                         ->paginate(10);
                         return view('ActaComite.index', compact('ActaComite'));
         $query = trim($request->get('search'));
-
-        /*if($request){
-            $actacomite = ActaComite::where('SC_Citacion_FK', 'LIKE', '%' . $query . '%')
-                          ->get();
-
-                return view('ActaComite.index', ['ActaComite' => $actacomite, 'search' => $query]);
-        }*/
     }
 
     /**
@@ -53,21 +46,25 @@ class ActaComiteController extends Controller
      */
     public function store(StoreActaComiteRequest $request)
     {
-        $actacomite = new ActaComite();
-        $actacomite->SC_ActaComite_Nombre = $request->Nombre;
-        $actacomite->SC_ActaComite_Ciudad = $request->Ciudad;
-        $actacomite->SC_ActaComite_Fecha = $request->Fecha;
-        $actacomite->SC_ActaComite_HoraInicio = $request->HoraInicio;
-        $actacomite->SC_ActaComite_HoraFin = $request->HoraFin;
-        $actacomite->SC_ActaComite_DeclaracionesAprendiz = $request->DeclaracionA;
-        $actacomite->SC_ActaComite_DeclaracionesOtros = $request->DeclaracionO;
-        $actacomite->SC_ActaComite_DeclaracionesResponsable = $request->DeclaracionR;
-        $actacomite->SC_ActaComite_Decision = $request->Desicion;
-        
-        $actacomite->SC_ActaComite_Asistentes = $request->Asistente;
-        $actacomite->SC_Citacion_FK = $request->Citacion;
-        $actacomite->save();
-        return redirect()->route('ActaComite.index')->with('status', 'Acta creada');
+        try{
+            $actacomite = new ActaComite();
+            $actacomite->SC_ActaComite_Nombre = $request->Nombre;
+            $actacomite->SC_ActaComite_Ciudad = $request->Ciudad;
+            $actacomite->SC_ActaComite_Fecha = $request->Fecha;
+            $actacomite->SC_ActaComite_HoraInicio = $request->HoraInicio;
+            $actacomite->SC_ActaComite_HoraFin = $request->HoraFin;
+            $actacomite->SC_ActaComite_DeclaracionesAprendiz = $request->DeclaracionA;
+            $actacomite->SC_ActaComite_DeclaracionesOtros = $request->DeclaracionO;
+            $actacomite->SC_ActaComite_DeclaracionesResponsable = $request->DeclaracionR;
+            $actacomite->SC_ActaComite_Decision = $request->Desicion;
+            $actacomite->SC_ActaComite_Asistentes = $request->Asistente;
+            $actacomite->SC_Citacion_FK = $request->Citacion;
+            $actacomite->save();
+            return redirect()->route('ActaComite.index')->with('status', 'Acta creada');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('ActaComite.index')->with('status', 'No se ha podido crear el Acta de Comité');
+        }
 
     }
 
@@ -108,21 +105,25 @@ class ActaComiteController extends Controller
      */
     public function update(StoreActaComiteRequest $request, $id)
     {
-        $actacomite = ActaComite::find($id);
-        $actacomite->SC_ActaComite_Nombre = $request->Nombre;
-        $actacomite->SC_ActaComite_Ciudad = $request->Ciudad;
-        $actacomite->SC_ActaComite_Fecha = $request->Fecha;
-        $actacomite->SC_ActaComite_HoraInicio = $request->HoraInicio;
-        $actacomite->SC_ActaComite_HoraFin = $request->HoraFin;
-        $actacomite->SC_ActaComite_DeclaracionesAprendiz = $request->DeclaracionA;
-        $actacomite->SC_ActaComite_DeclaracionesOtros = $request->DeclaracionO;
-        $actacomite->SC_ActaComite_DeclaracionesResponsable = $request->DeclaracionR;
-        $actacomite->SC_ActaComite_Decision = $request->Desicion;
-        
-        $actacomite->SC_ActaComite_Asistentes = $request->Asistente;
-        $actacomite->SC_Citacion_FK = $request->Citacion; 
-        $actacomite->save();
-        return redirect()->route('ActaComite.index')->with('status','Acta actualizada');
+        try{
+            $actacomite = ActaComite::find($id);
+            $actacomite->SC_ActaComite_Nombre = $request->Nombre;
+            $actacomite->SC_ActaComite_Ciudad = $request->Ciudad;
+            $actacomite->SC_ActaComite_Fecha = $request->Fecha;
+            $actacomite->SC_ActaComite_HoraInicio = $request->HoraInicio;
+            $actacomite->SC_ActaComite_HoraFin = $request->HoraFin;
+            $actacomite->SC_ActaComite_DeclaracionesAprendiz = $request->DeclaracionA;
+            $actacomite->SC_ActaComite_DeclaracionesOtros = $request->DeclaracionO;
+            $actacomite->SC_ActaComite_DeclaracionesResponsable = $request->DeclaracionR;
+            $actacomite->SC_ActaComite_Decision = $request->Desicion;
+            $actacomite->SC_ActaComite_Asistentes = $request->Asistente;
+            $actacomite->SC_Citacion_FK = $request->Citacion; 
+            $actacomite->save();
+            return redirect()->route('ActaComite.index')->with('status','Acta actualizada');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('ActaComite.index')->with('status', 'No se ha podido actualizar');
+        }
     }
 
     /**

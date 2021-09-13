@@ -45,16 +45,21 @@ class RecursosController extends Controller
      */
     public function store(StoreRecursosRequest $request)
     {
-        $recursos = new Recursos();
-        $recursos->SC_Recursos_FechaGenerado = $request->SC_Recursos_FechaGenerado;
-        $recursos->SC_Recursos_FechaLimite = $request->SC_Recursos_FechaLimite;
-        $recursos->SC_Recursos_Radicado = $request->SC_Recursos_Radicado;
-        $recursos->SC_Recursos_Evidencias = $request->SC_Recursos_Evidencias;
-        $recursos->SC_Recursos_Decision = $request->SC_Recursos_Decision;
-        $recursos->SC_ActaComite_FK = $request->SC_ActaComite_FK;
+        try{
+            $recursos = new Recursos();
+            $recursos->SC_Recursos_FechaGenerado = $request->SC_Recursos_FechaGenerado;
+            $recursos->SC_Recursos_FechaLimite = $request->SC_Recursos_FechaLimite;
+            $recursos->SC_Recursos_Radicado = $request->SC_Recursos_Radicado;
+            $recursos->SC_Recursos_Evidencias = $request->SC_Recursos_Evidencias;
+            $recursos->SC_Recursos_Decision = $request->SC_Recursos_Decision;
+            $recursos->SC_ActaComite_FK = $request->SC_ActaComite_FK;
 
-        $recursos->save();
-        return redirect()->route('recursosReposicion.index')->with('status', 'Recurso de Reposición creado correctamente');
+            $recursos->save();
+            return redirect()->route('recursosReposicion.index')->with('status', 'Recurso de Reposición creado correctamente');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('recursosReposicion.index')->with('status', 'No se ha podido crear el Recurso de Reposición');
+        }
     }
 
     /**
@@ -94,17 +99,21 @@ class RecursosController extends Controller
      */
     public function update(StoreRecursosRequest $request, $id)
     {
-        $recursos = Recursos::find($id);
+        try{
+            $recursos = Recursos::find($id);
+            $recursos->SC_Recursos_FechaGenerado = $request->SC_Recursos_FechaGenerado;
+            $recursos->SC_Recursos_FechaLimite = $request->SC_Recursos_FechaLimite;
+            $recursos->SC_Recursos_Radicado = $request->SC_Recursos_Radicado;
+            $recursos->SC_Recursos_Evidencias = $request->SC_Recursos_Evidencias;
+            $recursos->SC_Recursos_Decision = $request->SC_Recursos_Decision;
+            $recursos->SC_ActaComite_FK = $request->SC_ActaComite_FK;
 
-        $recursos->SC_Recursos_FechaGenerado = $request->SC_Recursos_FechaGenerado;
-        $recursos->SC_Recursos_FechaLimite = $request->SC_Recursos_FechaLimite;
-        $recursos->SC_Recursos_Radicado = $request->SC_Recursos_Radicado;
-        $recursos->SC_Recursos_Evidencias = $request->SC_Recursos_Evidencias;
-        $recursos->SC_Recursos_Decision = $request->SC_Recursos_Decision;
-        $recursos->SC_ActaComite_FK = $request->SC_ActaComite_FK;
-
-        $recursos->save();
-        return redirect()->route('recursosReposicion.index')->with('status', 'Recurso de reposición actualizado correctamente.');
+            $recursos->save();
+            return redirect()->route('recursosReposicion.index')->with('status', 'Recurso de reposición actualizado correctamente.');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('recursosReposicion.index')->with('status', 'No se ha podido actualizar');
+        }
     }
 
     /**
@@ -115,9 +124,14 @@ class RecursosController extends Controller
      */
     public function destroy($id)
     {
-        $recursos = Recursos::find($id);
-        $recursos->delete();
+        try{
+            $recursos = Recursos::find($id);
+            $recursos->delete();
 
-        return redirect()->route('recursosReposicion.index')->with('status', 'Recurso de Reposición eliminado correctamente');
+            return redirect()->route('recursosReposicion.index')->with('status', 'Recurso de Reposición eliminado correctamente');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('recursosReposicion    .index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        }
     }
 }

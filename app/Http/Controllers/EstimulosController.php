@@ -37,12 +37,10 @@ class EstimulosController extends Controller
      */
     public function create()
     {
-
-         $aprendiz = Aprendiz::all();
-         $tipoestimulos = TipoEstimulos::all();
-         $ficha = Ficha::all();
+        $aprendiz = Aprendiz::all();
+        $tipoestimulos = TipoEstimulos::all();
+        $ficha = Ficha::all();
         return view('estimulos.create')->with('aprendiz', $aprendiz)->with('tipoestimulos', $tipoestimulos)->with('ficha', $ficha);
-
     }
 
     /**
@@ -53,18 +51,21 @@ class EstimulosController extends Controller
      */
     public function store(StoreEstimuloRequest $request)
     {
-         $estimulos = new Estimulos();
-         $estimulos->SC_Estimulos_Reporta = $request->SC_Estimulos_Reporta;
-         $estimulos->SC_Estimulos_Razon = $request->SC_Estimulos_Razon;
-         $estimulos->SC_Estimulos_Detalles = $request->SC_Estimulos_Detalles;
-         $estimulos->SC_Estimulos_Fecha = $request->SC_Estimulos_Fecha;
-         $estimulos->SC_Ficha_FK_ID = $request->SC_Ficha_FK_ID;
-         $estimulos->SC_Aprendiz_FK_ID =$request->SC_Aprendiz_FK_ID;
-         $estimulos->SC_TipoEstimulos_FK_ID = $request->SC_TipoEstimulos_FK_ID;
-         $estimulos->save();
-         return redirect()->route('estimulos.index')->with('status', 'Estimulo creado');
-
-
+        try{
+            $estimulos = new Estimulos();
+            $estimulos->SC_Estimulos_Reporta = $request->SC_Estimulos_Reporta;
+            $estimulos->SC_Estimulos_Razon = $request->SC_Estimulos_Razon;
+            $estimulos->SC_Estimulos_Detalles = $request->SC_Estimulos_Detalles;
+            $estimulos->SC_Estimulos_Fecha = $request->SC_Estimulos_Fecha;
+            $estimulos->SC_Ficha_FK_ID = $request->SC_Ficha_FK_ID;
+            $estimulos->SC_Aprendiz_FK_ID =$request->SC_Aprendiz_FK_ID;
+            $estimulos->SC_TipoEstimulos_FK_ID = $request->SC_TipoEstimulos_FK_ID;
+            $estimulos->save();
+            return redirect()->route('estimulos.index')->with('status', 'Estimulo creado');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('estimulos.index')->with('status', 'No se ha podido crear el Estimulo');
+        }
     }
 
     /**
@@ -107,17 +108,21 @@ class EstimulosController extends Controller
      */
     public function update(StoreEstimuloRequest $request, $id)
     {
-        $estimulos = Estimulos::find($id);
-        $estimulos->SC_Estimulos_Reporta = $request->SC_Estimulos_Reporta;
-        $estimulos->SC_Estimulos_Razon = $request->SC_Estimulos_Razon;
-        $estimulos->SC_Estimulos_Detalles = $request->SC_Estimulos_Detalles;
-        $estimulos->SC_Estimulos_Fecha = $request->SC_Estimulos_Fecha;
-        $estimulos->SC_Ficha_FK_ID = $request->SC_Ficha_FK_ID;
-        $estimulos->SC_Aprendiz_FK_ID =$request->SC_Aprendiz_FK_ID;
-        $estimulos->SC_TipoEstimulos_FK_ID = $request->SC_TipoEstimulos_FK_ID;
-        $estimulos->save();
-         return redirect()->route('estimulos.index')->with('status', 'Estimulo creado');
-
+        try{
+            $estimulos = Estimulos::find($id);
+            $estimulos->SC_Estimulos_Reporta = $request->SC_Estimulos_Reporta;
+            $estimulos->SC_Estimulos_Razon = $request->SC_Estimulos_Razon;
+            $estimulos->SC_Estimulos_Detalles = $request->SC_Estimulos_Detalles;
+            $estimulos->SC_Estimulos_Fecha = $request->SC_Estimulos_Fecha;
+            $estimulos->SC_Ficha_FK_ID = $request->SC_Ficha_FK_ID;
+            $estimulos->SC_Aprendiz_FK_ID =$request->SC_Aprendiz_FK_ID;
+            $estimulos->SC_TipoEstimulos_FK_ID = $request->SC_TipoEstimulos_FK_ID;
+            $estimulos->save();
+            return redirect()->route('estimulos.index')->with('status', 'Estimulo actualizado');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('estimulos.index')->with('status', 'No se ha podido actualizar');
+        }
     }
 
     /**
@@ -128,8 +133,13 @@ class EstimulosController extends Controller
      */
     public function destroy($id)
     {
-        $estimulos = Estimulos::find($id);
-        $estimulos->delete();
-        return redirect()->route('estimulos.index')->with('status', 'Estimulo eliminado');
+        try{
+            $estimulos = Estimulos::find($id);
+            $estimulos->delete();
+            return redirect()->route('estimulos.index')->with('status', 'Estimulo eliminado');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('estimulos.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        }
     }
 }

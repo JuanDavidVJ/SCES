@@ -56,45 +56,38 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function store(StoreAdministrativoRequest $request)
     {
-        
-        $actoas = new ActoAdministrativo();
-         $actoas->SC_Notificacion_Sugerencia = $request->SC_Notificacion_Sugerencia;
+        try{
+            $actoas = new ActoAdministrativo();
+            $actoas->SC_Notificacion_Sugerencia = $request->SC_Notificacion_Sugerencia;
+            $actoas->SC_Notificacion_TipoPlan = $request->SC_Notificacion_TipoPlan;
+            $actoas->SC_Notificacion_Instructor = $request->SC_Notificacion_Instructor;
+            $actoas->SC_Notificacion_FechaInicial = $request->SC_Notificacion_FechaInicial;
+            $actoas->SC_Notificacion_FechaLimite = $request->SC_Notificacion_FechaLimite;
+            $actoas->SC_ActaComite_FK = $request->SC_ActaComite_FK;
+            $actoas->SC_TipoNotificacion_FK = $request->SC_TipoNotificacion_FK;
+            $actoas->SC_Notificacion_Forma = $request->SC_Notificacion_Forma;
+            $actoas->SC_Notificacion_Funcionario = $request->SC_Notificacion_Funcionario;
+            $actoas->save();
 
-         $actoas->SC_Notificacion_TipoPlan = $request->SC_Notificacion_TipoPlan;
+            Mail::to($actoas->ActaComite->citacion->solicitarComite->aprendiz->SC_Aprendiz_Correo)->queue(new MessageReceivedNotificacion(
+                $actoas, 
+                $actoas->ActaComite->citacion->solicitarComite->aprendiz, 
+                $actoas->ActaComite->citacion->solicitarComite, 
+                $actoas->ActaComite, 
+                $actoas->ActaComite->citacion->solicitarComite->tipofalta, 
+                $actoas->ActaComite->citacion->solicitarComite->gravedad, 
+                $actoas->ActaComite->citacion->solicitarComite->reglamento,  
+                $actoas->ActaComite->citacion, 
+                $actoas->TipoP , 
+                $actoas->TipoN , 
+                $actoas->Usuario));
 
-
-         $actoas->SC_Notificacion_Instructor = $request->SC_Notificacion_Instructor;
-
-         $actoas->SC_Notificacion_FechaInicial = $request->SC_Notificacion_FechaInicial;
-
-         $actoas->SC_Notificacion_FechaLimite = $request->SC_Notificacion_FechaLimite;
-
-         $actoas->SC_ActaComite_FK = $request->SC_ActaComite_FK;
-
-         $actoas->SC_TipoNotificacion_FK = $request->SC_TipoNotificacion_FK;
-
-         $actoas->SC_Notificacion_Forma = $request->SC_Notificacion_Forma;
-
-         $actoas->SC_Notificacion_Funcionario = $request->SC_Notificacion_Funcionario;
-
-         $actoas->save();
-
-
-         Mail::to($actoas->ActaComite->citacion->solicitarComite->aprendiz->SC_Aprendiz_Correo)->queue(new MessageReceivedNotificacion(
-             $actoas, 
-             $actoas->ActaComite->citacion->solicitarComite->aprendiz, 
-             $actoas->ActaComite->citacion->solicitarComite, 
-             $actoas->ActaComite, 
-             $actoas->ActaComite->citacion->solicitarComite->tipofalta, 
-             $actoas->ActaComite->citacion->solicitarComite->gravedad, 
-             $actoas->ActaComite->citacion->solicitarComite->reglamento,  
-             $actoas->ActaComite->citacion, 
-             $actoas->TipoP , 
-             $actoas->TipoN , 
-             $actoas->Usuario));
-
-         return redirect()->route('actoadministrativo.index')->with('status', 'Notificacion Creada');
-        //  return redirect()->route('actoadministrativo.index')->with('status', $actoas->TipoP->SC_TipoPlan_Descripcion . $actoas->TipoN->SC_TipoNotificacion_Descripcion . $actoas->Usuario->SC_Usuarios_Nombre);
+            return redirect()->route('actoadministrativo.index')->with('status', 'Notificacion Creada');
+        }
+          
+         catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('actoadministrativo.index')->with('status', 'No se ha podido crear la Notificación');
+        }
     }
 
     /**
@@ -111,8 +104,6 @@ class ActoAdministrativoSancionesController extends Controller
         $TipoP = TipoPlan::all();
         $usuario = Usuario::all();
         return view('actoadministrativo.show')->with('actoas', $actoas)->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP)->with('usuario', $usuario);
-
-
     }
 
     /**
@@ -140,31 +131,23 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function update(StoreAdministrativoRequest $request, $id)
     {
-
-        $actoas = ActoAdministrativo::find($id);
-
-
-         
-        $actoas->SC_Notificacion_Sugerencia = $request->SC_Notificacion_Sugerencia;
-
-         $actoas->SC_Notificacion_TipoPlan = $request->SC_Notificacion_TipoPlan;
-
-         $actoas->SC_Notificacion_Instructor = $request->SC_Notificacion_Instructor;
-
-         $actoas->SC_Notificacion_FechaInicial = $request->SC_Notificacion_FechaInicial;
-
-         $actoas->SC_Notificacion_FechaLimite = $request->SC_Notificacion_FechaLimite;
-
-         $actoas->SC_ActaComite_FK = $request->SC_ActaComite_FK;
-
-         $actoas->SC_TipoNotificacion_FK = $request->SC_TipoNotificacion_FK;
-
-          $actoas->SC_Notificacion_Forma = $request->SC_Notificacion_Forma;
-
-         $actoas->SC_Notificacion_Funcionario = $request->SC_Notificacion_Funcionario;
-
-         $actoas->save();
-         return redirect()->route('actoadministrativo.index')->with('status', 'Notificacion Actualizada');
+        try{
+            $actoas = ActoAdministrativo::find($id);
+            $actoas->SC_Notificacion_Sugerencia = $request->SC_Notificacion_Sugerencia;
+            $actoas->SC_Notificacion_TipoPlan = $request->SC_Notificacion_TipoPlan;
+            $actoas->SC_Notificacion_Instructor = $request->SC_Notificacion_Instructor;
+            $actoas->SC_Notificacion_FechaInicial = $request->SC_Notificacion_FechaInicial;
+            $actoas->SC_Notificacion_FechaLimite = $request->SC_Notificacion_FechaLimite;
+            $actoas->SC_ActaComite_FK = $request->SC_ActaComite_FK;
+            $actoas->SC_TipoNotificacion_FK = $request->SC_TipoNotificacion_FK;
+            $actoas->SC_Notificacion_Forma = $request->SC_Notificacion_Forma;
+            $actoas->SC_Notificacion_Funcionario = $request->SC_Notificacion_Funcionario;
+            $actoas->save();
+            return redirect()->route('actoadministrativo.index')->with('status', 'Notificacion Actualizada');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('actoadministrativo.index')->with('status', 'No se ha podido actualizar');
+        }
     }
 
     /**
@@ -175,8 +158,13 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function destroy($id)
     {
-        $actoas = ActoAdministrativo::find($id);
-        $actoas->delete();
-        return redirect()->route('actoadministrativo.index')->with('status', 'la notificacion se ha eliminado');
+        try{
+            $actoas = ActoAdministrativo::find($id);
+            $actoas->delete();
+            return redirect()->route('actoadministrativo.index')->with('status', 'la notificacion se ha eliminado');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('actoadministrativo.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        }
     }
 }
