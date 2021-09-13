@@ -11,7 +11,6 @@
 
     <h1>Listado de Solicitudes</h1>
     <table class="table table-striped">
-      <thead>
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Fecha</th>
@@ -38,5 +37,4 @@
     </table>
     {{$solicitudes->links()}}
     </div>
-  </div>
 @endsection
