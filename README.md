@@ -19,6 +19,11 @@ SCES (Sistema de comité de evaluación y seguimiento) es un sistema que automat
 ## Ayudas
 
 -   [Error al ejecutar php artisan serve ](https://www.youtube.com/watch?v=Y5lRWyDfnE4)
+-   Error al implementar login
+    -   Abrir la terminal
+    -   **_composer require laravel/fortify_**
+    -   **_php artisan migrate:fresh --seed_**
+    -   Importar la base de datos a mysql sin eliminar la anterior
 
 ## Developer Team
 
