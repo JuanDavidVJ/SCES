@@ -105,10 +105,10 @@
 
 		<div class="form-group">
 			<span class="input-group-text" for="Reglamento">Reglamento</span>
-			<select name="Reglamento" id="Reglamento" class="form-control">
+			<select name="Reglamento" id="Reglamento" class="form-control" >
 				<option selected>Seleccione el articulo inclumplido</option>
 				@foreach($reglamento as $reglamento)
-				<option value="{{$reglamento->SC_Reglamento_PK_ID }}">{{$reglamento->SC_Reglamento_Numeral}}</option>
+				<option value="{{$reglamento->SC_Reglamento_PK_ID }}">{{$reglamento->SC_Reglamento_Numeral}} - {{$reglamento->SC_Reglamento_Descripcion}}</option>
 				@endforeach
 			</select>
 				@error('Reglamento')

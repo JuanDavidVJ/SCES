@@ -156,7 +156,7 @@
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><i
-                                    class="fas fa-user"></i>{{ Auth::user()->name }}</a>
+                                    class="fas fa-user"></i> {{ Auth::user()->name }}</a>
                         </li>
                     </ul>
                     <a class="nav-link " href="#"></a>

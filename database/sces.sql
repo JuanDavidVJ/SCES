@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-09-2021 a las 19:54:26
+-- Tiempo de generación: 10-09-2021 a las 18:27:19
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -38,7 +38,6 @@ CREATE TABLE `sc_actacomite` (
   `SC_ActaComite_DeclaracionesAprendiz` varchar(300) NOT NULL,
   `SC_ActaComite_DeclaracionesOtros` varchar(300) NOT NULL,
   `SC_ActaComite_Decision` varchar(200) NOT NULL,
-  `SC_ActaComite_Descargos` varchar(500) NOT NULL,
   `SC_ActaComite_DeclaracionesResponsable` varchar(300) NOT NULL,
   `SC_Citacion_FK` int(11) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -49,8 +48,8 @@ CREATE TABLE `sc_actacomite` (
 -- Volcado de datos para la tabla `sc_actacomite`
 --
 
-INSERT INTO `sc_actacomite` (`SC_ActaComite_PK_ID`, `SC_ActaComite_Nombre`, `SC_ActaComite_Ciudad`, `SC_ActaComite_Fecha`, `SC_ActaComite_HoraInicio`, `SC_ActaComite_HoraFin`, `SC_ActaComite_Asistentes`, `SC_ActaComite_DeclaracionesAprendiz`, `SC_ActaComite_DeclaracionesOtros`, `SC_ActaComite_Decision`, `SC_ActaComite_Descargos`, `SC_ActaComite_DeclaracionesResponsable`, `SC_Citacion_FK`, `updated_at`, `created_at`) VALUES
-(4, 'comite de seguimiento', 'manizales', '2021-09-07', '10:47:35', '11:47:35', 'pepito', 'ninguna', 'ejemplo de otra', 'se le pondrá un llamado de atención al aprendiz', 'ninguno', 'ninguna', 6, '2021-09-07 13:49:12', NULL);
+INSERT INTO `sc_actacomite` (`SC_ActaComite_PK_ID`, `SC_ActaComite_Nombre`, `SC_ActaComite_Ciudad`, `SC_ActaComite_Fecha`, `SC_ActaComite_HoraInicio`, `SC_ActaComite_HoraFin`, `SC_ActaComite_Asistentes`, `SC_ActaComite_DeclaracionesAprendiz`, `SC_ActaComite_DeclaracionesOtros`, `SC_ActaComite_Decision`, `SC_ActaComite_DeclaracionesResponsable`, `SC_Citacion_FK`, `updated_at`, `created_at`) VALUES
+(4, 'comite de seguimiento', 'manizales', '2021-09-07', '10:47:35', '11:47:35', 'pepito', 'ninguna', 'ejemplo de otra', 'se le pondrá un llamado de atención al aprendiz', 'ninguna', 6, '2021-09-07 13:49:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -78,7 +77,8 @@ CREATE TABLE `sc_aprendiz` (
 
 INSERT INTO `sc_aprendiz` (`SC_Aprendiz_PK_ID`, `SC_Aprendiz_Documento`, `SC_Aprendiz_Nombres`, `SC_Aprendiz_Apellidos`, `SC_Aprendiz_Correo`, `SC_Aprendiz_NumeroContacto`, `SC_Ficha_PK_ID`, `SC_Aprendiz_ContratoAprendizaje`, `SC_Aprendiz_Empresa`, `updated_at`, `created_at`) VALUES
 (12, '1053869649', 'Jaime Andres', 'Cardona Diaz', 'jacd99@hotmail.com', 3053721414, 2068678, 'No', 'No', '2021-08-27 05:02:41', '2021-08-27 05:02:41'),
-(13, '1234567', 'gisela', 'criollo suarez', 'giselacriollo16@gmail.com', 3158845440, 2068678, 'practica y patrocinio', 'Torres guarin', '2021-09-07 17:47:41', '2021-09-07 17:47:41');
+(13, '1234567', 'gisela', 'criollo suarez', 'giselacriollo16@gmail.com', 3158845440, 2068678, 'practica y patrocinio', 'Torres guarin', '2021-09-07 17:47:41', '2021-09-07 17:47:41'),
+(14, '098765', 'Vanesa tatiana', 'morales', 'vtmorales@misena.edu.co', 315987645, 2068678, NULL, NULL, '2021-09-10 02:20:55', '2021-09-10 02:20:55');
 
 -- --------------------------------------------------------
 
@@ -104,7 +104,8 @@ CREATE TABLE `sc_citacion` (
 --
 
 INSERT INTO `sc_citacion` (`SC_CitacionPK_Id`, `SC_Citacion_FechaCitacion`, `SC_Citacion_Hora`, `SC_Citacion_Lugar`, `SC_Citacion_Ciudad`, `SC_Citacion_Centro`, `SC_Citacion_NumeroActa`, `SC_Solicitud_FK`, `updated_at`, `created_at`) VALUES
-(6, '2021-09-07', '10:30:00', 'bodega', 'manizales', 'automa', 1, 11, '2021-09-07 17:58:48', '2021-09-07 17:58:48');
+(6, '2021-09-07', '10:30:00', 'bodega', 'manizales', 'automa', 1, 11, '2021-09-07 17:58:48', '2021-09-07 17:58:48'),
+(7, '2021-09-09', '16:50:00', 'sala de conferencias', 'manizales', 'automa', 7, 12, '2021-09-10 02:23:31', '2021-09-10 02:23:31');
 
 -- --------------------------------------------------------
 
@@ -204,8 +205,7 @@ CREATE TABLE `sc_notificaciones` (
 INSERT INTO `sc_notificaciones` (`SC_Notificacion_ID`, `SC_Notificacion_TipoPlan`, `SC_Notificacion_Sugerencia`, `SC_Notificacion_Instructor`, `SC_Notificacion_FechaInicial`, `SC_Notificacion_FechaLimite`, `SC_ActaComite_FK`, `SC_TipoNotificacion_FK`, `SC_Notificacion_Forma`, `SC_Notificacion_Funcionario`, `updated_at`, `created_at`) VALUES
 (1, 1, 'alguna', 2, '2021-09-07', '2021-09-07', 4, 1, NULL, NULL, '2021-09-09 19:04:20', '2021-09-07 19:55:23'),
 (2, 1, 'alguna', 1, '2022-06-05', NULL, 4, 1, NULL, NULL, '2021-09-08 03:28:24', '2021-09-08 03:28:24'),
-(3, 1, 'ejemplo sin datos extra', 1, '2021-09-07', NULL, 4, 1, NULL, NULL, '2021-09-09 22:03:14', '2021-09-09 22:03:14'),
-(4, 3, 'ejemplo sin datos extra 2', 4, '2021-08-07', NULL, 4, 1, NULL, NULL, '2021-09-09 22:50:43', '2021-09-09 22:50:43');
+(3, 1, 'ejemplo sin datos extra', 1, '2021-09-07', NULL, 4, 1, NULL, NULL, '2021-09-09 22:03:14', '2021-09-09 22:03:14');
 
 -- --------------------------------------------------------
 
@@ -219,6 +219,7 @@ CREATE TABLE `sc_recursos_reposicion` (
   `SC_Recursos_FechaLimite` date NOT NULL,
   `SC_Recursos_Radicado` int(11) NOT NULL,
   `SC_Recursos_Evidencias` varchar(100) NOT NULL,
+  `SC_Recursos_Decision` varchar(300) DEFAULT NULL,
   `SC_ActaComite_FK` int(11) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
@@ -228,8 +229,8 @@ CREATE TABLE `sc_recursos_reposicion` (
 -- Volcado de datos para la tabla `sc_recursos_reposicion`
 --
 
-INSERT INTO `sc_recursos_reposicion` (`SC_Recursos_ID`, `SC_Recursos_FechaGenerado`, `SC_Recursos_FechaLimite`, `SC_Recursos_Radicado`, `SC_Recursos_Evidencias`, `SC_ActaComite_FK`, `updated_at`, `created_at`) VALUES
-(1, '2021-07-06', '2021-08-08', 6, 'ninguna', 4, '2021-09-09 22:12:30', '2021-09-09 22:12:30');
+INSERT INTO `sc_recursos_reposicion` (`SC_Recursos_ID`, `SC_Recursos_FechaGenerado`, `SC_Recursos_FechaLimite`, `SC_Recursos_Radicado`, `SC_Recursos_Evidencias`, `SC_Recursos_Decision`, `SC_ActaComite_FK`, `updated_at`, `created_at`) VALUES
+(1, '2021-07-06', '2021-08-08', 6, 'alguna', NULL, 4, '2021-09-09 23:00:34', '2021-09-09 22:12:30');
 
 -- --------------------------------------------------------
 
@@ -333,7 +334,8 @@ CREATE TABLE `sc_solicitar_comite` (
 --
 
 INSERT INTO `sc_solicitar_comite` (`SC_SolicitarComite_ID`, `SC_SolicitarComite_Responsable`, `SC_SolicitarComite_Fecha`, `SC_SolicitarComite_Descripcion`, `SC_SolicitarComite_Testigos`, `SC_SolicitarComite_Observaciones`, `SC_SolicitarComite_Anexo`, `SC_Falta_FK`, `SC_Usuario_FK`, `SC_Aprendiz_FK`, `SC_Gravedad_FK`, `SC_Reglamento_FK`, `updated_at`, `created_at`) VALUES
-(11, 'pepito perez', '2021-09-07', 'ejemplo de descripcion', 'ninguno', 'no se porto bien', 'C:\\xampp\\tmp\\php9DFD.tmp', 4, 1, 13, 1, 2, '2021-09-07 17:50:48', '2021-09-07 17:50:48');
+(11, 'pepito perez', '2021-09-07', 'ejemplo de descripcion', 'ninguno', 'no se porto bien', 'C:\\xampp\\tmp\\php9DFD.tmp', 4, 1, 13, 1, 2, '2021-09-07 17:50:48', '2021-09-07 17:50:48'),
+(12, 'pepito perez', '2021-09-09', 'se porto muy mal', 'gisela', 'alguna', '1631222542mapa conceptual.pdf', 5, 1, 14, 1, 16, '2021-09-10 02:22:22', '2021-09-10 02:22:22');
 
 -- --------------------------------------------------------
 
@@ -599,13 +601,13 @@ ALTER TABLE `sc_actacomite`
 -- AUTO_INCREMENT de la tabla `sc_aprendiz`
 --
 ALTER TABLE `sc_aprendiz`
-  MODIFY `SC_Aprendiz_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `SC_Aprendiz_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_citacion`
 --
 ALTER TABLE `sc_citacion`
-  MODIFY `SC_CitacionPK_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `SC_CitacionPK_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_estimulos`
@@ -647,7 +649,7 @@ ALTER TABLE `sc_reglamento`
 -- AUTO_INCREMENT de la tabla `sc_solicitar_comite`
 --
 ALTER TABLE `sc_solicitar_comite`
-  MODIFY `SC_SolicitarComite_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `SC_SolicitarComite_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_tipoestimulos`
@@ -671,7 +673,7 @@ ALTER TABLE `sc_tiponotificacion`
 -- AUTO_INCREMENT de la tabla `sc_tipoplan`
 --
 ALTER TABLE `sc_tipoplan`
-  MODIFY `SC_TipoPlan_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `SC_TipoPlan_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_tipousuario`
@@ -750,4 +752,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
