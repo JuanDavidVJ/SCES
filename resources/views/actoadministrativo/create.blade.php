@@ -75,7 +75,7 @@
 			<select name="SC_Notificacion_Instructor" id="SC_Notificacion_Instructor" class="form-control">
 				<option selected>Seleccione un instructor</option>
 				@foreach($usuario as $usuario)
-				<option value="{{$usuario->SC_Usuarios_ID}}" selected="4">{{$usuario->SC_Usuarios_Nombre}}</option>
+				<option value="{{$usuario->id}}" selected="3">{{$usuario->name}}</option>
 				@endforeach
 			</select>
 			@error('SC_Notificacion_Instructor')

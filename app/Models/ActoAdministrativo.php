@@ -27,6 +27,6 @@ class ActoAdministrativo extends Model
     }
 // conection with usuarios
     public function Usuario(){
-        return $this->belongsTo(Usuario::class, 'SC_Notificacion_Instructor', 'SC_Usuarios_ID');
+        return $this->belongsTo(Usuario::class, 'SC_Notificacion_Instructor', 'id');
     }
 }

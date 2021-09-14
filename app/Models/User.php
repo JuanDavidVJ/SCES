@@ -43,4 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $table="users";
+    protected $primaryKey="id";
+
+    public function solicitar(){
+        return $this->hasMany(SolicitarComite::class, 'SC_Usuario_FK', 'id');
+    }
+    public function ActoAdministrativo(){
+        return $this->hasMany(ActoAdministrativo::class, 'SC_Notificacion_Instructor', 'id');
+    }
 }
