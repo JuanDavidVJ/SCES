@@ -135,6 +135,20 @@
                 </ul>
             </li>
             <li>
+                <a href="#RegistroUsuarios" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-user-tie"></i>
+                    Registrar Usuarios
+                </a>
+                <ul class="collapse list-unstyled" id="RegistroUsuarios">
+                    <li>
+                        <a href="/RegistrarUsuarios/create">Crear Usuario</a>
+                    </li>
+                    <li>
+                        <a href="/RegistrarUsuarios">Ver Usuarios</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a  href="{{ asset('manuales/Reglamento.pdf') }}" target="_blank">
                 <i class="fas fa-book"></i>
                     Reglamento Aprendiz
@@ -158,6 +172,11 @@
                     <i class="fas fa-align-left"></i>
                 </button>
                 <a class="navbar-brand ml-2 font-weight-bolder" href="/">SENA</a>
+                <span class="navbar-text">
+                    @if(Auth::user()->tipoUsuario == 3)
+                        Gestor de comite
+                    @endif
+                </span>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">

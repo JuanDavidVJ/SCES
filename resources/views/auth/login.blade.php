@@ -44,9 +44,9 @@
                     </div>
                     <br><br>
                     <div class="card-footer">
-                        <div class="d-flex justify-content-center links">
+                        {{--  <div class="d-flex justify-content-center links">
                             No tiene una cuenta?<a href="{{ route('register') }}" class="link-login">Registrarse</a>
-                        </div>
+                        </div>  --}}
                     </div>
                 </div>
             </div>

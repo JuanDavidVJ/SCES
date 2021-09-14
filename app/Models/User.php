@@ -10,6 +10,13 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    protected $table ="users";
+    protected $primaryKey = "id";
+
+    // conection with tipo de usuario
+    public function TipoUsuario(){
+        return $this->belongsTo(TipoUsuario::class, 'tipoUsuario', 'SC_TipoUsuario_PK_ID');
+    }
 
     /**
      * The attributes that are mass assignable.

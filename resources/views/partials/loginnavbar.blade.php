@@ -11,7 +11,6 @@
                     </ul>
                     <a class="nav-link" href="/">Inicio</a>
                     <a class="nav-link" href="{{ route('login') }}">Iniciar Sesión</a>
-                    <a class="nav-link" href="{{ route('register') }}">Registrarme</a>
                 </div>
 
             </div>

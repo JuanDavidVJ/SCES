@@ -20,6 +20,7 @@ use App\Http\Controllers\CitacionController;
 use App\Http\Controllers\RecursosController;
 //use App\Http\Controllers\PlanMejoramientoController;
 use App\Http\Controllers\SolicitarComiteController;
+use App\Http\Controllers\RegistroUsuarios;
 use App\Models\Recursos;
 
 /*
@@ -87,3 +88,6 @@ Route::resource('solicitarComite', SolicitarComiteController::class)->middleware
 
 //Ruta Recursos de Reposición
 Route::resource('recursosReposicion', RecursosController::class)->middleware('auth');
+
+//Ruta Registro Usuarios
+Route::resource('RegistrarUsuarios', RegistroUsuarios::class)->middleware('auth');
