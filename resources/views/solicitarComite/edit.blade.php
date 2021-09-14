@@ -73,7 +73,7 @@
 			<select name="Usuario" id="Usuario" class="form-control">
 				<option selected>Seleccione un gestor</option>
 				@foreach($usuarios as $usuario)
-				<option value="{{$usuario->SC_Usuarios_ID }}"@if($usuario->SC_Usuarios_ID == $solicitar->SC_Usuario_FK) selected @endif>{{$usuario->SC_Usuarios_Nombre}}</option>
+				<option value="{{$usuario->id}}"@if($usuario->id == $solicitar->SC_Usuario_FK) selected @endif>{{$usuario->name}}</option>
 				@endforeach
 			</select>
 				@error('Usuario')

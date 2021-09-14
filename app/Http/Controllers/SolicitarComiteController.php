@@ -6,7 +6,7 @@ use App\Http\Requests\StoreSolicitarComiteRequest;
 use Illuminate\Http\Request;
 use App\Models\SolicitarComite;
 use App\Models\TipoFalta;
-use App\Models\Usuario;
+use App\Models\User;
 use App\Models\Aprendiz;
 use App\Models\Gravedad;
 use App\Models\Reglamento;
@@ -39,7 +39,7 @@ class SolicitarComiteController extends Controller
     {
         $aprendices = Aprendiz::all();
         $tipofaltas = TipoFalta::all();
-        $usuarios = Usuario::all();
+        $usuarios = User::all();
         $gravedad = Gravedad::all();
         $reglamento = Reglamento::all();
         return view('solicitarComite.create')
@@ -99,7 +99,7 @@ class SolicitarComiteController extends Controller
         $solicitar = SolicitarComite::find($id);
         $aprendices = Aprendiz::all();
         $tipofaltas = TipoFalta::all();
-        $usuarios = Usuario::all();
+        $usuarios = User::all();
         $gravedad = Gravedad::all();
         $reglamento = Reglamento::all();
         return view('solicitarComite.show')
@@ -122,7 +122,7 @@ class SolicitarComiteController extends Controller
         $solicitar = SolicitarComite::find($id);
         $aprendices = Aprendiz::all();
         $tipofaltas = TipoFalta::all();
-        $usuarios = Usuario::all();
+        $usuarios = User::all();
         $gravedad = Gravedad::all();
         $reglamento = Reglamento::all();
         return view('solicitarComite.edit')
