@@ -7,6 +7,7 @@ use App\Models\Ficha;
 use App\Http\Requests\StoreFichasRequest;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\DB;
+use App\Exceptions\CustomException;
 
 class FichasController extends Controller
 {
@@ -19,11 +20,11 @@ class FichasController extends Controller
     {
         $query = trim($request->get('search'));
         $fichas = DB::table('sc_ficha')
-                        ->select('*')
-                        ->where('SC_Ficha_NumeroFicha', 'LIKE', '%' .$query. '%')
-                        ->paginate(10);
+                    ->select('*')
+                    ->where('SC_Ficha_NumeroFicha', 'LIKE', '%' .$query. '%')
+                    ->paginate(10);
 
-                        return view('fichas.index', compact('fichas'));
+                    return view('fichas.index', compact('fichas'));
 
     }
 
@@ -35,8 +36,7 @@ class FichasController extends Controller
     public function create()
     {
         $usuario = Usuario::all();
-        return view('fichas.create')->with('usuario',$usuario);
-        
+        return view('fichas.create')->with('usuario',$usuario);  
     }
 
     /**
@@ -47,14 +47,20 @@ class FichasController extends Controller
      */
     public function store(StoreFichasRequest $request)
     {
-        $ficha = new Ficha();
-        $ficha->SC_Ficha_FechaInicio = $request->SC_Ficha_FechaInicio;
-        $ficha->SC_Ficha_NumeroFicha = $request->SC_Ficha_NumeroFicha;
-        $ficha->SC_Ficha_FechaFin = $request->SC_Ficha_FechaFin;
-        $ficha->SC_Ficha_NombreProgramaFormacion = $request->SC_Ficha_NombreProgramaFormacion;
-        $ficha->SC_Ficha_Gestor = $request->SC_Ficha_Gestor;
-        $ficha->save();
-        return redirect()->route('fichas.index')->with('status', 'Ficha Creada');
+        try{
+            $ficha = new Ficha();
+            $ficha->SC_Ficha_FechaInicio = $request->SC_Ficha_FechaInicio;
+            $ficha->SC_Ficha_NumeroFicha = $request->SC_Ficha_NumeroFicha;
+            $ficha->SC_Ficha_FechaFin = $request->SC_Ficha_FechaFin;
+            $ficha->SC_Ficha_NombreProgramaFormacion = $request->SC_Ficha_NombreProgramaFormacion;
+            $ficha->SC_Ficha_Gestor = $request->SC_Ficha_Gestor;
+            $ficha->save();
+            return redirect()->route('fichas.index')->with('status', 'Ficha Creada');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('fichas.index')->with('status', 'No se ha podido crear la Ficha');
+        }
+        
     }
 
     /**
@@ -67,7 +73,7 @@ class FichasController extends Controller
     {
         $ficha = Ficha::find($id);
         return view('fichas.show')
-                ->with('ficha', $ficha);
+            ->with('ficha', $ficha );
     }
 
     /**
@@ -92,14 +98,19 @@ class FichasController extends Controller
      */
     public function update(StoreFichasRequest $request, $id)
     {
-        $ficha = Ficha::find($id);
-        $ficha->SC_Ficha_FechaInicio = $request->SC_Ficha_FechaInicio;
-        $ficha->SC_Ficha_NumeroFicha = $request->SC_Ficha_NumeroFicha;
-        $ficha->SC_Ficha_FechaFin = $request->SC_Ficha_FechaFin;
-        $ficha->SC_Ficha_NombreProgramaFormacion = $request->SC_Ficha_NombreProgramaFormacion;
-        $ficha->SC_Ficha_Gestor = $request->SC_Ficha_Gestor;
-        $ficha->save();
-        return redirect()->route('fichas.index')->with('status', 'Ficha Actualizada');
+        try{
+            $ficha = Ficha::find($id);
+            $ficha->SC_Ficha_FechaInicio = $request->SC_Ficha_FechaInicio;
+            $ficha->SC_Ficha_NumeroFicha = $request->SC_Ficha_NumeroFicha;
+            $ficha->SC_Ficha_FechaFin = $request->SC_Ficha_FechaFin;
+            $ficha->SC_Ficha_NombreProgramaFormacion = $request->SC_Ficha_NombreProgramaFormacion;
+            $ficha->SC_Ficha_Gestor = $request->SC_Ficha_Gestor;
+            $ficha->save();
+            return redirect()->route('fichas.index')->with('status', 'Ficha Actualizada');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('fichas.index')->with('status', 'No se ha podido actualizar');
+        }
     }
 
     /**

@@ -49,27 +49,24 @@ class CitacionController extends Controller
      */
     public function store(StoreCitacionRequest $request)
     {
-     
-        $citacion= new Citacion();
-        $citacion->SC_Citacion_FechaCitacion=$request->SC_Citacion_FechaCitacion;
-        $citacion->SC_Citacion_Hora=$request->SC_Citacion_Hora;
-        $citacion->SC_Citacion_Lugar=$request->SC_Citacion_Lugar;
-        $citacion->SC_Citacion_Ciudad=$request->SC_Citacion_Ciudad;
-        $citacion->SC_Citacion_Centro=$request->SC_Citacion_Centro;
-        $citacion->SC_Citacion_NumeroActa=$request->SC_Citacion_NumeroActa;
-        $citacion->SC_Solicitud_FK=$request->SC_Solicitud_FK;
-        $citacion->save();
+        try{
+            $citacion= new Citacion();
+            $citacion->SC_Citacion_FechaCitacion=$request->SC_Citacion_FechaCitacion;
+            $citacion->SC_Citacion_Hora=$request->SC_Citacion_Hora;
+            $citacion->SC_Citacion_Lugar=$request->SC_Citacion_Lugar;
+            $citacion->SC_Citacion_Ciudad=$request->SC_Citacion_Ciudad;
+            $citacion->SC_Citacion_Centro=$request->SC_Citacion_Centro;
+            $citacion->SC_Citacion_NumeroActa=$request->SC_Citacion_NumeroActa;
+            $citacion->SC_Solicitud_FK=$request->SC_Solicitud_FK;
+            $citacion->save();
 
-        // for ($i=0; $i < count($citacion->solicitarComite->aprendiz); $i++) { 
-        //     Mail::to($citacion->solicitarComite->aprendiz[$i]->SC_Aprendiz_Correo)->queue(new MessageReceived($citacion, $citacion->solicitarComite->aprendiz[$i]));    
-        // }
-
-        Mail::to($citacion->solicitarComite->aprendiz->SC_Aprendiz_Correo)->queue(new MessageReceived($citacion, $citacion->solicitarComite->aprendiz));
+            Mail::to($citacion->solicitarComite->aprendiz->SC_Aprendiz_Correo)->queue(new MessageReceived($citacion, $citacion->solicitarComite->aprendiz));
         
-        return redirect()->route('Citacion.index')->with('status', 'Citacion creada');
-        // return redirect()->route('Citacion.index')->with('status', count($citacion->solicitarComite->aprendiz));
-        // return redirect()->route('Citacion.index')->with('status', $citacion->solicitarComite->aprendiz);
-
+            return redirect()->route('Citacion.index')->with('status', 'Citación creada');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('Citacion.index')->with('status', 'No se ha podido crear la Citación');
+        }
     }
 
     /**
@@ -108,16 +105,21 @@ class CitacionController extends Controller
      */
     public function update(StoreCitacionRequest $request, $id)
     {
-        $citacion=Citacion::find($id);
-        $citacion->SC_Citacion_FechaCitacion=$request->SC_Citacion_FechaCitacion;
-        $citacion->SC_Citacion_Hora=$request->SC_Citacion_Hora;
-        $citacion->SC_Citacion_Lugar=$request->SC_Citacion_Lugar;
-        $citacion->SC_Citacion_Ciudad=$request->SC_Citacion_Ciudad;
-        $citacion->SC_Citacion_Centro=$request->SC_Citacion_Centro;
-        $citacion->SC_Citacion_NumeroActa=$request->SC_Citacion_NumeroActa;
-        $citacion->SC_Solicitud_FK=$request->SC_Solicitud_FK;
-        $citacion->save();
-        return redirect()->route('Citacion.index')->with('status','Citacion actualizada');
+        try{
+            $citacion=Citacion::find($id);
+            $citacion->SC_Citacion_FechaCitacion=$request->SC_Citacion_FechaCitacion;
+            $citacion->SC_Citacion_Hora=$request->SC_Citacion_Hora;
+            $citacion->SC_Citacion_Lugar=$request->SC_Citacion_Lugar;
+            $citacion->SC_Citacion_Ciudad=$request->SC_Citacion_Ciudad;
+            $citacion->SC_Citacion_Centro=$request->SC_Citacion_Centro;
+            $citacion->SC_Citacion_NumeroActa=$request->SC_Citacion_NumeroActa;
+            $citacion->SC_Solicitud_FK=$request->SC_Solicitud_FK;
+            $citacion->save();
+            return redirect()->route('Citacion.index')->with('status','Citación actualizada');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('Citacion.index')->with('status', 'No se ha podido actualizar');
+        }
     }
 
     /**
@@ -128,8 +130,13 @@ class CitacionController extends Controller
      */
     public function destroy($id)
     {
-        $citacion=Citacion::find($id);
-        $citacion->delete();
-        return redirect()->route('Citacion.index')->with('status','Citacion eliminada');
+        try{
+            $citacion=Citacion::find($id);
+            $citacion->delete();
+            return redirect()->route('Citacion.index')->with('status','Citación eliminada');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('Citacion.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        }
     }
 }

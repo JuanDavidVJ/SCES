@@ -58,29 +58,34 @@ class SolicitarComiteController extends Controller
      */
     public function store(StoreSolicitarComiteRequest $request)
     {
-        if($request->hasFile('Anexo')){
-            $file= $request->file('Anexo');
-            //cambiar nombre para no generar conflicto
-            $Anexo = time() . $file->getClientOriginalName();
-            //movemos el archivo
-            $file->move('archivos/solicitarComite', $Anexo);
-
+        try{
+            if($request->hasFile('Anexo')){
+                $file= $request->file('Anexo');
+                //cambiar nombre para no generar conflicto
+                $Anexo = time() . $file->getClientOriginalName();
+                //movemos el archivo
+                $file->move('archivos/solicitarComite', $Anexo);
+    
+            }
+    
+            $solicitar = new SolicitarComite();
+            $solicitar->SC_SolicitarComite_Responsable = $request->Responsable;
+            $solicitar->SC_SolicitarComite_Fecha = $request->Fecha;
+            $solicitar->SC_SolicitarComite_Descripcion = $request->Descripcion;
+            $solicitar->SC_SolicitarComite_Testigos = $request->Testigos;
+            $solicitar->SC_SolicitarComite_Observaciones = $request->Observaciones;
+            $solicitar->SC_SolicitarComite_Anexo = $Anexo;
+            $solicitar->SC_Falta_FK = $request->TipoFalta;
+            $solicitar->SC_Usuario_FK = $request->Usuario;
+            $solicitar->SC_Aprendiz_FK = $request->Aprendiz;
+            $solicitar->SC_Gravedad_FK = $request->Gravedad;
+            $solicitar->SC_Reglamento_FK = $request->Reglamento;
+            $solicitar->save();
+            return redirect()->route('solicitarComite.index')->with('status', 'Solicitud Creada');
         }
-
-        $solicitar = new SolicitarComite();
-        $solicitar->SC_SolicitarComite_Responsable = $request->Responsable;
-        $solicitar->SC_SolicitarComite_Fecha = $request->Fecha;
-        $solicitar->SC_SolicitarComite_Descripcion = $request->Descripcion;
-        $solicitar->SC_SolicitarComite_Testigos = $request->Testigos;
-        $solicitar->SC_SolicitarComite_Observaciones = $request->Observaciones;
-        $solicitar->SC_SolicitarComite_Anexo = $Anexo;
-        $solicitar->SC_Falta_FK = $request->TipoFalta;
-        $solicitar->SC_Usuario_FK = $request->Usuario;
-        $solicitar->SC_Aprendiz_FK = $request->Aprendiz;
-        $solicitar->SC_Gravedad_FK = $request->Gravedad;
-        $solicitar->SC_Reglamento_FK = $request->Reglamento;
-        $solicitar->save();
-        return redirect()->route('solicitarComite.index')->with('status', 'Solicitud Creada');
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('solicitarComite.index')->with('status', 'No se ha podido crear la Solicitud de Comité');
+        }
     }
 
     /**
@@ -138,24 +143,29 @@ class SolicitarComiteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $solicitar = SolicitarComite::Find($id);
-        $solicitar->SC_SolicitarComite_Responsable = $request->Responsable;
-        $solicitar->SC_SolicitarComite_Fecha = $request->Fecha;
-        $solicitar->SC_SolicitarComite_Descripcion = $request->Descripcion;
-        $solicitar->SC_SolicitarComite_Testigos = $request->Testigos;
-        $solicitar->SC_SolicitarComite_Observaciones = $request->Observaciones;
-        $solicitar->SC_Falta_FK = $request->TipoFalta;
-        $solicitar->SC_Usuario_FK = $request->Usuario;
-        $solicitar->SC_Aprendiz_FK = $request->Aprendiz;
-        $solicitar->SC_Gravedad_FK = $request->Gravedad;
-        $solicitar->SC_Reglamento_FK = $request->Reglamento;
-        if ($request->hasFile('Anexo')) {
-            $file = $request->file('Anexo');
-            $Anexo = $solicitar->Anexo;
-            $file->move("archivos/solicitarComite", $Anexo);
+        try{
+            $solicitar = SolicitarComite::Find($id);
+            $solicitar->SC_SolicitarComite_Responsable = $request->Responsable;
+            $solicitar->SC_SolicitarComite_Fecha = $request->Fecha;
+            $solicitar->SC_SolicitarComite_Descripcion = $request->Descripcion;
+            $solicitar->SC_SolicitarComite_Testigos = $request->Testigos;
+            $solicitar->SC_SolicitarComite_Observaciones = $request->Observaciones;
+            $solicitar->SC_Falta_FK = $request->TipoFalta;
+            $solicitar->SC_Usuario_FK = $request->Usuario;
+            $solicitar->SC_Aprendiz_FK = $request->Aprendiz;
+            $solicitar->SC_Gravedad_FK = $request->Gravedad;
+            $solicitar->SC_Reglamento_FK = $request->Reglamento;
+            if ($request->hasFile('Anexo')) {
+                $file = $request->file('Anexo');
+                $Anexo = $solicitar->Anexo;
+                $file->move("archivos/solicitarComite", $Anexo);
+            }
+            $solicitar->save();
+            return redirect()->route('solicitarComite.index')->with('status', 'Solicitud Actualizada');
         }
-        $solicitar->save();
-        return redirect()->route('solicitarComite.index')->with('status', 'Solicitud Actualizada');
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('solicitarComite.index')->with('status', 'No se ha podido actualizar');
+        }
     }
 
     /**
@@ -166,8 +176,13 @@ class SolicitarComiteController extends Controller
      */
     public function destroy($id)
     {
-        $solicitar = SolicitarComite::find($id);
-        $solicitar->delete();
-        return redirect()->route('solicitarComite.index')->with('status', 'Solicitud eliminado');
+        try{
+            $solicitar = SolicitarComite::find($id);
+            $solicitar->delete();
+            return redirect()->route('solicitarComite.index')->with('status', 'Solicitud eliminado');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('solicitarComite.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        }
     }
 }

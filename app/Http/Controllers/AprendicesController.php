@@ -53,18 +53,23 @@ class AprendicesController extends Controller
      */
     public function store(StoreAprendicesRequest $request)
     {
-        $aprendiz = new Aprendiz();
-        $aprendiz->SC_Aprendiz_Nombres = $request->SC_Aprendiz_Nombres;
-        $aprendiz->SC_Aprendiz_Apellidos = $request->SC_Aprendiz_Apellidos;
-        $aprendiz->SC_Aprendiz_Documento = $request->SC_Aprendiz_Documento;
-        $aprendiz->SC_Aprendiz_Correo = $request->SC_Aprendiz_Correo;
-        $aprendiz->SC_Aprendiz_NumeroContacto = $request->SC_Aprendiz_NumeroContacto;
-        $aprendiz->SC_Ficha_PK_ID = $request->SC_Ficha_PK_ID;
-        $aprendiz->SC_Aprendiz_ContratoAprendizaje   = $request->SC_Aprendiz_ContratoAprendizaje;
-        $aprendiz->SC_Aprendiz_Empresa   = $request->SC_Aprendiz_Empresa;
-        #$aprendiz->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
-        $aprendiz->save();
-        return redirect()->route('aprendices.index')->with('status', 'Aprendiz Creado');
+        try{
+            $aprendiz = new Aprendiz();
+            $aprendiz->SC_Aprendiz_Nombres = $request->SC_Aprendiz_Nombres;
+            $aprendiz->SC_Aprendiz_Apellidos = $request->SC_Aprendiz_Apellidos;
+            $aprendiz->SC_Aprendiz_Documento = $request->SC_Aprendiz_Documento;
+            $aprendiz->SC_Aprendiz_Correo = $request->SC_Aprendiz_Correo;
+            $aprendiz->SC_Aprendiz_NumeroContacto = $request->SC_Aprendiz_NumeroContacto;
+            $aprendiz->SC_Ficha_PK_ID = $request->SC_Ficha_PK_ID;
+            $aprendiz->SC_Aprendiz_ContratoAprendizaje   = $request->SC_Aprendiz_ContratoAprendizaje;
+            $aprendiz->SC_Aprendiz_Empresa   = $request->SC_Aprendiz_Empresa;
+            $aprendiz->save();
+            return redirect()->route('aprendices.index')->with('status', 'Aprendiz Creado');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('aprendices.index')->with('status', 'No se ha podido crear el Aprendiz');
+        }
+        
     }
 
     /**
@@ -106,18 +111,22 @@ class AprendicesController extends Controller
      */
     public function update(StoreAprendicesRequest $request, $id)
     {
-        $aprendiz = Aprendiz::find($id);
-        $aprendiz->SC_Aprendiz_Documento = $request->SC_Aprendiz_Documento;
-        $aprendiz->SC_Aprendiz_Nombres = $request->SC_Aprendiz_Nombres;
-        $aprendiz->SC_Aprendiz_Apellidos = $request->SC_Aprendiz_Apellidos;
-        $aprendiz->SC_Aprendiz_Correo = $request->SC_Aprendiz_Correo;
-        $aprendiz->SC_Aprendiz_NumeroContacto = $request->SC_Aprendiz_NumeroContacto;
-        $aprendiz->SC_Ficha_PK_ID = $request->SC_Ficha_PK_ID;
-        $aprendiz->SC_Aprendiz_ContratoAprendizaje = $request->SC_Aprendiz_ContratoAprendizaje;
-        $aprendiz->SC_Aprendiz_Empresa = $request->SC_Aprendiz_Empresa;
-        #$aprendiz->SC_Comite_FK_ID = $request->SC_Comite_FK_ID;
-        $aprendiz->save();
-        return redirect()->route('aprendices.index')->with('status', 'Aprendiz Actualizado');
+        try{
+            $aprendiz = Aprendiz::find($id);
+            $aprendiz->SC_Aprendiz_Documento = $request->SC_Aprendiz_Documento;
+            $aprendiz->SC_Aprendiz_Nombres = $request->SC_Aprendiz_Nombres;
+            $aprendiz->SC_Aprendiz_Apellidos = $request->SC_Aprendiz_Apellidos;
+            $aprendiz->SC_Aprendiz_Correo = $request->SC_Aprendiz_Correo;
+            $aprendiz->SC_Aprendiz_NumeroContacto = $request->SC_Aprendiz_NumeroContacto;
+            $aprendiz->SC_Ficha_PK_ID = $request->SC_Ficha_PK_ID;
+            $aprendiz->SC_Aprendiz_ContratoAprendizaje = $request->SC_Aprendiz_ContratoAprendizaje;
+            $aprendiz->SC_Aprendiz_Empresa = $request->SC_Aprendiz_Empresa;
+            $aprendiz->save();
+            return redirect()->route('aprendices.index')->with('status', 'Aprendiz Actualizado');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('aprendices.index')->with('status', 'No se ha podido actualizar el Aprendiz');
+        }
     }
 
     /**
@@ -128,8 +137,13 @@ class AprendicesController extends Controller
      */
     public function destroy($id)
     {
-        $aprendiz = Aprendiz::find($id);
-        $aprendiz->delete();
-        return redirect()->route('aprendices.index')->with('status', 'Aprendiz eliminado');
+        try{
+            $aprendiz = Aprendiz::find($id);
+            $aprendiz->delete();
+            return redirect()->route('aprendices.index')->with('status', 'Aprendiz eliminado');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('aprendices.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        }
     }
 }
