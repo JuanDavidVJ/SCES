@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\TipoUsuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class RegistroUsuarios extends Controller
 {
@@ -17,8 +17,7 @@ class RegistroUsuarios extends Controller
     {
         #Trayendo los datos de bd
         $usuarios = User::all();
-        $tipoUsuario = TipoUsuario::all();
-        return view('RegistrarUsuarios.index') -> with('usuarios', $usuarios) -> with('tipoUsuario', $tipoUsuario);
+        return view('RegistrarUsuarios.index') -> with('usuarios', $usuarios);
     }
 
     /**
@@ -26,11 +25,14 @@ class RegistroUsuarios extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    // public function create()
+    // {
+    //     $usuarios = User::all();
+    //     return view('RegistrarUsuarios.create') -> with('usuarios', $usuarios);
+    // }
+    public function create(Request $request)
     {
-        $usuarios = User::all();
-        $tipoUsuario = TipoUsuario::all();
-        return view('RegistrarUsuarios.create') -> with('usuarios', $usuarios) -> with('tipoUsuario', $tipoUsuario);
+        return view('RegistrarUsuarios.create');
     }
 
     /**
@@ -41,14 +43,15 @@ class RegistroUsuarios extends Controller
      */
     public function store(Request $request)
     {
-        $usuarios = new User();
-        $usuarios->username = $request->username;
-        $usuarios->documento = $request->documento;
-        $usuarios->name = $request->name;
-        $usuarios->email = $request->email;
-        $usuarios->password = $request->password;
-        $usuarios->tipoUsuario = $request->tipoUsuario;
-        $usuarios->save();
+        $input = $request->all();
+        User::create([
+            'username' => $input['username'],
+            'documento' => $input['documento'],
+            'name' => $input['name'],
+            'email' => $input['email'],
+            'password' => Hash::make($input['password']),
+            'tipoUsuario' => $input['tipoUsuario'],
+        ]);
         return redirect()->route('RegistrarUsuarios.index')->with('status', 'Usuario Creado');
     }
 
@@ -74,9 +77,8 @@ class RegistroUsuarios extends Controller
     public function edit($id)
     {
         $usuarios = User::find($id);
-        $tipoUsuario = TipoUsuario::all();
         return view('RegistrarUsuarios.edit')
-                ->with('usuarios', $usuarios) ->with('tipoUsuario', $tipoUsuario);
+                ->with('usuarios', $usuarios);
     }
 
     /**

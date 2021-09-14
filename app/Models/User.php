@@ -10,12 +10,14 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-    protected $table ="users";
-    protected $primaryKey = "id";
+    protected $table="users";
+    protected $primaryKey="id";
 
-    // conection with tipo de usuario
-    public function TipoUsuario(){
-        return $this->belongsTo(TipoUsuario::class, 'tipoUsuario', 'SC_TipoUsuario_PK_ID');
+    public function solicitar(){
+        return $this->hasMany(SolicitarComite::class, 'SC_Usuario_FK', 'id');
+    }
+    public function ActoAdministrativo(){
+        return $this->hasMany(ActoAdministrativo::class, 'SC_Notificacion_Instructor', 'id');
     }
 
     /**
@@ -51,13 +53,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $table="users";
-    protected $primaryKey="id";
-
-    public function solicitar(){
-        return $this->hasMany(SolicitarComite::class, 'SC_Usuario_FK', 'id');
-    }
-    public function ActoAdministrativo(){
-        return $this->hasMany(ActoAdministrativo::class, 'SC_Notificacion_Instructor', 'id');
-    }
 }

@@ -173,8 +173,17 @@
                 </button>
                 <a class="navbar-brand ml-2 font-weight-bolder" href="/">SENA</a>
                 <span class="navbar-text">
+                    @if(Auth::user()->tipoUsuario == 1)
+                        Instructor
+                    @endif
+                    @if(Auth::user()->tipoUsuario == 2)
+                        Subdirector
+                    @endif
                     @if(Auth::user()->tipoUsuario == 3)
                         Gestor de comite
+                    @endif
+                    @if(Auth::user()->tipoUsuario == 4)
+                        Administrador
                     @endif
                 </span>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">

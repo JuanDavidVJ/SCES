@@ -4,7 +4,7 @@
 
 <div class="container">
 	<h1>Crear Usuario</h1>
-	<form action="{{ route('register') }}" method="post"  id="formulario">
+	<form action="/RegistrarUsuarios" method="post"  id="formulario">
 		@csrf
 	  <div class="form-group">
 	    <span class="input-group-text" for="username">Username</span>
@@ -45,9 +45,10 @@
 		<span class="input-group-text" for="tipoUsuario">Tipo de Usuario</span>
 		<select name="tipoUsuario" id="tipoUsuario" class="form-control">
       <option selected>Seleccione un tipo de usuario</option>
-			@foreach($tipoUsuario as $tipoUsuarios)
-			<option value="{{$tipoUsuarios->SC_TipoUsuario_PK_ID}}">{{$tipoUsuarios->SC_TipoUsuario_Descripcion}}</option>
-			@endforeach
+			<option value="1">Instructor</option>
+			<option value="2">Subdirector</option>
+			<option value="3">Gestor de Comité</option>
+			<option value="4">Administrador</option>
 		</select>
 		@error('tipoUsuario')
 		<small style="color: red;">{{ $message }}</small>
