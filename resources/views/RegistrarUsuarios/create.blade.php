@@ -4,7 +4,7 @@
 
 <div class="container">
 	<h1>Crear Usuario</h1>
-	<form action="/RegistrarUsuarios" method="post" enctype="multipart/form-data" id="formulario">
+	<form action="{{ route('register') }}" method="post"  id="formulario">
 		@csrf
 	  <div class="form-group">
 	    <span class="input-group-text" for="username">Username</span>

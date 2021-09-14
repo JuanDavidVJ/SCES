@@ -26,7 +26,7 @@
               </tr>
               <tr>
                 <th class="thshow">Contraseña</th>
-                <td class="tdshow">{{ $usuarios->password }}</td>
+                <td class="tdshow password">{{ $usuarios->password }}</td>
               </tr>
               <tr>
                 <th class="thshow">Tipo de Usuario</th>

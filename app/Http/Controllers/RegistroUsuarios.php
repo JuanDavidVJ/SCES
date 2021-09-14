@@ -41,7 +41,15 @@ class RegistroUsuarios extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuarios = new User();
+        $usuarios->username = $request->username;
+        $usuarios->documento = $request->documento;
+        $usuarios->name = $request->name;
+        $usuarios->email = $request->email;
+        $usuarios->password = $request->password;
+        $usuarios->tipoUsuario = $request->tipoUsuario;
+        $usuarios->save();
+        return redirect()->route('RegistrarUsuarios.index')->with('status', 'Usuario Creado');
     }
 
     /**
@@ -91,6 +99,8 @@ class RegistroUsuarios extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuarios = User::find($id);
+        $usuarios->delete();
+        return redirect()->route('RegistrarUsuarios.index')->with('status', 'Usuario eliminado');
     }
 }
