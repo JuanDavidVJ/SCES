@@ -7,7 +7,7 @@ use App\Models\ActoAdministrativo;
 use App\Models\TipoPlan;
 use App\Models\ActaComite;
 use App\Models\TipoNotificacion;
-use App\Models\Usuario;
+use App\Models\User;
 use App\Http\Requests\StoreAdministrativoRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -44,7 +44,7 @@ class ActoAdministrativoSancionesController extends Controller
         $ActaC = ActaComite::all();
         $TipoN = TipoNotificacion::all();
         $TipoP = TipoPlan::all();
-        $usuario = Usuario::all();
+        $usuario = User::all();
         return view('actoadministrativo.create')->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP)->with('usuario', $usuario);
     }
 
@@ -102,7 +102,7 @@ class ActoAdministrativoSancionesController extends Controller
         $ActaC = ActaComite::all();
         $TipoN = TipoNotificacion::all();
         $TipoP = TipoPlan::all();
-        $usuario = Usuario::all();
+        $usuario = User::all();
         return view('actoadministrativo.show')->with('actoas', $actoas)->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP)->with('usuario', $usuario);
     }
 
@@ -118,7 +118,7 @@ class ActoAdministrativoSancionesController extends Controller
         $ActaC = ActaComite::all();
         $TipoN = TipoNotificacion::all();
         $TipoP = TipoPlan::all();
-        $usuario = Usuario::all();
+        $usuario = User::all();
         return view('actoadministrativo.edit')->with('actoas', $actoas)->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP)->with('usuario', $usuario);
     }
 

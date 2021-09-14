@@ -41,7 +41,7 @@
         </tr>
         <tr>
            <th class="thshow">Gestor de grupo</th>
-           <td class="tdshow"> {{ $solicitar->usuario->SC_Usuarios_Nombre}}</td>
+           <td class="tdshow"> {{ $solicitar->usuario->name}}</td>
         </tr>
         <tr>
            <th class="thshow">Tipo de falta</th>

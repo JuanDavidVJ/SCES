@@ -62,7 +62,7 @@
 		   <span class="input-group-text" for="SC_Notificacion_Instructor">Instructor designado para el plan de mejoramiento</span>
 			<select name="SC_Notificacion_Instructor" id="SC_Notificacion_Instructor" class="form-control">
 				@foreach($usuario as $usuario)
-				<option value="{{$usuario->SC_Usuarios_ID}}" @if($usuario->SC_Usuarios_ID == $actoas->SC_Notificacion_Instructor) selected @endif>{{$usuario->SC_Usuarios_Nombre}}</option>
+				<option value="{{$usuario->id}}" @if($usuario->id == $actoas->SC_Notificacion_Instructor) selected @endif>{{$usuario->name}}</option>
 				@endforeach
 			</select>
 			@error('SC_Notificacion_Instructor')

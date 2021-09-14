@@ -23,7 +23,7 @@ class SolicitarComite extends Model
     }
 
     public function usuario(){
-        return $this->belongsTo(Usuario::class, 'SC_Usuario_FK', 'SC_Usuarios_ID');
+        return $this->belongsTo(User::class, 'SC_Usuario_FK', 'id');
         // This last arguments are because their are not the same that Eloquent determination
     }
 

@@ -36,7 +36,7 @@
         				    </tr>
 							<tr>
             					<th class="thshow">Notificacion instructor</th>
-            					<td class="tdshow">{{$actoas->usuario->SC_Usuarios_Nombre}}</td>
+            					<td class="tdshow">{{$actoas->Usuario->name}}</td>
 						    </tr>
 						    <tr>
             					<th class="thshow">Forma en la que debe entregar el plan</th>
