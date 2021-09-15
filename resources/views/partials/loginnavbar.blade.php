@@ -1,17 +1,20 @@
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:white;height:15%;">
+            <div class="container">
 
-                <div class="col-sm-1">
-                    <img src="{{ asset('estilos/img/logoSena.png') }}" class="img-fluid d-none d-sm-block">
+                <div>
+                    <img src="{{ asset('estilos/img/logoSena.png') }}" class="img-fluid d-none d-sm-block" id="logo">
                 </div>
-                <a class="navbar-brand ml-2 font-weight-bolder">SCES - Sistema de Comité de Evaluación y Seguimiento SENA</a>
+                
+                <h4>Sistema de Comité de Evaluación y Seguimiento </h4>
+                
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                     </ul>
                     <a class="nav-link" href="/">Inicio</a>
-                    <a class="nav-link" href="{{ route('login') }}">Iniciar Sesión</a>
+                   
                 </div>
 
             </div>
+            
         </nav>

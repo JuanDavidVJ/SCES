@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('estilos/slidebar-navbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('estilos/estilos.css') }}">
+  
+ 
+    <link rel="stylesheet" href="{{ asset('estilos/login.css') }}">
+   
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
