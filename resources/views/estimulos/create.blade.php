@@ -55,7 +55,7 @@
 			<select name="SC_Aprendiz_FK_ID" id="SC_Aprendiz_FK_ID" class="form-control">
 				<option selected>Seleccione un aprendiz</option>
 				@foreach($aprendiz as $aprendiz)
-				<option value="{{$aprendiz->SC_Aprendiz_PK_ID}}">{{$aprendiz->SC_Aprendiz_Nombres}}</option>
+				<option value="{{$aprendiz->SC_Aprendiz_PK_ID}}">{{$aprendiz->SC_Aprendiz_Nombres}} {{$aprendiz->SC_Aprendiz_Apellidos}}</option>
 				@endforeach
 			</select>
 			@error('SC_Aprendiz_FK_ID')
