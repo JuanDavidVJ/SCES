@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class RegistroUsuarios extends Controller
 {
@@ -32,7 +33,11 @@ class RegistroUsuarios extends Controller
     // }
     public function create(Request $request)
     {
-        return view('RegistrarUsuarios.create');
+        if(Auth::user()->tipoUsuario == 4){
+            return view('RegistrarUsuarios.create');
+        }else{
+            return view('ingreso');
+        }
     }
 
     /**
@@ -43,16 +48,20 @@ class RegistroUsuarios extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        User::create([
-            'username' => $input['username'],
-            'documento' => $input['documento'],
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
-            'tipoUsuario' => $input['tipoUsuario'],
-        ]);
+        if(Auth::user()->tipoUsuario == 4){
+            $input = $request->all();
+            User::create([
+                'username' => $input['username'],
+                'documento' => $input['documento'],
+                'name' => $input['name'],
+                'email' => $input['email'],
+                'password' => Hash::make($input['password']),
+                'tipoUsuario' => $input['tipoUsuario'],
+            ]);
         return redirect()->route('RegistrarUsuarios.index')->with('status', 'Usuario Creado');
+        }else{
+            return view('ingreso');
+        }
     }
 
     /**
@@ -63,9 +72,13 @@ class RegistroUsuarios extends Controller
      */
     public function show($id)
     {
+        if(Auth::user()->tipoUsuario == 4){
         $usuarios = User::find($id);
         return view('RegistrarUsuarios.show')
                 ->with('usuarios', $usuarios);
+        }else{
+            return view('ingreso');
+        }
     }
 
     /**
@@ -76,9 +89,13 @@ class RegistroUsuarios extends Controller
      */
     public function edit($id)
     {
+        if(Auth::user()->tipoUsuario == 4){
         $usuarios = User::find($id);
         return view('RegistrarUsuarios.edit')
                 ->with('usuarios', $usuarios);
+        }else{
+            return view('ingreso');
+        }
     }
 
     /**
@@ -90,19 +107,23 @@ class RegistroUsuarios extends Controller
      */
     public function update(Request $request, $id)
     {
-        try{
-            $usuario = User::find($id);
-            $usuario->username = $request->username;
-            $usuario->documento = $request->documento;
-            $usuario->name = $request->name;
-            $usuario->email = $request->email;
-            $usuario->password = $request->password;
-            $usuario->tipoUsuario = $request->tipoUsuario;
-            $usuario->save();
-            return redirect()->route('RegistrarUsuarios.index')->with('status','Usuario Actualizado');
-        }
-        catch(\Illuminate\Database\QueryException $e){
-            return redirect()->route('RegistrarUsuarios.index')->with('status', 'No se ha podido actualizar');
+        if(Auth::user()->tipoUsuario == 4){
+            try{
+                $usuario = User::find($id);
+                $usuario->username = $request->username;
+                $usuario->documento = $request->documento;
+                $usuario->name = $request->name;
+                $usuario->email = $request->email;
+                $usuario->password = $request->password;
+                $usuario->tipoUsuario = $request->tipoUsuario;
+                $usuario->save();
+                return redirect()->route('RegistrarUsuarios.index')->with('status','Usuario Actualizado');
+            }
+            catch(\Illuminate\Database\QueryException $e){
+                return redirect()->route('RegistrarUsuarios.index')->with('status', 'No se ha podido actualizar');
+            }
+        }else{
+            return view('ingreso');
         }
     }
 
@@ -114,8 +135,12 @@ class RegistroUsuarios extends Controller
      */
     public function destroy($id)
     {
-        $usuarios = User::find($id);
-        $usuarios->delete();
-        return redirect()->route('RegistrarUsuarios.index')->with('status', 'Usuario eliminado');
+        if(Auth::user()->tipoUsuario == 4){
+            $usuarios = User::find($id);
+            $usuarios->delete();
+            return redirect()->route('RegistrarUsuarios.index')->with('status', 'Usuario eliminado');
+        }else{
+            return view('ingreso');
+        }
     }
 }

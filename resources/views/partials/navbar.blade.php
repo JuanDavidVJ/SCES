@@ -7,6 +7,7 @@
         </div>
 
         <ul class="list-unstyled components">
+            @if(Auth::user()->tipoUsuario == 3)
             <li>
                 <a href="#solicitudcomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-users"></i>
@@ -46,20 +47,6 @@
                     </li>
                     <li>
                         <a href="/ActaComite">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#administrativo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-toolbox"></i>
-                    Notificaciones
-                </a>
-                <ul class="collapse list-unstyled" id="administrativo">
-                    <li>
-                        <a href="/actoadministrativo/create">Crear</a>
-                    </li>
-                    <li>
-                        <a href="/actoadministrativo">Ver </a>
                     </li>
                 </ul>
             </li>
@@ -135,6 +122,129 @@
                 </ul>
             </li>
             <li>
+                <a  href="{{ asset('manuales/Reglamento.pdf') }}" target="_blank">
+                <i class="fas fa-book"></i>
+                    Reglamento Aprendiz
+                </a>
+            </li>
+            @endif
+            @if(Auth::user()->tipoUsuario == 2)
+                <li>
+                    <a href="#solicitudcomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-users"></i>
+                        Solicitud Comité
+                    </a>
+                    <ul class="collapse list-unstyled" id="solicitudcomite">
+                        <li>
+                            <a href="/solicitarComite/create">Crear Solicitud</a>
+                        </li>
+                        <li>
+                            <a href="/solicitarComite">Ver Solicitud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#administrativo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-toolbox"></i>
+                        Notificaciones
+                    </a>
+                    <ul class="collapse list-unstyled" id="administrativo">
+                        <li>
+                            <a href="/actoadministrativo/create">Crear</a>
+                        </li>
+                        <li>
+                            <a href="/actoadministrativo">Ver </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                <a href="#Citacion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-calendar-alt"></i>
+                    Citación
+                </a>
+                <ul class="collapse list-unstyled" id="Citacion">
+                    <li>
+                        <a href="/Citacion">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#Actacomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-hourglass-start"></i>
+                    Acta Comite
+                </a>
+                <ul class="collapse list-unstyled" id="Actacomite">
+                    <li>
+                        <a href="/ActaComite">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#recursos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-pencil-alt"></i>
+                    Recursos de Reposición
+                </a>
+                <ul class="collapse list-unstyled" id="recursos">
+                    <li>
+                        <a href="/recursosReposicion">Ver</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- <li>
+                <a href="#impugnaciones" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-university"></i>
+                    Impugnaciones
+                </a>
+                <ul class="collapse list-unstyled" id="impugnaciones">
+                    <li>
+                        <a href="/impugnaciones">Ver </a>
+                    </li>
+                </ul>
+            </li>-->
+
+            <li>
+                <a href="#estimulos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-bookmark"></i>
+                    Estimulos
+                </a>
+                <ul class="collapse list-unstyled" id="estimulos">
+                    <li>
+                        <a href="/estimulos">Ver </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#ficha" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    Ficha
+                </a>
+                <ul class="collapse list-unstyled" id="ficha">
+                    <li>
+                        <a href="/fichas">Ver Fichas</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#aprendices" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-user-graduate"></i>
+                    Aprendices
+                </a>
+                <ul class="collapse list-unstyled" id="aprendices">
+                    <li>
+                        <a href="/aprendices">Ver Aprendices</a>
+                    </li>
+                </ul>
+            </li>
+                <li>
+                    <a  href="{{ asset('manuales/Reglamento.pdf') }}" target="_blank">
+                    <i class="fas fa-book"></i>
+                        Reglamento Aprendiz
+                    </a>
+                </li>
+
+            @endif
+            @if(Auth::user()->tipoUsuario == 4)
+            <li>
                 <a href="#RegistroUsuarios" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-user-tie"></i>
                     Registrar Usuarios
@@ -148,12 +258,51 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a  href="{{ asset('manuales/Reglamento.pdf') }}" target="_blank">
-                <i class="fas fa-book"></i>
-                    Reglamento Aprendiz
-                </a>
-            </li>
+            @endif
+            @if(Auth::user()->tipoUsuario == 1)
+                <li>
+                    <a href="#solicitudcomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-users"></i>
+                        Solicitud Comité
+                    </a>
+                    <ul class="collapse list-unstyled" id="solicitudcomite">
+                        <li>
+                            <a href="/solicitarComite/create">Crear Solicitud</a>
+                        </li>
+                        <li>
+                            <a href="/solicitarComite">Ver Solicitud</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#ficha" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-copy"></i>
+                        Ficha
+                    </a>
+                    <ul class="collapse list-unstyled" id="ficha">
+                        <li>
+                            <a href="/fichas">Ver Fichas</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#aprendices" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-user-graduate"></i>
+                        Aprendices
+                    </a>
+                    <ul class="collapse list-unstyled" id="aprendices">
+                        <li>
+                            <a href="/aprendices">Ver Aprendices</a>
+                        </li>
+                    </ul>
+                </li>
+                    <li>
+                        <a  href="{{ asset('manuales/Reglamento.pdf') }}" target="_blank">
+                        <i class="fas fa-book"></i>
+                            Reglamento
+                        </a>
+                </li>
+            @endif
 
             
         </ul>

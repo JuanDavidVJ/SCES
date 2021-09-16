@@ -4,7 +4,7 @@
 <div class="container">
 	<h1 class="mb-3">Listado de Usuarios</h1>
 		@if(session('status'))
-			<p class="text-center alert alert-success">
+			<p class="alert alert-success">
 				{{ session('status') }}
 			</p>
 		@endif
