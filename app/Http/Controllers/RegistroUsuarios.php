@@ -90,7 +90,20 @@ class RegistroUsuarios extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $usuario = User::find($id);
+            $usuario->username = $request->username;
+            $usuario->documento = $request->documento;
+            $usuario->name = $request->name;
+            $usuario->email = $request->email;
+            $usuario->password = $request->password;
+            $usuario->tipoUsuario = $request->tipoUsuario;
+            $usuario->save();
+            return redirect()->route('RegistrarUsuarios.index')->with('status','Usuario Actualizado');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('RegistrarUsuarios.index')->with('status', 'No se ha podido actualizar');
+        }
     }
 
     /**
