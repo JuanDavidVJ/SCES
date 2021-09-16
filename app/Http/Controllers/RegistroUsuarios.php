@@ -36,7 +36,8 @@ class RegistroUsuarios extends Controller
         if(Auth::user()->tipoUsuario == 4){
             return view('RegistrarUsuarios.create');
         }else{
-            return view('ingreso');
+            //return view('ingreso');
+            return redirect('/ingreso');
         }
     }
 
