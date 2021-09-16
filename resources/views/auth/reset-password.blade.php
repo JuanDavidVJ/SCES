@@ -1,5 +1,5 @@
 @extends('layouts.login-register')
-@section('title', 'Inicio de Sesión')
+@section('title', 'Restablecimiento de Contraseña')
 @section('content')
 <body style="background-image: url(estilos/img/fondo_login.jpg);">
 <div class="capa">
@@ -22,16 +22,17 @@
             <div class="d-flex justify-content-center h-100">
                 <div class="card-login2">
                     <div class="card-body">
-                        <form action="{{ route('login') }}" method="post" class="formulario">
+                        <form action="{{ route('password.update') }}" method="post" class="formulario">
                             @csrf
-                        <h3>Inicio de Sesión</h3>
+                            <input type="hidden" name="token" value="{{ request()->route('token')}}">
+                        <h3>Ingresa una nueva Contraseña</h3>
 
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-user" id="i"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-envelope" id="i"></i></span>
                                 </div>
-                                <input type="text" name="username" class="form-control" id="username"
-                                    placeholder="Nombre de Usuario" required>
+                                <input type="email" name="email" class="form-control" id="email"
+                                    placeholder="Ingresa tu Email" required>
 
                             </div>
                             <div class="input-group form-group">
@@ -41,15 +42,18 @@
                                 <input type="password" name="password" class="form-control" id="password"
                                     placeholder="Contraseña" required>
                             </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key" id="i"></i></span>
+                                </div>
+                                <input type="password" name="password-confirmation" class="form-control" id="password-confirm"
+                                    placeholder="Confirma tu Contraseña" required>
+                            </div>
                             <div class="form-group">
                                 <!--<input type="submit" value="Iniciar Sesión" class="btn float-right login_btn">-->
-                                <button type="submit" class="button">Iniciar Sesión</button>
+                                <button type="submit" class="button">Restablecer Contraseña</button>
                             </div>
                         </form>
-                        <div class="card-footer">
-                         <div class="d-flex justify-content-center links">
-                            <a href="{{ route('password.request') }}" class="link-login" style="color: white">¿Olvidó su contraseña?</a>
-                        </div> 
                     </div>
                     </div>
                 </div>

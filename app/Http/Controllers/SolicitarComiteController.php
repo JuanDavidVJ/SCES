@@ -11,6 +11,7 @@ use App\Models\Aprendiz;
 use App\Models\Gravedad;
 use App\Models\Reglamento;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class SolicitarComiteController extends Controller
 {
@@ -176,13 +177,18 @@ class SolicitarComiteController extends Controller
      */
     public function destroy($id)
     {
-        try{
-            $solicitar = SolicitarComite::find($id);
-            $solicitar->delete();
-            return redirect()->route('solicitarComite.index')->with('status', 'Solicitud eliminado');
+        if(Auth::user()->tipoUsuario == 3){
+            try{
+                $solicitar = SolicitarComite::find($id);
+                $solicitar->delete();
+                return redirect()->route('solicitarComite.index')->with('status', 'Solicitud eliminado');
+            }
+            catch(\Illuminate\Database\QueryException $e){
+                return redirect()->route('solicitarComite.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+            }
         }
-        catch(\Illuminate\Database\QueryException $e){
-            return redirect()->route('solicitarComite.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        else{
+            return redirect()->route('solicitarComite.index');
         }
     }
 }

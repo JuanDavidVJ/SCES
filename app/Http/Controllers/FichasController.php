@@ -8,6 +8,7 @@ use App\Http\Requests\StoreFichasRequest;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\CustomException;
+use Illuminate\Support\Facades\Auth;
 
 class FichasController extends Controller
 {
@@ -35,8 +36,14 @@ class FichasController extends Controller
      */
     public function create()
     {
-        $usuario = Usuario::all();
-        return view('fichas.create')->with('usuario',$usuario);  
+        if(Auth::user()->tipoUsuario == 3){
+            $usuario = Usuario::all();
+            return view('fichas.create')
+                    ->with('usuario',$usuario); 
+        }
+        else{
+            return redirect()->route('fichas.index');
+        }
     }
 
     /**
@@ -73,7 +80,7 @@ class FichasController extends Controller
     {
         $ficha = Ficha::find($id);
         return view('fichas.show')
-            ->with('ficha', $ficha );
+                ->with('ficha', $ficha );
     }
 
     /**
@@ -84,9 +91,16 @@ class FichasController extends Controller
      */
     public function edit($id)
     {
-        $ficha = Ficha::find($id);
-        $usuario = Usuario::all();
-        return view('fichas.edit')->with('ficha', $ficha)->with('usuario', $usuario);
+        if(Auth::user()->tipoUsuario == 3){
+            $ficha = Ficha::find($id);
+            $usuario = Usuario::all();
+            return view('fichas.edit')
+                    ->with('ficha', $ficha)
+                    ->with('usuario', $usuario);
+        }
+        else{
+            return redirect()->route('fichas.index');
+        }
     }
 
     /**
@@ -121,13 +135,18 @@ class FichasController extends Controller
      */ 
     public function destroy($id)
     {
-        try{
-            $ficha = Ficha::find($id);
-            $ficha->delete();
-            return redirect()->route('fichas.index')->with('status', 'Ficha eliminada'); 
+        if(Auth::user()->tipoUsuario == 3){
+            try{
+                $ficha = Ficha::find($id);
+                $ficha->delete();
+                return redirect()->route('fichas.index')->with('status', 'Ficha eliminada'); 
+            }
+            catch(\Illuminate\Database\QueryException $e){
+                return redirect()->route('fichas.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+            }
         }
-        catch(\Illuminate\Database\QueryException $e){
-            return redirect()->route('fichas.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        else{
+            return redirect()->route('fichas.index');
         }
     }
 }
