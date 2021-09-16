@@ -60,7 +60,7 @@ class RegistroUsuarios extends Controller
             ]);
         return redirect()->route('RegistrarUsuarios.index')->with('status', 'Usuario Creado');
         }else{
-            return view('ingreso');
+            return view('/ingreso');
         }
     }
 
@@ -135,12 +135,17 @@ class RegistroUsuarios extends Controller
      */
     public function destroy($id)
     {
-        if(Auth::user()->tipoUsuario == 4){
-            $usuarios = User::find($id);
-            $usuarios->delete();
-            return redirect()->route('RegistrarUsuarios.index')->with('status', 'Usuario eliminado');
-        }else{
-            return view('ingreso');
+        try{
+            if(Auth::user()->tipoUsuario == 4){
+                $usuarios = User::find($id);
+                $usuarios->delete();
+                return redirect()->route('RegistrarUsuarios.index')->with('status', 'Usuario eliminado');
+            }else{
+                return view('ingreso');
+            }
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->route('RegistrarUsuarios.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
         }
     }
 }
