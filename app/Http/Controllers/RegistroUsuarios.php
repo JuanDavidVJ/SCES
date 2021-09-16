@@ -114,7 +114,7 @@ class RegistroUsuarios extends Controller
                 $usuario->documento = $request->documento;
                 $usuario->name = $request->name;
                 $usuario->email = $request->email;
-                $usuario->password = $request->password;
+                $usuario->password = Hash::make($request->password);
                 $usuario->tipoUsuario = $request->tipoUsuario;
                 $usuario->save();
                 return redirect()->route('RegistrarUsuarios.index')->with('status','Usuario Actualizado');

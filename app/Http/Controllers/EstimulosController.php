@@ -8,7 +8,7 @@ use App\Models\TipoEstimulos;
 use App\Models\Aprendiz;
 use App\Models\Ficha;
 use App\Http\Requests\StoreEstimuloRequest;
-
+use Illuminate\Support\Facades\Auth;
 
 class EstimulosController extends Controller
 {
@@ -37,10 +37,15 @@ class EstimulosController extends Controller
      */
     public function create()
     {
-        $aprendiz = Aprendiz::all();
-        $tipoestimulos = TipoEstimulos::all();
-        $ficha = Ficha::all();
-        return view('estimulos.create')->with('aprendiz', $aprendiz)->with('tipoestimulos', $tipoestimulos)->with('ficha', $ficha);
+        if(Auth::user()->tipoUsuario == 3){
+            $aprendiz = Aprendiz::all();
+            $tipoestimulos = TipoEstimulos::all();
+            $ficha = Ficha::all();
+            return view('estimulos.create')->with('aprendiz', $aprendiz)->with('tipoestimulos', $tipoestimulos)->with('ficha', $ficha);
+        }
+        else{
+            return redirect()->route('estimulos.index');
+        }
     }
 
     /**
@@ -89,14 +94,16 @@ class EstimulosController extends Controller
      */
     public function edit($id)
     {
-        $estimulos = Estimulos::find($id);
-
-         $aprendiz = Aprendiz::all();
-         $tipoestimulos = TipoEstimulos::all();
-         $ficha = Ficha::all();
-         return view('estimulos.edit')->with('estimulos', $estimulos)->with('aprendiz', $aprendiz)->with('tipoestimulos', $tipoestimulos)->with('ficha', $ficha);
-
-
+        if(Auth::user()->tipoUsuario == 3){
+            $estimulos = Estimulos::find($id);
+            $aprendiz = Aprendiz::all();
+            $tipoestimulos = TipoEstimulos::all();
+            $ficha = Ficha::all();
+            return view('estimulos.edit')->with('estimulos', $estimulos)->with('aprendiz', $aprendiz)->with('tipoestimulos', $tipoestimulos)->with('ficha', $ficha);
+        }
+        else{
+            return redirect()->route('estimulos.index');
+        }
     }
 
     /**
@@ -133,13 +140,18 @@ class EstimulosController extends Controller
      */
     public function destroy($id)
     {
-        try{
-            $estimulos = Estimulos::find($id);
-            $estimulos->delete();
-            return redirect()->route('estimulos.index')->with('status', 'Estimulo eliminado');
+        if(Auth::user()->tipoUsuario == 3){
+            try{
+                $estimulos = Estimulos::find($id);
+                $estimulos->delete();
+                return redirect()->route('estimulos.index')->with('status', 'Estimulo eliminado');
+            }
+            catch(\Illuminate\Database\QueryException $e){
+                return redirect()->route('estimulos.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+            }
         }
-        catch(\Illuminate\Database\QueryException $e){
-            return redirect()->route('estimulos.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        else{
+            return redirect()->route('estimulos.index');
         }
     }
 }

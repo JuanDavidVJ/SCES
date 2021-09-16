@@ -13,7 +13,7 @@ class Ficha extends Model
 
      // conection whit usuario
     public function usuario(){
-        return $this->belongsTo(Usuario::class, 'SC_Ficha_Gestor', 'SC_Usuarios_ID');
+        return $this->belongsTo(User::class, 'SC_Ficha_Gestor', 'id');
         // This last arguments are because their are not the same that Eloquent determination
     }
     public function aprendiz(){

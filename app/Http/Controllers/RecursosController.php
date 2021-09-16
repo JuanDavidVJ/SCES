@@ -8,6 +8,7 @@ use App\Models\ActaComite;
 use App\Models\Recursos;
 use App\Models\Citacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RecursosController extends Controller
 {
@@ -34,9 +35,16 @@ class RecursosController extends Controller
      */
     public function create()
     {
-        $actas = ActaComite::all();
-        $citacion = Citacion::all();
-        return view('recursosReposicion.create')->with('actas', $actas)->with('citacion', $citacion);
+        if(Auth::user()->tipoUsuario == 3){
+            $actas = ActaComite::all();
+            $citacion = Citacion::all();
+            return view('recursosReposicion.create')
+                    ->with('actas', $actas)
+                    ->with('citacion', $citacion);
+        }
+        else{
+            return redirect()->route('recursosReposicion.index');
+        }
     }
 
     /**
@@ -74,8 +82,9 @@ class RecursosController extends Controller
     {
         $actas = ActaComite::all();
         $recursos = Recursos::find($id);
-
-        return view('recursosReposicion.show')->with('actas', $actas)->with('recursos', $recursos);
+        return view('recursosReposicion.show')
+                ->with('actas', $actas)
+                ->with('recursos', $recursos);
     }
 
     /**
@@ -86,10 +95,16 @@ class RecursosController extends Controller
      */
     public function edit($id)
     {
-        $actas = ActaComite::all();
-        $recursos = Recursos::find($id);
-
-        return view('recursosReposicion.edit')->with('actas', $actas)->with('recursos', $recursos);
+        if(Auth::user()->tipoUsuario == 3){
+            $actas = ActaComite::all();
+            $recursos = Recursos::find($id);
+            return view('recursosReposicion.edit')
+                    ->with('actas', $actas)
+                    ->with('recursos', $recursos);
+        }
+        else{
+            return redirect()->route('recursosReposicion.index');
+        }
     }
 
     /**
@@ -126,14 +141,19 @@ class RecursosController extends Controller
      */
     public function destroy($id)
     {
-        try{
-            $recursos = Recursos::find($id);
-            $recursos->delete();
-
-            return redirect()->route('recursosReposicion.index')->with('status', 'Recurso de Reposición eliminado correctamente');
+        if(Auth::user()->tipoUsuario == 3){
+            try{
+                $recursos = Recursos::find($id);
+                $recursos->delete();
+    
+                return redirect()->route('recursosReposicion.index')->with('status', 'Recurso de Reposición eliminado correctamente');
+            }
+            catch(\Illuminate\Database\QueryException $e){
+                return redirect()->route('recursosReposicion.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+            }
         }
-        catch(\Illuminate\Database\QueryException $e){
-            return redirect()->route('recursosReposicion    .index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        else{
+            return redirect()->route('recursosReposicion.index');
         }
     }
 }

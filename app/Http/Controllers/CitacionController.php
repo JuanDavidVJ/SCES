@@ -9,6 +9,7 @@ use App\Http\Requests\StoreCitacionRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MessageReceived;
+use Illuminate\Support\Facades\Auth;
 
 class CitacionController extends Controller
 {
@@ -35,10 +36,14 @@ class CitacionController extends Controller
      */
     public function create()
     {
-        //
-        $citacion=Citacion::all();
-        $solicitud=SolicitarComite::all();
-        return view('Citacion.create')->with('Citacion', $citacion)->with('SolicitarComite',$solicitud);
+        if(Auth::user()->tipoUsuario == 3){
+            $citacion=Citacion::all();
+            $solicitud=SolicitarComite::all();
+            return view('Citacion.create')->with('Citacion', $citacion)->with('SolicitarComite',$solicitud);
+        }
+        else{
+            return redirect()->route('Citacion.index');
+        }
     }
 
     /**
@@ -91,9 +96,14 @@ class CitacionController extends Controller
      */
     public function edit($id)
     {
-        $citacion=Citacion::find($id);
-        $solicitud=SolicitarComite::all();
-        return view('Citacion.edit')->with('citacion', $citacion)->with('SolicitarComite',$solicitud);
+        if(Auth::user()->tipoUsuario == 3){
+            $citacion=Citacion::find($id);
+            $solicitud=SolicitarComite::all();
+            return view('Citacion.edit')->with('citacion', $citacion)->with('SolicitarComite',$solicitud);
+        }
+        else{
+            return redirect()->route('Citacion.index');
+        }
     }
 
     /**
@@ -130,13 +140,18 @@ class CitacionController extends Controller
      */
     public function destroy($id)
     {
-        try{
-            $citacion=Citacion::find($id);
-            $citacion->delete();
-            return redirect()->route('Citacion.index')->with('status','Citación eliminada');
+        if(Auth::user()->tipoUsuario == 3){
+            try{
+                $citacion=Citacion::find($id);
+                $citacion->delete();
+                return redirect()->route('Citacion.index')->with('status','Citación eliminada');
+            }
+            catch(\Illuminate\Database\QueryException $e){
+                return redirect()->route('Citacion.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+            }
         }
-        catch(\Illuminate\Database\QueryException $e){
-            return redirect()->route('Citacion.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        else{
+            return redirect()->route('Citacion.index');
         }
     }
 }

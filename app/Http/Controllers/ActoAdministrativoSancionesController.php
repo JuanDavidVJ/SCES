@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MessageReceivedNotificacion;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 
 class ActoAdministrativoSancionesController extends Controller
 {
@@ -41,11 +42,16 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function create()
     {
-        $ActaC = ActaComite::all();
-        $TipoN = TipoNotificacion::all();
-        $TipoP = TipoPlan::all();
-        $usuario = User::all();
-        return view('actoadministrativo.create')->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP)->with('usuario', $usuario);
+        if(Auth::user()->tipoUsuario == 1){
+            $ActaC = ActaComite::all();
+            $TipoN = TipoNotificacion::all();
+            $TipoP = TipoPlan::all();
+            $usuario = User::all();
+            return view('actoadministrativo.create')->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP)->with('usuario', $usuario);
+        }
+        else{
+            return redirect()->route('actoadministrativo.index');
+        }
     }
 
     /**
@@ -114,12 +120,17 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function edit($id)
     {
-        $actoas = ActoAdministrativo::find($id);
-        $ActaC = ActaComite::all();
-        $TipoN = TipoNotificacion::all();
-        $TipoP = TipoPlan::all();
-        $usuario = User::all();
-        return view('actoadministrativo.edit')->with('actoas', $actoas)->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP)->with('usuario', $usuario);
+        if(Auth::user()->tipoUsuario == 1){
+            $actoas = ActoAdministrativo::find($id);
+            $ActaC = ActaComite::all();
+            $TipoN = TipoNotificacion::all();
+            $TipoP = TipoPlan::all();
+            $usuario = User::all();
+            return view('actoadministrativo.edit')->with('actoas', $actoas)->with('ActaC', $ActaC)->with('TipoN', $TipoN)->with('TipoP', $TipoP)->with('usuario', $usuario);
+        }
+        else{
+            return redirect()->route('actoadministrativo.index');
+        }
     }
 
     /**
@@ -158,13 +169,18 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function destroy($id)
     {
-        try{
-            $actoas = ActoAdministrativo::find($id);
-            $actoas->delete();
-            return redirect()->route('actoadministrativo.index')->with('status', 'la notificacion se ha eliminado');
+        if(Auth::user()->tipoUsuario == 1){
+            try{
+                $actoas = ActoAdministrativo::find($id);
+                $actoas->delete();
+                return redirect()->route('actoadministrativo.index')->with('status', 'la notificacion se ha eliminado');
+            }
+            catch(\Illuminate\Database\QueryException $e){
+                return redirect()->route('actoadministrativo.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+            }
         }
-        catch(\Illuminate\Database\QueryException $e){
-            return redirect()->route('actoadministrativo.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        else{
+            return redirect()->route('actoadministrativo.index');
         }
     }
 }

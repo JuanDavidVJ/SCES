@@ -9,6 +9,7 @@ use App\Models\Ficha;
 use App\Models\Comite;
 use App\Http\Requests\StoreAprendicesRequest;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 
 class AprendicesController extends Controller
 {
@@ -38,11 +39,14 @@ class AprendicesController extends Controller
 
     public function create()
     {
-        #$comites = Comite::all();
-        $fichas = Ficha::all();
-        return view('aprendices.create')
-                    #->with('comites', $comites)
-                    ->with('fichas', $fichas);
+        if(Auth::user()->tipoUsuario == 3){
+            $fichas = Ficha::all();
+            return view('aprendices.create')
+                        ->with('fichas', $fichas);
+        }
+        else{
+            return redirect()->route('aprendices.index');
+        }
     }
 
     /**
@@ -93,13 +97,16 @@ class AprendicesController extends Controller
      */
     public function edit($id)
     {
-        $aprendiz = Aprendiz::find($id);
-        #$comites = Comite::all();
-        $fichas = Ficha::all();
-        return view('aprendices.edit')
-                ->with('aprendiz', $aprendiz)
-                #->with('comites', $comites)
-                ->with('fichas', $fichas);
+        if(Auth::user()->tipoUsuario == 3){
+            $aprendiz = Aprendiz::find($id);
+            $fichas = Ficha::all();
+            return view('aprendices.edit')
+                    ->with('aprendiz', $aprendiz)
+                    ->with('fichas', $fichas);
+        }
+        else{
+            return redirect()->route('aprendices.index');
+        }
     }
 
     /**
@@ -137,13 +144,18 @@ class AprendicesController extends Controller
      */
     public function destroy($id)
     {
-        try{
-            $aprendiz = Aprendiz::find($id);
-            $aprendiz->delete();
-            return redirect()->route('aprendices.index')->with('status', 'Aprendiz eliminado');
+        if(Auth::user()->tipoUsuario == 3){
+            try{
+                $aprendiz = Aprendiz::find($id);
+                $aprendiz->delete();
+                return redirect()->route('aprendices.index')->with('status', 'Aprendiz eliminado');
+            }
+            catch(\Illuminate\Database\QueryException $e){
+                return redirect()->route('aprendices.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+            }
         }
-        catch(\Illuminate\Database\QueryException $e){
-            return redirect()->route('aprendices.index')->with('status', 'No se pueden eliminar elementos con Integridad Referencial');
+        else{
+            return redirect()->route('aprendices.index');
         }
     }
 }

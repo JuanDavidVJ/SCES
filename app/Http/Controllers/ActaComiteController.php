@@ -7,6 +7,7 @@ use App\Models\Citacion;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreActaComiteRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ActaComiteController extends Controller
 {
@@ -33,9 +34,14 @@ class ActaComiteController extends Controller
      */
     public function create()
     {
-        $citaciones = Citacion::all();
-        return view('ActaComite.create')
-                ->with('citaciones', $citaciones);
+        if(Auth::user()->tipoUsuario == 3){
+            $citaciones = Citacion::all();
+            return view('ActaComite.create')
+                    ->with('citaciones', $citaciones);
+        }
+        else{
+            return redirect()->route('ActaComite.index');
+        }
     }
 
     /**
@@ -89,11 +95,16 @@ class ActaComiteController extends Controller
      */
     public function edit($id)
     {
-        $actacomite = ActaComite::find($id);
-        $citaciones = Citacion::all();
-        return view('ActaComite.edit')
-                ->with('ActaComite', $actacomite)
-                ->with('citaciones', $citaciones);
+        if(Auth::user()->tipoUsuario == 3){
+            $actacomite = ActaComite::find($id);
+            $citaciones = Citacion::all();
+            return view('ActaComite.edit')
+                    ->with('ActaComite', $actacomite)
+                    ->with('citaciones', $citaciones);
+        }
+        else{
+            return redirect()->route('ActaComite.index');
+        }
     }
 
     /**
@@ -134,13 +145,18 @@ class ActaComiteController extends Controller
      */
     public function destroy($id)
     {
-        try{
-            $actacomite = ActaComite::find($id);
-            $actacomite->delete();
-            return redirect()->route('ActaComite.index')->with('status','Acta eliminada');
+        if(Auth::user()->tipoUsuario == 3){
+            try{
+                $actacomite = ActaComite::find($id);
+                $actacomite->delete();
+                return redirect()->route('ActaComite.index')->with('status','Acta eliminada');
+            }
+            catch(\Illuminate\Database\QueryException $e){
+                return redirect()->route('ActaComite.index')->with('status','No se pueden eliminar elementos con Integridad Referencial');
+            }
         }
-        catch(\Illuminate\Database\QueryException $e){
-            return redirect()->route('ActaComite.index')->with('status','No se pueden eliminar elementos con Integridad Referencial');
+        else{
+            return redirect()->route('ActaComite.index');
         }
         
     }
