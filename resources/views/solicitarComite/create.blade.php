@@ -69,7 +69,7 @@
 		<select name="Usuario" id="Usuario" class="form-control">
 			<option selected>Seleccione un gestor</option>
 			@foreach($usuarios as $usuario)
-			 <option value="{{$usuario->id }}">{{$usuario->name}}</option>
+			 @if ($usuario->tipoUsuario == 1)<option value="{{$usuario->id }}">{{$usuario->name}}</option> @endif
 			@endforeach
 		</select>
 			@error('Usuario')
