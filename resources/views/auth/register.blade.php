@@ -92,6 +92,7 @@
                                     <option value="1">Subdirector</option>
                                     <option value="2">Instructor</option>
                                     <option value="3">Gestor Comité</option>
+                                    
                                 </select>
                             </div>
                             <div class="form-group">
