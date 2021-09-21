@@ -42,7 +42,7 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function create()
     {
-        if(Auth::user()->tipoUsuario == 1){
+        if(Auth::user()->tipoUsuario == 2){
             $ActaC = ActaComite::all();
             $TipoN = TipoNotificacion::all();
             $TipoP = TipoPlan::all();
@@ -120,7 +120,7 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function edit($id)
     {
-        if(Auth::user()->tipoUsuario == 1){
+        if(Auth::user()->tipoUsuario == 2){
             $actoas = ActoAdministrativo::find($id);
             $ActaC = ActaComite::all();
             $TipoN = TipoNotificacion::all();
@@ -169,7 +169,7 @@ class ActoAdministrativoSancionesController extends Controller
      */
     public function destroy($id)
     {
-        if(Auth::user()->tipoUsuario == 1){
+        if(Auth::user()->tipoUsuario == 2){
             try{
                 $actoas = ActoAdministrativo::find($id);
                 $actoas->delete();
