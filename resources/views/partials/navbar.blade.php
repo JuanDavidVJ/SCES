@@ -144,6 +144,28 @@
                     </ul>
                 </li>
                 <li>
+                    <a href="#Citacion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-calendar-alt"></i>
+                        Citación
+                    </a>
+                    <ul class="collapse list-unstyled" id="Citacion">
+                        <li>
+                            <a href="/Citacion">Ver </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                <a href="#Actacomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-hourglass-start"></i>
+                    Acta Comite
+                </a>
+                <ul class="collapse list-unstyled" id="Actacomite">
+                    <li>
+                        <a href="/ActaComite">Ver </a>
+                    </li>
+                </ul>
+            </li>
+                <li>
                     <a href="#administrativo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-toolbox"></i>
                         Notificaciones
@@ -157,28 +179,6 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                <a href="#Citacion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-calendar-alt"></i>
-                    Citación
-                </a>
-                <ul class="collapse list-unstyled" id="Citacion">
-                    <li>
-                        <a href="/Citacion">Ver </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#Actacomite" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-hourglass-start"></i>
-                    Acta Comite
-                </a>
-                <ul class="collapse list-unstyled" id="Actacomite">
-                    <li>
-                        <a href="/ActaComite">Ver </a>
-                    </li>
-                </ul>
-            </li>
             <li>
                 <a href="#recursos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-pencil-alt"></i>
