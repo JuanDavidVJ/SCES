@@ -60,7 +60,7 @@
 			<select name="SC_Solicitud_FK" id="SC_Solicitud_FK" class="form-control">
 
 				@foreach($SolicitarComite as $solicitud)
-				<option value="{{$solicitud->	SC_SolicitarComite_ID}}"@if($solicitud->SC_SolicitarComite_ID == $solicitud->SC_SolicitarComite_ID ) selected @endif>{{$solicitud-> SC_SolicitarComite_ID}}</option>
+				<option value="{{$solicitud->	SC_SolicitarComite_ID}}"@if($solicitud->SC_SolicitarComite_ID == $solicitud->SC_SolicitarComite_ID ) selected @endif>{{$solicitud-> SC_SolicitarComite_ID}}-{{$solicitud->aprendiz->SC_Aprendiz_Nombres}}-{{$solicitud->SC_SolicitarComite_Descripcion}}</option>
 				@endforeach
 			</select>
 			@error('SC_Solicitud_FK')
