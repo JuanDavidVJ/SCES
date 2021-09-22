@@ -14,7 +14,7 @@
         				</tr>
                         <tr>
             				<th class="thshow">Gestor de Grupo</th>
-            				<td class="tdshow">{{ $ficha->usuario->SC_Usuarios_Nombre }}</td>
+            				<td class="tdshow">{{ $ficha->usuario->name }}</td>
         				</tr>
                         <tr>
             				<th class="thshow">Fecha Inicio</th>
