@@ -30,9 +30,9 @@
 		</div>
 
 		<div class="form-group">
-			<span class="input-group-text" for="SC_Recursos_Evidencias">Evidencias: </span>
-			<input type="text" name="SC_Recursos_Evidencias" id="SC_Recursos_Evidencias" class="form-control" value="{{old('SC_Recursos_Evidencias')}}">
-			@error('SC_Recursos_Evidencias')
+			<span class="input-group-text" for="Evidencias">Evidencias: </span>
+			<input type="file" name="Evidencias" id="Evidencias" class="form-control" value="{{old('Evidencias')}}">
+			@error('Evidencias')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
 		</div>

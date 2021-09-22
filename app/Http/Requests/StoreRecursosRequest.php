@@ -27,7 +27,7 @@ class StoreRecursosRequest extends FormRequest
             'SC_Recursos_FechaGenerado' => 'required',
             'SC_Recursos_FechaLimite' => 'required',
             'SC_Recursos_Radicado' => 'required',
-            'SC_Recursos_Evidencias' => 'required',
+            //'SC_Recursos_Evidencias' => 'required',
             'SC_ActaComite_FK' => 'required'
         ];
     }
@@ -38,7 +38,7 @@ class StoreRecursosRequest extends FormRequest
             'SC_Recursos_FechaGenerado.required' => 'Este campo es obligatorio.',
             'SC_Recursos_FechaLimite.required' => 'Este campo es obligatorio.',
             'SC_Recursos_Radicado.required' => 'Este campo es obligatorio.',
-            'SC_Recursos_Evidencias.required' => 'Este campo es obligatorio.',
+           // 'SC_Recursos_Evidencias.required' => 'Este campo es obligatorio.',
             'SC_ActaComite_FK.required' => 'Este campo es obligatorio'
         ];
     }

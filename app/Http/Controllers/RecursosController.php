@@ -56,11 +56,19 @@ class RecursosController extends Controller
     public function store(StoreRecursosRequest $request)
     {
         try{
+            if($request->hasFile('Evidencias')){
+                $file= $request->file('Evidencias');
+                //cambiar nombre para no generar conflicto
+                $Evidencias = time() . $file->getClientOriginalName();
+                //movemos el archivo
+                $file->move('archivos/RecursosReposicion', $Evidencias);
+            }
+
             $recursos = new Recursos();
             $recursos->SC_Recursos_FechaGenerado = $request->SC_Recursos_FechaGenerado;
             $recursos->SC_Recursos_FechaLimite = $request->SC_Recursos_FechaLimite;
             $recursos->SC_Recursos_Radicado = $request->SC_Recursos_Radicado;
-            $recursos->SC_Recursos_Evidencias = $request->SC_Recursos_Evidencias;
+            $recursos->SC_Recursos_Evidencias = $Evidencias;
             $recursos->SC_Recursos_Decision = $request->SC_Recursos_Decision;
             $recursos->SC_ActaComite_FK = $request->SC_ActaComite_FK;
 
@@ -121,9 +129,14 @@ class RecursosController extends Controller
             $recursos->SC_Recursos_FechaGenerado = $request->SC_Recursos_FechaGenerado;
             $recursos->SC_Recursos_FechaLimite = $request->SC_Recursos_FechaLimite;
             $recursos->SC_Recursos_Radicado = $request->SC_Recursos_Radicado;
-            $recursos->SC_Recursos_Evidencias = $request->SC_Recursos_Evidencias;
+            //$recursos->SC_Recursos_Evidencias = SC_Recursos_Evidencias;
             $recursos->SC_Recursos_Decision = $request->SC_Recursos_Decision;
             $recursos->SC_ActaComite_FK = $request->SC_ActaComite_FK;
+            if ($request->hasFile('Evidencias')) {
+                $file = $request->file('Evidencias');
+                $SC_Recursos_Evidencias = $recursos->Evidencias;
+                $file->move("archivos/RecursosReposicion", $SC_Recursos_Evidencias);
+            }
 
             $recursos->save();
             return redirect()->route('recursosReposicion.index')->with('status', 'Recurso de reposición actualizado correctamente.');

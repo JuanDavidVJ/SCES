@@ -25,7 +25,8 @@
          </tr>
 		 <tr>
             <th class="thshow">Evidencias: </th>
-            <td class="tdshow">{{$recursos->SC_Recursos_Evidencias}}</td>
+           
+            <td class="tdshow" id="linkshow"><a href="{{asset('/archivos/RecursosReposicion/'.$recursos->SC_Recursos_Evidencias)}}" target="_blank">Ver</a></td>
          </tr>
          <tr>
             <th class="thshow">Decision del recurso: </th>

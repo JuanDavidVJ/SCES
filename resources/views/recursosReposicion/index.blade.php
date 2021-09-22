@@ -24,7 +24,7 @@
 		        <tr>
 		            <th scope="col">Fecha</th>
 		            <th scope="col">Radicado</th>
-		            <th scope="col">Evidencias</th>
+		            <th scope="col">Decision</th>
 		            <th scope="col">Accion</th>
 		        </tr>
 				@if(count($recursos)<=0)
@@ -36,7 +36,7 @@
                   	<tr >
                         <td>{{$recurso->SC_Recursos_FechaGenerado}}</td>
                         <td style="width:40%">{{$recurso->SC_Recursos_Radicado}}</td>
-                        <td>{{$recurso->SC_Recursos_Evidencias}}</td>
+                        <td>{{$recurso->SC_Recursos_Decision}}</td>
                         <td>
 					            <a href="/recursosReposicion/{{$recurso->SC_Recursos_ID}}" class="btn btn-outline-default p-0"><i class="fas fa-eye"></i></a>
                         </td>
