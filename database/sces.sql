@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-09-2021 a las 18:34:51
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.9
+-- Tiempo de generación: 22-09-2021 a las 17:11:55
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -120,8 +120,21 @@ CREATE TABLE `sc_aprendiz` (
 
 INSERT INTO `sc_aprendiz` (`SC_Aprendiz_PK_ID`, `SC_Aprendiz_Documento`, `SC_Aprendiz_Nombres`, `SC_Aprendiz_Apellidos`, `SC_Aprendiz_Correo`, `SC_Aprendiz_NumeroContacto`, `SC_Ficha_PK_ID`, `SC_Aprendiz_ContratoAprendizaje`, `SC_Aprendiz_Empresa`, `updated_at`, `created_at`) VALUES
 (12, '1053869649', 'Jaime Andres', 'Cardona Diaz', 'jacd99@hotmail.com', 3053721414, 2068678, 'No', 'No', '2021-08-27 05:02:41', '2021-08-27 05:02:41'),
-(13, '12345678', 'gisela', 'criollo suarez', 'giselacriollo16@gmail.com', 3158845440, 2068678, 'practica y patrocinio', 'Torres guarin', '2021-09-14 02:30:28', '2021-09-07 17:47:41'),
-(14, '098765', 'Vanesa tatiana', 'morales', 'vtmorales@misena.edu.co', 315987645, 2068678, NULL, NULL, '2021-09-10 02:20:55', '2021-09-10 02:20:55');
+(13, '12345678', 'Gisela', 'Criollo Suarez', 'giselacriollo16@gmail.com', 3158845440, 2068678, 'practica y patrocinio', 'Torres guarin', '2021-09-22 19:22:05', '2021-09-07 17:47:41'),
+(14, '1002609234', 'Vanesa Tatiana', 'Morales Henao', 'vtmorales@misena.edu.co', 3144157271, 2068678, NULL, NULL, '2021-09-22 19:23:26', '2021-09-10 02:20:55'),
+(15, '1034657423', 'Carlos Enrique', 'Alape Hernandez', 'CarlosAlape@gamil.com', 320897234, 2068678, NULL, NULL, '2021-09-22 19:24:10', '2021-09-22 19:24:10'),
+(16, '1024677353', 'Jhon Alejandro', 'Betancur Lopez', 'JhonBLopez@gmail.com', 321678234, 2068678, NULL, NULL, '2021-09-22 19:26:00', '2021-09-22 19:26:00'),
+(17, '1030324542', 'Andres Mauricio', 'Cano Gomez', 'MauricioCanoG@gmail.com', 321908232, 2068678, NULL, NULL, '2021-09-22 19:26:50', '2021-09-22 19:26:50'),
+(18, '103446652', 'Valentina', 'Diaz Estrada', 'ValentinaDE@gmail.com', 321097233, 2068678, NULL, NULL, '2021-09-22 19:27:36', '2021-09-22 19:27:36'),
+(19, '100234562', 'Valentina', 'Duque Cortes', 'ValentinaDC@gmail.com', 317899023, 2068678, NULL, NULL, '2021-09-22 19:28:15', '2021-09-22 19:28:15'),
+(20, '100234542', 'Cristian Andres', 'Fajardo Ruiz', 'CristianAFR@gmail.com', 3208971221, 2068678, NULL, NULL, '2021-09-22 19:28:53', '2021-09-22 19:28:53'),
+(21, '100234521', 'Andrea', 'Lopez Bueno', 'AndreaLopez@gmail.com', 3210984263, 2068678, NULL, NULL, '2021-09-22 19:29:37', '2021-09-22 19:29:37'),
+(22, '1002341672', 'Daniela', 'Menjura Felizzola', 'DanielaMF@gmail.com', 3197546323, 2068678, NULL, NULL, '2021-09-22 19:30:14', '2021-09-22 19:30:14'),
+(23, '102349082', 'Jeronimo', 'Montoya Osorio', 'JeronimoOs@gmail.com', 321098342, 2068678, NULL, NULL, '2021-09-22 19:31:04', '2021-09-22 19:31:04'),
+(24, '100278965', 'Jacobo', 'Osorio Giraldo', 'JacoboOsorioG@gmail.com', 321456098, 2068678, NULL, NULL, '2021-09-22 19:31:45', '2021-09-22 19:31:45'),
+(25, '1002349876', 'Julian Felipe', 'Posada Martinez', 'JulianFPMartinez@gmail.com', 317890532, 2068678, NULL, NULL, '2021-09-22 19:32:23', '2021-09-22 19:32:23'),
+(26, '1054568205', 'Daniel Esteban', 'Sanchez Arias', 'desanchez502@misena.edu.co', 3017806698, 2068678, NULL, NULL, '2021-09-22 19:36:43', '2021-09-22 19:36:43'),
+(27, '1002346587', 'Juan David', 'Velez Jaramillo', 'JuanDavidVJ@gmail.com', 321098765, 2068678, NULL, NULL, '2021-09-22 19:38:15', '2021-09-22 19:38:15');
 
 -- --------------------------------------------------------
 
@@ -438,7 +451,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `documento`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `tipoUsuario`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'daessar', '1054568205', 'Daniel Esteban Sanchez Arias', 'desanchez502@misena.edu.co', NULL, '$2y$10$pAExYSKVWILCiMg.tW6iU.plBvqQhirHVclssXNz3apmmaf2kPQbu', NULL, NULL, 3, NULL, '2021-09-11 09:22:11', '2021-09-11 09:22:11'),
 (2, 'Gigi', '1007711255', 'Gisela criollo Suárez', 'giselacriollo16@gmail.com', NULL, '$2y$10$g0Jtk8znEr.qaUunOyYpdOyQMhSrz6FON9Bpu8m3KGyYITDGGxQae', NULL, NULL, 3, NULL, '2021-09-14 02:30:01', '2021-09-14 02:30:01'),
-(3, 'No aplica', '0000', 'No aplica', 'No aplica', NULL, '1234', NULL, NULL, 4, NULL, NULL, NULL);
+(4, 'VatiMorales', '1002609234', 'Vanesa Tatiana Morales Henao', 'vtmorales@misena.edu.co', NULL, '$2y$10$17z5BEYaVUXVXwimEwJA6OR3qQ//uXABAoRyABH2GdhTG31pczCZq', NULL, NULL, 4, NULL, '2021-09-22 19:19:27', '2021-09-22 19:19:27'),
+(5, 'gestor', '100245634', 'Juan Pablo Ramirez Aguirre', 'JuanPablo@gmail.com', NULL, '$2y$10$7XVHYg0kMPuOZXfsZk15J.K/9spgx5DWPO03pB1kAiRa8igwsSVY2', NULL, NULL, 3, NULL, '2021-09-22 19:21:04', '2021-09-22 19:21:04');
 
 --
 -- Índices para tablas volcadas
@@ -599,7 +613,7 @@ ALTER TABLE `sc_actacomite`
 -- AUTO_INCREMENT de la tabla `sc_aprendiz`
 --
 ALTER TABLE `sc_aprendiz`
-  MODIFY `SC_Aprendiz_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `SC_Aprendiz_PK_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `sc_citacion`
@@ -677,7 +691,7 @@ ALTER TABLE `sc_tipoplan`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
