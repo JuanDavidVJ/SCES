@@ -23,7 +23,7 @@
 
 		<div class="form-group">
 			<span class="input-group-text" for="SC_Recursos_Radicado">Radicado: </span>
-			<input type="text" name="SC_Recursos_Radicado" id="SC_Recursos_Radicado" class="form-control" value="{{old('SC_Recursos_Radicado')}}">
+			<input type="number" name="SC_Recursos_Radicado" id="SC_Recursos_Radicado" class="form-control" value="{{old('SC_Recursos_Radicado')}}">
 			@error('SC_Recursos_Radicado')
 			<small style="color: red;">{{ $message }}</small>
 			@enderror
