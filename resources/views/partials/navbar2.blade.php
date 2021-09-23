@@ -31,7 +31,7 @@
                         <a class="nav-link" href="http://oferta.senasofiaplus.edu.co/sofia-oferta/">Sofia Plus</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Iniciar Sesión</a>
+                        <a class="nav-link" href="{{ route('login') }}" target="_blank">Iniciar Sesión</a>
                     </li>
                     
                 </ul>
