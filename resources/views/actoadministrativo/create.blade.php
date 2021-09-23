@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('title', 'Crear Acto administrativo')
+@section('title', 'Crear Notificación')
 @section('content') 
 <div class="container">
 
@@ -26,7 +26,7 @@
 				<input class="form-control" name="SC_Notificacion_Sugerencia" 
 				id="SC_Notificacion_Sugerencia" 
 				class="form-control" 
-				value="{{old('SC_Notificacion_Sugerencia')}}" placeholder="Digite las sugerencias pertinentes">
+				value="{{old('SC_Notificacion_Sugerencia')}}">
 				@error('SC_Notificacion_Sugerencia')
 				<small style="color: red;">{{ $message }}</small>
 				@enderror
@@ -75,7 +75,7 @@
 			<select name="SC_Notificacion_Instructor" id="SC_Notificacion_Instructor" class="form-control">
 				<option selected>Seleccione un instructor</option>
 				@foreach($usuario as $usuario)
-				<option value="{{$usuario->id}}" selected="3">{{$usuario->name}}</option>
+				@if ($usuario->tipoUsuario == 1)<option value="{{$usuario->id }}">{{$usuario->name}}</option> @endif
 				@endforeach
 			</select>
 			@error('SC_Notificacion_Instructor')
