@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ficha;
 use App\Http\Requests\StoreFichasRequest;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\CustomException;
 use Illuminate\Support\Facades\Auth;
@@ -37,7 +37,7 @@ class FichasController extends Controller
     public function create()
     {
         if(Auth::user()->tipoUsuario == 3){
-            $usuario = Usuario::all();
+            $usuario = User::all();
             return view('fichas.create')
                     ->with('usuario',$usuario); 
         }
